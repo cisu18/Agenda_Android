@@ -7,5 +7,6 @@
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
     <string name="Fuente" />
     <string name="title_activity_lista_cualidades">Agenda Caracter</string>
+    <string name="title_activity_login">Agenda Caracter</string>
 
 </resources>

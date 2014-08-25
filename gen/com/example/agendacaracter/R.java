@@ -37,19 +37,26 @@ public final class R {
         public static final int overflow=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090004;
+        public static final int action_settings=0x7f090009;
+        public static final int btnCrearcuenta=0x7f090007;
+        public static final int btnRegister=0x7f090006;
         public static final int imageView1=0x7f090002;
         public static final int listView1=0x7f090003;
+        public static final int register_error=0x7f090008;
         public static final int relativeLayout1=0x7f090001;
         public static final int textView1=0x7f090000;
+        public static final int txtPass=0x7f090005;
+        public static final int txtUserName=0x7f090004;
     }
     public static final class layout {
         public static final int activity_lista_cualidades=0x7f030000;
-        public static final int activity_main=0x7f030001;
+        public static final int activity_login=0x7f030001;
+        public static final int activity_main=0x7f030002;
     }
     public static final class menu {
         public static final int lista_cualidades=0x7f080000;
-        public static final int main=0x7f080001;
+        public static final int login=0x7f080001;
+        public static final int main=0x7f080002;
     }
     public static final class string {
         public static final int Fuente=0x7f050004;
@@ -58,6 +65,7 @@ public final class R {
         public static final int hello_world=0x7f050001;
         public static final int lista_cualidades=0x7f050003;
         public static final int title_activity_lista_cualidades=0x7f050005;
+        public static final int title_activity_login=0x7f050006;
     }
     public static final class style {
         /** 
