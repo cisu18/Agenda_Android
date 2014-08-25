@@ -1,11 +1,12 @@
 package com.example.agendacaracter;
 
+
 import android.app.Activity;
-import android.graphics.Typeface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
 
 public class MainActivity extends Activity {
@@ -30,10 +31,25 @@ public class MainActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        //int id = item.getItemId();
+        //if (id == R.id.action_settings) {
+          //  return true;
+        //}
+        //return super.onOptionsItemSelected(item);
+    	switch (item.getItemId()) {
+	        case R.id.action_listar:
+	            Intent mostrarAct = new Intent("com.example.agendacaracter.ListaCualidades");
+	            startActivity(mostrarAct);
+	            finish();
+	            return true;
+	        case R.id.action_preguntas:
+	        	Intent mostrarPreg = new Intent("com.example.agendacaracter.ListaCualidades");
+	            startActivity(mostrarPreg);
+	            finish();
+	            return true;
+	        default:
+	            return false;
+    	}
     }
+   
 }

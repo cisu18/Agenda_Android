@@ -3,9 +3,20 @@
     tools:context="com.example.agendacaracter.MainActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_menu"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+        android:showAsAction="always"
+        android:title="@string/action_settings">
+			<menu>
+				<item
+					android:id="@+id/action_listar"
+					android:title="@string/msg_lista_cualidades"
+				/>
+			
+				<item
+					android:id="@+id/action_preguntas"
+					android:title="@string/msg_encuesta_diaria"
+				/>
+			</menu>
+	</item>
 </menu>
