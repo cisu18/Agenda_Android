@@ -16,7 +16,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <color name="FONDO">#303030</color><color name="LETRA">#FFFFFF</color><color name="CABECERA">#63c5e6</color><color name="YELLOW">#FFFF00</color>
+    <color name="FONDO">#303030</color><color name="LETRA">#FFFFFF</color><color name="CABECERA">#63c5e6</color><color name="botoneslogin">#9B9494</color><color name="YELLOW">#FFFF00</color>
+    <color name="facebook">#3b5998</color>
+    <color name="twitter">#4099FF</color>
+    <color name="gmail">#dd4a39</color>
+    
     
     
     
