@@ -21,11 +21,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.entidad.Cualidades;
+import com.example.reutilizables.AdaptadorCualidades;
 
 public class ListaCualidades extends Activity {
 	
@@ -48,6 +53,15 @@ public class ListaCualidades extends Activity {
         
         new ReadCualidadesJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
     
+        lista_mensual.setOnItemClickListener(new OnItemClickListener() {
+        	@Override
+        	public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+        	Object o = lista_mensual.getItemAtPosition(position);
+        	       Cualidades fullObject = (Cualidades)o;
+        	       Toast.makeText(ListaCualidades.this, "You have chosen: " + " " + fullObject.getId(), Toast.LENGTH_LONG).show();
+        	}  
+        	       });
+        
     }
 
 	@Override
@@ -92,8 +106,12 @@ public class ListaCualidades extends Activity {
 					
 				}
                 
-                adaptadorlista=new ArrayAdapter<Cualidades>(getApplicationContext(), android.R.layout.simple_list_item_1, cualidades);
-                lista_mensual.setAdapter(adaptadorlista);
+                
+                lista_mensual.setAdapter(new AdaptadorCualidades(getApplicationContext(), cualidades));
+                
+                
+                //adaptadorlista=new ArrayAdapter<Cualidades>(getApplicationContext(), android.R.layout.simple_list_item_1, cualidades);
+                //lista_mensual.setAdapter(adaptadorlista);
                
             } catch (Exception e) {
                 Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
@@ -128,6 +146,7 @@ public class ListaCualidades extends Activity {
         }
         return stringBuilder.toString();
     }
+	
 	
 }
 
