@@ -4,7 +4,7 @@
     android:background="@color/FONDO"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="30dp" >
+    android:padding="35dp" >
 
     <Space
         android:layout_width="match_parent"
@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left|bottom"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/usera"
         android:ems="10"
         android:hint="@string/correoelectronico"
@@ -40,7 +41,7 @@
         android:id="@+id/txtUserName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/emaila"
         android:ems="10"
         android:hint="Usuario"
@@ -52,7 +53,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dip"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:drawableLeft="@drawable/key2"
         android:ems="10"
         android:hint="@string/contrasena"

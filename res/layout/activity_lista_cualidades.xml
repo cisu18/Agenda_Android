@@ -10,45 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/right_cab"
-                android:background="@color/CABECERA"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="18dp"
-                android:paddingTop="10dp"
-                android:text="@string/lista_cualidades"
-                android:textColor="@color/LETRA"
-                android:textColorLink="@color/LETRA"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="72dp" >
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="17dp"
-                android:src="@drawable/overflow" />
-
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/right_cab"
+            android:background="@color/CABECERA"
+            android:paddingBottom="10dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="18dp"
+            android:paddingTop="10dp"
+            android:tag="26dp"
+            android:text="@string/lista_cualidades"
+            android:textColor="@color/LETRA"
+            android:textColorLink="@color/LETRA"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
