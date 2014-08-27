@@ -12,6 +12,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -20,30 +21,35 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.entidad.Cualidades;
+
 public class ListaCualidades extends Activity {
-	private ListView lista_mensual;
 	
-	@Override
+	//Declaracion de Variables
+	private ListView lista_mensual;
+    ArrayList<Cualidades> cualidades;
+    private ArrayAdapter<Cualidades> adaptadorlista;
+	
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista_cualidades);
+		
+		//Enlazar controles
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
         TextView lista_cualidades = (TextView)findViewById(R.id.textView1);
         lista_cualidades.setTypeface(miPropiaTypeFace);
 
         lista_mensual=(ListView)findViewById(R.id.listView1);
         
-        
-        new ReadWeatherJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
-        
-        
-	}
+        new ReadCualidadesJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
+    
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,34 +71,37 @@ public class ListaCualidades extends Activity {
 	}
 
 	
-	
-	private class ReadWeatherJSONFeedTask extends AsyncTask
-    <String, Void, String> {
-        protected String doInBackground(String... urls) {
-        	
-            return readJSONFeed(urls[0]);
+	private class ReadCualidadesJSONFeedTask extends AsyncTask <String, Void, String> {
+        
+		protected String doInBackground(String... urls) {
+        	return readJSONFeed(urls[0]);
         }
  
         protected void onPostExecute(String result) {
             try {
                 JSONArray jsonArray = new JSONArray(result);
-            	Log.e("etorno","correcto"); 
-                Toast.makeText(getBaseContext(), 
-                		jsonArray.toString(),
-                 
-                 Toast.LENGTH_SHORT).show();
-                //ArrayList<E>
+            	JSONObject datos=new JSONObject();
+                cualidades=new ArrayList<Cualidades>();
                 
-                //ArrayAdapter<JSONArray> adaptadorlista=new ArrayAdapter<JSONArray>(this, android.R.layout.simple_list_item_1,jsonArray);
-                //lista_mensual.setAdapter(adaptadorlista);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                	Cualidades c=new Cualidades();
+                    datos=jsonArray.getJSONObject(i);
+                	c.setId(datos.getString("id"));
+                	Log.e("mensaje", "id cualidad"+datos.getString("id"));
+                	c.setCualidad(datos.getString("cualidad"));
+                	c.setMes(datos.getString("mes"));
+                	cualidades.add(c);
+					
+				}
+                
+                adaptadorlista=new ArrayAdapter<Cualidades>(getApplicationContext(), android.R.layout.simple_list_item_1, cualidades);
+                lista_mensual.setAdapter(adaptadorlista);
+               
             } catch (Exception e) {
-                Log.d("ReadWeatherJSONFeedTask", e.getLocalizedMessage());
+                Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
             }          
         }
     }
-	
-	
-	
 	
 	public String readJSONFeed(String URL) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -102,14 +111,13 @@ public class ListaCualidades extends Activity {
             HttpResponse response = httpClient.execute(httpGet);
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
+            
             if (statusCode == 200) {
-
-                
                 HttpEntity entity = response.getEntity();
                 InputStream inputStream = entity.getContent();
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(inputStream));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
+                
                 while ((line = reader.readLine()) != null) {
                     stringBuilder.append(line);
                 }
@@ -122,12 +130,6 @@ public class ListaCualidades extends Activity {
         }
         return stringBuilder.toString();
     }
-	
-	
-	
-	
-	
-	
 	
 }
 
