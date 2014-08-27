@@ -5,25 +5,24 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.EditText;
 
-public class ListaCualidades extends Activity {
+public class CrearCuenta extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_lista_cualidades);
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
-        TextView lista_cualidades = (TextView)findViewById(R.id.textView1);
-        lista_cualidades.setTypeface(miPropiaTypeFace);
-        
-        
+		setContentView(R.layout.activity_crear_cuenta);
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Jokerman.ttf");
+		EditText correoelectronico = (EditText)findViewById(R.id.editText1);
+		correoelectronico.setTypeface(miPropiaTypeFace);
+		
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.lista_cualidades, menu);
+		getMenuInflater().inflate(R.menu.crear_cuenta, menu);
 		return true;
 	}
 

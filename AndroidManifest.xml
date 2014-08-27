@@ -30,6 +30,14 @@
             android:name=".Login"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".CrearCuenta"
+            android:label="@string/title_activity_crear_cuenta" >
+        </activity>
+        <activity
+            android:name=".Demito"
+            android:label="@string/title_activity_demito" >
+        </activity>
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/CABECERA"
-        android:drawableLeft="@drawable/key135"
+        android:drawableLeft="@drawable/key"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
         android:text="INGRESAR"
