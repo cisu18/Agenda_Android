@@ -26,9 +26,7 @@ public class Cualidades {
 		}
 		
 		public String toString(){
-			return this.cualidad;
-		}
-		
-		
+			return this.mes+" "+":"+" "+cualidad;
+		}	
 
 }

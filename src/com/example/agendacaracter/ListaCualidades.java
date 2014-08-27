@@ -24,7 +24,6 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.entidad.Cualidades;
 
@@ -87,7 +86,6 @@ public class ListaCualidades extends Activity {
                 	Cualidades c=new Cualidades();
                     datos=jsonArray.getJSONObject(i);
                 	c.setId(datos.getString("id"));
-                	Log.e("mensaje", "id cualidad"+datos.getString("id"));
                 	c.setCualidad(datos.getString("cualidad"));
                 	c.setMes(datos.getString("mes"));
                 	cualidades.add(c);

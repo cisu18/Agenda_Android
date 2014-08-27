@@ -44,6 +44,7 @@ public final class R {
         public static final int emaila=0x7f020004;
         public static final int facebook1=0x7f020005;
         public static final int gmail=0x7f020006;
+<<<<<<< Updated upstream
         public static final int ic_action_email=0x7f020007;
         public static final int ic_action_overflow=0x7f020008;
         public static final int ic_action_user=0x7f020009;
@@ -65,6 +66,26 @@ public final class R {
         public static final int user_48=0x7f020019;
         public static final int usera=0x7f02001a;
         public static final int view_as_list_64=0x7f02001b;
+=======
+        public static final int ic_action_accept=0x7f020007;
+        public static final int ic_action_cancel=0x7f020008;
+        public static final int ic_action_email=0x7f020009;
+        public static final int ic_action_overflow=0x7f02000a;
+        public static final int ic_action_user=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int key=0x7f02000d;
+        public static final int key2=0x7f02000e;
+        public static final int key24=0x7f02000f;
+        public static final int key_28=0x7f020010;
+        public static final int key_32=0x7f020011;
+        public static final int list38=0x7f020012;
+        public static final int overflow=0x7f020013;
+        public static final int twitter=0x7f020014;
+        public static final int user_24=0x7f020015;
+        public static final int user_28=0x7f020016;
+        public static final int user_48=0x7f020017;
+        public static final int usera=0x7f020018;
+>>>>>>> Stashed changes
     }
     public static final class id {
         public static final int EditText01=0x7f090002;
