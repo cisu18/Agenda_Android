@@ -14,8 +14,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_cuenta);
-        
+
+        setContentView(R.layout.activity_main);    
     }
 
 
@@ -38,12 +38,12 @@ public class MainActivity extends Activity {
         //return super.onOptionsItemSelected(item);
     	switch (item.getItemId()) {
 	        case R.id.action_listar:
-	            Intent mostrarAct = new Intent("com.example.agendacaracter.ListaCualidades");
+	            Intent mostrarAct = new Intent(this, ListaCualidades.class);
 	            startActivity(mostrarAct);
 	            finish();
 	            return true;
 	        case R.id.action_preguntas:
-	        	Intent mostrarPreg = new Intent("com.example.agendacaracter.ListaCualidades");
+	        	Intent mostrarPreg = new Intent(this, Login.class);
 	            startActivity(mostrarPreg);
 	            finish();
 	            return true;
