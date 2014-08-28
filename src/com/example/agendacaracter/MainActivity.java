@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.text.method.Touch;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -48,7 +47,7 @@ public class MainActivity extends Activity {
 	            startActivity(mostrarAct);
 	            finish();
 	            return true;
-	        case R.id.action_preguntas:
+	        case R.id.action_cerrar_sesion:
 	        	Intent mostrarPreg = new Intent(this, Login.class);
 	            startActivity(mostrarPreg);
 	            finish();

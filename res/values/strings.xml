@@ -6,12 +6,29 @@
     <string name="action_settings">...</string>
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
     <string name="msg_MostrarCualidad">CUALIDAD</string>
+    
+    <!-- Menu Principal -->
+    <string name="msg_lista_cualidades">Lista de Cualidades</string>
+    <string name="msg_cerrar_sesion">Cerrar Sesion</string>
+    
+    <!-- Menus Listado  -->
+    <string name="msg_inicio">Inicio</string>
+    
+    <string name="msg_menu_libros_referencia">Ver libros de referencia</string>
+        
+    
     <string name="Fuente" />
+<<<<<<< Updated upstream
     <string name="title_activity_lista_cualidades">Agenda Carácter</string>
     <string name="title_activity_login">Agenda Carácter</string>
     <string name="msg_lista_cualidades">Lista de Cualidades</string>
     <string name="msg_encuesta_diaria">Evaluacion Diaria</string>
     <string name="title_activity_crear_cuenta">Agenda Carácter</string>
+=======
+    <string name="title_activity_lista_cualidades">Agenda Caracter</string>
+    <string name="title_activity_login">Agenda Caracter</string>
+    <string name="title_activity_crear_cuenta">Agenda Caracter</string>
+>>>>>>> Stashed changes
     <string name="title_activity_demito">Demito</string>
     <string name="contrasena">Contraseña</string>
     <string name="correoelectronico">Correo Electrónico</string>

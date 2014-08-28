@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class Referencia extends Activity {
 
@@ -11,6 +12,11 @@ public class Referencia extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_referencia);
+		Bundle bundle = getIntent().getExtras();
+        //bundle.getString("id cualidad");
+        Toast.makeText(Referencia.this, "You have chosen: " + " " + bundle.getString("id cualidad"), Toast.LENGTH_LONG).show();
+		
+        
 	}
 
 	@Override
