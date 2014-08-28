@@ -57,6 +57,14 @@
             android:name=".Codigo_Reserva"
             android:label="@string/title_activity_codigo__reserva" >
         </activity>
+        <activity
+            android:name=".Evaluacion_diaria1"
+            android:label="@string/title_activity_evaluacion_diaria1" >
+        </activity>
+        <activity
+            android:name=".Evaluacion_diaria2"
+            android:label="@string/title_activity_evaluacion_diaria2" >
+        </activity>
     </application>
 
 </manifest>

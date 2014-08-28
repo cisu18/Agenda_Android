@@ -53,7 +53,7 @@ public class ListaCualidades extends Activity {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
         TextView lista_cualidades = (TextView)findViewById(R.id.textView1);
         lista_cualidades.setTypeface(miPropiaTypeFace);
-
+      
         lista_mensual=(ListView)findViewById(R.id.listView1);
         
         new ReadCualidadesJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
