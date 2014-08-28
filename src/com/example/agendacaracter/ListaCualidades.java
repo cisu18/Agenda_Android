@@ -15,14 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -61,6 +66,10 @@ public class ListaCualidades extends Activity {
         	       Toast.makeText(ListaCualidades.this, "You have chosen: " + " " + fullObject.getId(), Toast.LENGTH_LONG).show();
         	}  
         	       });
+ 
+        //Registar listview para menu contextual
+        registerForContextMenu(lista_mensual);
+        
         
     }
 
@@ -82,8 +91,65 @@ public class ListaCualidades extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
 	
+	Cualidades cu=new Cualidades();
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		// TODO Auto-generated method stub
+		super.onCreateContextMenu(menu, v, menuInfo);
+		AdapterView.AdapterContextMenuInfo info =
+	            (AdapterView.AdapterContextMenuInfo)menuInfo;
+		
+		cu=(Cualidades)lista_mensual.getAdapter().getItem(info.position);
+	        menu.setHeaderTitle(cu.getCualidad());
+		
+		
+		   MenuInflater inflater = getMenuInflater();
+		    inflater.inflate(R.menu.menu_contextual_cualidades, menu);
+	}
+	
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		AdapterContextMenuInfo info =
+		        (AdapterContextMenuInfo) item.getMenuInfo();
+    	String id=cu.getId();	
+		    switch (item.getItemId()) {
+		        
+		        case R.id.opcVerLibros:
+		        	
+		        	Toast.makeText(ListaCualidades.this, "You have chosen: " + " " + id, Toast.LENGTH_LONG).show();
+
+		            return true;
+		            
+		        case R.id.opcVerLogin:
+		        	Toast.makeText(ListaCualidades.this, "You have chosen: " + " " + id, Toast.LENGTH_LONG).show();
+	        		return true;
+		            
+		        default:
+		        	return super.onContextItemSelected(item);
+
+		    }
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private class ReadCualidadesJSONFeedTask extends AsyncTask <String, Void, String> {
         
 		protected String doInBackground(String... urls) {

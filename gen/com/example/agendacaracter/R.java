@@ -70,6 +70,7 @@ public final class R {
         public static final int view_as_list_64=0x7f02001e;
     }
     public static final class id {
+<<<<<<< Updated upstream
         public static final int EditText01=0x7f090006;
         public static final int action_listar=0x7f09001f;
         public static final int action_menu=0x7f09001e;
@@ -103,6 +104,40 @@ public final class R {
         public static final int txtcualidad=0x7f09001a;
         public static final int txtid=0x7f09001c;
         public static final int txtmes=0x7f09001b;
+=======
+        public static final int EditText01=0x7f090002;
+        public static final int action_listar=0x7f09001c;
+        public static final int action_menu=0x7f09001b;
+        public static final int action_preguntas=0x7f09001d;
+        public static final int action_settings=0x7f09001a;
+        public static final int btnCrearcuenta=0x7f090004;
+        public static final int btnRegister=0x7f090007;
+        public static final int editText1=0x7f090000;
+        public static final int imageView1=0x7f090008;
+        public static final int imageView2=0x7f090009;
+        public static final int imageView3=0x7f09000a;
+        public static final int listView1=0x7f090006;
+        public static final int opcVerLibros=0x7f09001e;
+        public static final int opcVerLogin=0x7f09001f;
+        public static final int tableRow1=0x7f09000b;
+        public static final int tableRow2=0x7f09000c;
+        public static final int tableRow3=0x7f09000e;
+        public static final int tableRow4=0x7f090011;
+        public static final int textView1=0x7f090005;
+        public static final int textView2=0x7f09000d;
+        public static final int textView3=0x7f090015;
+        public static final int textView4=0x7f090016;
+        public static final int textView5=0x7f09000f;
+        public static final int textView6=0x7f090010;
+        public static final int textView7=0x7f090012;
+        public static final int textView8=0x7f090013;
+        public static final int textView9=0x7f090014;
+        public static final int txtPass=0x7f090003;
+        public static final int txtUserName=0x7f090001;
+        public static final int txtcualidad=0x7f090017;
+        public static final int txtid=0x7f090019;
+        public static final int txtmes=0x7f090018;
+>>>>>>> Stashed changes
     }
     public static final class layout {
         public static final int activity_codigo__reserva=0x7f030000;
@@ -116,6 +151,7 @@ public final class R {
         public static final int customs_row_view=0x7f030008;
     }
     public static final class menu {
+<<<<<<< Updated upstream
         public static final int codigo__reserva=0x7f080000;
         public static final int crear_cuenta=0x7f080001;
         public static final int demito=0x7f080002;
@@ -125,6 +161,14 @@ public final class R {
         public static final int main=0x7f080006;
         public static final int pensamiento=0x7f080007;
         public static final int referencia=0x7f080008;
+=======
+        public static final int crear_cuenta=0x7f080000;
+        public static final int demito=0x7f080001;
+        public static final int lista_cualidades=0x7f080002;
+        public static final int login=0x7f080003;
+        public static final int main=0x7f080004;
+        public static final int menu_contextual_cualidades=0x7f080005;
+>>>>>>> Stashed changes
     }
     public static final class string {
         public static final int Fuente=0x7f050005;
