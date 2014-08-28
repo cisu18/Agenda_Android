@@ -31,9 +31,9 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/CABECERA"
         android:drawableLeft="@drawable/key_log_32"
-        android:paddingLeft="15dip"
-        android:paddingRight="15dip"
-        android:text="INGRESAR"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="Inicia Sesión"
         android:textColor="@color/LETRA"
         android:textStyle="bold" />
 
@@ -44,16 +44,16 @@
         android:layout_marginTop="15dp"
         android:background="@color/CABECERA"
         android:drawableLeft="@drawable/ic_action_user"
-        android:paddingLeft="15dip"
-        android:paddingRight="15dip"
-        android:text="CREAR CUENTA"
+        android:paddingLeft="35dp"
+        android:paddingRight="50dp"
+        android:text="Regístrate"
         android:textColor="@color/LETRA"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp" >
+        android:layout_marginTop="25dp" >
 
         <TextView
             android:id="@+id/textView1"

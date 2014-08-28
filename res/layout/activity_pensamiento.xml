@@ -12,36 +12,30 @@
         android:stretchColumns="0,1,2" >
 
         <TableRow
-            android:id="@+id/tableRow1"
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/CABECERA"
             android:gravity="center" >
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:text="AGOSTO     2015     SAB 28"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </TableRow>
+             <TextView
+                 android:id="@+id/textView1"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginRight="@dimen/right_cab"
+                 android:background="@color/CABECERA"
+                 android:paddingBottom="10dp"
+                 android:paddingLeft="35dp"
+                 android:paddingRight="18dp"
+                 android:paddingTop="10dp"
+                 android:tag="26dp"
+                 android:text="@string/pensamiento"
+                 android:textColor="@color/LETRA"
+                 android:textColorLink="@color/LETRA"
+                 android:textSize="24sp"
+                 android:textStyle="bold" />
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/LETRA"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="CUALIDAD"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
         </TableRow>
 
         <TableRow
@@ -54,14 +48,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:paddingBottom="5dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="&apos;&apos;Demuestren con su forma de vivir que se han arrepentido de sus pecados y han vuelto a Dios. No se digan simplemente el uno al otro: Estamos a salvo porque somos descendientes de Abraham. Eso no significa nada, porque les digo que Dios puede crear hijos de Abraham de estas mismas piedras.&apos;&apos; "
+                android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos. Estoy acercándome a los cincuenta y deseo tener una iniciativa que ayude a otros a tener la iniciativa de ayudar a otros a superar sus propias respectivas y la de los demás.&apos;&apos; "
                 android:textColor="@color/LETRA"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
         </TableRow>
     </TableLayout>
@@ -74,7 +68,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="8dp"
         android:gravity="right"
-        android:text="Lucas 3:8 (NTV)"
+        android:text="Ayrton Senna"
         android:textColor="@color/LETRA"
         android:textStyle="bold|italic" />
 
@@ -137,25 +131,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="8dp"
-            android:text="Plan de Lectura:"
-            android:textColor="@color/LETRA" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="12"
-            android:text="Gen 3:4                       Sal 2                      Mt 18:25"
-            android:textColor="@color/LETRA" />
 
     </LinearLayout>
 

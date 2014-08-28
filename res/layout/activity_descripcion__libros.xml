@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/FONDO"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/CABECERA"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:tag="26dp"
+        android:text="@string/descripcion__libros"
+        android:textColor="@color/LETRA"
+        android:textColorLink="@color/LETRA"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/ic_launcher" />
+
+         <TextView
+             android:id="@+id/textView5"
+             android:layout_width="match_parent"
+             android:layout_height="117dp"
+             android:layout_gravity="center"
+             android:layout_marginLeft="4dp"
+             android:layout_marginTop="8dp"
+             android:gravity="center"
+             android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
+             android:textColor="@color/LETRA"
+             android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="RERSERVA TU COMPRA:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/LETRA" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@color/CABECERA"
+        android:text="AQUÍ"
+        android:textColor="@color/LETRA" />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginTop="25dp"
+           android:gravity="center" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Redes Sociales:"
+            android:textColor="@color/LETRA"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook1" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/gmail" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/twitter" />
+
+    </LinearLayout>
+
+</LinearLayout>
