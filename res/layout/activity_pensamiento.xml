@@ -1,0 +1,137 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/FONDO"
+    android:orientation="vertical"
+    tools:context="com.example.agendacaracter.MainActivity" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1,2" >
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/CABECERA"
+            android:gravity="center" >
+
+             <TextView
+                 android:id="@+id/textView1"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginRight="@dimen/right_cab"
+                 android:background="@color/CABECERA"
+                 android:paddingBottom="10dp"
+                 android:paddingLeft="35dp"
+                 android:paddingRight="18dp"
+                 android:paddingTop="10dp"
+                 android:tag="26dp"
+                 android:text="@string/pensamiento"
+                 android:textColor="@color/LETRA"
+                 android:textColorLink="@color/LETRA"
+                 android:textSize="24sp"
+                 android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos. Estoy acercándome a los cincuenta y deseo tener una iniciativa que ayude a otros a tener la iniciativa de ayudar a otros a superar sus propias respectivas y la de los demás.&apos;&apos; "
+                android:textColor="@color/LETRA"
+                android:textSize="16sp" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:gravity="right"
+        android:text="Ayrton Senna"
+        android:textColor="@color/LETRA"
+        android:textStyle="bold|italic" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:stretchColumns="0,1,2" >
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/CABECERA"
+                android:clickable="true"
+                android:drawableBottom="@drawable/share_64"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/LETRA"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/facebook"
+                android:drawableBottom="@drawable/share_64"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/LETRA"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gmail"
+                android:drawableBottom="@drawable/view_as_list_64"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/LETRA"
+                android:textSize="10sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+</LinearLayout>

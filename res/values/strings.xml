@@ -15,5 +15,13 @@
     <string name="title_activity_demito">Demito</string>
     <string name="contrasena">Contraseña</string>
     <string name="correoelectronico">Correo Electrónico</string>
+    <string name="title_activity_pensamiento">Agenda Caracter</string>
+    <string name="pensamiento">PENSAMIENTO</string>
+    <string name="title_activity_referencia">Agenda Caracter</string>
+    <string name="referencia">LIBROS DE REFERENCIA</string>
+    <string name="title_activity_descripcion__libros">Agenda Caracter</string>
+    <string name="descripcion__libros">DESCRIPCIÓN DEL LIBRO</string>
+    <string name="title_activity_codigo__reserva">Agenda Caracter</string>
+    <string name="codigo__reserva">CÓDIGO DE RESERVA</string>
 
 </resources>
