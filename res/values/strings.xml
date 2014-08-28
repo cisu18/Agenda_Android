@@ -1,39 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Agenda Carácter</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">...</string>
-    <string name="lista_cualidades">LISTA DE CUALIDADES</string>
-    <string name="msg_MostrarCualidad">CUALIDAD</string>
+    <string name="action_settings">:</string>
     
-    <!-- Menu Principal -->
+    <!-- Títulos -->
+   	<string name="app_name">Agenda Carácter</string>
+	
+	<!-- Mensajes -->
+	<string name="msg_MostrarCualidad">CUALIDAD</string>
+    <string name="msg_encuesta_diaria">Evaluacion Diaria</string>
     <string name="msg_lista_cualidades">Lista de Cualidades</string>
     <string name="msg_cerrar_sesion">Cerrar Sesion</string>
-    
-    <!-- Menus Listado  -->
     <string name="msg_inicio">Inicio</string>
-    
     <string name="msg_menu_libros_referencia">Ver libros de referencia</string>
-        
     
-    <string name="Fuente" />
-    <string name="title_activity_lista_cualidades">Agenda Carácter</string>
-    <string name="title_activity_login">Agenda Carácter</string>
-    <string name="msg_encuesta_diaria">Evaluacion Diaria</string>
-    <string name="title_activity_demito">Demito</string>
+    <!-- Encabezados -->
+    <string name="lista_cualidades">LISTA DE CUALIDADES</string>
     <string name="contrasena">Contraseña</string>
     <string name="correoelectronico">Correo Electrónico</string>
-    <string name="title_activity_pensamiento">Agenda Carácter</string>
     <string name="pensamiento">PENSAMIENTO</string>
-    <string name="title_activity_referencia">Agenda Carácter</string>
     <string name="referencia">LIBROS DE REFERENCIA</string>
-    <string name="title_activity_descripcion__libros">Agenda Carácter</string>
     <string name="descripcion__libros">DESCRIPCIÓN DEL LIBRO</string>
-    <string name="title_activity_codigo__reserva">Agenda Carácter</string>
     <string name="codigo__reserva">CÓDIGO DE RESERVA</string>
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
-    <string name="title_activity_evaluacion_diaria1">Agenda Carácter</string>
-    <string name="title_activity_evaluacion_diaria2">Agenda Carácter</string>
-	<string name="title_activity_crear_cuenta">Agenda Carácter</string>
+    
+    
 </resources>

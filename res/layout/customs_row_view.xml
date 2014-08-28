@@ -9,17 +9,20 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:textColor="#00b5b5"
+       android:shadowColor="@color/CABECERA"
        android:textSize="24sp"/>
 
    <TextView
        android:id="@+id/txtmes"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+       android:layout_height="wrap_content" 
+       android:shadowColor="@color/CABECERA"/>
 
    <TextView
        android:id="@+id/txtid"
        android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
+       android:layout_height="wrap_content" 
+       android:shadowColor="@color/CABECERA"/>
     
 
 </LinearLayout>

@@ -146,38 +146,28 @@ public final class R {
         public static final int referencia=0x7f08000b;
     }
     public static final class string {
-        public static final int Fuente=0x7f050009;
-        public static final int action_settings=0x7f050002;
-        public static final int app_name=0x7f050000;
-        public static final int codigo__reserva=0x7f050017;
-        public static final int contrasena=0x7f05000e;
-        public static final int correoelectronico=0x7f05000f;
-        public static final int descripcion__libros=0x7f050015;
-        public static final int evaluacion_diaria=0x7f050018;
-        public static final int hello_world=0x7f050001;
-        public static final int lista_cualidades=0x7f050003;
-        public static final int msg_MostrarCualidad=0x7f050004;
-        public static final int msg_cerrar_sesion=0x7f050006;
-        public static final int msg_encuesta_diaria=0x7f05000c;
-        /**  Menus Listado  
+        public static final int action_settings=0x7f050000;
+        /**  Títulos 
          */
-        public static final int msg_inicio=0x7f050007;
-        /**  Menu Principal 
+        public static final int app_name=0x7f050001;
+        public static final int codigo__reserva=0x7f05000e;
+        public static final int contrasena=0x7f050009;
+        public static final int correoelectronico=0x7f05000a;
+        public static final int descripcion__libros=0x7f05000d;
+        public static final int evaluacion_diaria=0x7f05000f;
+        /**  Encabezados 
          */
-        public static final int msg_lista_cualidades=0x7f050005;
-        public static final int msg_menu_libros_referencia=0x7f050008;
-        public static final int pensamiento=0x7f050011;
-        public static final int referencia=0x7f050013;
-        public static final int title_activity_codigo__reserva=0x7f050016;
-        public static final int title_activity_crear_cuenta=0x7f05001b;
-        public static final int title_activity_demito=0x7f05000d;
-        public static final int title_activity_descripcion__libros=0x7f050014;
-        public static final int title_activity_evaluacion_diaria1=0x7f050019;
-        public static final int title_activity_evaluacion_diaria2=0x7f05001a;
-        public static final int title_activity_lista_cualidades=0x7f05000a;
-        public static final int title_activity_login=0x7f05000b;
-        public static final int title_activity_pensamiento=0x7f050010;
-        public static final int title_activity_referencia=0x7f050012;
+        public static final int lista_cualidades=0x7f050008;
+        /**  Mensajes 
+         */
+        public static final int msg_MostrarCualidad=0x7f050002;
+        public static final int msg_cerrar_sesion=0x7f050005;
+        public static final int msg_encuesta_diaria=0x7f050003;
+        public static final int msg_inicio=0x7f050006;
+        public static final int msg_lista_cualidades=0x7f050004;
+        public static final int msg_menu_libros_referencia=0x7f050007;
+        public static final int pensamiento=0x7f05000b;
+        public static final int referencia=0x7f05000c;
     }
     public static final class style {
         /** 
