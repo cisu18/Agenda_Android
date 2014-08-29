@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.agendacaracter.CrearCuenta" >
+    android:background="@color/FONDO" >
     
 <LinearLayout
     android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.agendacaracter.Descripcion_Libros" >
+    android:background="@color/FONDO" >
     
 <LinearLayout 
     android:layout_width="fill_parent"
@@ -42,10 +42,9 @@
          <TextView
              android:id="@+id/textView5"
              android:layout_width="match_parent"
-             android:layout_height="117dp"
+             android:layout_height="wrap_content"
              android:layout_gravity="center"
              android:layout_marginLeft="4dp"
-             android:layout_marginTop="8dp"
              android:gravity="center"
              android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
              android:textColor="@color/LETRA"
@@ -58,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="13dp"
         android:text="RERSERVA TU COMPRA:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/LETRA" />
