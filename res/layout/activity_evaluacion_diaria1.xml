@@ -1,4 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.agendacaracter.Evaluacion_diaria1" >
+    
+<LinearLayout 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/FONDO"
@@ -34,6 +41,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:text="1¿Primera pregunta?"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -101,14 +109,16 @@
 
         </RadioGroup>
     </LinearLayout>
+
      <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="2¿Segunda pregunta?"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/LETRA" />
+         android:id="@+id/textView3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="10dp"
+         android:layout_marginTop="20dp"
+         android:text="2¿Segunda pregunta?"
+         android:textAppearance="?android:attr/textAppearanceLarge"
+         android:textColor="@color/LETRA" />
 
      <LinearLayout
          android:layout_width="match_parent"
@@ -183,3 +193,4 @@
         android:textColor="@color/LETRA" />
 
 </LinearLayout>
+</ScrollView>
