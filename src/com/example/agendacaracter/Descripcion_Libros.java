@@ -1,9 +1,13 @@
 package com.example.agendacaracter;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Descripcion_Libros extends Activity {
 
@@ -11,6 +15,23 @@ public class Descripcion_Libros extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_descripcion__libros);
+		
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		
+		TextView title = (TextView)findViewById(R.id.textView1);
+		title.setTypeface(miPropiaTypeFace);
+		
+		TextView descripcionlibro = (TextView)findViewById(R.id.textView5);
+		descripcionlibro.setTypeface(miPropiaTypeFace);
+		
+		TextView reservacuenta = (TextView)findViewById(R.id.textView2);
+		reservacuenta.setTypeface(miPropiaTypeFace);
+		
+		Button btnaqui = (Button)findViewById(R.id.button1);
+		btnaqui.setTypeface(miPropiaTypeFace);
+		
+		TextView redesociales = (TextView)findViewById(R.id.textView3);
+		redesociales.setTypeface(miPropiaTypeFace);
 	}
 
 	@Override

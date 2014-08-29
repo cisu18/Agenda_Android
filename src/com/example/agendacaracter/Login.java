@@ -1,9 +1,13 @@
 package com.example.agendacaracter;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Login extends Activity {
 
@@ -11,6 +15,23 @@ public class Login extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		
+		EditText usuario = (EditText)findViewById(R.id.txtUserName);
+		usuario.setTypeface(miPropiaTypeFace);
+        
+        EditText contrasenia = (EditText)findViewById(R.id.txtPass);
+        contrasenia.setTypeface(miPropiaTypeFace);
+        
+        TextView logincon = (TextView)findViewById(R.id.textView1);
+        logincon.setTypeface(miPropiaTypeFace);
+        
+        Button iniciosesion = (Button)findViewById(R.id.btnRegister);
+        iniciosesion.setTypeface(miPropiaTypeFace);
+        
+        Button crearcuenta = (Button)findViewById(R.id.btnCrearcuenta);
+        crearcuenta.setTypeface(miPropiaTypeFace);
+        
 	}
 
 	@Override

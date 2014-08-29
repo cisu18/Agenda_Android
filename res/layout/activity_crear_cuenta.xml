@@ -6,10 +6,6 @@
     android:orientation="vertical"
     android:padding="35dp" >
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
@@ -25,17 +21,6 @@
         android:textAllCaps="true"
         android:textColorLink="@color/YELLOW" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/txtUserName"
@@ -59,7 +44,7 @@
         android:hint="@string/contrasena"
         android:inputType="textPassword"
         android:textColor="@color/LETRA" />
-
+      
     <EditText
         android:id="@+id/txtPass"
         android:layout_width="fill_parent"

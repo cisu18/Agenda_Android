@@ -1,16 +1,17 @@
 package com.example.agendacaracter;
 
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
@@ -20,7 +21,28 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        estaConectado();
+        
+        Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		
+        TextView title = (TextView)findViewById(R.id.textView1);
+		title.setTypeface(miPropiaTypeFace);
+		
+		TextView cualidad = (TextView)findViewById(R.id.textView2);
+		cualidad.setTypeface(miPropiaTypeFace);
+		
+		TextView versiculo = (TextView)findViewById(R.id.textView5);
+		versiculo.setTypeface(miPropiaTypeFace);
+		
+		TextView textobiblico = (TextView)findViewById(R.id.textView6);
+		textobiblico.setTypeface(miPropiaTypeFace);
+		
+		TextView planlectura = (TextView)findViewById(R.id.textView3);
+		planlectura.setTypeface(miPropiaTypeFace);
+		
+		TextView textos = (TextView)findViewById(R.id.textView4);
+		textos.setTypeface(miPropiaTypeFace);
+		
+		estaConectado();
         
     }
     

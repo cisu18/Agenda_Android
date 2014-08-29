@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class CrearCuenta extends Activity {
@@ -13,9 +14,23 @@ public class CrearCuenta extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_cuenta);
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Jokerman.ttf");
-		EditText correoelectronico = (EditText)findViewById(R.id.editText1);
-		correoelectronico.setTypeface(miPropiaTypeFace);
+		
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		
+		EditText crearcuenta = (EditText)findViewById(R.id.editText1);
+		crearcuenta.setTypeface(miPropiaTypeFace);
+		
+		EditText usuario = (EditText)findViewById(R.id.txtUserName);
+		usuario.setTypeface(miPropiaTypeFace);
+		
+		EditText contrasenia = (EditText)findViewById(R.id.EditText01);
+		contrasenia.setTypeface(miPropiaTypeFace);
+		
+		EditText repitecontr = (EditText)findViewById(R.id.txtPass);
+		repitecontr.setTypeface(miPropiaTypeFace);
+		
+		Button registrarse = (Button)findViewById(R.id.btnCrearcuenta);
+		registrarse.setTypeface(miPropiaTypeFace);
 		
 	}
 

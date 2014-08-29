@@ -31,8 +31,7 @@
                 android:text="@string/referencia"
                 android:textColor="@color/LETRA"
                 android:textColorLink="@color/LETRA"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp"/>
         </TableRow>
     </TableLayout>
 
