@@ -20,15 +20,22 @@
             android:layout_height="wrap_content"
             android:background="@color/CABECERA"
             android:gravity="center" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:text="AGOSTO     2015     SAB 28"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                        
+             <TextView
+		       android:id="@+id/textView1"
+		       android:layout_width="match_parent"
+		       android:layout_height="wrap_content"
+		       android:layout_gravity="center"
+		       android:background="@color/CABECERA"
+		       android:gravity="center_horizontal"
+		       android:paddingBottom="10dp"
+		       android:paddingTop="10dp"
+		       android:tag="26dp"
+		       android:text="AGOSTO     2015     SAB 28"
+		       android:textColor="@color/LETRA"
+		       android:textColorLink="@color/LETRA"
+		       android:textSize="24sp"
+		       android:textStyle="bold" />
         </TableRow>
 
         <TableRow
