@@ -1,7 +1,25 @@
 package com.example.agendacaracter;
 
+import com.example.reutilizables.Val;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,45 +28,41 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CrearCuenta extends Activity implements OnClickListener {
-
+	EditText txtEmail;
+	EditText txtUsuario;
+	EditText txtPass1;
+	EditText txtPass2;
+	AlertDialog alert;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_cuenta);
-		Log.e("Entre","Crea");
+
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/Myriad_Pro.ttf");
 
-		EditText crearcuenta = (EditText) findViewById(R.id.editText1);
-		crearcuenta.setTypeface(miPropiaTypeFace);
+		alert = new AlertDialog.Builder(this).create();
 
-		EditText usuario = (EditText) findViewById(R.id.txtUserName);
-		usuario.setTypeface(miPropiaTypeFace);
+		txtEmail = (EditText) findViewById(R.id.txt_Email);
+		txtEmail.setTypeface(miPropiaTypeFace);
 
-		EditText contrasenia = (EditText) findViewById(R.id.EditText01);
-		contrasenia.setTypeface(miPropiaTypeFace);
+		txtUsuario = (EditText) findViewById(R.id.txt_UserName);
+		txtUsuario.setTypeface(miPropiaTypeFace);
 
-		EditText repitecontr = (EditText) findViewById(R.id.txtPass);
-		repitecontr.setTypeface(miPropiaTypeFace);
-		
-		Button registrarse = (Button) findViewById(R.id.btnCrearcuenta);		
+		txtPass1 = (EditText) findViewById(R.id.txt_Pass1);
+		txtPass1.setTypeface(miPropiaTypeFace);
+
+		txtPass2 = (EditText) findViewById(R.id.txt_Pass2);
+		txtPass2.setTypeface(miPropiaTypeFace);
+
+		Button registrarse = (Button) findViewById(R.id.btnCrearcuenta);
 		registrarse.setTypeface(miPropiaTypeFace);
 		registrarse.setOnClickListener(this);
 
-	}
-
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.btnCrearcuenta:
-			Log.e("Pulse Boton", "Ahora");
-			break;
-
-		}
 	}
 
 	@Override
@@ -68,6 +82,109 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btnCrearcuenta:
+			String email = txtPass1.getText().toString();
+			String pass1 = txtPass1.getText().toString();
+			String pass2 = txtPass1.getText().toString();
+			StringBuilder msg= new StringBuilder();
+			boolean con=true;
+			if(!Val.isEmailValid(email)){
+				msg.append("Email Incorrecto"+"\n");
+				con=false;
+			}
+			if (!Val.isPasswordEquals(pass1,pass2)) {
+				msg.append("Las contraseñas no coinciden"+"\n");
+				con=false;
+			}
+			if (con) {
+				new RegistroUsuarioJSONFeedTask()
+						.execute("http://192.168.0.55/Agenda_WS/users/create_user/format/json");
+			} else {
+				Toast t = Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_SHORT);
+				t.show();
+			}			
+
+			break;
+
+		}
+	}
+
+	private class RegistroUsuarioJSONFeedTask extends
+			AsyncTask<String, Void, String> {
+
+		protected String doInBackground(String... urls) {
+
+			return readJSONFeed(urls[0]);
+
+		}
+
+		protected void onPostExecute(String res) {
+			alert.setTitle("Mensaje");
+			alert.setIcon(R.drawable.ic_action_accept);
+			if (res.equals("success")) {
+				alert.setMessage("Registro correcto.");
+				alert.setButton("Aceptar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								Intent i = new Intent(getApplicationContext(),
+										Login.class);
+								startActivity(i);
+							}
+						});
+
+			} else if (res.equals("error")) {
+				alert.setMessage("El nombre de usuario ya existe.");
+				alert.setButton("Aceptar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								alert.hide();
+							}
+						});
+			}
+			alert.show();
+
+		}
+	}
+
+	public String readJSONFeed(String url) {
+		String res = "error";
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost(url);
+		try {
+
+			List<NameValuePair> parametros = new ArrayList<NameValuePair>(4);
+			parametros.add(new BasicNameValuePair("username", txtUsuario
+					.getText().toString()));
+			parametros.add(new BasicNameValuePair("password", txtPass2
+					.getText().toString()));
+			parametros.add(new BasicNameValuePair("email", txtEmail.getText()
+					.toString()));
+			parametros.add(new BasicNameValuePair("tipo", "1"));
+			httpPost.setEntity(new UrlEncodedFormEntity(parametros));
+			HttpResponse response = httpClient.execute(httpPost);
+
+			StatusLine statusLine = response.getStatusLine();
+			int statusCode = statusLine.getStatusCode();
+			if (statusCode == 201) {
+				res = "success";
+
+			} else if (statusCode == 404) {
+				res = "error";
+			} else {
+				Log.e("JSON", "No se ha podido recibir archivo");
+			}
+		} catch (Exception e) {
+			Log.e("readJSONFeed", e.getLocalizedMessage());
+		}
+
+		return res;
 	}
 
 }

@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
         
         setContentView(R.layout.activity_crear_cuenta);	
         /*Intent i = new Intent(this,MainActivity.class);
+
 		startActivity(i);
         
         Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
