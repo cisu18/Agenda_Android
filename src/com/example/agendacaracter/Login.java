@@ -20,10 +20,7 @@ import org.json.JSONObject;
 import com.example.entidad.Usuario;
 
 import android.app.Activity;
-<<<<<<< Updated upstream
-=======
 import android.app.ProgressDialog;
->>>>>>> Stashed changes
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -38,9 +35,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< Updated upstream
-public class Login extends Activity implements OnClickListener {
-=======
 public class Login extends Activity implements OnClickListener{
 	
 	public EditText usuario;
@@ -48,10 +42,6 @@ public class Login extends Activity implements OnClickListener{
 	
     private ProgressDialog pDialog;
     ArrayList<Usuario> usuarios;
->>>>>>> Stashed changes
-
-    
-
 	    
 	    
 	    
@@ -85,20 +75,6 @@ public class Login extends Activity implements OnClickListener{
 
     	
 	}
-<<<<<<< Updated upstream
-	
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.btnCrearcuenta:
-			Intent i = new Intent(this,CrearCuenta.class);
-			startActivity(i);
-			break;
-
-		}
-	}
-=======
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -120,9 +96,6 @@ public class Login extends Activity implements OnClickListener{
 
 	}
 	
-	
->>>>>>> Stashed changes
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -216,7 +189,7 @@ public class Login extends Activity implements OnClickListener{
             String username = usuario.getText().toString();
 			String password = contrasenia.getText().toString();
             
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            List<NameValuePair> params = new ArrayList<NameValuePair>(3);
 			params.add(new BasicNameValuePair("username", username));
 			params.add(new BasicNameValuePair("password", password));
 			params.add(new BasicNameValuePair("tipo", "1"));

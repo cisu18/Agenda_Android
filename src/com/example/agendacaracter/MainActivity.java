@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(R.layout.activity_crear_cuenta);	
+        setContentView(R.layout.activity_main);	
         /*Intent i = new Intent(this,MainActivity.class);
 
 		startActivity(i);
