@@ -50,7 +50,7 @@ public class ListaCualidades extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista_cualidades);
-		
+		Log.e("Entre","Lista CUalidades");
 		//Enlazar controles
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
         TextView lista_cualidades = (TextView)findViewById(R.id.textView1);

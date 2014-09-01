@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -20,8 +21,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-        
+        Intent i = new Intent(this,ListaCualidades.class);
+		startActivity(i);
+        /*
         Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
         TextView title = (TextView)findViewById(R.id.textView1);
@@ -40,7 +42,7 @@ public class MainActivity extends Activity {
 		planlectura.setTypeface(miPropiaTypeFace);
 		
 		TextView textos = (TextView)findViewById(R.id.textView4);
-		textos.setTypeface(miPropiaTypeFace);
+		textos.setTypeface(miPropiaTypeFace);*/
 		
 		estaConectado();
         

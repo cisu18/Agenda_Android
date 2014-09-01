@@ -1,15 +1,19 @@
 package com.example.agendacaracter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Login extends Activity {
+public class Login extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,18 @@ public class Login extends Activity {
         Button crearcuenta = (Button)findViewById(R.id.btnCrearcuenta);
         crearcuenta.setTypeface(miPropiaTypeFace);
         
+	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.btnCrearcuenta:
+			Intent i = new Intent(this,CrearCuenta.class);
+			startActivity(i);
+			break;
+
+		}
 	}
 
 	@Override

@@ -3,35 +3,52 @@ package com.example.agendacaracter;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CrearCuenta extends Activity {
+public class CrearCuenta extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_cuenta);
-		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
-		
-		EditText crearcuenta = (EditText)findViewById(R.id.editText1);
+		Log.e("Entre","Crea");
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
+
+		EditText crearcuenta = (EditText) findViewById(R.id.editText1);
 		crearcuenta.setTypeface(miPropiaTypeFace);
-		
-		EditText usuario = (EditText)findViewById(R.id.txtUserName);
+
+		EditText usuario = (EditText) findViewById(R.id.txtUserName);
 		usuario.setTypeface(miPropiaTypeFace);
-		
-		EditText contrasenia = (EditText)findViewById(R.id.EditText01);
+
+		EditText contrasenia = (EditText) findViewById(R.id.EditText01);
 		contrasenia.setTypeface(miPropiaTypeFace);
-		
-		EditText repitecontr = (EditText)findViewById(R.id.txtPass);
+
+		EditText repitecontr = (EditText) findViewById(R.id.txtPass);
 		repitecontr.setTypeface(miPropiaTypeFace);
 		
-		Button registrarse = (Button)findViewById(R.id.btnCrearcuenta);
+		Button registrarse = (Button) findViewById(R.id.btnCrearcuenta);		
 		registrarse.setTypeface(miPropiaTypeFace);
-		
+		registrarse.setOnClickListener(this);
+
+	}
+
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.btnCrearcuenta:
+			Log.e("Pulse Boton", "Ahora");
+			break;
+
+		}
 	}
 
 	@Override
@@ -52,4 +69,5 @@ public class CrearCuenta extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }
