@@ -20,10 +20,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent i = new Intent(this,ListaCualidades.class);
+        
+        setContentView(R.layout.activity_crear_cuenta);	
+        /*Intent i = new Intent(this,MainActivity.class);
 		startActivity(i);
-        /*
+        
         Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
         TextView title = (TextView)findViewById(R.id.textView1);
