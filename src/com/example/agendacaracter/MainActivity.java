@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
 		
 		TextView textos = (TextView)findViewById(R.id.textView4);
 		textos.setTypeface(miPropiaTypeFace);*/
-		
+       
 		estaConectado();
         
     }
