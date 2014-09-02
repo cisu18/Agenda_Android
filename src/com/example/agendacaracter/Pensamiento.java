@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.entidad.Cualidades;
+import com.example.entidad.Diario;
 import com.example.reutilizables.AdaptadorCualidades;
 
 import android.app.Activity;
@@ -29,6 +30,7 @@ import android.widget.TextView;
 public class Pensamiento extends Activity {
 	TextView txtPensamiento;
 	TextView txtAutor;
+	ArrayList<Diario> lstDiario;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class Pensamiento extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/*private class ReadJSONFeedTask extends
+	private class ReadJSONFeedTask extends
 			AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
@@ -79,27 +81,23 @@ public class Pensamiento extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				cualidades = new ArrayList<Cualidades>();
+				lstDiario = new ArrayList<Diario>();
 
-				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualidades c = new Cualidades();
-					datos = jsonArray.getJSONObject(i);
-					c.setId(datos.getString("id"));
-					c.setCualidad(datos.getString("cualidad"));
-					c.setMes(datos.getString("mes"));
-					cualidades.add(c);
+				Diario d = new Diario();
+				datos = jsonArray.getJSONObject(0);
+				d.setPensamiento(datos.getString("pensamiento"));
+				d.setAutorPensamiento(datos.getString("autorpensamiento"));					
+				lstDiario.add(d);
 
-				}
-
-				lista_mensual.setAdapter(new AdaptadorCualidades(
-						getApplicationContext(), cualidades));
+//				lista_mensual.setAdapter(new AdaptadorCualidades(
+//						getApplicationContext(), cualidades));
 				// adaptadorlista=new
 				// ArrayAdapter<Cualidades>(getApplicationContext(),
 				// android.R.layout.simple_list_item_1, cualidades);
 				// lista_mensual.setAdapter(adaptadorlista);
 
 			} catch (Exception e) {
-				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
 		}
 	}
@@ -131,5 +129,5 @@ public class Pensamiento extends Activity {
 			Log.d("readJSONFeed", e.getLocalizedMessage());
 		}
 		return stringBuilder.toString();
-	}*/
+	}
 }
