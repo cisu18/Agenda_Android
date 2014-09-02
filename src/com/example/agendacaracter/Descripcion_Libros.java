@@ -18,7 +18,7 @@ public class Descripcion_Libros extends Activity {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
-		TextView title = (TextView)findViewById(R.id.textView1);
+		TextView title = (TextView)findViewById(R.id.txt_cabecera);
 		title.setTypeface(miPropiaTypeFace);
 		
 		TextView descripcionlibro = (TextView)findViewById(R.id.textView5);

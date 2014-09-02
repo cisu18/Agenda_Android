@@ -18,7 +18,7 @@ public class Codigo_Reserva extends Activity {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
-		TextView codigoreserva = (TextView)findViewById(R.id.textView1);
+		TextView codigoreserva = (TextView)findViewById(R.id.txt_cabecera);
 		codigoreserva.setTypeface(miPropiaTypeFace);
 		
 		TextView indicaciones = (TextView)findViewById(R.id.textView5);

@@ -23,12 +23,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Pensamiento extends Activity {
+public class Pensamiento extends Activity  implements OnClickListener {
 	TextView txtPensamiento;
 	TextView txtAutor;
 
@@ -40,23 +41,38 @@ public class Pensamiento extends Activity {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/Myriad_Pro.ttf");
 
-		TextView title = (TextView) findViewById(R.id.textView1);
+		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 		title.setTypeface(miPropiaTypeFace);
 
-		txtPensamiento = (TextView) findViewById(R.id.txt_Pensamiento);
+		txtPensamiento = (TextView) findViewById(R.id.txt_pensamiento);
 		txtPensamiento.setTypeface(miPropiaTypeFace);
 
-		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
+		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
-		/*
-		Button registrarse = (Button) findViewById(R.id.btn);		
-		registrarse.setOnClickListener(this)
-		*/
+		
+		TextView registrarse = (TextView) findViewById(R.id.txt_Evaluacion);		
+		registrarse.setOnClickListener(this);
+		
 		String fecha = getFechaActual().substring(0, 5);
 		fecha="01-04";
 		
 		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
-
+		
+	}
+	
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.txt_Evaluacion:
+			Toast t = Toast.makeText(getApplicationContext(),"Funciona el textview", Toast.LENGTH_SHORT);
+			t.show();
+			break;
+		case R.id.txt_LibroReferencia:
+			Toast ti = Toast.makeText(getApplicationContext(),"Funciona el textview 2", Toast.LENGTH_SHORT);
+			ti.show();
+			break;
+		}
+		
 	}
 	
 	public static String getFechaActual() {
@@ -144,5 +160,5 @@ public class Pensamiento extends Activity {
 		}
 		
 		return stringBuilder.toString();
-	}
+	}	
 }
