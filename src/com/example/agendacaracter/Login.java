@@ -41,8 +41,7 @@ public class Login extends Activity implements OnClickListener{
 	public EditText contrasenia;
 	
     private ProgressDialog pDialog;
-    ArrayList<Usuario> usuarios;
-	    
+    ArrayList<Usuario> usuarios;    
 	    
 	    
 	@Override

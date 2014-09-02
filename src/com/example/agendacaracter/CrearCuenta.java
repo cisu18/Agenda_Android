@@ -16,8 +16,11 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -87,7 +90,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btnCrearcuenta:
+		case R.id.btnCrearcuenta:			
 			String usuario = txtUsuario.getText().toString();
 			String email = txtEmail.getText().toString();
 			String pass1 = txtPass1.getText().toString();
@@ -116,7 +119,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			} else {
 				Toast t = Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_SHORT);
 				t.show();
-			}			
+			}	
 
 			break;
 
@@ -141,9 +144,23 @@ public class CrearCuenta extends Activity implements OnClickListener {
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int which) {
+								SharedPreferences prefe=getSharedPreferences("user",Context.MODE_PRIVATE);
+						        Editor editor=prefe.edit();
+						        editor.putString("usuario", txtUsuario.getText().toString());
+						        editor.putString("email", txtEmail.getText().toString());						        
+						        editor.commit();	
 								Intent i = new Intent(getApplicationContext(),
-										Login.class);
+										MainActivity.class);
 								startActivity(i);
+								
+								/*
+								 * SharedPreferences
+								 */
+								
+								Toast t = Toast.makeText(getApplicationContext(),prefe.getString("email","")+prefe.getString("usuario",""), Toast.LENGTH_SHORT);
+								t.show();
+								
+								finish();
 							}
 						});
 
@@ -197,3 +214,4 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	}
 
 }
+
