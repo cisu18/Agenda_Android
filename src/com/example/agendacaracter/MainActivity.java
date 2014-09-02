@@ -1,10 +1,5 @@
 package com.example.agendacaracter;
 
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,11 +22,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        //setContentView(R.layout.activity_main);	
+        Intent i = new Intent(this,Pensamiento.class);
 
-        setContentView(R.layout.activity_main);	
-       // Intent i = new Intent(this,CrearCuenta.class);
-
-		//startActivity(i);
+		startActivity(i);
 		/*Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
         TextView title = (TextView)findViewById(R.id.textView1);
@@ -51,31 +45,10 @@ public class MainActivity extends Activity {
 		
 		TextView textos = (TextView)findViewById(R.id.textView4);
 		textos.setTypeface(miPropiaTypeFace);*/
-        EstablecerFecha();
+       
 		estaConectado();
         
     }
-    
-	public void EstablecerFecha() {
-
-		Date fecha1 = new Date();
-
-		// Segun la versión utilizada de Java, los dos siguientes
-		// metodos pueden estar deprecated
-		//System.out.println(fecha1.toLocaleString());
-		//System.out.println(fecha1.toGMTString());
-
-		Calendar cal1 = Calendar.getInstance();
-		cal1.get(Calendar.DATE);
-		cal1.get(Calendar.MONTH);
-		cal1.get(Calendar.YEAR);
-		SimpleDateFormat dateFormat=new SimpleDateFormat();
-
-	}
-    
-    
-    
-    
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -14,9 +14,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.example.entidad.Cualidades;
+
 import com.example.entidad.Diario;
-import com.example.reutilizables.AdaptadorCualidades;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -48,6 +47,10 @@ public class Pensamiento extends Activity {
 
 		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
+		String fecha ="01/01/2015";
+		
+		
+		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
 
 	}
 
@@ -88,7 +91,12 @@ public class Pensamiento extends Activity {
 				d.setPensamiento(datos.getString("pensamiento"));
 				d.setAutorPensamiento(datos.getString("autorpensamiento"));					
 				lstDiario.add(d);
-
+				
+				txtPensamiento.setText("\""+d.getPensamiento()+"\"");
+				txtAutor.setText(d.getAutorPensamiento());
+				
+				
+				
 //				lista_mensual.setAdapter(new AdaptadorCualidades(
 //						getApplicationContext(), cualidades));
 				// adaptadorlista=new
@@ -128,6 +136,7 @@ public class Pensamiento extends Activity {
 		} catch (Exception e) {
 			Log.d("readJSONFeed", e.getLocalizedMessage());
 		}
+		Log.e("Pensamiento",stringBuilder.toString());
 		return stringBuilder.toString();
 	}
 }
