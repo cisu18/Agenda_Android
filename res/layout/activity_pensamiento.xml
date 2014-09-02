@@ -51,7 +51,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txt_Pensamiento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,22 +60,21 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos. Estoy acercándome a los cincuenta y deseo tener una iniciativa que ayude a otros a tener la iniciativa de ayudar a otros a superar sus propias respectivas y la de los demás.&apos;&apos; "
                 android:textColor="@color/LETRA"
                 android:textSize="16sp" />
+               
 
         </TableRow>
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_AutorPensamiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
         android:layout_marginTop="8dp"
-        android:gravity="right"
-        android:text="Ayrton Senna"
+        android:gravity="right"        
         android:textColor="@color/LETRA"
         android:textStyle="bold|italic" />
 

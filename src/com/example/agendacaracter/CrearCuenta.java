@@ -200,7 +200,6 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			int statusCode = statusLine.getStatusCode();
 			if (statusCode == 201) {
 				res = "success";
-
 			} else if (statusCode == 404) {
 				res = "error";
 			} else {

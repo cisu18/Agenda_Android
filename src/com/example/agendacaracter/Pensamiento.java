@@ -8,26 +8,28 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class Pensamiento extends Activity {
+	TextView txtPensamiento;
+	TextView txtAutor;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pensamiento);
-		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
-		
-        TextView title = (TextView)findViewById(R.id.textView1);
-		title.setTypeface(miPropiaTypeFace);
-		
-		TextView pensamiento = (TextView)findViewById(R.id.textView5);
-		pensamiento.setTypeface(miPropiaTypeFace);
-		
-		TextView autor = (TextView)findViewById(R.id.textView6);
-		autor.setTypeface(miPropiaTypeFace);
-		
-		
-	}
 
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
+
+		TextView title = (TextView) findViewById(R.id.textView1);
+		title.setTypeface(miPropiaTypeFace);
+
+		txtPensamiento = (TextView) findViewById(R.id.txt_Pensamiento);
+		txtPensamiento.setTypeface(miPropiaTypeFace);
+
+		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
+		txtAutor.setTypeface(miPropiaTypeFace);
+
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
