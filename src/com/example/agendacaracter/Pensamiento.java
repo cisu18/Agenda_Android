@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,15 +48,20 @@ public class Pensamiento extends Activity {
 
 		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
+		/*
+		Button registrarse = (Button) findViewById(R.id.btn);		
+		registrarse.setOnClickListener(this)
+		*/
+		String fecha = getFechaActual().substring(0, 5);
+		fecha="01-04";
 		
-		String fecha ="09/09/2015";
 		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
 
 	}
 	
 	public static String getFechaActual() {
         Date ahora = new Date();
-        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
         return formateador.format(ahora);        
     }
 

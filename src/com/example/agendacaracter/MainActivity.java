@@ -33,15 +33,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
        
         
-        setContentView(R.layout.activity_main);	
+        //setContentView(R.layout.activity_main);	
         
-        Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+        //Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
-        title = (TextView)findViewById(R.id.textView1);
-		title.setTypeface(miPropiaTypeFace);
-       // Intent i = new Intent(this,CrearCuenta.class);
+        //title = (TextView)findViewById(R.id.textView1);
+		//title.setTypeface(miPropiaTypeFace);
+        Intent i = new Intent(this,Pensamiento.class);
 
-		//startActivity(i);
+		startActivity(i);
 
 		/*Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 		textos.setTypeface(miPropiaTypeFace);*/
        
 		estaConectado();
-		EstablecerFecha();
+		//EstablecerFecha();
         
     }
     
