@@ -36,6 +36,7 @@
         android:shadowDx="14"
         android:shadowDy="58"
         android:textAllCaps="true"
+        android:textColor="@color/LETRA"
         android:textColorLink="@color/YELLOW" />
 
     <EditText

@@ -1,6 +1,5 @@
 package com.example.agendacaracter;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -43,6 +42,7 @@ public class MainActivity extends Activity {
        // Intent i = new Intent(this,CrearCuenta.class);
 
 		//startActivity(i);
+
 		/*Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
         TextView title = (TextView)findViewById(R.id.textView1);
@@ -62,8 +62,9 @@ public class MainActivity extends Activity {
 		
 		TextView textos = (TextView)findViewById(R.id.textView4);
 		textos.setTypeface(miPropiaTypeFace);*/
-        EstablecerFecha();
+       
 		estaConectado();
+		EstablecerFecha();
         
     }
     
@@ -85,10 +86,6 @@ public class MainActivity extends Activity {
 		
 		
 	}
-    
-    
-    
-    
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

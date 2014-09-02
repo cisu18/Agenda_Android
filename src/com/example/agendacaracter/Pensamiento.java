@@ -14,8 +14,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.example.entidad.Cualidades;
-import com.example.reutilizables.AdaptadorCualidades;
+
+import com.example.entidad.Diario;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -29,6 +29,7 @@ import android.widget.TextView;
 public class Pensamiento extends Activity {
 	TextView txtPensamiento;
 	TextView txtAutor;
+	ArrayList<Diario> lstDiario;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,10 @@ public class Pensamiento extends Activity {
 
 		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
+		String fecha ="01/01/2015";
+		
+		
+		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
 
 	}
 
@@ -68,7 +73,7 @@ public class Pensamiento extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/*private class ReadJSONFeedTask extends
+	private class ReadJSONFeedTask extends
 			AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
@@ -79,27 +84,28 @@ public class Pensamiento extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				cualidades = new ArrayList<Cualidades>();
+				lstDiario = new ArrayList<Diario>();
 
-				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualidades c = new Cualidades();
-					datos = jsonArray.getJSONObject(i);
-					c.setId(datos.getString("id"));
-					c.setCualidad(datos.getString("cualidad"));
-					c.setMes(datos.getString("mes"));
-					cualidades.add(c);
-
-				}
-
-				lista_mensual.setAdapter(new AdaptadorCualidades(
-						getApplicationContext(), cualidades));
+				Diario d = new Diario();
+				datos = jsonArray.getJSONObject(0);
+				d.setPensamiento(datos.getString("pensamiento"));
+				d.setAutorPensamiento(datos.getString("autorpensamiento"));					
+				lstDiario.add(d);
+				
+				txtPensamiento.setText("\""+d.getPensamiento()+"\"");
+				txtAutor.setText(d.getAutorPensamiento());
+				
+				
+				
+//				lista_mensual.setAdapter(new AdaptadorCualidades(
+//						getApplicationContext(), cualidades));
 				// adaptadorlista=new
 				// ArrayAdapter<Cualidades>(getApplicationContext(),
 				// android.R.layout.simple_list_item_1, cualidades);
 				// lista_mensual.setAdapter(adaptadorlista);
 
 			} catch (Exception e) {
-				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
 		}
 	}
@@ -130,6 +136,7 @@ public class Pensamiento extends Activity {
 		} catch (Exception e) {
 			Log.d("readJSONFeed", e.getLocalizedMessage());
 		}
+		Log.e("Pensamiento",stringBuilder.toString());
 		return stringBuilder.toString();
-	}*/
+	}
 }
