@@ -76,21 +76,21 @@ public final class R {
         public static final int RadioButton04=0x7f090018;
         public static final int RadioButton05=0x7f09001a;
         public static final int RadioGroup01=0x7f090015;
-        public static final int action_cerrar_sesion=0x7f09002e;
-        public static final int action_inicio=0x7f09002d;
-        public static final int action_listar=0x7f090030;
-        public static final int action_menu=0x7f09002f;
-        public static final int action_settings=0x7f09002c;
+        public static final int action_cerrar_sesion=0x7f090030;
+        public static final int action_inicio=0x7f09002f;
+        public static final int action_listar=0x7f090032;
+        public static final int action_menu=0x7f090031;
+        public static final int action_settings=0x7f09002e;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09001e;
         public static final int button1=0x7f090004;
-        public static final int gridView1=0x7f090028;
+        public static final int gridView1=0x7f09002a;
         public static final int imageView1=0x7f090003;
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
         public static final int imageView4=0x7f09000c;
         public static final int listView1=0x7f09001b;
-        public static final int opcVerLibros=0x7f090031;
+        public static final int opcVerLibros=0x7f090033;
         public static final int radio0=0x7f090010;
         public static final int radio1=0x7f090011;
         public static final int radio2=0x7f090012;
@@ -113,13 +113,15 @@ public final class R {
         public static final int textView9=0x7f090026;
         public static final int txtPass=0x7f09001d;
         public static final int txtUserName=0x7f09001c;
+        public static final int txt_AutorPensamiento=0x7f090029;
         public static final int txt_Email=0x7f090006;
         public static final int txt_Pass1=0x7f090007;
         public static final int txt_Pass2=0x7f090008;
+        public static final int txt_Pensamiento=0x7f090028;
         public static final int txt_UserName=0x7f090005;
-        public static final int txtcualidad=0x7f090029;
-        public static final int txtid=0x7f09002b;
-        public static final int txtmes=0x7f09002a;
+        public static final int txtcualidad=0x7f09002b;
+        public static final int txtid=0x7f09002d;
+        public static final int txtmes=0x7f09002c;
     }
     public static final class layout {
         public static final int activity_codigo__reserva=0x7f030000;
