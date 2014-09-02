@@ -17,8 +17,7 @@
         android:id="@+id/txt_UserName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
-        android:drawableLeft="@drawable/emaila"
+        android:drawableLeft="@drawable/usera"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="text"
@@ -29,15 +28,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left|bottom"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/usera"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/emaila"
         android:ems="10"
         android:hint="@string/correoelectronico"
         android:inputType="textEmailAddress"
         android:shadowDx="14"
         android:shadowDy="58"
         android:textAllCaps="true"
-        android:textColorLink="@color/YELLOW" />   
+        android:textColorLink="@color/YELLOW" />
 
     <EditText
       	android:id="@+id/txt_Pass1"
