@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         //setContentView(R.layout.activity_main);	
-        Intent i = new Intent(this,Evaluacion_diaria1.class);
+        Intent i = new Intent(this,Pensamiento.class);
 
 		startActivity(i);
 		/*Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
