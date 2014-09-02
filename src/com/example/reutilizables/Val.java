@@ -26,4 +26,12 @@ public class Val {
 		}
 		return isValid;
 	}
+	
+	public static boolean isVacio(String str1, String str2,String str3,String str4) {
+		boolean isValid = true;
+		if (str1.equals("")||str2.equals("")||str3.equals("")||str4.equals("")) {
+			isValid = false;
+		}
+		return isValid;
+	}
 }

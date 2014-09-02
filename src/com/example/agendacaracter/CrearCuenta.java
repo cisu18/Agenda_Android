@@ -88,19 +88,28 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnCrearcuenta:
-			String email = txtPass1.getText().toString();
+			String usuario = txtUsuario.getText().toString();
+			String email = txtEmail.getText().toString();
 			String pass1 = txtPass1.getText().toString();
-			String pass2 = txtPass1.getText().toString();
+			String pass2 = txtPass2.getText().toString();
 			StringBuilder msg= new StringBuilder();
 			boolean con=true;
-			if(!Val.isEmailValid(email)){
-				msg.append("Email Incorrecto"+"\n");
+			
+			if(Val.isVacio(usuario, email, pass1, pass2)){
+				if(!Val.isEmailValid(email)){
+					msg.append("Email Incorrecto"+"\n");
+					con=false;
+				}
+				if (!Val.isPasswordEquals(pass1,pass2)) {
+					msg.append("Las contraseñas no coinciden");
+					con=false;
+				}
+			}else{
+				msg.append("Complete todos los campos");
 				con=false;
 			}
-			if (!Val.isPasswordEquals(pass1,pass2)) {
-				msg.append("Las contraseñas no coinciden"+"\n");
-				con=false;
-			}
+			
+			
 			if (con) {
 				new RegistroUsuarioJSONFeedTask()
 						.execute("http://192.168.0.55/Agenda_WS/users/create_user/format/json");
