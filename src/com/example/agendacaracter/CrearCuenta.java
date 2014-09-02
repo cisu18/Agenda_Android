@@ -16,8 +16,11 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -87,27 +90,36 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btnCrearcuenta:
-			String email = txtPass1.getText().toString();
+		case R.id.btnCrearcuenta:			
+			String usuario = txtUsuario.getText().toString();
+			String email = txtEmail.getText().toString();
 			String pass1 = txtPass1.getText().toString();
-			String pass2 = txtPass1.getText().toString();
+			String pass2 = txtPass2.getText().toString();
 			StringBuilder msg= new StringBuilder();
 			boolean con=true;
-			if(!Val.isEmailValid(email)){
-				msg.append("Email Incorrecto"+"\n");
+			
+			if(Val.isVacio(usuario, email, pass1, pass2)){
+				if(!Val.isEmailValid(email)){
+					msg.append("Email Incorrecto"+"\n");
+					con=false;
+				}
+				if (!Val.isPasswordEquals(pass1,pass2)) {
+					msg.append("Las contraseñas no coinciden");
+					con=false;
+				}
+			}else{
+				msg.append("Complete todos los campos");
 				con=false;
 			}
-			if (!Val.isPasswordEquals(pass1,pass2)) {
-				msg.append("Las contraseñas no coinciden"+"\n");
-				con=false;
-			}
+			
+			
 			if (con) {
 				new RegistroUsuarioJSONFeedTask()
 						.execute("http://192.168.0.55/Agenda_WS/users/create_user/format/json");
 			} else {
 				Toast t = Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_SHORT);
 				t.show();
-			}			
+			}	
 
 			break;
 
@@ -132,9 +144,23 @@ public class CrearCuenta extends Activity implements OnClickListener {
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int which) {
+								SharedPreferences prefe=getSharedPreferences("user",Context.MODE_PRIVATE);
+						        Editor editor=prefe.edit();
+						        editor.putString("usuario", txtUsuario.getText().toString());
+						        editor.putString("email", txtEmail.getText().toString());						        
+						        editor.commit();	
 								Intent i = new Intent(getApplicationContext(),
-										Login.class);
+										MainActivity.class);
 								startActivity(i);
+								
+								/*
+								 * SharedPreferences
+								 */
+								
+								Toast t = Toast.makeText(getApplicationContext(),prefe.getString("email","")+prefe.getString("usuario",""), Toast.LENGTH_SHORT);
+								t.show();
+								
+								finish();
 							}
 						});
 
@@ -188,3 +214,4 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	}
 
 }
+

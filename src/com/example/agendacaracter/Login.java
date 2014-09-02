@@ -37,9 +37,11 @@ public class Login extends Activity implements OnClickListener {
 	public EditText usuario;
 	public EditText contrasenia;
 
-	private ProgressDialog pDialog;
 
-	// ArrayList<Usuario> usuarios;
+	
+    private ProgressDialog pDialog;
+	    
+	    
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
