@@ -2,15 +2,19 @@ package com.example.agendacaracter;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.appwidget.AppWidgetProviderInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -22,13 +26,20 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-
+	private TextView title;
+	
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       
         
-
         setContentView(R.layout.activity_main);	
+        
+        Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		
+        title = (TextView)findViewById(R.id.textView1);
+		title.setTypeface(miPropiaTypeFace);
        // Intent i = new Intent(this,CrearCuenta.class);
 
 		//startActivity(i);
@@ -57,20 +68,22 @@ public class MainActivity extends Activity {
     }
     
 	public void EstablecerFecha() {
-
-		Date fecha1 = new Date();
-
-		// Segun la versión utilizada de Java, los dos siguientes
-		// metodos pueden estar deprecated
-		//System.out.println(fecha1.toLocaleString());
-		//System.out.println(fecha1.toGMTString());
-
-		Calendar cal1 = Calendar.getInstance();
-		cal1.get(Calendar.DATE);
-		cal1.get(Calendar.MONTH);
-		cal1.get(Calendar.YEAR);
-		SimpleDateFormat dateFormat=new SimpleDateFormat();
-
+		
+		
+		String formato="MMMM'	'yyyy'	'EEEE' 'dd";
+		
+		SimpleDateFormat dateFormat=new SimpleDateFormat(formato, Locale.getDefault());
+		Date cal1 = new Date();
+		String fecha=dateFormat.format(cal1);
+		System.out.println(fecha);
+		title.setText(fecha);
+		
+		String formatoWebservice="dd/MM/yyyy";
+		SimpleDateFormat dateFormat2=new SimpleDateFormat(formatoWebservice);
+		fecha=dateFormat2.format(cal1);
+		System.out.println(fecha);
+		
+		
 	}
     
     
