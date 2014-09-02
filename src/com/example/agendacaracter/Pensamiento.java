@@ -3,7 +3,9 @@ package com.example.agendacaracter;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,9 +16,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
-import com.example.entidad.Diario;
-
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -25,11 +24,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Pensamiento extends Activity {
 	TextView txtPensamiento;
 	TextView txtAutor;
-	ArrayList<Diario> lstDiario;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +46,17 @@ public class Pensamiento extends Activity {
 
 		txtAutor = (TextView) findViewById(R.id.txt_AutorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
-		String fecha ="01/01/2015";
 		
-		
+		String fecha ="09/09/2015";
 		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
 
 	}
+	
+	public static String getFechaActual() {
+        Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        return formateador.format(ahora);        
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,19 +87,14 @@ public class Pensamiento extends Activity {
 		protected void onPostExecute(String result) {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
-				JSONObject datos = new JSONObject();
-				lstDiario = new ArrayList<Diario>();
-
-				Diario d = new Diario();
-				datos = jsonArray.getJSONObject(0);
-				d.setPensamiento(datos.getString("pensamiento"));
-				d.setAutorPensamiento(datos.getString("autorpensamiento"));					
-				lstDiario.add(d);
+				JSONObject datos = new JSONObject();				
+				datos = jsonArray.getJSONObject(0);				
 				
-				txtPensamiento.setText("\""+d.getPensamiento()+"\"");
-				txtAutor.setText(d.getAutorPensamiento());
-				
-				
+				Toast t = Toast.makeText(getApplicationContext(),getFechaActual(), Toast.LENGTH_SHORT);
+				t.show();
+				txtPensamiento.setText("\""+datos.getString("pensamiento")+"\"");
+				txtAutor.setText(datos.getString("autorpensamiento"));
+						
 				
 //				lista_mensual.setAdapter(new AdaptadorCualidades(
 //						getApplicationContext(), cualidades));
@@ -131,12 +130,12 @@ public class Pensamiento extends Activity {
 				}
 				inputStream.close();
 			} else {
-				Log.d("JSON", "No se ha podido descargar archivo");
+				Log.e("JSON", "No se ha podido descargar archivo");
 			}
 		} catch (Exception e) {
-			Log.d("readJSONFeed", e.getLocalizedMessage());
+			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
-		Log.e("Pensamiento",stringBuilder.toString());
+		
 		return stringBuilder.toString();
 	}
 }
