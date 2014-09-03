@@ -17,13 +17,15 @@ public class Evaluacion_diaria2 extends Activity {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
+
         TextView title = (TextView)findViewById(R.id.txt_cabecera);
+
         title.setTypeface(miPropiaTypeFace);
         
-        TextView indicaciones = (TextView)findViewById(R.id.textView5);
+        TextView indicaciones = (TextView)findViewById(R.id.txt_Versiculo_Diario);
         indicaciones.setTypeface(miPropiaTypeFace);
         
-        TextView tercerapregunta = (TextView)findViewById(R.id.textView2);
+        TextView tercerapregunta = (TextView)findViewById(R.id.txt_Nombre_Cualidad);
         tercerapregunta.setTypeface(miPropiaTypeFace);
         
         Button resultado = (Button)findViewById(R.id.button1);

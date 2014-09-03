@@ -1,7 +1,7 @@
 package com.example.entidad;
 
 public class Diario {
-	private String id;
+	private int id;
 	private String fecha;
 	private String mes;
 	private String numeroVersiculo;
@@ -9,12 +9,12 @@ public class Diario {
 	private String planLectura;
 	private String autorPensamiento;
 	private String pensamiento;
-	private String idCualidad;
-	
-	public String getId() {
+	private int idCualidad;
+	private String Cualidad;
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFecha() {
@@ -59,12 +59,20 @@ public class Diario {
 	public void setPensamiento(String pensamiento) {
 		this.pensamiento = pensamiento;
 	}
-	public String getIdCualidad() {
+	public int getIdCualidad() {
 		return idCualidad;
 	}
-	public void setIdCualidad(String idCualidad) {
+	public void setIdCualidad(int idCualidad) {
 		this.idCualidad = idCualidad;
 	}
+	public String getCualidad() {
+		return Cualidad;
+	}
+	public void setCualidad(String cualidad) {
+		Cualidad = cualidad;
+	}
+	
+	
 	
 	
 }

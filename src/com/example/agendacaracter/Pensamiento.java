@@ -42,6 +42,7 @@ public class Pensamiento extends Activity  implements OnClickListener {
 				"fonts/Myriad_Pro.ttf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
+
 		title.setTypeface(miPropiaTypeFace);
 
 		txtPensamiento = (TextView) findViewById(R.id.txt_pensamiento);

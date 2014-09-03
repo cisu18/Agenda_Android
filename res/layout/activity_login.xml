@@ -67,7 +67,9 @@
             android:gravity="center" >
 
             <TextView
+
                 android:id="@+id/txt_cabecera"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"

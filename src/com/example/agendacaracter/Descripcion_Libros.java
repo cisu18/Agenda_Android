@@ -19,18 +19,19 @@ public class Descripcion_Libros extends Activity {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
 		TextView title = (TextView)findViewById(R.id.txt_cabecera);
+
 		title.setTypeface(miPropiaTypeFace);
 		
-		TextView descripcionlibro = (TextView)findViewById(R.id.textView5);
+		TextView descripcionlibro = (TextView)findViewById(R.id.txt_Versiculo_Diario);
 		descripcionlibro.setTypeface(miPropiaTypeFace);
 		
-		TextView reservacuenta = (TextView)findViewById(R.id.textView2);
+		TextView reservacuenta = (TextView)findViewById(R.id.txt_Nombre_Cualidad);
 		reservacuenta.setTypeface(miPropiaTypeFace);
 		
 		Button btnaqui = (Button)findViewById(R.id.button1);
 		btnaqui.setTypeface(miPropiaTypeFace);
 		
-		TextView redesociales = (TextView)findViewById(R.id.textView3);
+		TextView redesociales = (TextView)findViewById(R.id.lbl_Plan_Lectura);
 		redesociales.setTypeface(miPropiaTypeFace);
 	}
 

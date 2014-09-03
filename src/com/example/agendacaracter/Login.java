@@ -57,6 +57,7 @@ public class Login extends Activity implements OnClickListener {
 		contrasenia.setTypeface(miPropiaTypeFace);
 
 		TextView logincon = (TextView) findViewById(R.id.txt_cabecera);
+
 		logincon.setTypeface(miPropiaTypeFace);
 
 		Button iniciosesion = (Button) findViewById(R.id.btnRegister);

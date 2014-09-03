@@ -18,7 +18,9 @@ public class Referencia extends Activity {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
+
 		TextView usuario = (TextView)findViewById(R.id.txt_cabecera);
+
 		usuario.setTypeface(miPropiaTypeFace);
 		
 		Bundle bundle = getIntent().getExtras();

@@ -18,10 +18,13 @@ public class Codigo_Reserva extends Activity {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
+
 		TextView codigoreserva = (TextView)findViewById(R.id.txt_cabecera);
+
+
 		codigoreserva.setTypeface(miPropiaTypeFace);
 		
-		TextView indicaciones = (TextView)findViewById(R.id.textView5);
+		TextView indicaciones = (TextView)findViewById(R.id.txt_Versiculo_Diario);
 		indicaciones.setTypeface(miPropiaTypeFace);
 		
 		Button aceptar = (Button)findViewById(R.id.button1);
