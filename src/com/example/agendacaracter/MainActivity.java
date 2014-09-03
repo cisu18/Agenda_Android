@@ -82,10 +82,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
-<<<<<<< Updated upstream
 		compartirVersiculo.setOnClickListener(this);
-=======
->>>>>>> Stashed changes
 
 		estaConectado();
 		EstablecerFecha();

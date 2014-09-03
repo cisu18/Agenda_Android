@@ -58,7 +58,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txtLibroReferencia.setOnClickListener(this);
 		
 		String fecha = getFechaActual().substring(0, 5);
-		fecha="09-10";	//mensaje corto
+		//fecha="09-10";	//mensaje corto
 		//fecha="24-11";	//mensaje largo
 		//fecha="24-08";	//autor corto
 		//fecha="02-12";	//autor largo
