@@ -82,7 +82,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
+<<<<<<< Updated upstream
 		compartirVersiculo.setOnClickListener(this);
+=======
+>>>>>>> Stashed changes
 
 		estaConectado();
 		EstablecerFecha();
@@ -145,6 +148,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		fecha = dateFormat2.format(cal1);
 		System.out.println(fecha);
 
+		//fecha="21-09"; //autor corto
+		//fecha="26-10"; //autor largo
+		//fecha="19-11"; //largo
+		//fecha="25-01"; //corto
 		new ReadDiarioJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/cualidades_dia/format/json/fecha/"
 						+ fecha);
