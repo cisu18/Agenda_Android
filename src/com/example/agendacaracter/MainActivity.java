@@ -35,7 +35,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
-	
+
 	private TextView fechaMovil;
 	private TextView cualidad;
 	private TextView versiculo;
@@ -46,7 +46,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView compartirVersiculo;
 	private TextView IrPensamiento;
 	private TextView IrEvaluacion;
-	
 
 	private ProgressDialog pDialog;
 
@@ -76,22 +75,19 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
 		textosPlanLectura.setTypeface(miPropiaTypeFace);
-		
-		compartirVersiculo=(TextView)findViewById(R.id.txt_Compartir_Versiculo);
-		IrPensamiento=(TextView)findViewById(R.id.txt_Pensamiento_Diario);
-		IrEvaluacion=(TextView)findViewById(R.id.txtEvaluacionDiaria);
-		
+
+		compartirVersiculo = (TextView) findViewById(R.id.txt_Compartir_Versiculo);
+		IrPensamiento = (TextView) findViewById(R.id.txt_Pensamiento_Diario);
+		IrEvaluacion = (TextView) findViewById(R.id.txtEvaluacionDiaria);
+
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
-		
-		
-		
+		compartirVersiculo.setOnClickListener(this);
 
 		estaConectado();
 		EstablecerFecha();
-        
-    }
-    
+
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -104,6 +100,26 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.txtEvaluacionDiaria:
 			Intent in = new Intent(this, Evaluacion_diaria1.class);
 			startActivity(in);
+			break;
+		case R.id.txt_Compartir_Versiculo:
+			
+			/*Intent inte = new Intent();
+			inte.setAction(Intent.ACTION_SEND);
+			String msgver = versiculo.getText().toString();
+			inte.putExtra(Intent.EXTRA_TEXT, msgver);
+			inte.setType("text/plain");
+			startActivity(Intent.createChooser(inte, "Compartir"));*/
+			
+			Intent intent = new Intent(Intent.ACTION_SEND);
+
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_SUBJECT, "Versiculo Diario");
+			intent.putExtra(Intent.EXTRA_TEXT, versiculo.getText().toString());
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+			this.startActivity(Intent.createChooser(intent, "Compartir en"));
+
+			
 			break;
 		default:
 
@@ -124,7 +140,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		fechaMovil.setText(fecha);
 
 		String formatoWebservice = "dd-MM";
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat(formatoWebservice,Locale.getDefault());
+		SimpleDateFormat dateFormat2 = new SimpleDateFormat(formatoWebservice,
+				Locale.getDefault());
 		fecha = dateFormat2.format(cal1);
 		System.out.println(fecha);
 
@@ -302,7 +319,5 @@ public class MainActivity extends Activity implements OnClickListener {
 		Log.e("Datos Diarios", stringBuilder.toString());
 		return stringBuilder.toString();
 	}
-
-	
 
 }
