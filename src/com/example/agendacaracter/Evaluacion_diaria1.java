@@ -9,45 +9,67 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Evaluacion_diaria1 extends Activity implements OnClickListener {
+
+	private Button btnSiguiente;
+	public int puntaje;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_evaluacion_diaria1);
-		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
+
+		TextView title = (TextView) findViewById(R.id.txt_cabecera);
+		title.setTypeface(miPropiaTypeFace);
+
+		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
+		indicaciones.setTypeface(miPropiaTypeFace);
+
+		TextView txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
+		txvPregunta01.setTypeface(miPropiaTypeFace);
+		txvPregunta01
+				.setText("¿Cuánto de esta cualidad aplicaste el día de hoy?");
+
+		TextView txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
+		txvPregunta02.setTypeface(miPropiaTypeFace);
+		txvPregunta02
+				.setText("¿Cuánto de esta cualidad aplicaste el día de hoy?");
+
+		btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
+		btnSiguiente.setTypeface(miPropiaTypeFace);
+		btnSiguiente.setOnClickListener(this);
 		
 
-        TextView title = (TextView)findViewById(R.id.txt_cabecera);
-        title.setTypeface(miPropiaTypeFace);
-		
-        TextView indicaciones = (TextView)findViewById(R.id.txt_Versiculo_Diario);
-        indicaciones.setTypeface(miPropiaTypeFace);
-        
-        TextView pregunta1 = (TextView)findViewById(R.id.txt_Nombre_Cualidad);
-        pregunta1.setTypeface(miPropiaTypeFace);
-        
-        TextView pregunta2 = (TextView)findViewById(R.id.lbl_Plan_Lectura);
-        pregunta2.setTypeface(miPropiaTypeFace);
-        
-        Button siguiente = (Button)findViewById(R.id.btn_siguiente);
-        siguiente.setTypeface(miPropiaTypeFace);
-        siguiente.setOnClickListener(this);
-        
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_siguiente:
-			Intent i = new Intent(this,Evaluacion_diaria2.class);
+			
+			RadioGroup rdbgPregunta01 = (RadioGroup) findViewById(R.id.rdbg_grupo_puntaje_01);
+			RadioGroup rdbgPregunta02 = (RadioGroup) findViewById(R.id.rdbg_grupo_puntaje_02);
+		
+			RadioButton rdbPregunta01 = (RadioButton) findViewById(rdbgPregunta01.getCheckedRadioButtonId());
+			RadioButton rdbPregunta02 = (RadioButton) findViewById(rdbgPregunta02.getCheckedRadioButtonId());
+			
+			puntaje = Integer.parseInt(rdbPregunta01.getText().toString()) + Integer.parseInt(rdbPregunta02.getText().toString());
+			//Toast.makeText(getApplicationContext(),puntaje+"", Toast.LENGTH_SHORT).show();
+					
+			
+			Intent i = new Intent(this, Evaluacion_diaria2.class);
+			i.putExtra("puntaje", puntaje);
 			startActivity(i);
 			break;
 		}
-		
 	}
 
 	@Override
@@ -67,5 +89,5 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}	
+	}
 }

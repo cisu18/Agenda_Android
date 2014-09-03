@@ -14,8 +14,6 @@
         <TextView
 
             android:id="@+id/txt_cabecera"
-
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -31,7 +29,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_Versiculo_Diario"
+            android:id="@+id/txt_introduccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -41,7 +39,7 @@
             android:textSize="16sp" />
         
         <TextView
-            android:id="@+id/txt_Numero_Versiculo"
+            android:id="@+id/txt_especificaciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -51,7 +49,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txt_Nombre_Cualidad"
+            android:id="@+id/txv_pregunta_01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -68,7 +66,7 @@
             android:gravity="center_horizontal" >
 
             <RadioGroup
-                android:id="@+id/radioGroup1"
+                android:id="@+id/rdbg_grupo_puntaje_01"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -76,7 +74,7 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/radio0"
+                    android:id="@+id/rdb_puntaje_01_1"
                     style="@color/LETRA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -87,7 +85,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/radio1"
+                    android:id="@+id/rdb_puntaje_01_2"
                     style="@color/YELLOW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,7 +95,7 @@
                     android:textColorHint="@color/YELLOW" />
 
                 <RadioButton
-                    android:id="@+id/radio2"
+                    android:id="@+id/rdb_puntaje_01_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -105,7 +103,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/radio3"
+                    android:id="@+id/rdb_puntaje_01_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -113,7 +111,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/radio4"
+                    android:id="@+id/rdb_puntaje_01_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -123,7 +121,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/lbl_Plan_Lectura"
+            android:id="@+id/txv_pregunta_02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -139,7 +137,7 @@
             android:gravity="center_horizontal" >
 
             <RadioGroup
-                android:id="@+id/RadioGroup01"
+                android:id="@+id/rdbg_grupo_puntaje_02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -147,7 +145,7 @@
                 android:orientation="horizontal" >
 
                 <RadioButton
-                    android:id="@+id/RadioButton02"
+                    android:id="@+id/rdb_puntaje_02_1"
                     style="@color/LETRA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,7 +156,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/RadioButton01"
+                    android:id="@+id/rdb_puntaje_02_2"
                     style="@color/YELLOW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -168,7 +166,7 @@
                     android:textColorHint="@color/YELLOW" />
 
                 <RadioButton
-                    android:id="@+id/RadioButton04"
+                    android:id="@+id/rdb_puntaje_02_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -176,7 +174,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/RadioButton03"
+                    android:id="@+id/rdb_puntaje_02_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -184,7 +182,7 @@
                     android:textColor="@color/LETRA" />
 
                 <RadioButton
-                    android:id="@+id/RadioButton05"
+                    android:id="@+id/rdb_puntaje_02_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

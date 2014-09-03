@@ -51,52 +51,53 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
-		
-		TextView txtEvaluion = (TextView) findViewById(R.id.txt_Evaluacion);		
-		txtEvaluion.setOnClickListener(this);
-		TextView txtLibroReferencia = (TextView) findViewById(R.id.txt_LibroReferencia);		
+
+		TextView txtEvaluacion = (TextView) findViewById(R.id.txt_Evaluacion);
+		txtEvaluacion.setOnClickListener(this);
+
+		TextView txtLibroReferencia = (TextView) findViewById(R.id.txt_LibroReferencia);
 		txtLibroReferencia.setOnClickListener(this);
-		
+
 		String fecha = getFechaActual().substring(0, 5);
-		//fecha="01-04";		
-		
-		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
-		
+		// fecha="01-04";
+
+		new ReadJSONFeedTask()
+				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
+						+ fecha);
+
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Evaluacion:
-			Intent i = new Intent(this,Evaluacion_diaria1.class);
+			Intent i = new Intent(this, Evaluacion_diaria1.class);
 			startActivity(i);
+			finish();
 			break;
 		case R.id.txt_LibroReferencia:
-			Intent i2 = new Intent(this,Referencia.class);
+			Intent i2 = new Intent(this, Referencia.class);
 			startActivity(i2);
+			finish();
 			break;
 		}
-		
+
 	}
-	
+
 	public static String getFechaActual() {
-        Date ahora = new Date();
-        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-        return formateador.format(ahora);        
-    }
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
+		return formateador.format(ahora);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.pensamiento, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -104,8 +105,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private class ReadJSONFeedTask extends
-			AsyncTask<String, Void, String> {
+	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
 			return readJSONFeed(urls[0]);
@@ -114,21 +114,12 @@ public class Pensamiento extends Activity implements OnClickListener {
 		protected void onPostExecute(String result) {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
-				JSONObject datos = new JSONObject();				
-				datos = jsonArray.getJSONObject(0);				
-				
-				Toast t = Toast.makeText(getApplicationContext(),getFechaActual(), Toast.LENGTH_SHORT);
-				t.show();
-				txtPensamiento.setText("\""+datos.getString("pensamiento")+"\"");
+				JSONObject datos = new JSONObject();
+				datos = jsonArray.getJSONObject(0);
+
+				txtPensamiento.setText("\"" + datos.getString("pensamiento")
+						+ "\"");
 				txtAutor.setText(datos.getString("autorpensamiento"));
-						
-				
-//				lista_mensual.setAdapter(new AdaptadorCualidades(
-//						getApplicationContext(), cualidades));
-				// adaptadorlista=new
-				// ArrayAdapter<Cualidades>(getApplicationContext(),
-				// android.R.layout.simple_list_item_1, cualidades);
-				// lista_mensual.setAdapter(adaptadorlista);
 
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
@@ -162,7 +153,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		} catch (Exception e) {
 			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
-		
+
 		return stringBuilder.toString();
-	}	
+	}
 }

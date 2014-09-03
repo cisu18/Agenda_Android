@@ -48,7 +48,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/Myriad_Pro.ttf");
 
-		alert = new AlertDialog.Builder(this).create();
+		
 
 		txtEmail = (EditText) findViewById(R.id.txt_Email);
 		txtEmail.setTypeface(miPropiaTypeFace);
@@ -110,8 +110,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			}else{
 				msg.append("Complete todos los campos");
 				con=false;
-			}
-			
+			}		
 			
 			if (con) {
 				new RegistroUsuarioJSONFeedTask()
@@ -119,8 +118,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			} else {
 				Toast t = Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_SHORT);
 				t.show();
-			}	
-
+			}
 			break;
 
 		}
@@ -136,6 +134,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		}
 
 		protected void onPostExecute(String res) {
+			alert = new AlertDialog.Builder(CrearCuenta.this).create();
 			alert.setTitle("Mensaje");
 			alert.setIcon(R.drawable.ic_action_accept);
 			if (res.equals("success")) {
@@ -152,6 +151,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 								Intent i = new Intent(getApplicationContext(),
 										MainActivity.class);
 								startActivity(i);
+								finish();
 								
 								/*
 								 * SharedPreferences
@@ -198,7 +198,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 			StatusLine statusLine = response.getStatusLine();
 			int statusCode = statusLine.getStatusCode();
-			if (statusCode == 201) {
+			if (statusCode == 200) {
 				res = "success";
 			} else if (statusCode == 404) {
 				res = "error";
