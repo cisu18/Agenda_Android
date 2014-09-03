@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/FONDO"
     android:scrollbars="horizontal|vertical" >
     
@@ -20,8 +20,8 @@
 
         <TableRow
             android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/CABECERA"
             android:gravity="center" >
 
@@ -48,7 +48,10 @@
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
 
             <TextView
                 android:id="@+id/txt_pensamiento"
@@ -70,19 +73,21 @@
     <TextView
         android:id="@+id/txt_autorPensamiento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="17dp"
-        android:gravity="right"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="33dp"
+        android:gravity="right|center"
+        android:paddingLeft="30dp"
         android:textColor="@color/LETRA"
         android:textSize="20sp"
         android:textStyle="bold|italic" />
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_marginTop="23dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="vertical"
         android:stretchColumns="0,1,2" >
