@@ -16,7 +16,7 @@ public class Referencia extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_referencia);
 		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
+		/*Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 		
 
 		TextView usuario = (TextView)findViewById(R.id.txt_cabecera);
@@ -26,7 +26,7 @@ public class Referencia extends Activity {
 		Bundle bundle = getIntent().getExtras();
         //bundle.getString("id cualidad");
         Toast.makeText(Referencia.this, "You have chosen: " + " " + bundle.getString("id cualidad"), Toast.LENGTH_LONG).show();
-		
+		*/
         
 	}
 

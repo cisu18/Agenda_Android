@@ -194,7 +194,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btn_siguiente"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

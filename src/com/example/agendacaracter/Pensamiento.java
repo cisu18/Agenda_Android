@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Pensamiento extends Activity  implements OnClickListener {
+public class Pensamiento extends Activity implements OnClickListener {
 	TextView txtPensamiento;
 	TextView txtAutor;
 
@@ -51,11 +52,13 @@ public class Pensamiento extends Activity  implements OnClickListener {
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
 		
-		TextView registrarse = (TextView) findViewById(R.id.txt_Evaluacion);		
-		registrarse.setOnClickListener(this);
+		TextView txtEvaluion = (TextView) findViewById(R.id.txt_Evaluacion);		
+		txtEvaluion.setOnClickListener(this);
+		TextView txtLibroReferencia = (TextView) findViewById(R.id.txt_LibroReferencia);		
+		txtLibroReferencia.setOnClickListener(this);
 		
 		String fecha = getFechaActual().substring(0, 5);
-		fecha="01-04";
+		//fecha="01-04";		
 		
 		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
 		
@@ -65,12 +68,12 @@ public class Pensamiento extends Activity  implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Evaluacion:
-			Toast t = Toast.makeText(getApplicationContext(),"Funciona el textview", Toast.LENGTH_SHORT);
-			t.show();
+			Intent i = new Intent(this,Evaluacion_diaria1.class);
+			startActivity(i);
 			break;
 		case R.id.txt_LibroReferencia:
-			Toast ti = Toast.makeText(getApplicationContext(),"Funciona el textview 2", Toast.LENGTH_SHORT);
-			ti.show();
+			Intent i2 = new Intent(this,Referencia.class);
+			startActivity(i2);
 			break;
 		}
 		

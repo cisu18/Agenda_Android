@@ -1,14 +1,17 @@
 package com.example.agendacaracter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Evaluacion_diaria1 extends Activity {
+public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,21 @@ public class Evaluacion_diaria1 extends Activity {
         TextView pregunta2 = (TextView)findViewById(R.id.lbl_Plan_Lectura);
         pregunta2.setTypeface(miPropiaTypeFace);
         
-        Button siguiente = (Button)findViewById(R.id.button1);
+        Button siguiente = (Button)findViewById(R.id.btn_siguiente);
         siguiente.setTypeface(miPropiaTypeFace);
+        siguiente.setOnClickListener(this);
+        
+	}
+	
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_siguiente:
+			Intent i = new Intent(this,Evaluacion_diaria2.class);
+			startActivity(i);
+			break;
+		}
+		
 	}
 
 	@Override
@@ -51,5 +67,5 @@ public class Evaluacion_diaria1 extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}	
 }
