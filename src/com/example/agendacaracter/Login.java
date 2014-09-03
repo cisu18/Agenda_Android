@@ -18,7 +18,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -36,12 +39,7 @@ public class Login extends Activity implements OnClickListener {
 
 	public EditText usuario;
 	public EditText contrasenia;
-
-
-	
-    private ProgressDialog pDialog;
-	    
-	    
+	private ProgressDialog pDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +78,24 @@ public class Login extends Activity implements OnClickListener {
 		// determine which button was pressed:
 		switch (v.getId()) {
 		case R.id.btnRegister:
-			new ReadUsuarioJSONFeedTask()
-					.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
+
+			String us = usuario.getText().toString();
+			String cl = contrasenia.getText().toString();
+
+			if (us.equals("") || cl.equals("")) {
+				Log.e("ingreso", "Ingresar usuario y clave");
+				// message.setTitle("Ingresar Datos...");
+				// message.setTitle("Porfavor completas todos los campos...");
+				// message.show();
+				showAlertDialog(Login.this, "Ingresar Datos...",
+						"Porfavor completa todos los campos...", false);
+
+			} else {
+				new ReadUsuarioJSONFeedTask()
+						.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
+
+			}
+
 			break;
 		case R.id.btnCrearcuenta:
 			Intent i = new Intent(this, CrearCuenta.class);
@@ -122,6 +136,7 @@ public class Login extends Activity implements OnClickListener {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
+
 			pDialog = new ProgressDialog(Login.this);
 			pDialog.setMessage("Iniciando Sesion...");
 			pDialog.setIndeterminate(false);
@@ -142,13 +157,8 @@ public class Login extends Activity implements OnClickListener {
 		protected void onPostExecute(String result) {
 
 			try {
-				//Log.e("resultad", result.toString());
-				// JSONArray jsonArray = new JSONArray(result);
-				// Log.i("Email","Email"+jsonArray.toString());
-
+				
 				JSONObject datos = new JSONObject(result);
-				//usuarios = new ArrayList<Usuario>();
-
 				int Id = datos.getInt("id");
 				String Usuario = datos.getString("usuario");
 				String Email = datos.getString("email");
@@ -163,6 +173,8 @@ public class Login extends Activity implements OnClickListener {
 
 			} catch (Exception e) {
 				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				showAlertDialog(Login.this, "Datos Incorrectos...",
+						"La contraseña o usuario no son validos...", false);
 			}
 			// dismiss the dialog once product deleted
 			pDialog.dismiss();
@@ -204,12 +216,32 @@ public class Login extends Activity implements OnClickListener {
 				inputStream.close();
 			} else {
 				Log.d("JSON", "No se ha podido descargar archivo");
+
 			}
 		} catch (Exception e) {
 			Log.d("readJSONFeed", e.getLocalizedMessage());
 		}
 
 		return stringBuilder.toString();
+	}
+
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+
+			}
+
+		});
+
+		alertDialog.show();
 	}
 
 }

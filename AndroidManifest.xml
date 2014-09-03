@@ -62,6 +62,8 @@
             android:name=".Evaluacion_diaria2"
             android:label="@string/app_name" >
         </activity>
+        
+        
     </application>
 
 </manifest>

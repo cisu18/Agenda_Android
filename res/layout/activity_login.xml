@@ -19,6 +19,7 @@
             android:layout_height="match_parent"
             android:hint="Usuario"
             android:inputType="text"
+            android:textAllCaps="true"
             android:textColor="@color/LETRA" />
 
         <EditText
