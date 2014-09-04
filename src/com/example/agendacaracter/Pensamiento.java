@@ -52,6 +52,9 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miPropiaTypeFace);
 
+		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
+		txvCompartir.setOnClickListener(this);
+
 		TextView txtEvaluacion = (TextView) findViewById(R.id.txt_Evaluacion);
 		txtEvaluacion.setOnClickListener(this);
 
@@ -60,14 +63,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		String fecha = getFechaActual().substring(0, 5);
 
+		// fecha="09-10"; //mensaje corto
+		// fecha="24-11"; //mensaje largo
+		// fecha="24-08"; //autor corto
+		// fecha="02-12"; //autor largo
 
-		//fecha="09-10";	//mensaje corto
-		//fecha="24-11";	//mensaje largo
-		//fecha="24-08";	//autor corto
-		//fecha="02-12";	//autor largo
-		
-		new ReadJSONFeedTask().execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"+fecha);
-		
+		new ReadJSONFeedTask()
+				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
+						+ fecha);
 
 	}
 
@@ -77,12 +80,22 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.txt_Evaluacion:
 			Intent i = new Intent(this, Evaluacion_diaria1.class);
 			startActivity(i);
-			finish();
 			break;
 		case R.id.txt_LibroReferencia:
 			Intent i2 = new Intent(this, Referencia.class);
 			startActivity(i2);
-			finish();
+			break;
+
+		case R.id.txt_compartir:
+			Intent intent = new Intent(Intent.ACTION_SEND);
+
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_SUBJECT, "Versiculo Diario");
+			intent.putExtra(Intent.EXTRA_TEXT, txtPensamiento.getText()
+					.toString() + "\n" + txtAutor.getText().toString());
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+			this.startActivity(Intent.createChooser(intent, "Compartir en"));
 			break;
 		}
 
