@@ -36,7 +36,7 @@
     </TableLayout>
 
     <GridView
-        android:id="@+id/gridView1"
+        android:id="@+id/gvLibros"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2" >

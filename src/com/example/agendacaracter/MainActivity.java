@@ -113,13 +113,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(Intent.ACTION_SEND);
 
 			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Versiculo Diario");
+			intent.putExtra(Intent.EXTRA_SUBJECT, cualidad.getText().toString());
 			intent.putExtra(Intent.EXTRA_TEXT, versiculo.getText().toString());
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 			this.startActivity(Intent.createChooser(intent, "Compartir en"));
-
-			
+		 		
+			//share(this, "Versiculo del dia", versiculo.getText().toString());
 			break;
 		default:
 
@@ -127,6 +127,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		}
 	}
+
+//	 public static void share(Context ctx, String subject,String text) {
+//        final Intent intent = new Intent(Intent.ACTION_SEND);
+//
+//        intent.setType("text/plain");
+//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        intent.putExtra(Intent.EXTRA_TEXT, text);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//
+//        ctx.startActivity(Intent.createChooser(intent, ctx.getString(R.string.msg_MostrarCualidad)));
+//       }
+
 
 	public void EstablecerFecha() {
 

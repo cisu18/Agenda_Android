@@ -87,7 +87,7 @@ public final class R {
         public static final int btn_siguiente=0x7f09001f;
         public static final int btn_ver_resultado=0x7f090027;
         public static final int button1=0x7f090004;
-        public static final int gridView1=0x7f09003b;
+        public static final int gvLibros=0x7f09003b;
         public static final int imageView1=0x7f090003;
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
