@@ -17,6 +17,7 @@
             android:id="@+id/txtUserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:drawableRight="@drawable/user_login"
             android:hint="Usuario"
             android:inputType="text"
             android:textAllCaps="true"
@@ -28,6 +29,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/contra_login"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:textColor="@color/LETRA" />
@@ -37,9 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_marginTop="11dp"
             android:background="@color/CABECERA"
-            android:drawableLeft="@drawable/key_log_32"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:text="Inicia Sesión"
@@ -50,9 +53,10 @@
             android:id="@+id/btnCrearcuenta"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_marginTop="15dp"
             android:background="@color/CABECERA"
-            android:drawableLeft="@drawable/ic_action_user"
             android:paddingLeft="35dp"
             android:paddingRight="50dp"
             android:text="Regístrate"
@@ -64,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="18dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:gravity="center" >
 
             <TextView
@@ -89,7 +93,7 @@
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/facebook1" />
+                android:src="@drawable/face" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
