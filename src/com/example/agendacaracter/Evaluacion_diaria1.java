@@ -17,7 +17,7 @@ import android.widget.Toast;
 public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 
 	private Button btnSiguiente;
-	public int puntaje;
+	public Double puntaje;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 			RadioButton rdbPregunta01 = (RadioButton) findViewById(rdbgPregunta01.getCheckedRadioButtonId());
 			RadioButton rdbPregunta02 = (RadioButton) findViewById(rdbgPregunta02.getCheckedRadioButtonId());
 			
-			puntaje = Integer.parseInt(rdbPregunta01.getText().toString()) + Integer.parseInt(rdbPregunta02.getText().toString());
+			puntaje = Double.parseDouble(rdbPregunta01.getText().toString()) + Double.parseDouble(rdbPregunta02.getText().toString());
 			//Toast.makeText(getApplicationContext(),puntaje+"", Toast.LENGTH_SHORT).show();
 					
 			

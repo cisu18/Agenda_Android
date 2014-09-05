@@ -23,6 +23,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -168,6 +170,12 @@ public class Login extends Activity implements OnClickListener {
 				in.putExtra("id Usuario", Id);
 				in.putExtra("Nombre Usario", Usuario);
 				in.putExtra("Email Usuario", Email);
+				
+				SharedPreferences prefe = getSharedPreferences("user",
+						Context.MODE_PRIVATE);
+				Editor editor = prefe.edit();
+				editor.putString("id", datos.getString("id"));				
+				editor.commit();
 
 				startActivity(in);
 

@@ -15,7 +15,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -38,75 +37,81 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Evaluacion_diaria2 extends Activity implements OnClickListener {
-	
-	public int puntaje;
+
+	public double puntaje;
 	AlertDialog alert;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_evaluacion_diaria2);
-		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
 
-        TextView title = (TextView)findViewById(R.id.txt_cabecera);
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
 
-        title.setTypeface(miPropiaTypeFace);
-        
-        TextView indicaciones = (TextView)findViewById(R.id.txt_especificaciones);
-        indicaciones.setTypeface(miPropiaTypeFace);
-        
-        TextView tercerapregunta = (TextView)findViewById(R.id.txv_pregunta_03);
-        tercerapregunta.setTypeface(miPropiaTypeFace);
-        
-        Button btnVerResultado = (Button)findViewById(R.id.btn_ver_resultado);
-        btnVerResultado.setTypeface(miPropiaTypeFace);
-        btnVerResultado.setOnClickListener(this);
-		
+		TextView title = (TextView) findViewById(R.id.txt_cabecera);
+
+		title.setTypeface(miPropiaTypeFace);
+
+		TextView indicaciones = (TextView) findViewById(R.id.txt_especificaciones);
+		indicaciones.setTypeface(miPropiaTypeFace);
+
+		TextView tercerapregunta = (TextView) findViewById(R.id.txv_pregunta_03);
+		tercerapregunta.setTypeface(miPropiaTypeFace);
+
+		Button btnVerResultado = (Button) findViewById(R.id.btn_ver_resultado);
+		btnVerResultado.setTypeface(miPropiaTypeFace);
+		btnVerResultado.setOnClickListener(this);		
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_ver_resultado:
-			
-			RadioGroup rdbgPregunta03 = (RadioGroup) findViewById(R.id.rdbg_grupo_puntaje_03);		
-			RadioButton rdbPregunta03 = (RadioButton) findViewById(rdbgPregunta03.getCheckedRadioButtonId());			
-			
+
+			RadioGroup rdbgPregunta03 = (RadioGroup) findViewById(R.id.rdbg_grupo_puntaje_03);
+			RadioButton rdbPregunta03 = (RadioButton) findViewById(rdbgPregunta03
+					.getCheckedRadioButtonId());
+
 			Bundle b = getIntent().getExtras();
-			puntaje=b.getInt("puntaje");			
-			puntaje =puntaje+Integer.parseInt(rdbPregunta03.getText().toString());
-			puntaje = Math.round(puntaje/3);			
-			String fecha = getFechaActual();
-			String usuario = "1";
-			String cualidad = "1"; 
-			new ReadJSONFeedTask()
-			.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"+fecha+"/usuario/"+usuario+"/puntaje/"+puntaje+"/cualidad/"+cualidad+"/format/json");
+			puntaje = b.getDouble("puntaje");
+			puntaje = puntaje
+					+ Double.parseDouble(rdbPregunta03.getText().toString());
+			puntaje = Math.round(puntaje / 3);
 			
-			//Intent i = new Intent(this, Evaluacion_diaria2.class);
-			//startActivity(i);
+			SharedPreferences prefe = getSharedPreferences("user",Context.MODE_PRIVATE);
+			String usuario = prefe.getString("id", "0");
+			
+			String fecha = getFechaActual();
+			new ReadJSONFeedTask()
+					.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"
+							+ fecha
+							+ "/usuario/"
+							+ usuario
+							+ "/puntaje/"
+							+ puntaje + "/format/json");
+
 			break;
 		}
 	}
-	
+
 	public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		return formateador.format(ahora);
 	}
-	
-	public void mostrarAlerta(int puntaje, int mensual){
+
+	public void mostrarAlerta(int puntaje, int mensual) {
 		alert = new AlertDialog.Builder(Evaluacion_diaria2.this).create();
 		alert.setTitle("Resultado");
-		//alert.setIcon(R.drawable.ic_action_accept);
-		alert.setMessage("Su puntaje del día de hoy es "+puntaje +"\n"+"Su puntaje mensual es "+mensual);
-		alert.setButton("Aceptar",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,
-							int which) {						
-						alert.hide();
-					}
-				});
+		// alert.setIcon(R.drawable.ic_action_accept);
+		alert.setMessage("Su puntaje del día de hoy es " + puntaje + "\n"
+				+ "Su puntaje mensual es " + mensual);
+		alert.setButton("Aceptar", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				alert.hide();
+			}
+		});
 		alert.show();
 	}
 
@@ -128,7 +133,7 @@ public class Evaluacion_diaria2 extends Activity implements OnClickListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
@@ -140,8 +145,8 @@ public class Evaluacion_diaria2 extends Activity implements OnClickListener {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
 				datos = jsonArray.getJSONObject(0);
-				
-				mostrarAlerta(puntaje,Integer.parseInt(datos.getString("puntaje")));
+				mostrarAlerta(Integer.parseInt((int) puntaje + ""),
+						Integer.parseInt(datos.getString("puntaje")));
 
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
