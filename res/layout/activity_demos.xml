@@ -1,22 +1,24 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/FONDO" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:scrollbars="horizontal|vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
         android:background="@color/FONDO"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="30dp" >
+        android:padding="30dp"
+        android:showDividers="beginning" >
 
         <EditText
             android:id="@+id/txtUserName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:drawableRight="@drawable/user_login"
             android:hint="Usuario"
             android:inputType="text"
@@ -26,7 +28,7 @@
         <EditText
             android:id="@+id/txtPass"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/contra_login"
@@ -37,7 +39,7 @@
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
@@ -52,7 +54,7 @@
         <Button
             android:id="@+id/btnCrearcuenta"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="15dp"
@@ -65,6 +67,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+             android:layout_centerInParent="true"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="18dp"
@@ -74,7 +77,7 @@
             <TextView
                 android:id="@+id/txt_cabecera"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
@@ -87,7 +90,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" >
+            android:gravity="center"
+             android:layout_centerInParent="true" >
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -116,6 +120,6 @@
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/twitter" />
         </LinearLayout>  
-        </LinearLayout>    
+      </LinearLayout>    
 
-</ScrollView>
+</RelativeLayout>

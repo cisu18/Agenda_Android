@@ -37,7 +37,6 @@
             android:name=".CrearCuenta"
             android:label="@string/app_name" >
         </activity>
-        
         <activity
             android:name=".Login"
             android:label="@string/app_name" >
@@ -62,8 +61,10 @@
             android:name=".Evaluacion_diaria2"
             android:label="@string/app_name" >
         </activity>
-        
-        
+        <activity
+            android:name=".Demos"
+            android:label="@string/title_activity_demos" >
+        </activity>
     </application>
 
 </manifest>
