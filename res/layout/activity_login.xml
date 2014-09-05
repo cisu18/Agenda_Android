@@ -36,13 +36,13 @@
 
         <Button
             android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="11dp"
-            android:background="@color/CABECERA"
+            android:background="@drawable/boton_login"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:text="Inicia Sesión"
@@ -51,12 +51,12 @@
 
         <Button
             android:id="@+id/btnCrearcuenta"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="15dp"
-            android:background="@color/CABECERA"
+            android:background="@drawable/boton_login"
             android:paddingLeft="35dp"
             android:paddingRight="50dp"
             android:text="Regístrate"

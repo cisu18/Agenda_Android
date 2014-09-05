@@ -56,7 +56,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/Myriad_Pro.ttf");	
+	
 
 		fechaMovil = (TextView) findViewById(R.id.txt_Fecha_Movil);
 		fechaMovil.setTypeface(miPropiaTypeFace);
