@@ -84,11 +84,11 @@ public final class R {
         public static final int view_as_list_64=0x7f02002c;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f090041;
-        public static final int action_inicio=0x7f090040;
-        public static final int action_listar=0x7f090043;
-        public static final int action_menu=0x7f090042;
-        public static final int action_settings=0x7f09003f;
+        public static final int action_cerrar_sesion=0x7f090044;
+        public static final int action_inicio=0x7f090043;
+        public static final int action_listar=0x7f090046;
+        public static final int action_menu=0x7f090045;
+        public static final int action_settings=0x7f090042;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09002b;
         public static final int btn_siguiente=0x7f09001f;
@@ -99,9 +99,10 @@ public final class R {
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
         public static final int imageView4=0x7f09000c;
+        public static final int img_Libro=0x7f09003c;
         public static final int lbl_Plan_Lectura=0x7f09000b;
         public static final int listView1=0x7f090028;
-        public static final int opcVerLibros=0x7f090044;
+        public static final int opcVerLibros=0x7f090047;
         public static final int rdb_puntaje_01_1=0x7f090013;
         public static final int rdb_puntaje_01_2=0x7f090014;
         public static final int rdb_puntaje_01_3=0x7f090015;
@@ -139,17 +140,19 @@ public final class R {
         public static final int txt_Pass2=0x7f090008;
         public static final int txt_Pensamiento_Diario=0x7f090033;
         public static final int txt_Plan_Lectura=0x7f090035;
+        public static final int txt_TituloLibro=0x7f09003d;
         public static final int txt_UserName=0x7f090005;
         public static final int txt_Versiculo_Diario=0x7f090002;
         public static final int txt_autorPensamiento=0x7f090037;
         public static final int txt_cabecera=0x7f090001;
         public static final int txt_compartir=0x7f090038;
         public static final int txt_especificaciones=0x7f090010;
+        public static final int txt_idLibro=0x7f09003e;
         public static final int txt_introduccion=0x7f09000f;
         public static final int txt_pensamiento=0x7f090036;
-        public static final int txtcualidad=0x7f09003c;
-        public static final int txtid=0x7f09003e;
-        public static final int txtmes=0x7f09003d;
+        public static final int txtcualidad=0x7f09003f;
+        public static final int txtid=0x7f090041;
+        public static final int txtmes=0x7f090040;
         public static final int txv_pregunta_01=0x7f090011;
         public static final int txv_pregunta_02=0x7f090018;
         public static final int txv_pregunta_03=0x7f090020;
@@ -165,7 +168,8 @@ public final class R {
         public static final int activity_main=0x7f030007;
         public static final int activity_pensamiento=0x7f030008;
         public static final int activity_referencia=0x7f030009;
-        public static final int customs_row_view=0x7f03000a;
+        public static final int custom_row_view2=0x7f03000a;
+        public static final int customs_row_view=0x7f03000b;
     }
     public static final class menu {
         public static final int codigo__reserva=0x7f080000;

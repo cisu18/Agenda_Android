@@ -1,10 +1,15 @@
 package com.example.entidad;
 
+import android.graphics.Bitmap;
+
 public class Libro {
 	
 	private int idLibro;
 	private String tituloLibro;
 	private String urlImagen;
+	
+	
+	
 	public int getIdLibro() {
 		return idLibro;
 	}
