@@ -186,6 +186,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 
 		protected void onPostExecute(String result) {
 			try {
+				Log.e("Result",result);
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
 				datos = jsonArray.getJSONObject(0);
