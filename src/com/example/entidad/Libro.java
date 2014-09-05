@@ -8,6 +8,7 @@ public class Libro {
 	private String tituloLibro;
 	private String urlImagen;
 	
+	private Bitmap Bimagen;
 	
 	
 	public int getIdLibro() {
@@ -27,6 +28,12 @@ public class Libro {
 	}
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
+	}
+	public Bitmap getBimagen() {
+		return Bimagen;
+	}
+	public void setBimagen(Bitmap bimagen) {
+		Bimagen = bimagen;
 	}
 	
 	
