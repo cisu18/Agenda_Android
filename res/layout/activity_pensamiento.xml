@@ -6,12 +6,12 @@
     android:background="@color/FONDO"
     android:scrollbars="horizontal|vertical" >
     
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/FONDO"
-    android:orientation="vertical"
-    tools:context="com.example.agendacaracter.MainActivity" >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center_vertical|center_horizontal"
+      android:background="@color/FONDO"
+      android:orientation="vertical" >
 
     <TableLayout
         android:layout_width="match_parent"
