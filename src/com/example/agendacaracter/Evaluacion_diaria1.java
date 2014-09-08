@@ -40,6 +40,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 	private Button btnSiguiente;
 	public double puntaje;
 	AlertDialog alert;
+	String mensajeCompartir;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +62,13 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 		
 		TextView txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(miPropiaTypeFace);
-		txvPregunta01
-				.setText("¿Cuánto de esta cualidad manifestaste a las personas el día de hoy?");
+		//txvPregunta01
+		//		.setText("¿Cuánto de esta cualidad manifestaste a las personas el día de hoy?");
 
 		TextView txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
 		txvPregunta02.setTypeface(miPropiaTypeFace);
-		txvPregunta02
-				.setText("¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?");
+		//txvPregunta02
+		//		.setText("¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?");
 
 		btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
 		btnSiguiente.setTypeface(miPropiaTypeFace);
@@ -165,19 +166,38 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 	public void mostrarAlerta(int puntaje, int estado) {
 		alert = new AlertDialog.Builder(Evaluacion_diaria1.this).create();
 		alert.setTitle("Resultado");
-		// alert.setIcon(R.drawable.ic_action_accept);
-		
+		alert.setIcon(R.drawable.ic_action_accept);		
 		alert.setMessage("Su puntaje del día de hoy es " + puntaje + "\n"
 				+ "Su puntaje mensual es " + estado+".\n\n"+mensaje(puntaje));
 		
+		mensajeCompartir = "Hoy optube "+puntaje+" en mi evaluación diaria.";
+		
+		alert.setButton2("Compartir", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {				
+				compartir();
+				alert.dismiss();
+			}
+		});		
 		alert.setButton("Aceptar", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				alert.hide();
+				alert.dismiss();
 			}
 		});
+		alert.setIconAttribute(R.drawable.ic_action_accept);
 		alert.show();
 	}
+	
+	private void compartir(){
+		Intent intent = new Intent(Intent.ACTION_SEND);
 
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_SUBJECT, "Evaluación diaria");
+		intent.putExtra(Intent.EXTRA_TEXT, mensajeCompartir);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+		this.startActivity(Intent.createChooser(intent, "Compartir en"));
+	}
+	
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {

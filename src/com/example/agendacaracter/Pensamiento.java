@@ -90,7 +90,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			Intent intent = new Intent(Intent.ACTION_SEND);
 
 			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Versiculo Diario");
+			intent.putExtra(Intent.EXTRA_SUBJECT, "Pensamiento");
 			intent.putExtra(Intent.EXTRA_TEXT, txtPensamiento.getText()
 					.toString() + "\n" + txtAutor.getText().toString());
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -98,7 +98,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 			this.startActivity(Intent.createChooser(intent, "Compartir en"));
 			break;
 		}
-
 	}
 
 	public static String getFechaActual() {
