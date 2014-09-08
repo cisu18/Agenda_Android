@@ -112,13 +112,10 @@
                 android:textSize="10sp" />
 
             <TextView
-
                 android:id="@+id/txt_Evaluacion"
-
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/facebook"
+                android:background="@color/CABECERA"
                 android:drawableBottom="@drawable/share_64"
                 android:gravity="center"
                 android:paddingBottom="5dp"
@@ -126,12 +123,10 @@
                 android:textSize="10sp" />
 
             <TextView
-
                 android:id="@+id/txt_LibroReferencia"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/gmail"
+                android:background="@color/CABECERA"
                 android:drawableBottom="@drawable/view_as_list_64"
                 android:gravity="center"
                 android:paddingBottom="5dp"
