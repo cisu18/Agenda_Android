@@ -47,9 +47,10 @@ public class Login extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
-
+				"fonts/HelveticaLTStd-Cond.otf");
+		
 		usuario = (EditText) findViewById(R.id.txtUserName);
 		usuario.setTypeface(miPropiaTypeFace);
 

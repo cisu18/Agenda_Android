@@ -51,7 +51,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_crear_cuenta);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 
 		txtEmail = (EditText) findViewById(R.id.txt_Email);
 		txtEmail.setTypeface(miPropiaTypeFace);

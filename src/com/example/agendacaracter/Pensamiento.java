@@ -33,6 +33,8 @@ import android.widget.Toast;
 public class Pensamiento extends Activity implements OnClickListener {
 	TextView txtPensamiento;
 	TextView txtAutor;
+	TextView planlectura;
+	TextView textosPlanLectura;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,10 @@ public class Pensamiento extends Activity implements OnClickListener {
 				"fonts/GeosansLight-Oblique_1.ttf");
 		
 		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/GeosansLight_2.ttf");
+				"fonts/GeosansLight_2.ttf");	
+		
+		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-LightCond.otf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 		title.setTypeface(miPropiaTypeFace);
@@ -57,6 +62,11 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miNumeroTypeFace);
 		
+		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
+		planlectura.setTypeface(miPlanTypeFace);
+
+	 	textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
+		textosPlanLectura.setTypeface(miVersiculoTypeFace);
 		
 
 		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
