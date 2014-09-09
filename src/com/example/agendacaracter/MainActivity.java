@@ -53,10 +53,19 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main); 
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");	
+				"fonts/HelveticaLTStd-Cond.otf");	
+		
+		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight_2.ttf");	
+		
+		Typeface miNumeroTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight-Oblique_1.ttf");	
+		
+		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-LightCond.otf");
 	
 
 		fechaMovil = (TextView) findViewById(R.id.txt_Fecha_Movil);
@@ -66,16 +75,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		cualidad.setTypeface(miPropiaTypeFace);
 
 		versiculo = (TextView) findViewById(R.id.txt_Versiculo_Diario);
-		versiculo.setTypeface(miPropiaTypeFace);
+		versiculo.setTypeface(miVersiculoTypeFace);
 
 		textobiblico = (TextView) findViewById(R.id.txt_Numero_Versiculo);
-		textobiblico.setTypeface(miPropiaTypeFace);
+		textobiblico.setTypeface(miNumeroTypeFace);
 
 		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
-		planlectura.setTypeface(miPropiaTypeFace);
+		planlectura.setTypeface(miPlanTypeFace);
 
-		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
-		textosPlanLectura.setTypeface(miPropiaTypeFace);
+	 	textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
+		textosPlanLectura.setTypeface(miVersiculoTypeFace);
 
 		compartirVersiculo = (TextView) findViewById(R.id.txt_Compartir_Versiculo);
 		IrPensamiento = (TextView) findViewById(R.id.txt_Pensamiento_Diario);

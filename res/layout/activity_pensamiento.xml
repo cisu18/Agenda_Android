@@ -5,149 +5,171 @@
     android:layout_height="match_parent"
     android:background="@color/FONDO"
     android:scrollbars="horizontal|vertical" >
-    
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_gravity="center_vertical|center_horizontal"
-      android:background="@color/FONDO"
-      android:orientation="vertical" >
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="0,1,2" >
+        android:layout_gravity="center"
+        android:background="@color/FONDO"
+        android:orientation="vertical" >
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/CABECERA"
-            android:gravity="center" >
-
-             <TextView
-
-                 android:id="@+id/txt_cabecera"
-
-
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center_horizontal"
-                 android:layout_marginRight="@dimen/right_cab"
-                 android:background="@color/CABECERA"
-                 android:paddingBottom="10dp"
-                 android:paddingLeft="35dp"
-                 android:paddingRight="18dp"
-                 android:paddingTop="10dp"
-                 android:tag="26dp"
-                 android:text="@string/pensamiento"
-                 android:textColor="@color/LETRA"
-                 android:textColorLink="@color/LETRA"
-                 android:textSize="24sp"
-                 android:textStyle="bold" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/txt_pensamiento"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="@color/LETRA"
-                android:textSize="24sp" />
-
-        </TableRow>
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/txt_autorPensamiento"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center|right"
-        android:layout_marginTop="5dp"
-        android:gravity="right|center"
-        android:paddingLeft="40dp"
-        android:paddingRight="12dp"
-        android:textColor="@color/LETRA"
-        android:textSize="18sp"
-        android:textStyle="bold|italic" />
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:stretchColumns="0,1,2" >
-
-        <TableRow
-            android:id="@+id/tableRow4"
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:orientation="horizontal" >
+            android:stretchColumns="0,1,2" >
 
-            <TextView
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/LETRA"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp" >
 
-                android:id="@+id/txt_compartir"
+                <TextView
+                    android:id="@+id/txt_Nombre_Cualidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Cualidad"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="21sp" />
 
-                android:layout_width="wrap_content"
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/CABECERA"
-                android:clickable="true"
-                android:drawableBottom="@drawable/share_64"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:textColor="@color/LETRA"
-                android:textSize="10sp" />
+                android:gravity="center" >
 
-            <TextView
+                <TextView
+                    android:id="@+id/txt_cabecera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/CABECERA"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/pensamiento"
+                    android:textColor="@color/LETRA"
+                    android:textColorLink="@color/LETRA"
+                    android:textSize="22sp" />
 
-                android:id="@+id/txt_Evaluacion"
+            </TableRow>
 
-
+            <TableRow
+                android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/facebook"
-                android:drawableBottom="@drawable/share_64"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:textColor="@color/LETRA"
-                android:textSize="10sp" />
+                android:layout_height="wrap_content" >
 
-            <TextView
+                <TextView
+                    android:id="@+id/txt_pensamiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="left|right"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="es un lindo y bello pensamiento "
+                    android:textColor="@color/LETRA"
+                    android:textSize="24sp" />
+            </TableRow>
+        </TableLayout>
 
-                android:id="@+id/txt_LibroReferencia"
+        <TextView
+            android:id="@+id/txt_autorPensamiento"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="right|center"
+            android:paddingLeft="40dp"
+            android:paddingRight="12dp"
+            android:text="Anonimo"
+            android:textColor="@color/LETRA"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/gmail"
-                android:drawableBottom="@drawable/view_as_list_64"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:textColor="@color/LETRA"
-                android:textSize="10sp" />
-
-        </TableRow>
-
-        <LinearLayout
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" >
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:stretchColumns="0,1,2" >
 
-        </LinearLayout>
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="horizontal" >
 
-    </TableLayout>
+                <TextView
+                    android:id="@+id/txt_compartir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/CABECERA"
+                    android:clickable="true"
+                    android:drawableBottom="@drawable/compartir"
+                    android:gravity="center"
+                    android:paddingBottom="13dp"
+                    android:textColor="@color/LETRA" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/txt_Evaluacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gmail"
+                    android:drawableBottom="@drawable/evaluacion"
+                    android:gravity="center"
+                    android:paddingBottom="13dp" />
+
+                <TextView
+                    android:id="@+id/txt_LibroReferencia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/facebook"
+                    android:drawableBottom="@drawable/libros_ref"
+                    android:gravity="center"
+                    android:paddingBottom="13dp"
+                    android:textColor="@color/LETRA" />
+            </TableRow>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/lbl_Plan_Lectura"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Plan de Lectura Anual de la Biblia:"
+                    android:textColor="@color/CABECERA"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_Plan_Lectura"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:gravity="left"
+                    android:paddingLeft="20dp"
+                    android:text="hgewry jhewrguw"
+                    android:textColor="@color/LETRA"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </TableLayout>
+    </LinearLayout>
+
 </ScrollView>

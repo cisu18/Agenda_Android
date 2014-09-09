@@ -4,204 +4,209 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/FONDO" >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"    
+    android:background="@color/FONDO"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txt_cabecera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/CABECERA"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/evaluacion_diaria"
+        android:textColor="@color/LETRA"
+        android:textColorLink="@color/LETRA"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_introduccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="¿QUIERES DESARROLLAR ESTA CUALIDAD EN TU VIDA?, Responde las siguientes preguntas:"
+        android:textAllCaps="true"
+        android:textColor="@color/LETRA"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_especificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="1Nada    2Muy poco    3Algo    4Casi siempre    5Siempre"
+        android:textColor="@color/LETRA"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txv_pregunta_01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="1. ¿Cuánto de esta cualidad manifestaste a las personas el día de hoy?"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/LETRA"
+        android:textSize="22sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/FONDO"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal" >
 
-        <TextView
-
-            android:id="@+id/txt_cabecera"
+        <RadioGroup
+            android:id="@+id/rdbg_grupo_puntaje_01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/CABECERA"
-            android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:tag="26dp"
-            android:text="@string/evaluacion_diaria"
-            android:textColor="@color/LETRA"
-            android:textColorLink="@color/LETRA"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_introduccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="INTRODUCCIÓN "
-            android:textColor="@color/LETRA"
-            android:textSize="16sp" />
-        
-        <TextView
-            android:id="@+id/txt_especificaciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="VALORES DE LOS NÚMEROS "
-            android:textColor="@color/LETRA"
-            android:textSize="16sp" />
+            android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/txv_pregunta_01"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="1¿Primera pregunta?"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/LETRA" />
+            <RadioButton
+                android:id="@+id/rdb_puntaje_01_1"
+                style="@color/LETRA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:checked="true"
+                android:shadowColor="@color/CABECERA"
+                android:text="1"
+                android:textColor="@color/LETRA" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal" >
+            <RadioButton
+                android:id="@+id/rdb_puntaje_01_2"
+                style="@color/YELLOW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="2"
+                android:textColor="@color/LETRA"
+                android:textColorHint="@color/YELLOW" />
 
-            <RadioGroup
-                android:id="@+id/rdbg_grupo_puntaje_01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal" >
+            <RadioButton
+                android:id="@+id/rdb_puntaje_01_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="3"
+                android:textColor="@color/LETRA" />
 
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_01_1"
-                    style="@color/LETRA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="-10dp"
-                    android:checked="true"
-                    android:shadowColor="@color/CABECERA"
-                    android:text="1"
-                    android:textColor="@color/LETRA" />
+            <RadioButton
+                android:id="@+id/rdb_puntaje_01_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="4"
+                android:textColor="@color/LETRA" />
 
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_01_2"
-                    style="@color/YELLOW"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="2"
-                    android:textColor="@color/LETRA"
-                    android:textColorHint="@color/YELLOW" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_01_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="3"
-                    android:textColor="@color/LETRA" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_01_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="4"
-                    android:textColor="@color/LETRA" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_01_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="5"
-                    android:textColor="@color/LETRA" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txv_pregunta_02"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="2¿Segunda pregunta?"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/LETRA" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal" >
-
-            <RadioGroup
-                android:id="@+id/rdbg_grupo_puntaje_02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal" >
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_02_1"
-                    style="@color/LETRA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="-10dp"
-                    android:checked="true"
-                    android:shadowColor="@color/CABECERA"
-                    android:text="1"
-                    android:textColor="@color/LETRA" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_02_2"
-                    style="@color/YELLOW"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="2"
-                    android:textColor="@color/LETRA"
-                    android:textColorHint="@color/YELLOW" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_02_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="3"
-                    android:textColor="@color/LETRA" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_02_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="4"
-                    android:textColor="@color/LETRA" />
-
-                <RadioButton
-                    android:id="@+id/rdb_puntaje_02_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="5"
-                    android:textColor="@color/LETRA" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_siguiente"
-            android:layout_width="98dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@color/CABECERA"
-            android:text="Siguiente"
-            android:textColor="@color/LETRA" />
-
+            <RadioButton
+                android:id="@+id/rdb_puntaje_01_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="5"
+                android:textColor="@color/LETRA" />
+        </RadioGroup>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txv_pregunta_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="2. ¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/LETRA"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal" >
+
+        <RadioGroup
+            android:id="@+id/rdbg_grupo_puntaje_02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rdb_puntaje_02_1"
+                style="@color/LETRA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:checked="true"
+                android:shadowColor="@color/CABECERA"
+                android:text="1"
+                android:textColor="@color/LETRA" />
+
+            <RadioButton
+                android:id="@+id/rdb_puntaje_02_2"
+                style="@color/YELLOW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="2"
+                android:textColor="@color/LETRA"
+                android:textColorHint="@color/YELLOW" />
+
+            <RadioButton
+                android:id="@+id/rdb_puntaje_02_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="3"
+                android:textColor="@color/LETRA" />
+
+            <RadioButton
+                android:id="@+id/rdb_puntaje_02_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="4"
+                android:textColor="@color/LETRA" />
+
+            <RadioButton
+                android:id="@+id/rdb_puntaje_02_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="5"
+                android:textColor="@color/LETRA" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/CABECERA"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Resultado"
+        android:textColor="@color/LETRA" />
+
+</LinearLayout>
 </ScrollView>
