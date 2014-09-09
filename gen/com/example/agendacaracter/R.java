@@ -88,25 +88,26 @@ public final class R {
         public static final int view_as_list_64=0x7f020030;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f090044;
-        public static final int action_inicio=0x7f090043;
-        public static final int action_listar=0x7f090046;
-        public static final int action_menu=0x7f090045;
-        public static final int action_settings=0x7f090042;
+        public static final int action_cerrar_sesion=0x7f090047;
+        public static final int action_inicio=0x7f090046;
+        public static final int action_listar=0x7f090049;
+        public static final int action_menu=0x7f090048;
+        public static final int action_settings=0x7f090045;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09000c;
         public static final int btn_siguiente=0x7f090022;
         public static final int btn_ver_resultado=0x7f09002a;
         public static final int button1=0x7f090004;
-        public static final int gvLibros=0x7f09003b;
         public static final int imageView1=0x7f090003;
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
         public static final int imageView4=0x7f090011;
         public static final int img_Libro=0x7f09003c;
+        public static final int ivImage=0x7f090042;
         public static final int lbl_Plan_Lectura=0x7f090010;
+        public static final int list=0x7f09003b;
         public static final int listView1=0x7f09002b;
-        public static final int opcVerLibros=0x7f090047;
+        public static final int opcVerLibros=0x7f09004a;
         public static final int rdb_puntaje_01_1=0x7f090016;
         public static final int rdb_puntaje_01_2=0x7f090017;
         public static final int rdb_puntaje_01_3=0x7f090018;
@@ -130,6 +131,8 @@ public final class R {
         public static final int tableRow2=0x7f09002e;
         public static final int tableRow3=0x7f09002f;
         public static final int tableRow4=0x7f090031;
+        public static final int tvDateOfBirth=0x7f090044;
+        public static final int tvName=0x7f090043;
         public static final int txtEvaluacionDiaria=0x7f090034;
         public static final int txtPass=0x7f09000b;
         public static final int txtUserName=0x7f09000a;
@@ -175,6 +178,7 @@ public final class R {
         public static final int activity_referencia=0x7f03000a;
         public static final int custom_row_view2=0x7f03000b;
         public static final int customs_row_view=0x7f03000c;
+        public static final int row=0x7f03000d;
     }
     public static final class menu {
         public static final int codigo__reserva=0x7f080000;

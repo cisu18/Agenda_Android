@@ -1,42 +1,29 @@
 package com.example.entidad;
 
-import android.graphics.Bitmap;
-
 public class Libro {
-	
-	private int idLibro;
-	private String tituloLibro;
+
+	private String idLibro;
+	private String titulo;
 	private String urlImagen;
-	
-	private Bitmap Bimagen;
-	
-	
-	public int getIdLibro() {
+	public final String getIdLibro() {
 		return idLibro;
 	}
-	public void setIdLibro(int idLibro) {
+	public final void setIdLibro(String idLibro) {
 		this.idLibro = idLibro;
 	}
-	public String getTituloLibro() {
-		return tituloLibro;
+	public final String getTitulo() {
+		return titulo;
 	}
-	public void setTituloLibro(String tituloLibro) {
-		this.tituloLibro = tituloLibro;
+	public final void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-	public String getUrlImagen() {
+	public final String getUrlImagen() {
 		return urlImagen;
 	}
-	public void setUrlImagen(String urlImagen) {
+	public final void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
-	public Bitmap getBimagen() {
-		return Bimagen;
-	}
-	public void setBimagen(Bitmap bimagen) {
-		Bimagen = bimagen;
-	}
 	
 	
-	
-
 }
+
