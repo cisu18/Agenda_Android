@@ -54,22 +54,16 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 		title.setTypeface(miPropiaTypeFace);
 
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
-		indicaciones.setTypeface(miPropiaTypeFace);
-		indicaciones.setText("¿Quieres desarrollar esta cualidad en tu vida?, responde las siguientes preguntas:");
+		indicaciones.setTypeface(miPropiaTypeFace);		
 
 		TextView txtEspecificaciones = (TextView) findViewById(R.id.txt_especificaciones);
-		txtEspecificaciones.setText("1 Nada\t\t2 Muy poco\t\t3 Algo\t\t4 Casi siempre\t\t5 Siempre");
-		
+				
 		TextView txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(miPropiaTypeFace);
-		//txvPregunta01
-		//		.setText("¿Cuánto de esta cualidad manifestaste a las personas el día de hoy?");
-
+		
 		TextView txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
 		txvPregunta02.setTypeface(miPropiaTypeFace);
-		//txvPregunta02
-		//		.setText("¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?");
-
+		
 		btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
 		btnSiguiente.setTypeface(miPropiaTypeFace);
 		btnSiguiente.setOnClickListener(this);
@@ -91,9 +85,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 
 			puntaje = Double.parseDouble(rdbPregunta01.getText().toString())
 					+ Double.parseDouble(rdbPregunta02.getText().toString());
-			// Toast.makeText(getApplicationContext(),puntaje+"",
-			// Toast.LENGTH_SHORT).show();
-
+			
 			SharedPreferences prefe = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			String usuario = prefe.getString("id", "0");
@@ -107,11 +99,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 							+ usuario
 							+ "/puntaje/"
 							+ puntaje + "/format/json");
-
-			/*
-			 * Intent i = new Intent(this, Evaluacion_diaria2.class);
-			 * i.putExtra("puntaje", puntaje); startActivity(i);
-			 */
+			
 			break;
 		}
 	}
@@ -139,17 +127,13 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+	public boolean onCreateOptionsMenu(Menu menu) {		
 		getMenuInflater().inflate(R.menu.evaluacion_diaria1, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+	public boolean onOptionsItemSelected(MenuItem item) {		
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -163,15 +147,11 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 		return formateador.format(ahora);
 	}
 
-	public void mostrarAlerta(int puntaje, int estado) {
+	public void mostrarAlerta(String mensaje) {
 		alert = new AlertDialog.Builder(Evaluacion_diaria1.this).create();
-		alert.setTitle("Resultado");
+		alert.setTitle("Felicitaciones");
 		alert.setIcon(R.drawable.ic_action_accept);		
-		alert.setMessage("Su puntaje del día de hoy es " + puntaje + "\n"
-				+ "Su puntaje mensual es " + estado+".\n\n"+mensaje(puntaje));
-		
-		mensajeCompartir = "Hoy optube "+puntaje+" en mi evaluación diaria.";
-		
+		alert.setMessage(mensaje);		
 		alert.setButton2("Compartir", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {				
 				compartir();
@@ -182,8 +162,7 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 			public void onClick(DialogInterface dialog, int which) {
 				alert.dismiss();
 			}
-		});
-		alert.setIconAttribute(R.drawable.ic_action_accept);
+		});		
 		alert.show();
 	}
 	
@@ -206,12 +185,21 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 
 		protected void onPostExecute(String result) {
 			try {
-				Log.e("Result",result);
+				
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
 				datos = jsonArray.getJSONObject(0);
-				mostrarAlerta(Integer.parseInt((int) puntaje + ""),
-						Integer.parseInt(datos.getString("puntaje")));
+				String mensaje="";
+				
+				if(Integer.parseInt(datos.getString("estado"))==2){
+					mensaje="Tu puntaje de día de hoy es "+ (int)puntaje + "\n\n"+mensaje((int)puntaje);
+					mensajeCompartir = "Hoy obtube "+puntaje+" en mi evaluación diaria.";						
+				}else if(Integer.parseInt(datos.getString("estado"))==1){
+					mensaje="Tu puntaje mensual es "+ (int)puntaje + "\n\n"+mensaje(Integer.parseInt(datos.getString("puntaje")));
+					mensajeCompartir = "Hoy obtube "+puntaje+" en mi evaluación mensual.";					
+				}				
+				
+				mostrarAlerta(mensaje);
 
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
