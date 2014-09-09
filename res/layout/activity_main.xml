@@ -37,11 +37,10 @@
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:tag="26dp"
-                    android:textAllCaps="true"
+                    android:text="AGOSTO 2015 SAB 28"
                     android:textColor="@color/LETRA"
                     android:textColorLink="@color/LETRA"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="22sp" />
 
             </TableRow>
 
@@ -51,17 +50,19 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
                 android:background="@color/LETRA"
-                android:gravity="center" >
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingTop="5dp" >
 
                 <TextView
                     android:id="@+id/txt_Nombre_Cualidad"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
+                    android:text="sfsdfsd"
                     android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp" />
 
             </TableRow>
 
@@ -77,9 +78,9 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
+                    android:text="dfgserg etgertwer erterter etewt wete "
                     android:textColor="@color/LETRA"
                     android:textSize="20sp" />
 
@@ -91,9 +92,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="8dp"
             android:gravity="right"
+            android:paddingRight="20dp"
+            android:text="sdgsdrftg 43543"
             android:textColor="@color/LETRA"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
@@ -101,7 +105,7 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="52dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:orientation="vertical"
             android:stretchColumns="0,1,2" >
@@ -118,35 +122,34 @@
                     android:id="@+id/txt_Compartir_Versiculo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:background="@color/CABECERA"
                     android:clickable="true"
                     android:drawableBottom="@drawable/compartir"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/LETRA"
-                    android:textSize="10sp" />
+                    android:paddingBottom="13dp"
+                    android:textColor="@color/LETRA" />
 
                 <TextView
                     android:id="@+id/txt_Pensamiento_Diario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/LETRA"
-                    android:drawableBottom="@drawable/pensamiento"
+                    android:background="@color/facebook"
+                    android:drawableBottom="@drawable/pensamiento_48"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/LETRA"
-                    android:textSize="10sp" />
+                    android:paddingBottom="13dp"
+                    android:textColor="@color/LETRA" />
 
                 <TextView
                     android:id="@+id/txtEvaluacionDiaria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/CABECERA"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/gmail"
                     android:drawableBottom="@drawable/evaluacion"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:textColor="@color/LETRA"
-                    android:textSize="10sp" />
+                    android:paddingBottom="13dp"
+                    android:textColor="@color/LETRA" />
 
             </TableRow>
         </TableLayout>
@@ -161,16 +164,19 @@
                 android:id="@+id/lbl_Plan_Lectura"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:text="PLAN DE LECTURA:"
-                android:textColor="@color/LETRA"
+                android:paddingLeft="20dp"
+                android:text="Plan de Lectura Anual de la Biblia:"
+                android:textColor="@color/CABECERA"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txt_Plan_Lectura"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:text="hgewry jhewrguw"
                 android:textColor="@color/LETRA"
                 android:textSize="18sp" />
 

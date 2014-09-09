@@ -70,21 +70,22 @@ public final class R {
         public static final int key_32=0x7f02001e;
         public static final int key_48=0x7f02001f;
         public static final int key_log_32=0x7f020020;
-        public static final int list38=0x7f020021;
-        public static final int overflow=0x7f020022;
-        public static final int overflow_prin=0x7f020023;
-        public static final int pensamiento=0x7f020024;
-        public static final int pensamiento_64=0x7f020025;
-        public static final int share_48=0x7f020026;
-        public static final int share_64=0x7f020027;
-        public static final int twitter=0x7f020028;
-        public static final int twitter_64=0x7f020029;
-        public static final int user_24=0x7f02002a;
-        public static final int user_28=0x7f02002b;
-        public static final int user_48=0x7f02002c;
-        public static final int user_login=0x7f02002d;
-        public static final int usera=0x7f02002e;
-        public static final int view_as_list_64=0x7f02002f;
+        public static final int libros_ref=0x7f020021;
+        public static final int list38=0x7f020022;
+        public static final int overflow=0x7f020023;
+        public static final int overflow_prin=0x7f020024;
+        public static final int pensamiento_48=0x7f020025;
+        public static final int pensamiento_64=0x7f020026;
+        public static final int share_48=0x7f020027;
+        public static final int share_64=0x7f020028;
+        public static final int twitter=0x7f020029;
+        public static final int twitter_64=0x7f02002a;
+        public static final int user_24=0x7f02002b;
+        public static final int user_28=0x7f02002c;
+        public static final int user_48=0x7f02002d;
+        public static final int user_login=0x7f02002e;
+        public static final int usera=0x7f02002f;
+        public static final int view_as_list_64=0x7f020030;
     }
     public static final class id {
         public static final int action_cerrar_sesion=0x7f090044;

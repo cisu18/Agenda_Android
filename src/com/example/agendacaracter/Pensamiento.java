@@ -40,17 +40,24 @@ public class Pensamiento extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_pensamiento);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");			
+		
+		Typeface miNumeroTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight-Oblique_1.ttf");
+		
+		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight_2.ttf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
-
 		title.setTypeface(miPropiaTypeFace);
 
 		txtPensamiento = (TextView) findViewById(R.id.txt_pensamiento);
-		txtPensamiento.setTypeface(miPropiaTypeFace);
+		txtPensamiento.setTypeface(miVersiculoTypeFace);
 
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
-		txtAutor.setTypeface(miPropiaTypeFace);
+		txtAutor.setTypeface(miNumeroTypeFace);
+		
+		
 
 		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
 		txvCompartir.setOnClickListener(this);
