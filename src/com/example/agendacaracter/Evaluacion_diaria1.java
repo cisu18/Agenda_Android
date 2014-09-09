@@ -193,10 +193,10 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 				
 				if(Integer.parseInt(datos.getString("estado"))==2){
 					mensaje="Tu puntaje de día de hoy es "+ (int)puntaje + "\n\n"+mensaje((int)puntaje);
-					mensajeCompartir = "Hoy obtube "+puntaje+" en mi evaluación diaria.";						
+					mensajeCompartir = "Hoy obtuve "+puntaje+" en mi evaluación diaria.";						
 				}else if(Integer.parseInt(datos.getString("estado"))==1){
 					mensaje="Tu puntaje mensual es "+ (int)puntaje + "\n\n"+mensaje(Integer.parseInt(datos.getString("puntaje")));
-					mensajeCompartir = "Hoy obtube "+puntaje+" en mi evaluación mensual.";					
+					mensajeCompartir = "Hoy obtuve "+puntaje+" en mi evaluación mensual.";					
 				}				
 				
 				mostrarAlerta(mensaje);
