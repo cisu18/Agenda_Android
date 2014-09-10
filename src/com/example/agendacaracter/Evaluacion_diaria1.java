@@ -43,8 +43,19 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 	AlertDialog alert;
 	String mensajeCompartir;
 	private TextView txtEspecificaciones;
+	private TextView txtEspecificaciones2;
 	private TextView txvPregunta01;
 	private TextView txvPregunta02;
+	private RadioButton rbtn1_1; 
+	private RadioButton rbtn2_1; 
+	private RadioButton rbtn3_1;
+	private RadioButton rbtn4_1;
+	private RadioButton rbtn5_1;
+	private RadioButton rbtn1_2; 
+	private RadioButton rbtn2_2; 
+	private RadioButton rbtn3_2;
+	private RadioButton rbtn4_2;
+	private RadioButton rbtn5_2;
 
 
 	@Override
@@ -56,22 +67,53 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 				"fonts/HelveticaLTStd-Cond.otf");	
 		
 		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/GeosansLight_2.ttf");
+				"fonts/GeosansLight_2.ttf"); 
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 		title.setTypeface(miPropiaTypeFace);
 
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
 		indicaciones.setTypeface(miPropiaTypeFace);		
-
+		
 		txtEspecificaciones = (TextView) findViewById(R.id.txt_especificaciones);
-		txtEspecificaciones.setTypeface(miContenidoTypeFace);
-				
+		txtEspecificaciones.setTypeface(miPropiaTypeFace);
+		
 		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(miContenidoTypeFace);
 		
 		txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
 		txvPregunta02.setTypeface(miContenidoTypeFace);
+		
+		rbtn1_1 = (RadioButton) findViewById(R.id.rdb_puntaje_01_1);
+		rbtn1_1.setTypeface(miContenidoTypeFace);
+		
+		rbtn2_1 = (RadioButton) findViewById(R.id.rdb_puntaje_01_2);
+		rbtn2_1.setTypeface(miContenidoTypeFace);
+		
+		rbtn3_1 = (RadioButton) findViewById(R.id.rdb_puntaje_01_3);
+		rbtn3_1.setTypeface(miContenidoTypeFace);
+		
+		rbtn4_1 = (RadioButton) findViewById(R.id.rdb_puntaje_01_4);
+		rbtn4_1.setTypeface(miContenidoTypeFace);
+		
+		rbtn5_1 = (RadioButton) findViewById(R.id.rdb_puntaje_01_5);
+		rbtn5_1.setTypeface(miContenidoTypeFace);
+		
+		rbtn1_2 = (RadioButton) findViewById(R.id.rdb_puntaje_02_1);
+		rbtn1_2.setTypeface(miContenidoTypeFace);
+		
+		rbtn2_2 = (RadioButton) findViewById(R.id.rdb_puntaje_02_2);
+		rbtn2_2.setTypeface(miContenidoTypeFace);
+		
+		rbtn3_2 = (RadioButton) findViewById(R.id.rdb_puntaje_02_3);
+		rbtn3_2.setTypeface(miContenidoTypeFace);
+		
+		rbtn4_2 = (RadioButton) findViewById(R.id.rdb_puntaje_02_4);
+		rbtn4_2.setTypeface(miContenidoTypeFace);
+		
+		rbtn5_2 = (RadioButton) findViewById(R.id.rdb_puntaje_02_5);
+		rbtn5_2.setTypeface(miContenidoTypeFace);
+			
 		
 		btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
 		btnSiguiente.setTypeface(miPropiaTypeFace);

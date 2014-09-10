@@ -3,13 +3,12 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO" >
+    android:background="@drawable/degradado" >
     
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical|center_horizontal"
-    android:background="@color/FONDO"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="35dp" >
@@ -22,7 +21,8 @@
         android:ems="10"
         android:hint="Usuario"
         android:inputType="text"
-        android:textColor="@color/LETRA" />
+        android:textColor="@color/LETRA"
+        android:textColorHint="@color/letras_inicio" />
     
     <EditText
         android:id="@+id/txt_Email"
@@ -38,10 +38,11 @@
         android:shadowDy="58"
         android:textAllCaps="true"
         android:textColor="@color/LETRA"
+        android:textColorHint="@color/letras_inicio"
         android:textColorLink="@color/YELLOW" />
 
     <EditText
-      	android:id="@+id/txt_Pass1"
+        android:id="@+id/txt_Pass1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="30dp"
@@ -50,7 +51,8 @@
         android:ems="10"
         android:hint="@string/contrasena"
         android:inputType="textPassword"
-        android:textColor="@color/LETRA" />
+        android:textColor="@color/LETRA"
+        android:textColorHint="@color/letras_inicio" />
       
     <EditText
         android:id="@+id/txt_Pass2"
@@ -62,6 +64,7 @@
         android:inputType="textPassword"
         android:shadowColor="@color/YELLOW"
         android:textColor="@color/LETRA"
+        android:textColorHint="@color/LETRA"
         android:textColorLink="@color/YELLOW" >
 
     </EditText>

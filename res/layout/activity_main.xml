@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO"
+    android:background="@drawable/degradado"
     android:scrollbars="horizontal|vertical"
     tools:context="com.example.agendacaracter.MainActivity" >
 
@@ -11,9 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@color/FONDO"
         android:orientation="vertical"
-        android:paddingBottom="30dp">
+        android:paddingBottom="30dp" >
 
         <TableLayout
             android:layout_width="wrap_content"

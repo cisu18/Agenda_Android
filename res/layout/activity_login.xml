@@ -17,11 +17,12 @@
             android:id="@+id/txtUserName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:drawableRight="@drawable/user_login"
+            android:drawableRight="@drawable/user_login2"
             android:hint="Usuario"
             android:inputType="text"
             android:textAllCaps="true"
-            android:textColor="@color/LETRA" />
+            android:textColor="@color/LETRA"
+            android:textColorHint="@color/letras_inicio" />
 
         <EditText
             android:id="@+id/txtPass"
@@ -29,10 +30,11 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="20dp"
-            android:drawableRight="@drawable/contra_login"
+            android:drawableRight="@drawable/contra_login2"
             android:hint="Contraseña"
             android:inputType="textPassword"
-            android:textColor="@color/LETRA" />
+            android:textColor="@color/LETRA"
+            android:textColorHint="@color/letras_inicio" />
 
         <Button
             android:id="@+id/btnRegister"
