@@ -58,7 +58,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Evaluacion_diaria2"
+            android:name=".ResultadoEvaluacion"
             android:label="@string/app_name" >
         </activity>
         <activity

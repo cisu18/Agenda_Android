@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/FONDO" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/FONDO"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txt_cabecera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/CABECERA"
+            android:gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:tag="26dp"
+            android:text="@string/resultado_evaluacion"
+            android:textColor="@color/LETRA"
+            android:textColorLink="@color/LETRA"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txv_mensaje_resultado_evaluacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Tu avance personal de hoy es: 20%"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/LETRA" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="232dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="53dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/libros" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/txv_mensaje_referente_resultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Es una oportunidad de iniciar tu cambio personal."
+                android:textColor="@color/LETRA"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"    
+            android:orientation="horizontal"      
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            
+            <Button
+                android:id="@+id/btn_compartir_puntaje"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@color/gmail"
+                android:text="Compartir"
+                android:textColor="@color/LETRA" />
+            <Button
+                android:id="@+id/btn_aceptar_resultado_evaluacion"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"                
+                android:background="@color/CABECERA"                               
+                android:text="Aceptar"
+                android:textColor="@color/LETRA" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

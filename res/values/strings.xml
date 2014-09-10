@@ -24,6 +24,8 @@
     <string name="codigo__reserva">CÓDIGO DE RESERVA</string>
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
+    <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
+    
     <string name="hello_world">Hello world!</string>
 
 </resources>
