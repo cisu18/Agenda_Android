@@ -18,23 +18,21 @@ import android.widget.TextView;
 import com.example.agendacaracter.R;
 import com.example.entidad.Libro;
 
-
-
 public class AdaptadorLibro extends ArrayAdapter<Libro> {
-	ArrayList<Libro> actorList;
+	ArrayList<Libro> listLibro;
 	LayoutInflater vi;
 	int Resource;
 	ViewHolder holder;
 
-	public AdaptadorLibro(Context context, int resource, ArrayList<Libro> objects) {
+	public AdaptadorLibro(Context context, int resource,
+			ArrayList<Libro> objects) {
 		super(context, resource, objects);
 		vi = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		Resource = resource;
-		actorList = objects;
+		listLibro = objects;
 	}
- 
-	
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// convert view = design
@@ -42,25 +40,26 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 		if (v == null) {
 			holder = new ViewHolder();
 			v = vi.inflate(Resource, null);
-			holder.imageview = (ImageView) v.findViewById(R.id.ivImage);
-			holder.tvName = (TextView) v.findViewById(R.id.tvName);
-			holder.tvDOB = (TextView) v.findViewById(R.id.tvDateOfBirth);
+			holder.ivLibroImagen = (ImageView) v.findViewById(R.id.ivImgLibro);
+			holder.tvTituloLibro = (TextView) v.findViewById(R.id.tvTitLibro);
+			holder.tvIdLibro = (TextView) v.findViewById(R.id.tvidLibroxml);
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
-		holder.imageview.setImageResource(R.drawable.ic_launcher);
-		new DownloadImageTask(holder.imageview).execute(actorList.get(position).getUrlImagen());
-		holder.tvName.setText(actorList.get(position).getTitulo());		
-		holder.tvDOB.setText("B'day: " + actorList.get(position).getIdLibro());		
+		holder.ivLibroImagen.setImageResource(R.drawable.ic_launcher);
+		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
+				position).getUrlImagen());
+		holder.tvTituloLibro.setText(listLibro.get(position).getTitulo());
+		// holder.tvIdLibro.setText(listLibro.get(position).getIdLibro());
 		return v;
 
 	}
 
 	static class ViewHolder {
-		public ImageView imageview;
-		public TextView tvName;
-		public TextView tvDOB;
+		public ImageView ivLibroImagen;
+		public TextView tvTituloLibro;
+		public TextView tvIdLibro;
 
 	}
 
@@ -73,15 +72,15 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 
 		protected Bitmap doInBackground(String... urls) {
 			String urldisplay = urls[0];
-			Bitmap mIcon11 = null;
+			Bitmap bitimagen = null;
 			try {
 				InputStream in = new java.net.URL(urldisplay).openStream();
-				mIcon11 = BitmapFactory.decodeStream(in);
+				bitimagen = BitmapFactory.decodeStream(in);
 			} catch (Exception e) {
 				Log.e("Error", e.getMessage());
 				e.printStackTrace();
 			}
-			return mIcon11;
+			return bitimagen;
 		}
 
 		protected void onPostExecute(Bitmap result) {

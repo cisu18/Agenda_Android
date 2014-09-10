@@ -5,6 +5,9 @@ public class Libro {
 	private String idLibro;
 	private String titulo;
 	private String urlImagen;
+	private String descripcionLibro;
+	
+	
 	public final String getIdLibro() {
 		return idLibro;
 	}
@@ -23,6 +26,13 @@ public class Libro {
 	public final void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
+	public String getDescripcionLibro() {
+		return descripcionLibro;
+	}
+	public void setDescripcionLibro(String descripcionLibro) {
+		this.descripcionLibro = descripcionLibro;
+	}
+	
 	
 	
 }

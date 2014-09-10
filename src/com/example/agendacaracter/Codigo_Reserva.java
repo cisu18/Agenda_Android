@@ -22,7 +22,7 @@ public class Codigo_Reserva extends Activity {
 
 		codigoreserva.setTypeface(miPropiaTypeFace);
 		
-		TextView indicaciones = (TextView)findViewById(R.id.txt_Versiculo_Diario);
+		TextView indicaciones = (TextView)findViewById(R.id.txt_Descripcion_Libro);
 		indicaciones.setTypeface(miPropiaTypeFace);
 		
 		Button aceptar = (Button)findViewById(R.id.button1);

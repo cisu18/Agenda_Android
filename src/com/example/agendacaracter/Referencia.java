@@ -18,6 +18,7 @@ import com.example.reutilizables.AdaptadorLibro;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ParseException;
 import android.os.AsyncTask;
@@ -29,11 +30,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-
 public class Referencia extends Activity {
-	
-	ArrayList<Libro> actorsList;
-	
+
+	ArrayList<Libro> listadoLibros;
+
 	AdaptadorLibro adapter;
 
 	@Override
@@ -41,41 +41,51 @@ public class Referencia extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_referencia);
 
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");
-		
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
 
-		TextView usuario = (TextView)findViewById(R.id.txt_cabecera);
+		TextView usuario = (TextView) findViewById(R.id.txt_cabecera);
 
 		usuario.setTypeface(miPropiaTypeFace);
 
-		actorsList = new ArrayList<Libro>();
-		
+		listadoLibros = new ArrayList<Libro>();
+
 		Bundle bundle = getIntent().getExtras();
-		String idCualidad=bundle.getString("id cualidad");
-		
-		new JSONAsyncTask().execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"+idCualidad);
-		
-		GridView listview = (GridView)findViewById(R.id.list);
-		adapter = new AdaptadorLibro(getApplicationContext(), R.layout.row, actorsList);
-		
+		String idCualidad = bundle.getString("id cualidad");
+
+		new JSONAsyncTask()
+				.execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"
+						+ idCualidad);
+
+		final GridView listview = (GridView) findViewById(R.id.list);
+		adapter = new AdaptadorLibro(getApplicationContext(), R.layout.row,
+				listadoLibros);
+
 		listview.setAdapter(adapter);
-		
+
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long id) {
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long id) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), actorsList.get(position).getTitulo(), Toast.LENGTH_LONG).show();				
+
+				String idLibro = listadoLibros.get(position).getIdLibro();
+				String url = listadoLibros.get(position).getUrlImagen();
+				Intent i = new Intent(getApplicationContext(),
+						Descripcion_Libros.class);
+				i.putExtra("id libro", idLibro);
+				i.putExtra("url", url);
+				startActivity(i);
+				finish();
 			}
 		});
 	}
 
-
 	class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
-		
+
 		ProgressDialog dialog;
-		
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -85,12 +95,12 @@ public class Referencia extends Activity {
 			dialog.show();
 			dialog.setCancelable(false);
 		}
-		
+
 		@Override
 		protected Boolean doInBackground(String... urls) {
 			try {
-				
-				//------------------>>
+
+				// ------------------>>
 				HttpGet httppost = new HttpGet(urls[0]);
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httppost);
@@ -101,27 +111,26 @@ public class Referencia extends Activity {
 				if (status == 200) {
 					HttpEntity entity = response.getEntity();
 					String data = EntityUtils.toString(entity);
-					
-				
+
 					JSONObject object = new JSONObject();
 					JSONArray jarray = new JSONArray(data);
-					
+
 					for (int i = 0; i < jarray.length(); i++) {
 						object = jarray.getJSONObject(i);
-					
-						Libro actor = new Libro();
-						
-						actor.setIdLibro(object.getString("libro_id"));
-						actor.setTitulo(object.getString("titulo"));						
-						actor.setUrlImagen(object.getString("urlimg"));
-						
-						actorsList.add(actor);
+
+						Libro libro = new Libro();
+
+						libro.setIdLibro(object.getString("libro_id"));
+						libro.setTitulo(object.getString("titulo"));
+						libro.setUrlImagen(object.getString("urlimg"));
+
+						listadoLibros.add(libro);
 					}
 					return true;
 				}
-				
-				//------------------>>
-				
+
+				// ------------------>>
+
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			} catch (IOException e) {
@@ -131,16 +140,16 @@ public class Referencia extends Activity {
 			}
 			return false;
 		}
-		
+
 		protected void onPostExecute(Boolean result) {
 			dialog.cancel();
 			adapter.notifyDataSetChanged();
-			if(result == false)
-				Toast.makeText(getApplicationContext(), "Unable to fetch data from server", Toast.LENGTH_LONG).show();
+			if (result == false)
+				Toast.makeText(getApplicationContext(),
+						"Unable to fetch data from server", Toast.LENGTH_LONG)
+						.show();
 
 		}
 	}
-	
-	
-}
 
+}

@@ -74,7 +74,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		cualidad = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
 		cualidad.setTypeface(miPropiaTypeFace);
 
-		versiculo = (TextView) findViewById(R.id.txt_Versiculo_Diario);
+		versiculo = (TextView) findViewById(R.id.txt_Descripcion_Libro);
 		versiculo.setTypeface(miVersiculoTypeFace);
 
 		textobiblico = (TextView) findViewById(R.id.txt_Numero_Versiculo);

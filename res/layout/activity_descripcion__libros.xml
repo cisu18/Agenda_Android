@@ -34,7 +34,7 @@
         android:layout_height="wrap_content" >
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/img_Libro_Descripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -42,7 +42,7 @@
             android:src="@drawable/ic_launcher" />
 
          <TextView
-             android:id="@+id/txt_Versiculo_Diario"
+             android:id="@+id/txt_Descripcion_Libro"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_gravity="center"
