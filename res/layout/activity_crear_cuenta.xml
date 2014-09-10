@@ -71,14 +71,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:background="@color/CABECERA"
+        android:background="@color/gmail"
         android:paddingLeft="15dip"
-        android:paddingRight="15dip"        
+        android:paddingRight="15dip"
+        android:text="Registrarse"
         android:textColor="@color/LETRA"
-        android:textStyle="bold"
-        android:text="Registrarse" />
-
-   
+        android:textStyle="bold" />
 
 </LinearLayout>
 </ScrollView>

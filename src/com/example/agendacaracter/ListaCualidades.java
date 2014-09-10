@@ -47,7 +47,7 @@ public class ListaCualidades extends Activity {
 		Log.e("Entre", "Lista CUalidades");
 		// Enlazar controles
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 		TextView lista_cualidades = (TextView) findViewById(R.id.txt_cabecera);
 
 		lista_cualidades.setTypeface(miPropiaTypeFace);

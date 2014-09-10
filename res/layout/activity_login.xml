@@ -3,13 +3,12 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO" >
+    android:background="@drawable/degradado" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@color/FONDO"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="30dp" >

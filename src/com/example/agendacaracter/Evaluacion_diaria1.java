@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,6 +42,10 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 	public double puntaje;
 	AlertDialog alert;
 	String mensajeCompartir;
+	private TextView txtEspecificaciones;
+	private TextView txvPregunta01;
+	private TextView txvPregunta02;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +53,10 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_evaluacion_diaria1);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");	
+		
+		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight_2.ttf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 		title.setTypeface(miPropiaTypeFace);
@@ -56,13 +64,14 @@ public class Evaluacion_diaria1 extends Activity implements OnClickListener {
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
 		indicaciones.setTypeface(miPropiaTypeFace);		
 
-		TextView txtEspecificaciones = (TextView) findViewById(R.id.txt_especificaciones);
+		txtEspecificaciones = (TextView) findViewById(R.id.txt_especificaciones);
+		txtEspecificaciones.setTypeface(miContenidoTypeFace);
 				
-		TextView txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
-		txvPregunta01.setTypeface(miPropiaTypeFace);
+		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
+		txvPregunta01.setTypeface(miContenidoTypeFace);
 		
-		TextView txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
-		txvPregunta02.setTypeface(miPropiaTypeFace);
+		txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
+		txvPregunta02.setTypeface(miContenidoTypeFace);
 		
 		btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
 		btnSiguiente.setTypeface(miPropiaTypeFace);

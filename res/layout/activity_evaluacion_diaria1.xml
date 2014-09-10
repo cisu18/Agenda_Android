@@ -7,7 +7,8 @@
     
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"    
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/FONDO"
     android:orientation="vertical" >
 
@@ -23,47 +24,56 @@
         android:text="@string/evaluacion_diaria"
         android:textColor="@color/LETRA"
         android:textColorLink="@color/LETRA"
-        android:textSize="24sp"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txt_introduccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:background="@color/LETRA"
         android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
         android:text="¿QUIERES DESARROLLAR ESTA CUALIDAD EN TU VIDA?, Responde las siguientes preguntas:"
         android:textAllCaps="true"
-        android:textColor="@color/LETRA"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="@color/FONDO"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txt_especificaciones"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="1Nada    2Muy poco    3Algo    4Casi siempre    5Siempre"
-        android:textColor="@color/LETRA"
-        android:textSize="12sp"
+        android:text="1 Nada     -     2 Muy poco     -     3 Algo     -     4 Casi siempre     -     5 Siempre"
+        android:textColor="@color/identificadores"
+        android:textColorHint="@color/identificadores"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txv_pregunta_01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
         android:text="1. ¿Cuánto de esta cualidad manifestaste a las personas el día de hoy?"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/LETRA"
+        android:textColor="@color/CABECERA"
         android:textSize="22sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center_horizontal" >
 
@@ -84,7 +94,8 @@
                 android:checked="true"
                 android:shadowColor="@color/CABECERA"
                 android:text="1"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_01_2"
@@ -94,7 +105,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="2"
                 android:textColor="@color/LETRA"
-                android:textColorHint="@color/YELLOW" />
+                android:textColorHint="@color/YELLOW"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_01_3"
@@ -102,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="3"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_01_4"
@@ -110,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="4"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_01_5"
@@ -118,7 +132,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="5"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
+
         </RadioGroup>
     </LinearLayout>
 
@@ -126,16 +142,19 @@
         android:id="@+id/txv_pregunta_02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
         android:text="2. ¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/LETRA"
+        android:textColor="@color/CABECERA"
         android:textSize="22sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center_horizontal" >
 
@@ -156,7 +175,8 @@
                 android:checked="true"
                 android:shadowColor="@color/CABECERA"
                 android:text="1"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_02_2"
@@ -166,7 +186,8 @@
                 android:layout_marginLeft="10dp"
                 android:text="2"
                 android:textColor="@color/LETRA"
-                android:textColorHint="@color/YELLOW" />
+                android:textColorHint="@color/YELLOW"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_02_3"
@@ -174,7 +195,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="3"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_02_4"
@@ -182,7 +204,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="4"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
 
             <RadioButton
                 android:id="@+id/rdb_puntaje_02_5"
@@ -190,23 +213,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="5"
-                android:textColor="@color/LETRA" />
+                android:textColor="@color/LETRA"
+                android:textSize="20sp" />
+
         </RadioGroup>
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_siguiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="15dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/CABECERA"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/gmail"
+        android:minHeight="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="Resultado"
-        android:textColor="@color/LETRA" />
+        android:textColor="@color/LETRA"
+        android:textSize="20sp" />
 
 </LinearLayout>
 </ScrollView>
