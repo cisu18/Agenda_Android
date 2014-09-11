@@ -44,57 +44,59 @@ public final class R {
         public static final int aceptar=0x7f020001;
         public static final int aceptar_20=0x7f020002;
         public static final int boton_login=0x7f020003;
-        public static final int codigo_64=0x7f020004;
-        public static final int compartir=0x7f020005;
-        public static final int compartir_42=0x7f020006;
-        public static final int contra_login=0x7f020007;
-        public static final int contra_login2=0x7f020008;
-        public static final int degradado=0x7f020009;
-        public static final int email24=0x7f02000a;
-        public static final int email_28=0x7f02000b;
-        public static final int email_32=0x7f02000c;
-        public static final int emaila=0x7f02000d;
-        public static final int evaluacion=0x7f02000e;
-        public static final int evaluacion_42=0x7f02000f;
-        public static final int face=0x7f020010;
-        public static final int facebook1=0x7f020011;
-        public static final int gmail=0x7f020012;
-        public static final int gmail_64=0x7f020013;
-        public static final int ic_action_accept=0x7f020014;
-        public static final int ic_action_accept_20=0x7f020015;
-        public static final int ic_action_cancel=0x7f020016;
-        public static final int ic_action_cancel_32=0x7f020017;
-        public static final int ic_action_cancel_48=0x7f020018;
-        public static final int ic_action_email=0x7f020019;
-        public static final int ic_action_email_32=0x7f02001a;
-        public static final int ic_action_overflow=0x7f02001b;
-        public static final int ic_action_user=0x7f02001c;
-        public static final int ic_launcher=0x7f02001d;
-        public static final int key=0x7f02001e;
-        public static final int key2=0x7f02001f;
-        public static final int key24=0x7f020020;
-        public static final int key_28=0x7f020021;
-        public static final int key_32=0x7f020022;
-        public static final int key_48=0x7f020023;
-        public static final int key_log_32=0x7f020024;
-        public static final int libros=0x7f020025;
-        public static final int libros_ref=0x7f020026;
-        public static final int list38=0x7f020027;
-        public static final int overflow=0x7f020028;
-        public static final int overflow_prin=0x7f020029;
-        public static final int pensamiento_48=0x7f02002a;
-        public static final int pensamiento_64=0x7f02002b;
-        public static final int share_48=0x7f02002c;
-        public static final int share_64=0x7f02002d;
-        public static final int twitter=0x7f02002e;
-        public static final int twitter_64=0x7f02002f;
-        public static final int user_24=0x7f020030;
-        public static final int user_28=0x7f020031;
-        public static final int user_48=0x7f020032;
-        public static final int user_login=0x7f020033;
-        public static final int user_login2=0x7f020034;
-        public static final int usera=0x7f020035;
-        public static final int view_as_list_64=0x7f020036;
+        public static final int cara1=0x7f020004;
+        public static final int cara2=0x7f020005;
+        public static final int codigo_64=0x7f020006;
+        public static final int compartir=0x7f020007;
+        public static final int compartir_42=0x7f020008;
+        public static final int contra_login=0x7f020009;
+        public static final int contra_login2=0x7f02000a;
+        public static final int degradado=0x7f02000b;
+        public static final int email24=0x7f02000c;
+        public static final int email_28=0x7f02000d;
+        public static final int email_32=0x7f02000e;
+        public static final int emaila=0x7f02000f;
+        public static final int evaluacion=0x7f020010;
+        public static final int evaluacion_42=0x7f020011;
+        public static final int face=0x7f020012;
+        public static final int facebook1=0x7f020013;
+        public static final int gmail=0x7f020014;
+        public static final int gmail_64=0x7f020015;
+        public static final int ic_action_accept=0x7f020016;
+        public static final int ic_action_accept_20=0x7f020017;
+        public static final int ic_action_cancel=0x7f020018;
+        public static final int ic_action_cancel_32=0x7f020019;
+        public static final int ic_action_cancel_48=0x7f02001a;
+        public static final int ic_action_email=0x7f02001b;
+        public static final int ic_action_email_32=0x7f02001c;
+        public static final int ic_action_overflow=0x7f02001d;
+        public static final int ic_action_user=0x7f02001e;
+        public static final int ic_launcher=0x7f02001f;
+        public static final int key=0x7f020020;
+        public static final int key2=0x7f020021;
+        public static final int key24=0x7f020022;
+        public static final int key_28=0x7f020023;
+        public static final int key_32=0x7f020024;
+        public static final int key_48=0x7f020025;
+        public static final int key_log_32=0x7f020026;
+        public static final int libros=0x7f020027;
+        public static final int libros_ref=0x7f020028;
+        public static final int list38=0x7f020029;
+        public static final int overflow=0x7f02002a;
+        public static final int overflow_prin=0x7f02002b;
+        public static final int pensamiento_48=0x7f02002c;
+        public static final int pensamiento_64=0x7f02002d;
+        public static final int share_48=0x7f02002e;
+        public static final int share_64=0x7f02002f;
+        public static final int twitter=0x7f020030;
+        public static final int twitter_64=0x7f020031;
+        public static final int user_24=0x7f020032;
+        public static final int user_28=0x7f020033;
+        public static final int user_48=0x7f020034;
+        public static final int user_login=0x7f020035;
+        public static final int user_login2=0x7f020036;
+        public static final int usera=0x7f020037;
+        public static final int view_as_list_64=0x7f020038;
     }
     public static final class id {
         public static final int action_cerrar_sesion=0x7f09003a;
@@ -104,7 +106,10 @@ public final class R {
         public static final int action_settings=0x7f090038;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09000c;
+<<<<<<< Updated upstream
         public static final int btn_aceptar_resultado_evaluacion=0x7f09002e;
+=======
+>>>>>>> Stashed changes
         public static final int btn_compartir_puntaje=0x7f09002d;
         public static final int btn_siguiente=0x7f090017;
         public static final int button1=0x7f090004;
@@ -116,7 +121,10 @@ public final class R {
         public static final int img_Libro_Descripcion=0x7f090003;
         public static final int ivImgLibro=0x7f090035;
         public static final int lbl_Plan_Lectura=0x7f090010;
+<<<<<<< Updated upstream
         public static final int linearLayout4=0x7f09002c;
+=======
+>>>>>>> Stashed changes
         public static final int list=0x7f090028;
         public static final int listView1=0x7f090018;
         public static final int opcVerLibros=0x7f09003d;
@@ -152,13 +160,22 @@ public final class R {
         public static final int txt_idLibro=0x7f090031;
         public static final int txt_introduccion=0x7f090012;
         public static final int txt_pensamiento=0x7f090023;
+<<<<<<< Updated upstream
         public static final int txtcualidad=0x7f090032;
         public static final int txtid=0x7f090034;
         public static final int txtmes=0x7f090033;
         public static final int txv_mensaje_referente_resultado=0x7f09002b;
+=======
+        public static final int txtcualidad=0x7f090031;
+        public static final int txtid=0x7f090033;
+        public static final int txtmes=0x7f090032;
+        public static final int txv_mensaje_redes=0x7f09002c;
+        public static final int txv_mensaje_referente_resultado=0x7f09002a;
+>>>>>>> Stashed changes
         public static final int txv_mensaje_resultado_evaluacion=0x7f090029;
         public static final int txv_pregunta_01=0x7f090013;
         public static final int txv_pregunta_02=0x7f090015;
+        public static final int txv_recomendacion=0x7f09002b;
     }
     public static final class layout {
         public static final int activity_codigo__reserva=0x7f030000;

@@ -34,12 +34,13 @@ import android.widget.TextView;
 
 public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
-	// String mensajeCompartir;
+	// String mensajeCompartir; 
 	private int puntaje;
 	TextView txvResultadoEvaluacion;
 	TextView txvReferenteResultado;
+	TextView txtMensaje_redes;
+	TextView txvRecomendacion;
 	Button btnCompartirResultado;
-	Button btnAceptarResultado;
 	TextView txvtitle;
 	StringBuilder compartir = new StringBuilder();
 
@@ -49,25 +50,27 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_resultado_evaluacion);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 
-		txvtitle = (TextView) findViewById(R.id.txt_cabecera);
-		txvtitle.setTypeface(miPropiaTypeFace);
-
+		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight_2.ttf");
+		
 		txvResultadoEvaluacion = (TextView) findViewById(R.id.txv_mensaje_resultado_evaluacion);
 		txvResultadoEvaluacion.setTypeface(miPropiaTypeFace);
 
 		txvReferenteResultado = (TextView) findViewById(R.id.txv_mensaje_referente_resultado);
-		txvReferenteResultado.setTypeface(miPropiaTypeFace);
-
-		btnAceptarResultado = (Button) findViewById(R.id.btn_aceptar_resultado_evaluacion);
-		btnAceptarResultado.setTypeface(miPropiaTypeFace);
-		btnAceptarResultado.setOnClickListener(this);
+		txvReferenteResultado.setTypeface(miContenidoTypeFace); 
+		
+		txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
+		txvRecomendacion.setTypeface(miContenidoTypeFace); 
+		
+		txtMensaje_redes = (TextView) findViewById(R.id.txv_mensaje_redes);
+		txtMensaje_redes.setTypeface(miContenidoTypeFace); 		
 
 		btnCompartirResultado = (Button) findViewById(R.id.btn_compartir_puntaje);
 		btnCompartirResultado.setTypeface(miPropiaTypeFace);
-		btnCompartirResultado.setOnClickListener(this);
-		cargaData();
+		/*btnCompartirResultado.setOnClickListener(this);
+		cargaData();*/
 	}
 
 	public void cargaData() {
@@ -92,13 +95,8 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_compartir_puntaje:
-			Social.compartir(this, "Resultado Evaluación", compartir.toString());
-			break;
-		case R.id.btn_aceptar_resultado_evaluacion:
-			Intent i = new Intent(getApplicationContext(), MainActivity.class);
-			startActivity(i);
-			ResultadoEvaluacion.this.finish();
+			case R.id.btn_compartir_puntaje:
+				Social.compartir(this, "Resultado Evaluación", compartir.toString());
 			break;
 		}
 	}
