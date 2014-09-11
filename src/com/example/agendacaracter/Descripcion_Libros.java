@@ -168,7 +168,19 @@ public class Descripcion_Libros extends Activity {
 	}
 
 	public class DescargarImagen extends AsyncTask<String, Void, Bitmap> {
+		ProgressDialog dialog;
 
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			dialog = new ProgressDialog(Descripcion_Libros.this);
+			dialog.setMessage("Loading, please wait");
+			dialog.setTitle("Connecting server");
+			dialog.show();
+			dialog.setCancelable(false);
+		}
+
+		
 		protected Bitmap doInBackground(String... urls) {
 			String urldisplay = urls[0];
 			Bitmap Imagen_Libro_Bitmap = null;
@@ -183,8 +195,9 @@ public class Descripcion_Libros extends Activity {
 		}
 
 		protected void onPostExecute(Bitmap result) {
-			imagenLibro.setImageBitmap(result);
 
+			imagenLibro.setImageBitmap(result);
+			dialog.dismiss();
 		}
 
 	}

@@ -29,6 +29,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends Activity implements OnClickListener {
 
@@ -73,7 +75,15 @@ public class Login extends Activity implements OnClickListener {
 		Log.e("logre", "entrar");
 
 	}
+	 @Override
+	 public boolean onKeyDown(int keyCode, KeyEvent event) {
+	     if(keyCode==KeyEvent.KEYCODE_BACK)
+	         Toast.makeText(getApplicationContext(), "back press",      
+	      Toast.LENGTH_LONG).show();
 
+	     return false;
+	        // Disable back button..............
+	 }
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -162,20 +172,20 @@ public class Login extends Activity implements OnClickListener {
 			try {
 				
 				JSONObject datos = new JSONObject(result);
-				int Id = datos.getInt("id");
-				String Usuario = datos.getString("usuario");
-				String Email = datos.getString("email");
+//				int Id = datos.getInt("id");
+//				String Usuario = datos.getString("usuario");
+//				String Email = datos.getString("email");
 
 				Intent in = new Intent(getApplicationContext(),
 						MainActivity.class);
-				in.putExtra("id Usuario", Id);
-				in.putExtra("Nombre Usario", Usuario);
-				in.putExtra("Email Usuario", Email);
 				
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				Editor editor = prefe.edit();
-				editor.putString("id", datos.getString("id"));				
+				editor.putString("id", datos.getString("id"));
+				editor.putString("username", datos.getString("usuario"));
+				editor.putString("useremail", datos.getString("email"));
+				
 				editor.commit();
 
 				startActivity(in);

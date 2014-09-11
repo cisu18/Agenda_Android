@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.http.HttpEntity;
@@ -26,15 +25,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Pensamiento extends Activity implements OnClickListener {
 	TextView txtPensamiento;
 	TextView txtAutor;
 	TextView planlectura;
 	TextView textosPlanLectura;
+	TextView nombreCualidad;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +66,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 	 	textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
 		textosPlanLectura.setTypeface(miVersiculoTypeFace);
+	
+		nombreCualidad=(TextView)findViewById(R.id.txt_Nombre_Cualidad);
 		
 
 		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
@@ -89,6 +90,10 @@ public class Pensamiento extends Activity implements OnClickListener {
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
 						+ fecha);
 
+		Bundle bundle=getIntent().getExtras();
+		nombreCualidad.setText(bundle.getString("Nombre Cualidad"));
+		textosPlanLectura.setText(bundle.getString("Plan lectura"));
+		
 	}
 
 	@Override

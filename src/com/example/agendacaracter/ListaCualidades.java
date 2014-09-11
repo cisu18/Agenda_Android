@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -144,7 +145,18 @@ public class ListaCualidades extends Activity {
 
 	private class ReadCualidadesJSONFeedTask extends
 			AsyncTask<String, Void, String> {
+		ProgressDialog dialog;
 
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			dialog = new ProgressDialog(ListaCualidades.this);
+			dialog.setMessage("Loading, please wait");
+			dialog.setTitle("Connecting server");
+			dialog.show();
+			dialog.setCancelable(false);
+		}
+		
 		protected String doInBackground(String... urls) {
 			return readJSONFeed(urls[0]);
 		}
@@ -175,6 +187,7 @@ public class ListaCualidades extends Activity {
 			} catch (Exception e) {
 				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
 			}
+			dialog.dismiss();
 		}
 	}
 
