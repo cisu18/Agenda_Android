@@ -16,7 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.example.reutilizables.Social;
+import com.example.reutilizables.Util;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -132,7 +132,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(in);
 			break;
 		case R.id.txt_Compartir_Versiculo:
-			Social.compartir(this, cualidad.getText().toString(), versiculo
+			Util.compartir(this, cualidad.getText().toString(), versiculo
 					.getText().toString()
 					+ "\n\n"
 					+ textobiblico.getText().toString());

@@ -3,11 +3,12 @@ package com.example.reutilizables;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 
 public class Util {
-	public static String getFechaActual() {
+	@SuppressLint("SimpleDateFormat") public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		return formateador.format(ahora);

@@ -3,8 +3,6 @@ package com.example.agendacaracter;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,6 +12,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
 import android.app.Activity;
 import android.content.Context;
@@ -30,7 +30,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 public class Pensamiento extends Activity implements OnClickListener {
@@ -85,7 +84,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		TextView txtLibroReferencia = (TextView) findViewById(R.id.txt_LibroReferencia);
 		txtLibroReferencia.setOnClickListener(this);
 
-		String fecha = getFechaActual().substring(0, 5);
+		String fecha = Util.getFechaActual().substring(0, 5);
 
 		// fecha="09-10"; //mensaje corto
 		// fecha="24-11"; //mensaje largo
@@ -148,12 +147,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 		}
 	}
 
-	public static String getFechaActual() {
-		Date ahora = new Date();
-		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-		return formateador.format(ahora);
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.pensamiento, menu);
@@ -176,20 +169,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
-		// TODO Auto-generated method stub
 		super.onCreateContextMenu(menu, v, menuInfo);
-		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-
-//		cu = (Cualidades) lista_mensual.getAdapter().getItem(info.position);
-//		menu.setHeaderTitle(cu.getCualidad());
+	
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu.setHeaderTitle("Opciones disponibles"));
 	}
 
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
-		//String id = cu.getId();
+	public boolean onContextItemSelected(MenuItem item) {		
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:

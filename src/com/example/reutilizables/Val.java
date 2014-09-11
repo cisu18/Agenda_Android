@@ -3,8 +3,6 @@ package com.example.reutilizables;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 
 public class Val {
 

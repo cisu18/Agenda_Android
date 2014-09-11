@@ -3,8 +3,7 @@ package com.example.agendacaracter;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,10 +14,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.example.reutilizables.Social;
 import com.example.reutilizables.Util;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -101,7 +98,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.btn_compartir_puntaje:
-				Social.compartir(this, "Resultado Evaluación", compartir.toString());
+				Util.compartir(this, "Resultado Evaluación", compartir.toString());
 			break;
 		}
 	}
