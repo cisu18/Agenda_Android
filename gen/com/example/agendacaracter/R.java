@@ -106,11 +106,7 @@ public final class R {
         public static final int action_settings=0x7f090038;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09000c;
-<<<<<<< Updated upstream
-        public static final int btn_aceptar_resultado_evaluacion=0x7f09002e;
-=======
->>>>>>> Stashed changes
-        public static final int btn_compartir_puntaje=0x7f09002d;
+        public static final int btn_compartir_puntaje=0x7f09002e;
         public static final int btn_siguiente=0x7f090017;
         public static final int button1=0x7f090004;
         public static final int imageView1=0x7f09002a;
@@ -121,10 +117,6 @@ public final class R {
         public static final int img_Libro_Descripcion=0x7f090003;
         public static final int ivImgLibro=0x7f090035;
         public static final int lbl_Plan_Lectura=0x7f090010;
-<<<<<<< Updated upstream
-        public static final int linearLayout4=0x7f09002c;
-=======
->>>>>>> Stashed changes
         public static final int list=0x7f090028;
         public static final int listView1=0x7f090018;
         public static final int opcVerLibros=0x7f09003d;
@@ -160,22 +152,15 @@ public final class R {
         public static final int txt_idLibro=0x7f090031;
         public static final int txt_introduccion=0x7f090012;
         public static final int txt_pensamiento=0x7f090023;
-<<<<<<< Updated upstream
         public static final int txtcualidad=0x7f090032;
         public static final int txtid=0x7f090034;
         public static final int txtmes=0x7f090033;
+        public static final int txv_mensaje_redes=0x7f09002d;
         public static final int txv_mensaje_referente_resultado=0x7f09002b;
-=======
-        public static final int txtcualidad=0x7f090031;
-        public static final int txtid=0x7f090033;
-        public static final int txtmes=0x7f090032;
-        public static final int txv_mensaje_redes=0x7f09002c;
-        public static final int txv_mensaje_referente_resultado=0x7f09002a;
->>>>>>> Stashed changes
         public static final int txv_mensaje_resultado_evaluacion=0x7f090029;
         public static final int txv_pregunta_01=0x7f090013;
         public static final int txv_pregunta_02=0x7f090015;
-        public static final int txv_recomendacion=0x7f09002b;
+        public static final int txv_recomendacion=0x7f09002c;
     }
     public static final class layout {
         public static final int activity_codigo__reserva=0x7f030000;
