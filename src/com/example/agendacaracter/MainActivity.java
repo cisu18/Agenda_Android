@@ -16,6 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.example.reutilizables.Social;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -29,13 +31,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -51,41 +51,34 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView IrEvaluacion;
 
 	private ProgressDialog pDialog;
+	public TextView tvIdCualidad;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main); 
+		setContentView(R.layout.activity_main);
 
-		
 		SharedPreferences prefe = getSharedPreferences("user",
 				Context.MODE_PRIVATE);
 		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
 		if (idUsuario == 0) {
-			Intent i=new Intent(this,Login.class);
+			Intent i = new Intent(this, Login.class);
 			startActivity(i);
-//			finish();
 		} else {
-//			Intent i = new Intent(this, Login.class);
-//			startActivity(i);
 		}
-		
-		
-		
-		
+
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");	
-		
+				"fonts/HelveticaLTStd-Cond.otf");
+
 		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/GeosansLight_2.ttf");	
-		
+				"fonts/GeosansLight_2.ttf");
+
 		Typeface miNumeroTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/GeosansLight-Oblique_1.ttf");	
-		
+				"fonts/GeosansLight-Oblique_1.ttf");
+
 		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
-	
 
 		fechaMovil = (TextView) findViewById(R.id.txt_Fecha_Movil);
 		fechaMovil.setTypeface(miPropiaTypeFace);
@@ -102,7 +95,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
 		planlectura.setTypeface(miPlanTypeFace);
 
-	 	textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
+		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
 		textosPlanLectura.setTypeface(miVersiculoTypeFace);
 
 		compartirVersiculo = (TextView) findViewById(R.id.txt_Compartir_Versiculo);
@@ -115,10 +108,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		estaConectado();
 		EstablecerFecha();
-		
+
+		tvIdCualidad = new TextView(this);
+		// tvIdCualidad.setText("1");
 
 	}
-
 
 	@Override
 	public void onClick(View v) {
@@ -126,8 +120,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.txt_Pensamiento_Diario:
 			Intent i = new Intent(this, Pensamiento.class);
+			i.putExtra("idCualidad", tvIdCualidad.getText());
 			i.putExtra("Nombre Cualidad", cualidad.getText());
 			i.putExtra("Plan lectura", textosPlanLectura.getText());
+
+			Log.e("idCualidad", tvIdCualidad.getText().toString());
 			startActivity(i);
 			break;
 		case R.id.txtEvaluacionDiaria:
@@ -135,24 +132,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(in);
 			break;
 		case R.id.txt_Compartir_Versiculo:
-			
-			/*Intent inte = new Intent();
-			inte.setAction(Intent.ACTION_SEND);
-			String msgver = versiculo.getText().toString();
-			inte.putExtra(Intent.EXTRA_TEXT, msgver);
-			inte.setType("text/plain");
-			startActivity(Intent.createChooser(inte, "Compartir"));*/
-			
-			Intent intent = new Intent(Intent.ACTION_SEND);
+			Social.compartir(this, cualidad.getText().toString(), versiculo
+					.getText().toString()
+					+ "\n\n"
+					+ textobiblico.getText().toString());
 
-			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_SUBJECT, cualidad.getText().toString());
-			intent.putExtra(Intent.EXTRA_TEXT, versiculo.getText().toString());
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-			this.startActivity(Intent.createChooser(intent, "Compartir en"));
-		 		
-			//share(this, "Versiculo del dia", versiculo.getText().toString());
 			break;
 		default:
 
@@ -161,17 +145,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 
-//	 public static void share(Context ctx, String subject,String text) {
-//        final Intent intent = new Intent(Intent.ACTION_SEND);
-//
-//        intent.setType("text/plain");
-//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-//        intent.putExtra(Intent.EXTRA_TEXT, text);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//
-//        ctx.startActivity(Intent.createChooser(intent, ctx.getString(R.string.msg_MostrarCualidad)));
-//       }
-
+	// public static void share(Context ctx, String subject,String text) {
+	// final Intent intent = new Intent(Intent.ACTION_SEND);
+	//
+	// intent.setType("text/plain");
+	// intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+	// intent.putExtra(Intent.EXTRA_TEXT, text);
+	// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	//
+	// ctx.startActivity(Intent.createChooser(intent,
+	// ctx.getString(R.string.msg_MostrarCualidad)));
+	// }
 
 	public void EstablecerFecha() {
 
@@ -190,10 +174,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		fecha = dateFormat2.format(cal1);
 		System.out.println(fecha);
 
-		//fecha="21-09"; //autor corto
-		//fecha="26-10"; //autor largo
-		//fecha="19-11"; //largo
-		//fecha="25-01"; //corto
+		// fecha="21-09"; //autor corto
+		// fecha="26-10"; //autor largo
+		// fecha="19-11"; //largo
+		// fecha="25-01"; //corto
 		new ReadDiarioJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/cualidades_dia/format/json/fecha/"
 						+ fecha);
@@ -224,9 +208,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			finish();
 			return true;
 		case R.id.action_cerrar_sesion:
-			Intent mostrarPreg = new Intent(this, Login.class);
-			startActivity(mostrarPreg);
-			finish();
+			SharedPreferences archivoUsuario = getApplicationContext()
+					.getSharedPreferences("user", Context.MODE_PRIVATE);
+			archivoUsuario.edit().remove("id").commit();
+			archivoUsuario.edit().remove("usuario").commit();
+			archivoUsuario.edit().remove("email").commit();
+			Intent i = new Intent(this, Login.class);
+			startActivity(i);
+
 			return true;
 		default:
 			return false;
@@ -320,12 +309,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 
 		protected void onPostExecute(String result) {
+
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
 
 				datos = jsonArray.getJSONObject(0);
 
+				tvIdCualidad.setText(datos.getString("cualidad_id"));
 				cualidad.setText(datos.getString("cualidad"));
 				versiculo.setText(datos.getString("versiculo"));
 				textobiblico.setText(datos.getString("numeroversiculo"));

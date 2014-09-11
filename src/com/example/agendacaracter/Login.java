@@ -49,10 +49,10 @@ public class Login extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
+
 		usuario = (EditText) findViewById(R.id.txtUserName);
 		usuario.setTypeface(miPropiaTypeFace);
 
@@ -75,15 +75,17 @@ public class Login extends Activity implements OnClickListener {
 		Log.e("logre", "entrar");
 
 	}
-	 @Override
-	 public boolean onKeyDown(int keyCode, KeyEvent event) {
-	     if(keyCode==KeyEvent.KEYCODE_BACK)
-	         Toast.makeText(getApplicationContext(), "back press",      
-	      Toast.LENGTH_LONG).show();
 
-	     return false;
-	        // Disable back button..............
-	 }
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+		}
+
+		return false;
+
+		// Disable back button..............
+	}
+
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -170,22 +172,19 @@ public class Login extends Activity implements OnClickListener {
 		protected void onPostExecute(String result) {
 
 			try {
-				
-				JSONObject datos = new JSONObject(result);
-//				int Id = datos.getInt("id");
-//				String Usuario = datos.getString("usuario");
-//				String Email = datos.getString("email");
 
+				JSONObject datos = new JSONObject(result);
+				
 				Intent in = new Intent(getApplicationContext(),
 						MainActivity.class);
-				
+
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				Editor editor = prefe.edit();
 				editor.putString("id", datos.getString("id"));
 				editor.putString("username", datos.getString("usuario"));
 				editor.putString("useremail", datos.getString("email"));
-				
+
 				editor.commit();
 
 				startActivity(in);
