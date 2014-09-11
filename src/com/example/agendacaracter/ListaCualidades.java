@@ -16,7 +16,9 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -96,14 +98,18 @@ public class ListaCualidades extends Activity {
 		 */
 		switch (item.getItemId()) {
 		case R.id.action_inicio:
-			Intent mostrarAct = new Intent(this, MainActivity.class);
-			startActivity(mostrarAct);
+			Intent in = new Intent(this, MainActivity.class);
+			startActivity(in);
 			finish();
 			return true;
 		case R.id.action_cerrar_sesion:
-			Intent mostrarPreg = new Intent(this, Login.class);
-			startActivity(mostrarPreg);
-			finish();
+			SharedPreferences archivoUsuario = getApplicationContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+			archivoUsuario.edit().remove("id").commit();
+			archivoUsuario.edit().remove("usuario").commit();
+			archivoUsuario.edit().remove("email").commit();
+			Intent i=new Intent(this,Login.class);
+			startActivity(i);
+			
 			return true;
 		default:
 			return false;

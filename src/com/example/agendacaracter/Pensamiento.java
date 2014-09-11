@@ -15,7 +15,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+<<<<<<< HEAD
 import com.example.reutilizables.Val;
+=======
+import com.example.entidad.Cualidades;
+>>>>>>> 11fc6a21cf044c7c4b69c685515048b9e87e495a
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,10 +29,14 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 public class Pensamiento extends Activity implements OnClickListener {
@@ -37,7 +45,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 	TextView planlectura;
 	TextView textosPlanLectura;
 	TextView nombreCualidad;
-	
+	TextView tvIdCualidad;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +105,21 @@ public class Pensamiento extends Activity implements OnClickListener {
 		Bundle bundle=getIntent().getExtras();
 		nombreCualidad.setText(bundle.getString("Nombre Cualidad"));
 		textosPlanLectura.setText(bundle.getString("Plan lectura"));
+		tvIdCualidad=new TextView(this);
+		tvIdCualidad.setText(bundle.getString("idCualidad"));
+		Log.e("Cualidad id",tvIdCualidad.getText().toString());
+		
+		registerForContextMenu(txtLibroReferencia);
+		txtLibroReferencia.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				openContextMenu(v);
+				
+			}
+		});
+
 		
 	}
 
@@ -112,10 +135,10 @@ public class Pensamiento extends Activity implements OnClickListener {
 				startActivity(i);
 			}			
 			break;
-		case R.id.txt_LibroReferencia:
-			Intent i2 = new Intent(this, Referencia.class);
-			startActivity(i2);
-			break;
+//		case R.id.txt_LibroReferencia:
+//			Intent in = new Intent(this, ListaCualidades.class);
+//			startActivity(in);
+//			break;
 
 		case R.id.txt_compartir:
 			Intent intent = new Intent(Intent.ACTION_SEND);
@@ -151,6 +174,54 @@ public class Pensamiento extends Activity implements OnClickListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
+	
+	
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		// TODO Auto-generated method stub
+		super.onCreateContextMenu(menu, v, menuInfo);
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+
+//		cu = (Cualidades) lista_mensual.getAdapter().getItem(info.position);
+//		menu.setHeaderTitle(cu.getCualidad());
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu_contextual_cualidades, menu.setHeaderTitle("Opciones disponibles"));
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		//String id = cu.getId();
+		switch (item.getItemId()) {
+
+		case R.id.opcVerLibros:
+			Intent i = new Intent(this, Referencia.class);
+			i.putExtra("id cualidad", tvIdCualidad.getText());
+			startActivity(i);
+			return true;
+		default:
+			return super.onContextItemSelected(item);
+
+		}
+
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
