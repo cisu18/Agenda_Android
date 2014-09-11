@@ -109,12 +109,12 @@ public final class R {
         public static final int btn_compartir_puntaje=0x7f09002e;
         public static final int btn_siguiente=0x7f090017;
         public static final int button1=0x7f090004;
-        public static final int imageView1=0x7f09002a;
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
         public static final int imageView4=0x7f090011;
         public static final int img_Libro=0x7f09002f;
         public static final int img_Libro_Descripcion=0x7f090003;
+        public static final int img_carita_resultado_evaluacion=0x7f09002a;
         public static final int ivImgLibro=0x7f090035;
         public static final int lbl_Plan_Lectura=0x7f090010;
         public static final int list=0x7f090028;
@@ -155,9 +155,9 @@ public final class R {
         public static final int txtcualidad=0x7f090032;
         public static final int txtid=0x7f090034;
         public static final int txtmes=0x7f090033;
-        public static final int txv_mensaje_redes=0x7f09002d;
-        public static final int txv_mensaje_referente_resultado=0x7f09002b;
-        public static final int txv_mensaje_resultado_evaluacion=0x7f090029;
+        public static final int txv_mensaje_carita=0x7f090029;
+        public static final int txv_mensaje_recomendacion=0x7f09002d;
+        public static final int txv_mensaje_resultado_evaluacion=0x7f09002b;
         public static final int txv_pregunta_01=0x7f090013;
         public static final int txv_pregunta_02=0x7f090015;
         public static final int txv_recomendacion=0x7f09002c;

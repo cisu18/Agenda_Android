@@ -20,8 +20,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Evaluacion_diaria1 extends Activity {
-	private Button btnSiguiente;
+public class Evaluacion_diaria1 extends Activity {	
 	public double puntaje;
 	String mensajeCompartir;
 	private TextView txvPregunta01;
@@ -110,16 +109,19 @@ public class Evaluacion_diaria1 extends Activity {
 				startActivity(i);
 				alert.dismiss();
 				finish();
-
 			}
 		});
 		alert.show();
 	}
 
 	public int sumarPuntaje() {		
-		int puntaje01 = Integer.parseInt(String.valueOf(sp_critetioEvaluacion01.getSelectedItemPosition()))+1;
-		int puntaje02 = Integer.parseInt(String.valueOf(sp_critetioEvaluacion02.getSelectedItemPosition()))+1;		
-		return Math.round((puntaje01+puntaje02) / 2);
+		double puntaje01 = Double.parseDouble(String.valueOf(sp_critetioEvaluacion01.getSelectedItemPosition()))+1;
+		double puntaje02 = Double.parseDouble(String.valueOf(sp_critetioEvaluacion02.getSelectedItemPosition()))+1;
+		
+		int promedio=(int)Math.round((puntaje01+puntaje02) / 2);
+		Log.e("PROMEDIDO",puntaje+"-"+puntaje01+"@"+puntaje02);
+		return promedio;
+		
 	}
 
 }

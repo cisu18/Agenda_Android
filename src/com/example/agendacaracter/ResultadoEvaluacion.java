@@ -16,11 +16,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.reutilizables.Social;
+import com.example.reutilizables.Util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,13 +39,14 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 	// String mensajeCompartir; 
 	private int puntaje;
-	TextView txvResultadoEvaluacion;
-	TextView txvReferenteResultado;
-	TextView txtMensaje_redes;
-	TextView txvRecomendacion;
-	Button btnCompartirResultado;
-	TextView txvtitle;
+	TextView txvMensajeCarita;
+	TextView txvMensajeResultadoEvaluacion;
+	TextView txvMensajeRecomendacion;	
+	
+	Button btnCompartirResultado;	
 	StringBuilder compartir = new StringBuilder();
+	
+	SharedPreferences preferencias;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,37 +59,38 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 		
-		txvResultadoEvaluacion = (TextView) findViewById(R.id.txv_mensaje_resultado_evaluacion);
-		txvResultadoEvaluacion.setTypeface(miPropiaTypeFace);
-
-		txvReferenteResultado = (TextView) findViewById(R.id.txv_mensaje_referente_resultado);
-		txvReferenteResultado.setTypeface(miContenidoTypeFace); 
+		txvMensajeCarita = (TextView) findViewById(R.id.txv_mensaje_carita);
+		txvMensajeCarita.setTypeface(miPropiaTypeFace);
 		
-		txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
+		txvMensajeResultadoEvaluacion = (TextView) findViewById(R.id.txv_mensaje_resultado_evaluacion);
+		txvMensajeResultadoEvaluacion.setTypeface(miPropiaTypeFace);
+
+		txvMensajeRecomendacion = (TextView) findViewById(R.id.txv_mensaje_recomendacion);
+		txvMensajeRecomendacion.setTypeface(miContenidoTypeFace); 
+		
+		TextView txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
 		txvRecomendacion.setTypeface(miContenidoTypeFace); 
-		
-		txtMensaje_redes = (TextView) findViewById(R.id.txv_mensaje_redes);
-		txtMensaje_redes.setTypeface(miContenidoTypeFace); 		
-
+				
 		btnCompartirResultado = (Button) findViewById(R.id.btn_compartir_puntaje);
 		btnCompartirResultado.setTypeface(miPropiaTypeFace);
-		/*btnCompartirResultado.setOnClickListener(this);
-		cargaData();*/
+		btnCompartirResultado.setOnClickListener(this);
+		
+		preferencias = getSharedPreferences("user",
+				Context.MODE_PRIVATE);
+		cargaData();
 	}
 
 	public void cargaData() {
 		Bundle bundle = getIntent().getExtras();
-		puntaje = bundle.getInt("puntaje");
-		SharedPreferences prefe = getSharedPreferences("user",
-				Context.MODE_PRIVATE);
-		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+		puntaje = bundle.getInt("puntaje");		
+		int idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
 		if (idUsuario > 0) {
 			new ReadJSONFeedTask()
 					.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"
-							+ getFechaActual()
+							+ Util.getFechaActual()
 							+ "/usuario/"
 							+ idUsuario
-							+ "/puntaje/" + (int) puntaje + "/format/json");
+							+ "/puntaje/" + puntaje + "/format/json");
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
@@ -102,77 +107,74 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	}
 	
 	private void mostrarMensajeDiario(int estado, int puntajeMensual) {
-		StringBuilder mensaje = new StringBuilder();
-		StringBuilder recomendacion = new StringBuilder();
-		StringBuilder titulo = new StringBuilder();
+		StringBuilder txtMensajeResultado = new StringBuilder();
+		StringBuilder txtRecomendacion = new StringBuilder();
+		StringBuilder txtMensajeCarita = new StringBuilder();
 		int porcentaje = 0;
 		if (estado == 1) {
 			porcentaje = puntajeMensual * 20;
-			mensaje.append("Tu avance personal de este mes es: ");
+			txtMensajeResultado.append("Tu avance personal de este mes es: ");
 			compartir.append("Mi avance personal de este mes es ");
 
 		} else if (estado == 2) {
 
-			porcentaje = (int) puntaje * 20;
-			mensaje.append("Tu avance personal de hoy es: ");
+			porcentaje = puntaje * 20;
+			txtMensajeResultado.append("Tu avance personal de hoy es: ");
 			compartir.append("Mi avance personal de hoy es ");
 		}
 		switch (porcentaje) {
 		case 20:
-			mensaje.append(porcentaje + "%");
+			txtMensajeResultado.append(porcentaje + "%");
 			compartir.append(porcentaje
 					+ "%\nEs la oportunidad iniciar mi cambio personal.");
-			recomendacion
+			txtRecomendacion
 					.append("Es una oportunidad de iniciar tu cambio personal.");
-			txvReferenteResultado.setText("");
-			titulo.append("¡Vamos!");
+			txvMensajeRecomendacion.setText("");
+			txtMensajeCarita.append("¡Vamos!");
 			break;
 		case 40:
-			mensaje.append(porcentaje + "%");
+			txtMensajeResultado.append(porcentaje + "%");
 			compartir
 					.append(porcentaje
 							+ "%\nUn poco más de esfuerzo y veré una diferencia que formará mi carácter.");
-			recomendacion
+			txtRecomendacion
 					.append("Un poco más de esfuerzo y podrías ver una diferencia que formará tu carácter.");
-			titulo.append("¡Sigue adelante!");
+			txtMensajeCarita.append("¡Sigue adelante!");
 			break;
 		case 60:
-			mensaje.append(porcentaje + "%");
+			txtMensajeResultado.append(porcentaje + "%");
 			compartir
 					.append(porcentaje
 							+ "%\n¿Cómo puedo hacerlo mejor? Hoy puedo trasmitir mi ejemplo a otras personas.");
-			recomendacion
+			txtRecomendacion
 					.append("¿Cómo podrías hacerlo mejor? Puedes trasmitir tu ejemplo a otras personas.");
-			titulo.append("Vas bien");
+			txtMensajeCarita.append("Vas bien");
 			break;
 		case 80:
-			mensaje.append(porcentaje + "%");
+			txtMensajeResultado.append(porcentaje + "%");
 			compartir.append(porcentaje
 					+ "%\nSe está formando un hábito fuerte en mí.");
-			recomendacion.append("Se está formando un hábito fuerte en ti.");
-			titulo.append("Muy bien");
+			txtRecomendacion.append("Se está formando un hábito fuerte en ti.");
+			txtMensajeCarita.append("Muy bien");
 			break;
 		case 100:
-			mensaje.append(porcentaje + "%");
+			txtMensajeResultado.append(porcentaje + "%");
 			compartir
 					.append(porcentaje
 							+ "%\nPuedo ser un mentor para alguien más, otras personas necesitan mi ayuda.");
-			recomendacion
+			txtRecomendacion
 					.append("Piensa en ser un mentor para alguien más. Recuerda otras personas también necesitan ayuda.");
-			titulo.append("Excelente");
+			txtMensajeCarita.append("Excelente");
 			break;
 		}
 		compartir.append("\n\nAgenda Carácter");
-		txvResultadoEvaluacion.setText(mensaje);
-		txvReferenteResultado.setText(recomendacion);
-		txvtitle.setText(titulo);
-	}
-
-	public static String getFechaActual() {
-		Date ahora = new Date();
-		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-		return formateador.format(ahora);
-	}
+		txvMensajeResultadoEvaluacion.setText(txtMensajeResultado);
+		txvMensajeRecomendacion.setText(txtRecomendacion);
+		txvMensajeCarita.setText(txtMensajeCarita);
+		Editor editor = preferencias.edit();
+		editor.putString("eval", Util.getFechaActual());		
+		editor.commit();
+	}	
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
@@ -185,11 +187,11 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				datos = jsonArray.getJSONObject(0);
+				datos = jsonArray.getJSONObject(0);				
 				mostrarMensajeDiario(
 						Integer.parseInt(datos.getString("estado")),
 						Integer.parseInt(datos.getString("puntaje")));
-
+				
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
 			}

@@ -159,7 +159,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 							Context.MODE_PRIVATE);
 					Editor editor = prefe.edit();
 					editor.putString("id", datos.getString("data"));
-					editor.commit();				
+					editor.commit();
 
 					alert.setMessage("Registro correcto");
 					alert.setButton("Aceptar",

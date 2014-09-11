@@ -3,6 +3,9 @@ package com.example.reutilizables;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 public class Val {
 
 	public static boolean isEmailValid(String email) {
@@ -31,6 +34,14 @@ public class Val {
 		boolean isValid = true;
 		if (str1.equals("")||str2.equals("")||str3.equals("")||str4.equals("")) {
 			isValid = false;
+		}
+		return isValid;
+	}
+	
+	public static boolean isEvaluated(String fecha){
+		boolean isValid = false;
+		if(fecha.equals(Util.getFechaActual())){
+			isValid = true;
 		}
 		return isValid;
 	}

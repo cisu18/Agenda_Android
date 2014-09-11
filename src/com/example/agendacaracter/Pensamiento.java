@@ -15,8 +15,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.example.reutilizables.Val;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -100,8 +104,13 @@ public class Pensamiento extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Evaluacion:
-			Intent i = new Intent(this, Evaluacion_diaria1.class);
-			startActivity(i);
+			SharedPreferences preferencias = getSharedPreferences("user",
+					Context.MODE_PRIVATE);
+			String fechaevaluacion = preferencias.getString("eval", "0");
+			if(!Val.isEvaluated(fechaevaluacion)){
+				Intent i = new Intent(this, Evaluacion_diaria1.class);
+				startActivity(i);
+			}			
 			break;
 		case R.id.txt_LibroReferencia:
 			Intent i2 = new Intent(this, Referencia.class);
