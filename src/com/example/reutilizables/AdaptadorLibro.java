@@ -35,7 +35,6 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// convert view = design
 		View v = convertView;
 		if (v == null) {
 			holder = new ViewHolder();
@@ -51,7 +50,6 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
 				position).getUrlImagen());
 		holder.tvTituloLibro.setText(listLibro.get(position).getTitulo());
-		// holder.tvIdLibro.setText(listLibro.get(position).getIdLibro());
 		return v;
 
 	}

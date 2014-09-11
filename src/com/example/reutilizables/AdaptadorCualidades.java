@@ -64,7 +64,6 @@ public class AdaptadorCualidades extends BaseAdapter {
 
 		holder.cualidad.setText(searchArrayList.get(position).getCualidad());
 		holder.mes.setText(searchArrayList.get(position).getMes());
-		// holder.id.setText(searchArrayList.get(position).getId());
 
 		return convertView;
 	}

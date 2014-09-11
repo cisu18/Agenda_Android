@@ -39,16 +39,14 @@ import com.example.reutilizables.AdaptadorCualidades;
 
 public class ListaCualidades extends Activity {
 
-	// Declaracion de Variables
 	private ListView lista_mensual;
 	ArrayList<Cualidades> cualidades;
-
+	Cualidades cu = new Cualidades();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lista_cualidades);
-		Log.e("Entre", "Lista CUalidades");
-		// Enlazar controles
+	
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 		TextView lista_cualidades = (TextView) findViewById(R.id.txt_cabecera);
@@ -57,23 +55,15 @@ public class ListaCualidades extends Activity {
 
 		lista_mensual = (ListView) findViewById(R.id.listView1);
 
-		// llamar al web service
 		new ReadCualidadesJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
 
-		// Registar listview para menu contextual
 		registerForContextMenu(lista_mensual);
 
-		// mensaje de ayuda
 		lista_mensual.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int position,
-					long id) {
-				// Object o = lista_mensual.getItemAtPosition(position);
-				// Cualidades fullObject = (Cualidades)o;
-				// Toast.makeText(ListaCualidades.this,
-				// "Realiza un toque largo para ver las opciones :D ",
-				// Toast.LENGTH_LONG).show();
+					long id) {				
 				openContextMenu(v);
 			}
 		});
@@ -82,20 +72,13 @@ public class ListaCualidades extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		
 		getMenuInflater().inflate(R.menu.lista_cualidades, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		/*
-		 * int id = item.getItemId(); if (id == R.id.action_settings) { return
-		 * true; } return super.onOptionsItemSelected(item);
-		 */
+	public boolean onOptionsItemSelected(MenuItem item) {		
 		switch (item.getItemId()) {
 		case R.id.action_inicio:
 			Intent in = new Intent(this, MainActivity.class);
@@ -116,12 +99,11 @@ public class ListaCualidades extends Activity {
 		}
 	}
 
-	Cualidades cu = new Cualidades();
+	
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
-		// TODO Auto-generated method stub
 		super.onCreateContextMenu(menu, v, menuInfo);
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
@@ -133,7 +115,6 @@ public class ListaCualidades extends Activity {
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		String id = cu.getId();
 		switch (item.getItemId()) {
 
@@ -144,9 +125,7 @@ public class ListaCualidades extends Activity {
 			return true;
 		default:
 			return super.onContextItemSelected(item);
-
 		}
-
 	}
 
 	private class ReadCualidadesJSONFeedTask extends
@@ -184,14 +163,10 @@ public class ListaCualidades extends Activity {
 				}
 
 				lista_mensual.setAdapter(new AdaptadorCualidades(
-						getApplicationContext(), cualidades));
-				// adaptadorlista=new
-				// ArrayAdapter<Cualidades>(getApplicationContext(),
-				// android.R.layout.simple_list_item_1, cualidades);
-				// lista_mensual.setAdapter(adaptadorlista);
+						getApplicationContext(), cualidades));			
 
 			} catch (Exception e) {
-				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
 			}
 			dialog.dismiss();
 		}
@@ -218,10 +193,10 @@ public class ListaCualidades extends Activity {
 				}
 				inputStream.close();
 			} else {
-				Log.d("JSON", "No se ha podido descargar archivo");
+				Log.e("JSON", "No se ha podido descargar archivo");
 			}
 		} catch (Exception e) {
-			Log.d("readJSONFeed", e.getLocalizedMessage());
+			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
 		return stringBuilder.toString();
 	}

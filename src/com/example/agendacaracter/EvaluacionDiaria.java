@@ -12,7 +12,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -20,20 +19,20 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Evaluacion_diaria1 extends Activity {	
+public class EvaluacionDiaria extends Activity {
 	public double puntaje;
 	String mensajeCompartir;
 	private TextView txvPregunta01;
 	private TextView txvPregunta02;
-	private Spinner sp_critetioEvaluacion01;
-	private Spinner sp_critetioEvaluacion02;
+	private Spinner spCritetioEvaluacion01;
+	private Spinner spCritetioEvaluacion02;
 
 	private AlertDialog alert;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_evaluacion_diaria1);
+		setContentView(R.layout.activity_evaluacion_diaria);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
@@ -65,8 +64,8 @@ public class Evaluacion_diaria1 extends Activity {
 	}
 
 	public void llenarSpinner() {
-		sp_critetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
-		sp_critetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
+		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
+		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
 
 		List<String> list = new ArrayList<String>();
 		list.add("Nada");
@@ -81,16 +80,18 @@ public class Evaluacion_diaria1 extends Activity {
 		dataAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-		sp_critetioEvaluacion01.setAdapter(dataAdapter);
-		sp_critetioEvaluacion01.setOnItemSelectedListener(new AdaptadorSpinner());
-		
-		sp_critetioEvaluacion02.setAdapter(dataAdapter);		
-		sp_critetioEvaluacion01.setOnItemSelectedListener(new AdaptadorSpinner());
-		
+		spCritetioEvaluacion01.setAdapter(dataAdapter);
+		spCritetioEvaluacion02
+				.setOnItemSelectedListener(new AdaptadorSpinner());
+
+		spCritetioEvaluacion02.setAdapter(dataAdapter);
+		spCritetioEvaluacion01
+				.setOnItemSelectedListener(new AdaptadorSpinner());
+
 	}
 
 	public void mostrarAlerta() {
-		alert = new AlertDialog.Builder(Evaluacion_diaria1.this).create();
+		alert = new AlertDialog.Builder(EvaluacionDiaria.this).create();
 		alert.setTitle("Mensaje");
 		alert.setIcon(R.drawable.ic_action_accept);
 		alert.setMessage("¿Esta seguro que quiere ver los resultados de su evaluación?");
@@ -102,7 +103,6 @@ public class Evaluacion_diaria1 extends Activity {
 
 		alert.setButton("Aceptar", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-
 				Intent i = new Intent(getApplicationContext(),
 						ResultadoEvaluacion.class);
 				i.putExtra("puntaje", sumarPuntaje());
@@ -114,14 +114,15 @@ public class Evaluacion_diaria1 extends Activity {
 		alert.show();
 	}
 
-	public int sumarPuntaje() {		
-		double puntaje01 = Double.parseDouble(String.valueOf(sp_critetioEvaluacion01.getSelectedItemPosition()))+1;
-		double puntaje02 = Double.parseDouble(String.valueOf(sp_critetioEvaluacion02.getSelectedItemPosition()))+1;
-		
-		int promedio=(int)Math.round((puntaje01+puntaje02) / 2);
-		Log.e("PROMEDIDO",puntaje+"-"+puntaje01+"@"+puntaje02);
+	public int sumarPuntaje() {
+		double puntaje01 = Double.parseDouble(String
+				.valueOf(spCritetioEvaluacion01.getSelectedItemPosition())) + 1;
+		double puntaje02 = Double.parseDouble(String
+				.valueOf(spCritetioEvaluacion02.getSelectedItemPosition())) + 1;
+
+		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);		
 		return promedio;
-		
+
 	}
 
 }

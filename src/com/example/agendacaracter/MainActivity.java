@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.reutilizables.Util;
+import com.example.reutilizables.Val;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -110,13 +111,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		EstablecerFecha();
 
 		tvIdCualidad = new TextView(this);
-		// tvIdCualidad.setText("1");
 
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.txt_Pensamiento_Diario:
 			Intent i = new Intent(this, Pensamiento.class);
@@ -128,13 +127,18 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.txtEvaluacionDiaria:
-			Intent in = new Intent(this, Evaluacion_diaria1.class);
-			startActivity(in);
+			SharedPreferences preferencias = getSharedPreferences("user",
+					Context.MODE_PRIVATE);
+			String fechaevaluacion = preferencias.getString("eval", "0");
+			if (!Val.isEvaluated(fechaevaluacion)) {
+				Intent in = new Intent(this, EvaluacionDiaria.class);
+				startActivity(in);
+			}
 			break;
 		case R.id.txt_Compartir_Versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo
 					.getText().toString()
-					+ "\n\n"
+					+ " "
 					+ textobiblico.getText().toString());
 
 			break;
@@ -144,18 +148,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		}
 	}
-
-	// public static void share(Context ctx, String subject,String text) {
-	// final Intent intent = new Intent(Intent.ACTION_SEND);
-	//
-	// intent.setType("text/plain");
-	// intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-	// intent.putExtra(Intent.EXTRA_TEXT, text);
-	// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	//
-	// ctx.startActivity(Intent.createChooser(intent,
-	// ctx.getString(R.string.msg_MostrarCualidad)));
-	// }
 
 	public void EstablecerFecha() {
 
@@ -185,22 +177,13 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+	public boolean onCreateOptionsMenu(Menu menu) {		
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		// int id = item.getItemId();
-		// if (id == R.id.action_settings) {
-		// return true;
-		// }
-		// return super.onOptionsItemSelected(item);
+	public boolean onOptionsItemSelected(MenuItem item) {		
 		switch (item.getItemId()) {
 		case R.id.action_listar:
 			Intent mostrarAct = new Intent(this, ListaCualidades.class);
@@ -223,20 +206,15 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	protected Boolean estaConectado() {
-		if (conectadoWifi()) {
-			// showAlertDialog(MainActivity.this, "Conexion a Internet",
-			// "Tu Dispositivo tiene Conexion a Wifi.", true);
+		if (conectadoWifi()) {			
 			return true;
 		} else {
-			if (conectadoRedMovil()) {
-				// showAlertDialog(MainActivity.this, "Conexion a Internet",
-				// "Tu Dispositivo tiene Conexion Movil.", true);
+			if (conectadoRedMovil()) {				
 				return true;
 			} else {
 				showAlertDialog(MainActivity.this, "Conexion a Internet",
 						"Tu Dispositivo necesita una conexion a internet.",
 						false);
-
 				return false;
 
 			}
@@ -284,9 +262,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			public void onClick(DialogInterface dialog, int which) {
 				finish();
 			}
-
 		});
-
 		alertDialog.show();
 	}
 
@@ -325,7 +301,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
-			// dismiss the dialog once product deleted
 			pDialog.dismiss();
 		}
 	}
@@ -351,12 +326,11 @@ public class MainActivity extends Activity implements OnClickListener {
 				}
 				inputStream.close();
 			} else {
-				Log.d("JSON", "No se ha podido descargar archivo");
+				Log.e("JSON", "No se ha podido descargar archivo");
 			}
 		} catch (Exception e) {
-			Log.d("readJSONFeed", e.getLocalizedMessage());
+			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
-		Log.e("Datos Diarios", stringBuilder.toString());
 		return stringBuilder.toString();
 	}
 

@@ -46,14 +46,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_pensamiento);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");			
-		
+				"fonts/HelveticaLTStd-Cond.otf");
+
 		Typeface miNumeroTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight-Oblique_1.ttf");
-		
+
 		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/GeosansLight_2.ttf");	
-		
+				"fonts/GeosansLight_2.ttf");
+
 		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
@@ -65,15 +65,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
 		txtAutor.setTypeface(miNumeroTypeFace);
-		
+
 		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
 		planlectura.setTypeface(miPlanTypeFace);
 
-	 	textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
+		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
 		textosPlanLectura.setTypeface(miVersiculoTypeFace);
-	
-		nombreCualidad=(TextView)findViewById(R.id.txt_Nombre_Cualidad);
-		
+
+		nombreCualidad = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
 
 		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
 		txvCompartir.setOnClickListener(this);
@@ -95,54 +94,35 @@ public class Pensamiento extends Activity implements OnClickListener {
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
 						+ fecha);
 
-		Bundle bundle=getIntent().getExtras();
+		Bundle bundle = getIntent().getExtras();
 		nombreCualidad.setText(bundle.getString("Nombre Cualidad"));
 		textosPlanLectura.setText(bundle.getString("Plan lectura"));
-		tvIdCualidad=new TextView(this);
+		tvIdCualidad = new TextView(this);
 		tvIdCualidad.setText(bundle.getString("idCualidad"));
-		Log.e("Cualidad id",tvIdCualidad.getText().toString());
-		
 		registerForContextMenu(txtLibroReferencia);
 		txtLibroReferencia.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				openContextMenu(v);
-				
 			}
 		});
-
-		
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Evaluacion:
-			SharedPreferences preferencias = getSharedPreferences("user",
+			/*SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			String fechaevaluacion = preferencias.getString("eval", "0");
-			if(!Val.isEvaluated(fechaevaluacion)){
-				Intent i = new Intent(this, Evaluacion_diaria1.class);
+			if (!Val.isEvaluated(fechaevaluacion)) {*/
+				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
-			}			
+			/*}*/
 			break;
-//		case R.id.txt_LibroReferencia:
-//			Intent in = new Intent(this, ListaCualidades.class);
-//			startActivity(in);
-//			break;
-
 		case R.id.txt_compartir:
-			Intent intent = new Intent(Intent.ACTION_SEND);
-
-			intent.setType("text/plain");
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Pensamiento");
-			intent.putExtra(Intent.EXTRA_TEXT, txtPensamiento.getText()
-					.toString() + "\n" + txtAutor.getText().toString());
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-			this.startActivity(Intent.createChooser(intent, "Compartir en"));
+			Util.compartir(this, "Pensamiento",
+					txtPensamiento.getText().toString()+" "+txtAutor.getText().toString());
 			break;
 		}
 	}
@@ -161,22 +141,19 @@ public class Pensamiento extends Activity implements OnClickListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-	
+
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_contextual_cualidades, menu.setHeaderTitle("Opciones disponibles"));
+		inflater.inflate(R.menu.menu_contextual_cualidades,
+				menu.setHeaderTitle("Opciones disponibles"));
 	}
 
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {		
+	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
@@ -186,23 +163,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			return true;
 		default:
 			return super.onContextItemSelected(item);
-
 		}
-
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
@@ -252,7 +214,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 		} catch (Exception e) {
 			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
-
 		return stringBuilder.toString();
 	}
 }

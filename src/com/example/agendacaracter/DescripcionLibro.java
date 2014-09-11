@@ -25,14 +25,12 @@ import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Descripcion_Libros extends Activity {
+public class DescripcionLibro extends Activity {
 	private ImageView imagenLibro;
 	private TextView descripcionlibro;
 	ArrayList<Libro> listadoLibro;
@@ -76,26 +74,7 @@ public class Descripcion_Libros extends Activity {
 		new DescargarImagen().execute(url);
 
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.descripcion__libros, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
+	
 	class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
 
 		ProgressDialog dialog;
@@ -103,7 +82,7 @@ public class Descripcion_Libros extends Activity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog = new ProgressDialog(Descripcion_Libros.this);
+			dialog = new ProgressDialog(DescripcionLibro.this);
 			dialog.setMessage("Loading, please wait");
 			dialog.setTitle("Connecting server");
 			dialog.show();
@@ -114,12 +93,10 @@ public class Descripcion_Libros extends Activity {
 		protected Boolean doInBackground(String... urls) {
 			try {
 
-				// ------------------>>
 				HttpGet httppost = new HttpGet(urls[0]);
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httppost);
 
-				// StatusLine stat = response.getStatusLine();
 				int status = response.getStatusLine().getStatusCode();
 
 				if (status == 200) {
@@ -137,12 +114,9 @@ public class Descripcion_Libros extends Activity {
 					libro.setUrlImagen(object.getString("urlimg"));
 					libro.setDescripcionLibro(object.getString("descripcion"));
 					listadoLibro.add(libro);
-					Log.e("Lista", "" + object.getString("urlimg"));
 
 					return true;
 				}
-
-				// ------------------>>
 
 			} catch (ParseException e1) {
 				e1.printStackTrace();
@@ -158,7 +132,6 @@ public class Descripcion_Libros extends Activity {
 
 			dialog.cancel();
 			descripcionlibro.setText(libro.getDescripcionLibro());
-			// adapter.notifyDataSetChanged();
 			if (result == false)
 				Toast.makeText(getApplicationContext(),
 						"Unable to fetch data from server", Toast.LENGTH_LONG)
@@ -173,7 +146,7 @@ public class Descripcion_Libros extends Activity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog = new ProgressDialog(Descripcion_Libros.this);
+			dialog = new ProgressDialog(DescripcionLibro.this);
 			dialog.setMessage("Loading, please wait");
 			dialog.setTitle("Connecting server");
 			dialog.show();

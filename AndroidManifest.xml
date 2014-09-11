@@ -46,15 +46,15 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Descripcion_Libros"
+            android:name=".DescripcionLibro"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Codigo_Reserva"
+            android:name=".CodigoReserva"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Evaluacion_diaria1"
+            android:name=".EvaluacionDiaria"
             android:label="@string/app_name" >
         </activity>
         <activity

@@ -34,7 +34,6 @@ import android.widget.TextView;
 
 public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
-	// String mensajeCompartir; 
 	private int puntaje;
 	TextView txvMensajeCarita;
 	TextView txvMensajeResultadoEvaluacion;
@@ -110,7 +109,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		int porcentaje = 0;
 		if (estado == 1) {
 			porcentaje = puntajeMensual * 20;
-			txtMensajeResultado.append("Tu avance personal de este mes es: ");
+			txtMensajeResultado.append("Tu avance personal de este mes es ");
 			compartir.append("Mi avance personal de este mes es ");
 
 		} else if (estado == 2) {
@@ -164,7 +163,6 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			txtMensajeCarita.append("Excelente");
 			break;
 		}
-		compartir.append("\n\nAgenda Carácter");
 		txvMensajeResultadoEvaluacion.setText(txtMensajeResultado);
 		txvMensajeRecomendacion.setText(txtRecomendacion);
 		txvMensajeCarita.setText(txtMensajeCarita);
@@ -181,7 +179,6 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 		protected void onPostExecute(String result) {
 			try {
-
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
 				datos = jsonArray.getJSONObject(0);				

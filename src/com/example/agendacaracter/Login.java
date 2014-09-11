@@ -30,8 +30,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -70,37 +68,24 @@ public class Login extends Activity implements OnClickListener {
 
 		iniciosesion.setOnClickListener(this);
 		crearcuenta.setOnClickListener(this);
-
-		Log.e("logre", "entrar");
-
 	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-		}
+		if (keyCode == KeyEvent.KEYCODE_BACK) {		}
 
 		return false;
-
-		// Disable back button..............
 	}
 
 	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-
-		// determine which button was pressed:
+	public void onClick(View v) {		
 		switch (v.getId()) {
 		case R.id.btnRegister:
 
 			String us = usuario.getText().toString();
 			String cl = contrasenia.getText().toString();
 
-			if (us.equals("") || cl.equals("")) {
-				Log.e("ingreso", "Ingresar usuario y clave");
-				// message.setTitle("Ingresar Datos...");
-				// message.setTitle("Porfavor completas todos los campos...");
-				// message.show();
+			if (us.equals("") || cl.equals("")) {			
 				showAlertDialog(Login.this, "Ingresar Datos...",
 						"Porfavor completa todos los campos...", false);
 
@@ -123,27 +108,6 @@ public class Login extends Activity implements OnClickListener {
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	// AsyncTask is a seperate thread than the thread that runs the GUI
-	// Any type of networking should be done with asynctask.
 	private class ReadUsuarioJSONFeedTask extends
 			AsyncTask<String, Void, String> {
 
@@ -160,9 +124,7 @@ public class Login extends Activity implements OnClickListener {
 		}
 
 		@Override
-		protected String doInBackground(String... urls) {
-			// TODO Auto-generated method stub
-			// Check for success tag
+		protected String doInBackground(String... urls) {			
 			return readJSONFeed(urls[0]);
 
 		}
@@ -172,30 +134,25 @@ public class Login extends Activity implements OnClickListener {
 
 			try {
 
-				JSONObject datos = new JSONObject(result);
-				
+				JSONObject datos = new JSONObject(result);				
 				Intent in = new Intent(getApplicationContext(),
 						MainActivity.class);
-
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				Editor editor = prefe.edit();
 				editor.putString("id", datos.getString("id"));
 				editor.putString("username", datos.getString("usuario"));
 				editor.putString("useremail", datos.getString("email"));
-
 				editor.commit();
-
 				startActivity(in);
+				finish();
 
 			} catch (Exception e) {
-				Log.d("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
 				showAlertDialog(Login.this, "Datos Incorrectos...",
 						"La contraseña o usuario no son validos...", false);
 			}
-			// dismiss the dialog once product deleted
 			pDialog.dismiss();
-
 		}
 
 	}
@@ -232,11 +189,11 @@ public class Login extends Activity implements OnClickListener {
 				}
 				inputStream.close();
 			} else {
-				Log.d("JSON", "No se ha podido descargar archivo");
+				Log.e("JSON", "No se ha podido descargar archivo");
 
 			}
 		} catch (Exception e) {
-			Log.d("readJSONFeed", e.getLocalizedMessage());
+			Log.e("readJSONFeed", e.getLocalizedMessage());
 		}
 
 		return stringBuilder.toString();
@@ -251,13 +208,11 @@ public class Login extends Activity implements OnClickListener {
 				: R.drawable.ic_action_cancel);
 
 		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-
 			public void onClick(DialogInterface dialog, int which) {
-
+				dialog.dismiss();
 			}
 
 		});
-
 		alertDialog.show();
 	}
 

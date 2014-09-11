@@ -30,8 +30,6 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -70,26 +68,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		registrarse.setOnClickListener(this);
 
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.crear_cuenta, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -171,11 +150,6 @@ public class CrearCuenta extends Activity implements OnClickListener {
 											MainActivity.class);
 									startActivity(i);
 									finish();
-
-									// Toast t =
-									// Toast.makeText(getApplicationContext(),prefe.getString("id",""),
-									// Toast.LENGTH_SHORT);
-									// t.show();
 								}
 							});
 				} else if (datos.getString("res").equalsIgnoreCase("error")) {
@@ -190,7 +164,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				}
 				alert.show();
 			} catch (Exception e) {
-				Log.d("onPostExecute", e.getLocalizedMessage());
+				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
 
 		}

@@ -99,11 +99,11 @@ public final class R {
         public static final int view_as_list_64=0x7f020038;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f09003a;
-        public static final int action_inicio=0x7f090039;
-        public static final int action_listar=0x7f09003c;
-        public static final int action_menu=0x7f09003b;
-        public static final int action_settings=0x7f090038;
+        public static final int action_cerrar_sesion=0x7f090037;
+        public static final int action_inicio=0x7f090036;
+        public static final int action_listar=0x7f090039;
+        public static final int action_menu=0x7f090038;
+        public static final int action_settings=0x7f090035;
         public static final int btnCrearcuenta=0x7f090009;
         public static final int btnRegister=0x7f09000c;
         public static final int btn_compartir_puntaje=0x7f09002e;
@@ -112,14 +112,13 @@ public final class R {
         public static final int imageView2=0x7f09000d;
         public static final int imageView3=0x7f09000e;
         public static final int imageView4=0x7f090011;
-        public static final int img_Libro=0x7f09002f;
         public static final int img_Libro_Descripcion=0x7f090003;
         public static final int img_carita_resultado_evaluacion=0x7f09002a;
-        public static final int ivImgLibro=0x7f090035;
+        public static final int ivImgLibro=0x7f090032;
         public static final int lbl_Plan_Lectura=0x7f090010;
         public static final int list=0x7f090028;
         public static final int listView1=0x7f090018;
-        public static final int opcVerLibros=0x7f09003d;
+        public static final int opcVerLibros=0x7f09003a;
         public static final int scrollView1=0x7f090000;
         public static final int sp_critetio_evaluacion01=0x7f090014;
         public static final int sp_critetio_evaluacion02=0x7f090016;
@@ -127,8 +126,8 @@ public final class R {
         public static final int tableRow2=0x7f09001b;
         public static final int tableRow3=0x7f09001c;
         public static final int tableRow4=0x7f09001e;
-        public static final int tvTitLibro=0x7f090036;
-        public static final int tvidLibroxml=0x7f090037;
+        public static final int tvTitLibro=0x7f090033;
+        public static final int tvidLibroxml=0x7f090034;
         public static final int txtEvaluacionDiaria=0x7f090021;
         public static final int txtPass=0x7f09000b;
         public static final int txtUserName=0x7f09000a;
@@ -144,17 +143,15 @@ public final class R {
         public static final int txt_Pass2=0x7f090008;
         public static final int txt_Pensamiento_Diario=0x7f090020;
         public static final int txt_Plan_Lectura=0x7f090022;
-        public static final int txt_TituloLibro=0x7f090030;
         public static final int txt_UserName=0x7f090005;
         public static final int txt_autorPensamiento=0x7f090024;
         public static final int txt_cabecera=0x7f090001;
         public static final int txt_compartir=0x7f090025;
-        public static final int txt_idLibro=0x7f090031;
         public static final int txt_introduccion=0x7f090012;
         public static final int txt_pensamiento=0x7f090023;
-        public static final int txtcualidad=0x7f090032;
-        public static final int txtid=0x7f090034;
-        public static final int txtmes=0x7f090033;
+        public static final int txtcualidad=0x7f09002f;
+        public static final int txtid=0x7f090031;
+        public static final int txtmes=0x7f090030;
         public static final int txv_mensaje_carita=0x7f090029;
         public static final int txv_mensaje_recomendacion=0x7f09002d;
         public static final int txv_mensaje_resultado_evaluacion=0x7f09002b;
@@ -167,16 +164,15 @@ public final class R {
         public static final int activity_crear_cuenta=0x7f030001;
         public static final int activity_demos=0x7f030002;
         public static final int activity_descripcion__libros=0x7f030003;
-        public static final int activity_evaluacion_diaria1=0x7f030004;
+        public static final int activity_evaluacion_diaria=0x7f030004;
         public static final int activity_lista_cualidades=0x7f030005;
         public static final int activity_login=0x7f030006;
         public static final int activity_main=0x7f030007;
         public static final int activity_pensamiento=0x7f030008;
         public static final int activity_referencia=0x7f030009;
         public static final int activity_resultado_evaluacion=0x7f03000a;
-        public static final int custom_row_view2=0x7f03000b;
-        public static final int customs_row_view=0x7f03000c;
-        public static final int row=0x7f03000d;
+        public static final int customs_row_view=0x7f03000b;
+        public static final int row=0x7f03000c;
     }
     public static final class menu {
         public static final int codigo__reserva=0x7f080000;

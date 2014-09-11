@@ -67,13 +67,12 @@ public class Referencia extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
-					int position, long id) {
-				// TODO Auto-generated method stub
+					int position, long id) {				
 
 				String idLibro = listadoLibros.get(position).getIdLibro();
 				String url = listadoLibros.get(position).getUrlImagen();
 				Intent i = new Intent(getApplicationContext(),
-						Descripcion_Libros.class);
+						DescripcionLibro.class);
 				i.putExtra("id libro", idLibro);
 				i.putExtra("url", url);
 				startActivity(i);
@@ -90,8 +89,8 @@ public class Referencia extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			dialog = new ProgressDialog(Referencia.this);
-			dialog.setMessage("Loading, please wait");
-			dialog.setTitle("Connecting server");
+			dialog.setMessage("Cargando, por favor espere");
+			dialog.setTitle("Conectando con el servidor");
 			dialog.show();
 			dialog.setCancelable(false);
 		}
@@ -100,12 +99,10 @@ public class Referencia extends Activity {
 		protected Boolean doInBackground(String... urls) {
 			try {
 
-				// ------------------>>
 				HttpGet httppost = new HttpGet(urls[0]);
 				HttpClient httpclient = new DefaultHttpClient();
 				HttpResponse response = httpclient.execute(httppost);
 
-				// StatusLine stat = response.getStatusLine();
 				int status = response.getStatusLine().getStatusCode();
 
 				if (status == 200) {
@@ -128,8 +125,6 @@ public class Referencia extends Activity {
 					}
 					return true;
 				}
-
-				// ------------------>>
 
 			} catch (ParseException e1) {
 				e1.printStackTrace();

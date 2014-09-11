@@ -18,9 +18,8 @@ public class Util {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT, title);
-		intent.putExtra(Intent.EXTRA_TEXT, post);
+		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\nAgenda Carácter\nCLM Developers - CLM Editores");
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}
 }
