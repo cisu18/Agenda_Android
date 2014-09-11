@@ -14,13 +14,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-<<<<<<< HEAD
 import com.example.reutilizables.Val;
-=======
-import com.example.entidad.Cualidades;
->>>>>>> 11fc6a21cf044c7c4b69c685515048b9e87e495a
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
