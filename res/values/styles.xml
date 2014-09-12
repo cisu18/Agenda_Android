@@ -1,44 +1,4 @@
-<<<<<<< Updated upstream
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-    </style>
-
-    <!-- Application theme. -->
-    <color name="FONDO">#3d3d3d</color>
-
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
-
-    <color name="CABECERA">#00b5b5</color>
-    <color name="LETRA">#FFFFFF</color>
-    <color name="botoneslogin">#9B9494</color>
-    <color name="YELLOW">#FFFF00</color>
-    <color name="facebook">#3b5998</color>
-    <color name="twitter">#4099FF</color>
-    <color name="gmail">#dd4a39</color>
-    <color name="identificadores">#959595</color>
-    <color name="letras_inicio">#001022</color>
-    <color name="leyenda">#d9d9d9</color>
-
-    <style name="spinner_style">
-       <item name="android:spinnerDropDownItemStyle">@color/LETRA</item>
-    </style>
-
-</resources>
-=======
-<resources>
-
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -65,9 +25,5 @@
     <color name="leyenda">#d9d9d9</color>
     <color name="spinner">#F8F8FF</color>
  
-    
-    
-    
-
 </resources>
->>>>>>> Stashed changes
+
