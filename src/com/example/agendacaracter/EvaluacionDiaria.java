@@ -67,19 +67,13 @@ public class EvaluacionDiaria extends Activity {
 	public void llenarSpinner() {
 		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
 		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
-		
-		/*List<String> list = new ArrayList<String>();
-		list.add("Nada");
-		list.add("Muy poco");
-		list.add("Algo");
-		list.add("Casi Siempre");
-		list.add("Siempre");*/
+	
 		String[]list=getResources().getStringArray(R.array.criterios_evaluacion);	
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, list);
+				R.layout.spinner_row, list);
 
-		/*dataAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
+		dataAdapter
+				.setDropDownViewResource(android.R.layout.simple_list_item_checked);
 
 		spCritetioEvaluacion01.setAdapter(dataAdapter);
 		spCritetioEvaluacion02

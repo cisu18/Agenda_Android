@@ -191,6 +191,7 @@ public final class R {
         public static final int activity_resultado_evaluacion=0x7f03000a;
         public static final int customs_row_view=0x7f03000b;
         public static final int row=0x7f03000c;
+        public static final int spinner_row=0x7f03000d;
     }
     public static final class menu {
         public static final int codigo__reserva=0x7f090000;
