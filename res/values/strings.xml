@@ -27,5 +27,13 @@
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
     
     <string name="hello_world">Hello world!</string>
+    
+    <string-array name="criterios_evaluacion">
+        <item>Nada</item>
+        <item>Muy poco</item>
+        <item>Algo</item>
+        <item>Casi Siempre</item>
+        <item>Siempre</item>        
+    </string-array>
 
 </resources>

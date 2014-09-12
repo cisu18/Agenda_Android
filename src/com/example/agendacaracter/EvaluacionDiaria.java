@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.reutilizables.AdaptadorSpinner;
 
+import android.R.color;
 import android.app.Activity;
 import android.app.AlertDialog;
 
@@ -66,19 +67,19 @@ public class EvaluacionDiaria extends Activity {
 	public void llenarSpinner() {
 		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
 		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
-
-		List<String> list = new ArrayList<String>();
+		
+		/*List<String> list = new ArrayList<String>();
 		list.add("Nada");
 		list.add("Muy poco");
 		list.add("Algo");
 		list.add("Casi Siempre");
-		list.add("Siempre");
-
+		list.add("Siempre");*/
+		String[]list=getResources().getStringArray(R.array.criterios_evaluacion);	
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 
-		dataAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		/*dataAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
 
 		spCritetioEvaluacion01.setAdapter(dataAdapter);
 		spCritetioEvaluacion02
@@ -86,8 +87,7 @@ public class EvaluacionDiaria extends Activity {
 
 		spCritetioEvaluacion02.setAdapter(dataAdapter);
 		spCritetioEvaluacion01
-				.setOnItemSelectedListener(new AdaptadorSpinner());
-
+				.setOnItemSelectedListener(new AdaptadorSpinner());		
 	}
 
 	public void mostrarAlerta() {

@@ -57,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
+            style="@style/spinner_style"
             android:layout_marginRight="22dp" />
 
         <TextView

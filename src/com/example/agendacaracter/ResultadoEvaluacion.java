@@ -29,6 +29,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import android.widget.TextView;
 
@@ -107,16 +108,18 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		StringBuilder txtRecomendacion = new StringBuilder();
 		StringBuilder txtMensajeCarita = new StringBuilder();
 		int porcentaje = 0;
+		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion); 
 		if (estado == 1) {
 			porcentaje = puntajeMensual * 20;
 			txtMensajeResultado.append("Tu avance personal de este mes es ");
 			compartir.append("Mi avance personal de este mes es ");
-
+			
 		} else if (estado == 2) {
 
 			porcentaje = puntaje * 20;
 			txtMensajeResultado.append("Tu avance personal de hoy es: ");
 			compartir.append("Mi avance personal de hoy es ");
+			
 		}
 		switch (porcentaje) {
 		case 20:
@@ -127,6 +130,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 					.append("Es una oportunidad de iniciar tu cambio personal.");
 			txvMensajeRecomendacion.setText("");
 			txtMensajeCarita.append("¡Vamos!");
+			img.setImageResource(R.drawable.aceptar_20);
 			break;
 		case 40:
 			txtMensajeResultado.append(porcentaje + "%");
@@ -136,6 +140,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			txtRecomendacion
 					.append("Un poco más de esfuerzo y podrías ver una diferencia que formará tu carácter.");
 			txtMensajeCarita.append("¡Sigue adelante!");
+			img.setImageResource(R.drawable.compartir_42);
 			break;
 		case 60:
 			txtMensajeResultado.append(porcentaje + "%");
@@ -145,6 +150,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			txtRecomendacion
 					.append("¿Cómo podrías hacerlo mejor? Puedes trasmitir tu ejemplo a otras personas.");
 			txtMensajeCarita.append("Vas bien");
+			img.setImageResource(R.drawable.cara2);
 			break;
 		case 80:
 			txtMensajeResultado.append(porcentaje + "%");
@@ -161,6 +167,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			txtRecomendacion
 					.append("Piensa en ser un mentor para alguien más. Recuerda otras personas también necesitan ayuda.");
 			txtMensajeCarita.append("Excelente");
+			img.setImageResource(R.drawable.cara1);
 			break;
 		}
 		txvMensajeResultadoEvaluacion.setText(txtMensajeResultado);

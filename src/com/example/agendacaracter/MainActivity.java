@@ -127,13 +127,13 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.txtEvaluacionDiaria:
-			SharedPreferences preferencias = getSharedPreferences("user",
+			/*SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			String fechaevaluacion = preferencias.getString("eval", "0");
-			if (!Val.isEvaluated(fechaevaluacion)) {
+			if (!Val.isEvaluated(fechaevaluacion)) {*/
 				Intent in = new Intent(this, EvaluacionDiaria.class);
 				startActivity(in);
-			}
+			/*}*/
 			break;
 		case R.id.txt_Compartir_Versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo

@@ -112,13 +112,13 @@ public class Pensamiento extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Evaluacion:
-			/*SharedPreferences preferencias = getSharedPreferences("user",
+			SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			String fechaevaluacion = preferencias.getString("eval", "0");
-			if (!Val.isEvaluated(fechaevaluacion)) {*/
+			if (!Val.isEvaluated(fechaevaluacion)) {
 				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
-			/*}*/
+			}
 			break;
 		case R.id.txt_compartir:
 			Util.compartir(this, "Pensamiento",
