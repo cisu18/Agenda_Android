@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:paddingBottom="15dp"
+                android:paddingBottom="15dp"                
                 android:scaleType="center"
                 android:src="@drawable/ic_launcher" />
 
@@ -38,14 +38,13 @@
     android:paddingRight="15dp"
     android:text="este es la descripcion del libro "
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="@color/CABECERA"
-    android:textSize="18sp" />
+    android:textColor="#FFF"
+    android:textSize="16sp" />
 
 <TextView
     android:id="@+id/tvidLibroxml"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#D64530"
+    android:layout_height="wrap_content"    
     android:gravity="center_vertical|center_horizontal" />
     
 </LinearLayout>

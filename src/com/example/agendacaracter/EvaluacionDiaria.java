@@ -1,14 +1,7 @@
 package com.example.agendacaracter;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.reutilizables.AdaptadorSpinner;
-
-import android.R.color;
 import android.app.Activity;
 import android.app.AlertDialog;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
