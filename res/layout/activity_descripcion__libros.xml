@@ -3,12 +3,11 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO" >
+    android:background="@drawable/degradado" >
     
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO"
     android:orientation="vertical" >
 
     <TextView
@@ -31,26 +30,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp" >
 
         <ImageView
             android:id="@+id/img_Libro_Descripcion"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/ic_launcher" />
+            android:layout_height="match_parent"
+            android:src="@drawable/cara2" />
 
          <TextView
              android:id="@+id/txt_Descripcion_Libro"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
              android:layout_gravity="center"
-             android:layout_marginLeft="4dp"
              android:gravity="center"
+             android:paddingLeft="10dp"
+             android:paddingRight="10dp"
              android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
              android:textColor="@color/LETRA"
-             android:textSize="12sp" />
+             android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -104,7 +105,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/facebook1" />
+            android:src="@drawable/face" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 	LayoutInflater vi;
 	int Resource;
 	ViewHolder holder;
+	Typeface TituloLibro;
+	
 
 	public AdaptadorLibro(Context context, int resource,
 			ArrayList<Libro> objects) {
@@ -31,7 +34,12 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		Resource = resource;
 		listLibro = objects;
+		
+		TituloLibro = Typeface.createFromAsset(context.getAssets(),
+				"fonts/HelveticaLTStd-Cond.otf");
+		
 	}
+
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -40,8 +48,12 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 			holder = new ViewHolder();
 			v = vi.inflate(Resource, null);
 			holder.ivLibroImagen = (ImageView) v.findViewById(R.id.ivImgLibro);
-			holder.tvTituloLibro = (TextView) v.findViewById(R.id.tvTitLibro);
+			holder.tvTituloLibro = (TextView) v.findViewById(R.id.tvTitLibro);		
 			holder.tvIdLibro = (TextView) v.findViewById(R.id.tvidLibroxml);
+			
+			TextView lista_libros = (TextView) v.findViewById(R.id.tvTitLibro);
+			lista_libros.setTypeface(TituloLibro);
+			
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();

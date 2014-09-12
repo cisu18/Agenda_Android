@@ -24,7 +24,7 @@ public class AdaptadorCualidades extends BaseAdapter {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 	}
 
 	public int getCount() {

@@ -53,12 +53,20 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/sp_critetio_evaluacion01"
+            android:id="@+id/sp_critetio_evaluacion01"           
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
+<<<<<<< Updated upstream
             style="@style/spinner_style"
             android:layout_marginRight="22dp" />
+=======
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" />
+>>>>>>> Stashed changes
 
         <TextView
             android:id="@+id/txv_pregunta_02" 

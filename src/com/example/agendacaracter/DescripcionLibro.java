@@ -44,7 +44,7 @@ public class DescripcionLibro extends Activity {
 		setContentView(R.layout.activity_descripcion__libros);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 

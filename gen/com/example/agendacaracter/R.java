@@ -17,6 +17,7 @@ public final class R {
         public static final int CABECERA=0x7f080001;
         /**  Application theme. 
          */
+<<<<<<< Updated upstream
         public static final int FONDO=0x7f080000;
         public static final int LETRA=0x7f080002;
         public static final int YELLOW=0x7f080004;
@@ -27,6 +28,19 @@ public final class R {
         public static final int letras_inicio=0x7f080009;
         public static final int leyenda=0x7f08000a;
         public static final int twitter=0x7f080006;
+=======
+        public static final int FONDO=0x7f070000;
+        public static final int LETRA=0x7f070002;
+        public static final int YELLOW=0x7f070004;
+        public static final int botoneslogin=0x7f070003;
+        public static final int facebook=0x7f070005;
+        public static final int gmail=0x7f070007;
+        public static final int identificadores=0x7f070008;
+        public static final int letras_inicio=0x7f070009;
+        public static final int leyenda=0x7f07000a;
+        public static final int spinner=0x7f07000b;
+        public static final int twitter=0x7f070006;
+>>>>>>> Stashed changes
     }
     public static final class dimen {
         /** 
@@ -91,15 +105,16 @@ public final class R {
         public static final int pensamiento_64=0x7f02002d;
         public static final int share_48=0x7f02002e;
         public static final int share_64=0x7f02002f;
-        public static final int twitter=0x7f020030;
-        public static final int twitter_64=0x7f020031;
-        public static final int user_24=0x7f020032;
-        public static final int user_28=0x7f020033;
-        public static final int user_48=0x7f020034;
-        public static final int user_login=0x7f020035;
-        public static final int user_login2=0x7f020036;
-        public static final int usera=0x7f020037;
-        public static final int view_as_list_64=0x7f020038;
+        public static final int spinner=0x7f020030;
+        public static final int twitter=0x7f020031;
+        public static final int twitter_64=0x7f020032;
+        public static final int user_24=0x7f020033;
+        public static final int user_28=0x7f020034;
+        public static final int user_48=0x7f020035;
+        public static final int user_login=0x7f020036;
+        public static final int user_login2=0x7f020037;
+        public static final int usera=0x7f020038;
+        public static final int view_as_list_64=0x7f020039;
     }
     public static final class id {
         public static final int action_cerrar_sesion=0x7f0a0037;

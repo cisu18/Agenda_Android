@@ -17,13 +17,13 @@
 
             <ImageView
                 android:id="@+id/ivImgLibro"
-                android:layout_margin="8dp"
-                android:scaleType="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_launcher"
-                android:padding="40dp" />
+                android:layout_marginTop="15dp"
+                android:paddingBottom="15dp"
+                android:scaleType="center"
+                android:src="@drawable/ic_launcher" />
 
         </LinearLayout>
 
@@ -33,10 +33,13 @@
     android:id="@+id/tvTitLibro"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Tom Cruise"
+    android:gravity="center_vertical|center_horizontal"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:text="este es la descripcion del libro "
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="#166CED"
-    android:gravity="center_vertical|center_horizontal" />
+    android:textColor="@color/CABECERA"
+    android:textSize="18sp" />
 
 <TextView
     android:id="@+id/tvidLibroxml"

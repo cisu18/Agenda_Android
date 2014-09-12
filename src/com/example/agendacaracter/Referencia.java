@@ -42,7 +42,7 @@ public class Referencia extends Activity {
 		setContentView(R.layout.activity_referencia);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Myriad_Pro.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 
 		TextView usuario = (TextView) findViewById(R.id.txt_cabecera);
 
