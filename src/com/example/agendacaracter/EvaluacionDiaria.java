@@ -22,11 +22,7 @@ public class EvaluacionDiaria extends Activity {
 	private TextView txvPregunta02;
 	private Spinner spCritetioEvaluacion01;
 	private Spinner spCritetioEvaluacion02;
-<<<<<<< Updated upstream
-	//txtvEvaluacion
-=======
 	Typeface tfJokerman;
->>>>>>> Stashed changes
 
 	private AlertDialog alert;
 
