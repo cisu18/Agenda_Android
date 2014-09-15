@@ -104,11 +104,11 @@ public final class R {
         public static final int view_as_list_64=0x7f020039;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f0a0037;
-        public static final int action_inicio=0x7f0a0036;
-        public static final int action_listar=0x7f0a0039;
-        public static final int action_menu=0x7f0a0038;
-        public static final int action_settings=0x7f0a0035;
+        public static final int action_cerrar_sesion=0x7f0a0038;
+        public static final int action_inicio=0x7f0a0037;
+        public static final int action_listar=0x7f0a003a;
+        public static final int action_menu=0x7f0a0039;
+        public static final int action_settings=0x7f0a0036;
         public static final int btnCrearcuenta=0x7f0a0009;
         public static final int btnRegister=0x7f0a000c;
         public static final int btn_compartir_puntaje=0x7f0a002e;
@@ -123,7 +123,7 @@ public final class R {
         public static final int lbl_Plan_Lectura=0x7f0a0010;
         public static final int list=0x7f0a0028;
         public static final int listView1=0x7f0a0018;
-        public static final int opcVerLibros=0x7f0a003a;
+        public static final int opcVerLibros=0x7f0a003b;
         public static final int scrollView1=0x7f0a0000;
         public static final int sp_critetio_evaluacion01=0x7f0a0014;
         public static final int sp_critetio_evaluacion02=0x7f0a0016;
@@ -163,6 +163,7 @@ public final class R {
         public static final int txv_pregunta_01=0x7f0a0013;
         public static final int txv_pregunta_02=0x7f0a0015;
         public static final int txv_recomendacion=0x7f0a002c;
+        public static final int txv_spinner=0x7f0a0035;
     }
     public static final class layout {
         public static final int activity_codigo__reserva=0x7f030000;

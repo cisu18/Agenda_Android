@@ -24,7 +24,7 @@ public class AdaptadorCualidades extends BaseAdapter {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");
+				"fonts/Jokerman.ttf");
 	}
 
 	public int getCount() {

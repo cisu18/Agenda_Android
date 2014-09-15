@@ -15,6 +15,7 @@
    
     <EditText
         android:id="@+id/txt_UserName"
+        android:maxLength="30"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawableLeft="@drawable/usera"
@@ -26,6 +27,7 @@
     
     <EditText
         android:id="@+id/txt_Email"
+        android:maxLength="50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left|bottom"
@@ -43,6 +45,7 @@
 
     <EditText
         android:id="@+id/txt_Pass1"
+        android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="30dp"
@@ -56,6 +59,7 @@
       
     <EditText
         android:id="@+id/txt_Pass2"
+        android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="30dip"

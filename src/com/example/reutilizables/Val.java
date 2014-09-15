@@ -19,6 +19,19 @@ public class Val {
 		}
 		return isValid;
 	}
+	public static boolean isUserValid(String email) {
+		boolean isValid = false;
+
+		String expression = "^[A-Z]{2,4}$";
+		CharSequence inputStr = email;
+
+		Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+		Matcher matcher = pattern.matcher(inputStr);
+		if (matcher.matches()) {
+			isValid = true;
+		}
+		return isValid;
+	}
 
 	public static boolean isPasswordEquals(String pass1, String pass2) {
 		boolean isValid = false;

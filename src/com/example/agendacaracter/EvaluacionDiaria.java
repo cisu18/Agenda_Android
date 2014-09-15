@@ -1,11 +1,13 @@
 package com.example.agendacaracter;
-import com.example.reutilizables.AdaptadorSpinner;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -20,7 +22,11 @@ public class EvaluacionDiaria extends Activity {
 	private TextView txvPregunta02;
 	private Spinner spCritetioEvaluacion01;
 	private Spinner spCritetioEvaluacion02;
+<<<<<<< Updated upstream
 	//txtvEvaluacion
+=======
+	Typeface tfJokerman;
+>>>>>>> Stashed changes
 
 	private AlertDialog alert;
 
@@ -54,30 +60,53 @@ public class EvaluacionDiaria extends Activity {
 				mostrarAlerta();
 			}
 		});
-		llenarSpinner();
-
+		llenarSpinner();		
 	}
 
-	public void llenarSpinner() {
+	
+	public <ViewGroup> void llenarSpinner() {
 		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
 		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
-	
-		String[]list=getResources().getStringArray(R.array.criterios_evaluacion);	
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				R.layout.spinner_row, list);
+		String[] list = getResources().getStringArray(
+				R.array.criterios_evaluacion);		
+		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, list) {
+			public View getView(int position, View convertView,
+					android.view.ViewGroup parent) {
+				tfJokerman = Typeface.createFromAsset(getAssets(),
+						"fonts/Jokerman.ttf");
+				TextView v = (TextView) super.getView(position, convertView,
+						parent);
+				v.setTypeface(tfJokerman);
+				v.setTextColor(Color.RED);
+				v.setBackgroundColor(Color.BLUE);
+				v.setTextSize(35);
+				return v;
+			}
 
-		dataAdapter
-				.setDropDownViewResource(android.R.layout.simple_list_item_checked);
+			public View getDropDownView(int position, View convertView,
+					android.view.ViewGroup parent) {
+				TextView v = (TextView) super.getView(position, convertView,
+						parent);
+				v.setTypeface(tfJokerman);
+				v.setTextColor(Color.GREEN);
+				v.setBackgroundColor(Color.YELLOW);
+				v.setTextSize(35);
+				return v;
+			}
+		};
 
-		spCritetioEvaluacion01.setAdapter(dataAdapter);
-		spCritetioEvaluacion02
-				.setOnItemSelectedListener(new AdaptadorSpinner());
-
-		spCritetioEvaluacion02.setAdapter(dataAdapter);
-		spCritetioEvaluacion01
-				.setOnItemSelectedListener(new AdaptadorSpinner());		
+		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);		
+		spCritetioEvaluacion01.setAdapter(adapter1);
+		spCritetioEvaluacion02.setAdapter(adapter1);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+	
 	public void mostrarAlerta() {
 		alert = new AlertDialog.Builder(EvaluacionDiaria.this).create();
 		alert.setTitle("Mensaje");
@@ -108,7 +137,7 @@ public class EvaluacionDiaria extends Activity {
 		double puntaje02 = Double.parseDouble(String
 				.valueOf(spCritetioEvaluacion02.getSelectedItemPosition())) + 1;
 
-		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);		
+		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);
 		return promedio;
 
 	}
