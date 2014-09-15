@@ -91,6 +91,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
+			finish();
 		}
 	}
 

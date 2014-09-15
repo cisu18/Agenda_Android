@@ -140,7 +140,6 @@ public final class R {
         public static final int txt_Descripcion_Libro=0x7f0a0002;
         public static final int txt_Email=0x7f0a0006;
         public static final int txt_Evaluacion=0x7f0a0026;
-        public static final int txt_Fecha_Movil=0x7f0a001a;
         public static final int txt_LibroReferencia=0x7f0a0027;
         public static final int txt_Nombre_Cualidad=0x7f0a000f;
         public static final int txt_Numero_Versiculo=0x7f0a001d;
@@ -157,6 +156,7 @@ public final class R {
         public static final int txtcualidad=0x7f0a002f;
         public static final int txtid=0x7f0a0031;
         public static final int txtmes=0x7f0a0030;
+        public static final int txv_fecha_movil=0x7f0a001a;
         public static final int txv_mensaje_carita=0x7f0a0029;
         public static final int txv_mensaje_recomendacion=0x7f0a002d;
         public static final int txv_mensaje_resultado_evaluacion=0x7f0a002b;

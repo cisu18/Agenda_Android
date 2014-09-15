@@ -1,20 +1,14 @@
 package com.example.agendacaracter;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.entidad.Libro;
 import com.example.reutilizables.AdaptadorLibro;
+import com.example.reutilizables.Util;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -81,7 +75,7 @@ public class Referencia extends Activity {
 		});
 	}
 
-	class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
+	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
 		ProgressDialog dialog;
 
@@ -96,53 +90,34 @@ public class Referencia extends Activity {
 		}
 
 		@Override
-		protected Boolean doInBackground(String... urls) {
-			try {
-
-				HttpGet httppost = new HttpGet(urls[0]);
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpResponse response = httpclient.execute(httppost);
-
-				int status = response.getStatusLine().getStatusCode();
-
-				if (status == 200) {
-					HttpEntity entity = response.getEntity();
-					String data = EntityUtils.toString(entity);
-
-					JSONObject object = new JSONObject();
-					JSONArray jarray = new JSONArray(data);
-
-					for (int i = 0; i < jarray.length(); i++) {
-						object = jarray.getJSONObject(i);
-
-						Libro libro = new Libro();
-
-						libro.setIdLibro(object.getString("libro_id"));
-						libro.setTitulo(object.getString("titulo"));
-						libro.setUrlImagen(object.getString("urlimg"));
-
-						listadoLibros.add(libro);
-					}
-					return true;
-				}
-
-			} catch (ParseException e1) {
-				e1.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			return false;
+		protected String doInBackground(String... urls) {			
+			return Util.readJSONFeed(urls[0], getApplicationContext());
 		}
 
-		protected void onPostExecute(Boolean result) {
+		protected void onPostExecute(String result) {
 			dialog.cancel();
 			adapter.notifyDataSetChanged();
-			if (result == false)
+			try {				
+				JSONObject object = new JSONObject();
+				JSONArray jarray = new JSONArray(result);
+
+				for (int i = 0; i < jarray.length(); i++) {
+					object = jarray.getJSONObject(i);
+					Libro libro = new Libro();
+					libro.setIdLibro(object.getString("libro_id"));
+					libro.setTitulo(object.getString("titulo"));
+					libro.setUrlImagen(object.getString("urlimg"));
+					listadoLibros.add(libro);
+				}				
+			} catch (ParseException e1) {
+				e1.printStackTrace();
+			}catch (JSONException e) {
 				Toast.makeText(getApplicationContext(),
 						"Unable to fetch data from server", Toast.LENGTH_LONG)
 						.show();
+			}	
+			
+				
 
 		}
 	}

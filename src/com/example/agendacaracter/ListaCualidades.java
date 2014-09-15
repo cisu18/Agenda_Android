@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,14 +67,7 @@ public class ListaCualidades extends Activity {
 			}
 		});
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		
-		getMenuInflater().inflate(R.menu.lista_cualidades, menu);
-		return true;
-	}
+	}	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {		

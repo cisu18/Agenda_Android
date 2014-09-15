@@ -1,23 +1,13 @@
 package com.example.agendacaracter;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.reutilizables.Util;
-import com.example.reutilizables.Val;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -40,7 +30,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private TextView fechaMovil;
+	private TextView fechaMovil;	
 	private TextView cualidad;
 	private TextView versiculo;
 	private TextView textobiblico;
@@ -66,8 +56,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (idUsuario == 0) {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
-		} else {
-		}
+		} 
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
@@ -81,7 +70,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		fechaMovil = (TextView) findViewById(R.id.txt_Fecha_Movil);
+		fechaMovil = (TextView) findViewById(R.id.txv_fecha_movil);
 		fechaMovil.setTypeface(miPropiaTypeFace);
 
 		cualidad = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
@@ -108,7 +97,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		compartirVersiculo.setOnClickListener(this);
 
 		estaConectado();
-		EstablecerFecha();
+		establecerFecha();
 
 		tvIdCualidad = new TextView(this);
 
@@ -122,8 +111,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			i.putExtra("idCualidad", tvIdCualidad.getText());
 			i.putExtra("Nombre Cualidad", cualidad.getText());
 			i.putExtra("Plan lectura", textosPlanLectura.getText());
-
-			Log.e("idCualidad", tvIdCualidad.getText().toString());
 			startActivity(i);
 			break;
 		case R.id.txtEvaluacionDiaria:
@@ -149,9 +136,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	public void EstablecerFecha() {
+	public void establecerFecha() {
 
-		String formato = "MMMM'		'yyyy'	'EEEE' 'dd";
+		String formato = "MMMM'\t\t'yyyy'\t\t'EEEE'\t\t'dd";
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat(formato,
 				Locale.getDefault());
@@ -163,8 +150,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		String formatoWebservice = "dd-MM";
 		SimpleDateFormat dateFormat2 = new SimpleDateFormat(formatoWebservice,
 				Locale.getDefault());
-		fecha = dateFormat2.format(cal1);
-		System.out.println(fecha);
+		fecha = dateFormat2.format(cal1);		
 
 		// fecha="21-09"; //autor corto
 		// fecha="26-10"; //autor largo
@@ -187,8 +173,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (item.getItemId()) {
 		case R.id.action_listar:
 			Intent mostrarAct = new Intent(this, ListaCualidades.class);
-			startActivity(mostrarAct);
-			finish();
+			startActivity(mostrarAct);			
 			return true;
 		case R.id.action_cerrar_sesion:
 			SharedPreferences archivoUsuario = getApplicationContext()
@@ -281,7 +266,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 
 		protected String doInBackground(String... urls) {
-			return readJSONFeed(urls[0]);
+			return Util.readJSONFeed(urls[0],getApplicationContext());
 		}
 
 		protected void onPostExecute(String result) {
@@ -305,33 +290,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	public String readJSONFeed(String URL) {
-		StringBuilder stringBuilder = new StringBuilder();
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(URL);
-		try {
-			HttpResponse response = httpClient.execute(httpGet);
-			StatusLine statusLine = response.getStatusLine();
-			int statusCode = statusLine.getStatusCode();
-
-			if (statusCode == 200) {
-				HttpEntity entity = response.getEntity();
-				InputStream inputStream = entity.getContent();
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream));
-				String line;
-
-				while ((line = reader.readLine()) != null) {
-					stringBuilder.append(line);
-				}
-				inputStream.close();
-			} else {
-				Log.e("JSON", "No se ha podido descargar archivo");
-			}
-		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
-		}
-		return stringBuilder.toString();
-	}
+	
 
 }
