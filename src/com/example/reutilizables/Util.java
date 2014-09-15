@@ -12,14 +12,18 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 public class Util {
+	
+	public static ProgressDialog dialog;
+
+	
 	@SuppressLint("SimpleDateFormat") public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
@@ -64,4 +68,18 @@ public class Util {
 		}
 		return stringBuilder.toString();
 	}
+	public static void MostrarDialog(Context contexto){
+		
+		dialog = new ProgressDialog(contexto);
+		dialog.setMessage("Cargando, profavor espere");
+		dialog.setTitle("Conectando con el servidor");
+		dialog.show();
+		dialog.setCancelable(false);
+		
+	}
+	public static void CerrarDialog(){
+		
+		dialog.dismiss();
+	}
+	
 }

@@ -3,15 +3,11 @@ package com.example.agendacaracter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import com.example.reutilizables.Util;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,6 +18,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +27,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private TextView fechaMovil;	
+	private TextView fechaMovil;
 	private TextView cualidad;
 	private TextView versiculo;
 	private TextView textobiblico;
@@ -41,7 +38,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView IrPensamiento;
 	private TextView IrEvaluacion;
 
-	private ProgressDialog pDialog;
 	public TextView tvIdCualidad;
 
 	@Override
@@ -56,7 +52,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (idUsuario == 0) {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
-		} 
+		}
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
@@ -104,6 +100,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+		}
+
+		return false;
+	}
+
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_Pensamiento_Diario:
@@ -114,13 +118,15 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.txtEvaluacionDiaria:
-			/*SharedPreferences preferencias = getSharedPreferences("user",
-					Context.MODE_PRIVATE);
-			String fechaevaluacion = preferencias.getString("eval", "0");
-			if (!Val.isEvaluated(fechaevaluacion)) {*/
-				Intent in = new Intent(this, EvaluacionDiaria.class);
-				startActivity(in);
-			/*}*/
+			/*
+			 * SharedPreferences preferencias = getSharedPreferences("user",
+			 * Context.MODE_PRIVATE); String fechaevaluacion =
+			 * preferencias.getString("eval", "0"); if
+			 * (!Val.isEvaluated(fechaevaluacion)) {
+			 */
+			Intent in = new Intent(this, EvaluacionDiaria.class);
+			startActivity(in);
+			/* } */
 			break;
 		case R.id.txt_Compartir_Versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo
@@ -144,13 +150,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				Locale.getDefault());
 		Date cal1 = new Date();
 		String fecha = dateFormat.format(cal1);
-		System.out.println(fecha);
 		fechaMovil.setText(fecha);
 
-		String formatoWebservice = "dd-MM";
-		SimpleDateFormat dateFormat2 = new SimpleDateFormat(formatoWebservice,
-				Locale.getDefault());
-		fecha = dateFormat2.format(cal1);		
+		String fechaWebService = Util.getFechaActual().substring(0, 5);
 
 		// fecha="21-09"; //autor corto
 		// fecha="26-10"; //autor largo
@@ -158,22 +160,22 @@ public class MainActivity extends Activity implements OnClickListener {
 		// fecha="25-01"; //corto
 		new ReadDiarioJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/cualidades_dia/format/json/fecha/"
-						+ fecha);
+						+ fechaWebService);
 
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {		
+	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {		
+	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_listar:
 			Intent mostrarAct = new Intent(this, ListaCualidades.class);
-			startActivity(mostrarAct);			
+			startActivity(mostrarAct);
 			return true;
 		case R.id.action_cerrar_sesion:
 			SharedPreferences archivoUsuario = getApplicationContext()
@@ -191,10 +193,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	protected Boolean estaConectado() {
-		if (conectadoWifi()) {			
+		if (conectadoWifi()) {
 			return true;
 		} else {
-			if (conectadoRedMovil()) {				
+			if (conectadoRedMovil()) {
 				return true;
 			} else {
 				showAlertDialog(MainActivity.this, "Conexion a Internet",
@@ -257,16 +259,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(MainActivity.this);
-			pDialog.setMessage("Por favor espere...");
-			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(true);
-			pDialog.show();
-
+			Util.MostrarDialog(MainActivity.this);
 		}
 
 		protected String doInBackground(String... urls) {
-			return Util.readJSONFeed(urls[0],getApplicationContext());
+			return Util.readJSONFeed(urls[0], getApplicationContext());
 		}
 
 		protected void onPostExecute(String result) {
@@ -286,10 +283,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
-			pDialog.dismiss();
+			Util.CerrarDialog();
 		}
 	}
-
-	
 
 }

@@ -1,17 +1,13 @@
 package com.example.agendacaracter;
 
 import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.example.entidad.Libro;
 import com.example.reutilizables.AdaptadorLibro;
 import com.example.reutilizables.Util;
-
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ParseException;
@@ -61,7 +57,7 @@ public class Referencia extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
-					int position, long id) {				
+					int position, long id) {
 
 				String idLibro = listadoLibros.get(position).getIdLibro();
 				String url = listadoLibros.get(position).getUrlImagen();
@@ -77,27 +73,21 @@ public class Referencia extends Activity {
 
 	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
-		ProgressDialog dialog;
-
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog = new ProgressDialog(Referencia.this);
-			dialog.setMessage("Cargando, por favor espere");
-			dialog.setTitle("Conectando con el servidor");
-			dialog.show();
-			dialog.setCancelable(false);
+			Util.MostrarDialog(Referencia.this);
 		}
 
 		@Override
-		protected String doInBackground(String... urls) {			
+		protected String doInBackground(String... urls) {
 			return Util.readJSONFeed(urls[0], getApplicationContext());
 		}
 
 		protected void onPostExecute(String result) {
-			dialog.cancel();
+
 			adapter.notifyDataSetChanged();
-			try {				
+			try {
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);
 
@@ -108,16 +98,16 @@ public class Referencia extends Activity {
 					libro.setTitulo(object.getString("titulo"));
 					libro.setUrlImagen(object.getString("urlimg"));
 					listadoLibros.add(libro);
-				}				
+				}
 			} catch (ParseException e1) {
 				e1.printStackTrace();
-			}catch (JSONException e) {
+			} catch (JSONException e) {
 				Toast.makeText(getApplicationContext(),
 						"Unable to fetch data from server", Toast.LENGTH_LONG)
 						.show();
-			}	
-			
-				
+			}
+
+			Util.CerrarDialog();
 
 		}
 	}

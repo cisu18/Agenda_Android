@@ -3,7 +3,6 @@ package com.example.agendacaracter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,9 +12,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.example.entidad.Libro;
-
+import com.example.reutilizables.Util;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
@@ -77,16 +75,10 @@ public class DescripcionLibro extends Activity {
 	
 	class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
 
-		ProgressDialog dialog;
-
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog = new ProgressDialog(DescripcionLibro.this);
-			dialog.setMessage("Loading, please wait");
-			dialog.setTitle("Connecting server");
-			dialog.show();
-			dialog.setCancelable(false);
+			Util.MostrarDialog(DescripcionLibro.this);
 		}
 
 		@Override
@@ -129,8 +121,7 @@ public class DescripcionLibro extends Activity {
 		}
 
 		protected void onPostExecute(Boolean result) {
-
-			dialog.cancel();
+			
 			descripcionlibro.setText(libro.getDescripcionLibro());
 			if (result == false)
 				Toast.makeText(getApplicationContext(),
@@ -146,11 +137,6 @@ public class DescripcionLibro extends Activity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			dialog = new ProgressDialog(DescripcionLibro.this);
-			dialog.setMessage("Loading, please wait");
-			dialog.setTitle("Connecting server");
-			dialog.show();
-			dialog.setCancelable(false);
 		}
 
 		
@@ -170,7 +156,7 @@ public class DescripcionLibro extends Activity {
 		protected void onPostExecute(Bitmap result) {
 
 			imagenLibro.setImageBitmap(result);
-			dialog.dismiss();
+			Util.CerrarDialog();
 		}
 
 	}

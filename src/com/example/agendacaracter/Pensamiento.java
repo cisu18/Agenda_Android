@@ -1,18 +1,7 @@
 package com.example.agendacaracter;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
 import android.app.Activity;
@@ -120,8 +109,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.txt_compartir:
-			Util.compartir(this, "Pensamiento",
-					txtPensamiento.getText().toString()+" "+txtAutor.getText().toString());
+			Util.compartir(this, "Pensamiento", txtPensamiento.getText()
+					.toString() + " " + txtAutor.getText().toString());
 			break;
 		}
 	}
@@ -152,8 +141,13 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
+		protected void onPreExecute() {
+			super.onPreExecute();
+			Util.MostrarDialog(Pensamiento.this);
+		}
+
 		protected String doInBackground(String... urls) {
-			return readJSONFeed(urls[0]);
+			return Util.readJSONFeed(urls[0], getApplicationContext());
 		}
 
 		protected void onPostExecute(String result) {
@@ -169,35 +163,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				Log.e("onPostExecute", e.getLocalizedMessage());
 			}
+			Util.CerrarDialog();
 		}
 	}
 
-	public String readJSONFeed(String URL) {
-		StringBuilder stringBuilder = new StringBuilder();
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(URL);
-		try {
-			HttpResponse response = httpClient.execute(httpGet);
-			StatusLine statusLine = response.getStatusLine();
-			int statusCode = statusLine.getStatusCode();
-
-			if (statusCode == 200) {
-				HttpEntity entity = response.getEntity();
-				InputStream inputStream = entity.getContent();
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream));
-				String line;
-
-				while ((line = reader.readLine()) != null) {
-					stringBuilder.append(line);
-				}
-				inputStream.close();
-			} else {
-				Log.e("JSON", "No se ha podido descargar archivo");
-			}
-		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
-		}
-		return stringBuilder.toString();
-	}
 }

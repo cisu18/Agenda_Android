@@ -72,20 +72,21 @@ public class Login extends Activity implements OnClickListener {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {		}
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+		}
 
 		return false;
 	}
 
 	@Override
-	public void onClick(View v) {		
+	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnRegister:
 
 			String us = usuario.getText().toString();
 			String cl = contrasenia.getText().toString();
 
-			if (us.equals("") || cl.equals("")) {			
+			if (us.equals("") || cl.equals("")) {
 				showAlertDialog(Login.this, "Ingresar Datos...",
 						"Porfavor completa todos los campos...", false);
 
@@ -117,6 +118,7 @@ public class Login extends Activity implements OnClickListener {
 
 			pDialog = new ProgressDialog(Login.this);
 			pDialog.setMessage("Iniciando Sesion...");
+			pDialog.setTitle("Login");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
@@ -124,7 +126,7 @@ public class Login extends Activity implements OnClickListener {
 		}
 
 		@Override
-		protected String doInBackground(String... urls) {			
+		protected String doInBackground(String... urls) {
 			return readJSONFeed(urls[0]);
 
 		}
@@ -134,7 +136,7 @@ public class Login extends Activity implements OnClickListener {
 
 			try {
 
-				JSONObject datos = new JSONObject(result);				
+				JSONObject datos = new JSONObject(result);
 				Intent in = new Intent(getApplicationContext(),
 						MainActivity.class);
 				SharedPreferences prefe = getSharedPreferences("user",
