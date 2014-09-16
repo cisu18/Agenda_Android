@@ -24,7 +24,7 @@ public class AdaptadorCualidades extends BaseAdapter {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),
-				"fonts/Jokerman.ttf");
+				"fonts/HelveticaLTStd-Cond.otf");
 	}
 
 	public int getCount() {
@@ -44,33 +44,34 @@ public class AdaptadorCualidades extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.customs_row_view, null);
 			holder = new ViewHolder();
-			holder.cualidad = (TextView) convertView
-					.findViewById(R.id.txtcualidad);
 			holder.mes = (TextView) convertView.findViewById(R.id.txtmes);
+			holder.cualidad = (TextView) convertView.findViewById(R.id.txtcualidad);			
 			holder.id = (TextView) convertView.findViewById(R.id.txtid);
+			
+			TextView mes_cualidad = (TextView) convertView
+					.findViewById(R.id.txtmes);
+			mes_cualidad.setTypeface(tf);
 
 			TextView lista_cualidades = (TextView) convertView
 					.findViewById(R.id.txtcualidad);
 			lista_cualidades.setTypeface(tf);
 			
-			TextView mes_cualidad = (TextView) convertView
-					.findViewById(R.id.txtmes);
-			mes_cualidad.setTypeface(tf);
+			
 
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		holder.cualidad.setText(searchArrayList.get(position).getCualidad());
+		
 		holder.mes.setText(searchArrayList.get(position).getMes());
-
+		holder.cualidad.setText(searchArrayList.get(position).getCualidad());
 		return convertView;
 	}
 
 	static class ViewHolder {
-		TextView cualidad;
 		TextView mes;
+		TextView cualidad;		
 		TextView id;
 	}
 }

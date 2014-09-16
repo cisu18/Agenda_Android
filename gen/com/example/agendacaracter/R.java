@@ -159,9 +159,9 @@ public final class R {
         public static final int txt_compartir=0x7f0a0025;
         public static final int txt_introduccion=0x7f0a0012;
         public static final int txt_pensamiento=0x7f0a0023;
-        public static final int txtcualidad=0x7f0a002f;
+        public static final int txtcualidad=0x7f0a0030;
         public static final int txtid=0x7f0a0031;
-        public static final int txtmes=0x7f0a0030;
+        public static final int txtmes=0x7f0a002f;
         public static final int txv_fecha_movil=0x7f0a001a;
         public static final int txv_mensaje_carita=0x7f0a0029;
         public static final int txv_mensaje_recomendacion=0x7f0a002d;
