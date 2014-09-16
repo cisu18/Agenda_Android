@@ -12,12 +12,17 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.example.agendacaracter.MainActivity;
 
 public class Util {
 	
@@ -80,6 +85,13 @@ public class Util {
 	public static void CerrarDialog(){
 		
 		dialog.dismiss();
-	}
+	}	
+	
+	
+	
+	
+	
+	
+	
 	
 }

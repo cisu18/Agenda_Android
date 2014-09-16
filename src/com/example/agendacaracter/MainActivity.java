@@ -202,6 +202,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				showAlertDialog(MainActivity.this, "Conexion a Internet",
 						"Tu Dispositivo necesita una conexion a internet.",
 						false);
+
 				return false;
 
 			}
@@ -238,19 +239,22 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public void showAlertDialog(Context context, String title, String message,
 			Boolean status) {
+
 		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
 		alertDialog.setTitle(title);
 		alertDialog.setMessage(message);
 		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
 				: R.drawable.ic_action_cancel);
-
 		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
 				finish();
 			}
+
 		});
 		alertDialog.show();
+
 	}
 
 	private class ReadDiarioJSONFeedTask extends
