@@ -3,6 +3,9 @@ package com.example.reutilizables;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
 
@@ -51,9 +54,20 @@ public class Val {
 		return isValid;
 	}
 	
-	public static boolean isEvaluated(String fecha){
+	public static void setEvaluated(Context context, String id){	
+		SharedPreferences preferencias = context.getSharedPreferences(id,
+				Context.MODE_PRIVATE);	
+		Editor editor = preferencias.edit();
+		editor.putString("eval", Util.getFechaActual());
+		editor.commit();		
+				
+	}
+	
+	public static boolean isEvaluated(Context context, String id){
+		SharedPreferences preferencias = context.getSharedPreferences(id,
+				Context.MODE_PRIVATE);
 		boolean isValid = false;
-		if(fecha.equals(Util.getFechaActual())){
+		if(preferencias.getString("eval", "0").equals(Util.getFechaActual())){
 			isValid = true;
 		}
 		return isValid;

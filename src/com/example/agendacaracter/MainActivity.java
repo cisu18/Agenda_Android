@@ -6,6 +6,8 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.example.reutilizables.Util;
+import com.example.reutilizables.Val;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -70,7 +72,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		fechaMovil = (TextView) findViewById(R.id.txv_fecha_movil);
 		fechaMovil.setTypeface(miPropiaTypeFace);
 
-		cualidad = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
+		cualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		cualidad.setTypeface(miPropiaTypeFace);
 
 		versiculo = (TextView) findViewById(R.id.txt_Descripcion_Libro);
@@ -79,10 +81,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		textobiblico = (TextView) findViewById(R.id.txt_Numero_Versiculo);
 		textobiblico.setTypeface(miNumeroTypeFace);
 
-		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
+		planlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
 		planlectura.setTypeface(miPlanTypeFace);
 
-		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
+		textosPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		textosPlanLectura.setTypeface(miVersiculoTypeFace);
 
 		compartirVersiculo = (TextView) findViewById(R.id.txt_Compartir_Versiculo);
@@ -123,7 +125,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			 * SharedPreferences preferencias = getSharedPreferences("user",
 			 * Context.MODE_PRIVATE); String fechaevaluacion =
 			 * preferencias.getString("eval", "0"); if
-			 * (!Val.isEvaluated(fechaevaluacion)) {
+			 * (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
 			 */
 			Intent in = new Intent(this, EvaluacionDiaria.class);
 			startActivity(in);

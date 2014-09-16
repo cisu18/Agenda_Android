@@ -54,7 +54,7 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/sp_critetio_evaluacion01"
+            android:id="@+id/spi_critetio_evaluacion_01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -73,14 +73,14 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/sp_critetio_evaluacion02"
+            android:id="@+id/spi_critetio_evaluacion_02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp" />
 
         <Button
-            android:id="@+id/btn_siguiente"
+            android:id="@+id/btn_ver_resultado_evaluacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="25dp"

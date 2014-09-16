@@ -20,8 +20,8 @@ public class EvaluacionDiaria extends Activity {
 	String mensajeCompartir;
 	private TextView txvPregunta01;
 	private TextView txvPregunta02;
-	private Spinner spCritetioEvaluacion01;
-	private Spinner spCritetioEvaluacion02;
+	private Spinner spiCritetioEvaluacion01;
+	private Spinner spiCritetioEvaluacion02;
 	Typeface tfJokerman;
 
 	private AlertDialog alert;
@@ -31,26 +31,26 @@ public class EvaluacionDiaria extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_evaluacion_diaria);
 
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfHelvetica = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfGeosansLight = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
-		title.setTypeface(miPropiaTypeFace);
+		title.setTypeface(tfHelvetica);
 
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
-		indicaciones.setTypeface(miPropiaTypeFace);
+		indicaciones.setTypeface(tfHelvetica);
 
 		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
-		txvPregunta01.setTypeface(miContenidoTypeFace);
+		txvPregunta01.setTypeface(tfGeosansLight);
 
 		txvPregunta02 = (TextView) findViewById(R.id.txv_pregunta_02);
-		txvPregunta02.setTypeface(miContenidoTypeFace);
+		txvPregunta02.setTypeface(tfGeosansLight);
 
-		Button btnSiguiente = (Button) findViewById(R.id.btn_siguiente);
-		btnSiguiente.setTypeface(miPropiaTypeFace);
+		Button btnSiguiente = (Button) findViewById(R.id.btn_ver_resultado_evaluacion);
+		btnSiguiente.setTypeface(tfHelvetica);
 		btnSiguiente.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				mostrarAlerta();
@@ -60,11 +60,11 @@ public class EvaluacionDiaria extends Activity {
 	}
 
 	public <ViewGroup> void llenarSpinner() {
-		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
-		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
+		spiCritetioEvaluacion01 = (Spinner) findViewById(R.id.spi_critetio_evaluacion_01);
+		spiCritetioEvaluacion02 = (Spinner) findViewById(R.id.spi_critetio_evaluacion_02);
 		String[] list = getResources().getStringArray(
 				R.array.criterios_evaluacion);
-		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+		ArrayAdapter<String> adaptadorSpinner = new ArrayAdapter<String>(this,
 				R.layout.spinner_row, list) {
 			public View getView(int position, View convertView,
 					android.view.ViewGroup parent) {
@@ -91,9 +91,9 @@ public class EvaluacionDiaria extends Activity {
 			}
 		};
 
-		adapter1.setDropDownViewResource(android.R.layout.simple_list_item_checked);
-		spCritetioEvaluacion01.setAdapter(adapter1);
-		spCritetioEvaluacion02.setAdapter(adapter1);
+		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_list_item_checked);
+		spiCritetioEvaluacion01.setAdapter(adaptadorSpinner);
+		spiCritetioEvaluacion02.setAdapter(adaptadorSpinner);
 	}
 
 	@Override
@@ -129,9 +129,9 @@ public class EvaluacionDiaria extends Activity {
 
 	public int sumarPuntaje() {
 		double puntaje01 = Double.parseDouble(String
-				.valueOf(spCritetioEvaluacion01.getSelectedItemPosition())) + 1;
+				.valueOf(spiCritetioEvaluacion01.getSelectedItemPosition())) + 1;
 		double puntaje02 = Double.parseDouble(String
-				.valueOf(spCritetioEvaluacion02.getSelectedItemPosition())) + 1;
+				.valueOf(spiCritetioEvaluacion02.getSelectedItemPosition())) + 1;
 
 		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);
 		return promedio;

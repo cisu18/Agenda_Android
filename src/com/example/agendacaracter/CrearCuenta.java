@@ -29,7 +29,6 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -48,23 +47,23 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_cuenta);
 
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		txtEmail = (EditText) findViewById(R.id.txt_Email);
-		txtEmail.setTypeface(miPropiaTypeFace);
+		txtEmail = (EditText) findViewById(R.id.txt_email);
+		txtEmail.setTypeface(tfHelveticaLTStdCond);
 
-		txtUsuario = (EditText) findViewById(R.id.txt_UserName);
-		txtUsuario.setTypeface(miPropiaTypeFace);
+		txtUsuario = (EditText) findViewById(R.id.txt_username);
+		txtUsuario.setTypeface(tfHelveticaLTStdCond);
 
-		txtPass1 = (EditText) findViewById(R.id.txt_Pass1);
-		txtPass1.setTypeface(miPropiaTypeFace);
+		txtPass1 = (EditText) findViewById(R.id.txt_pass_01);
+		txtPass1.setTypeface(tfHelveticaLTStdCond);
 
-		txtPass2 = (EditText) findViewById(R.id.txt_Pass2);
-		txtPass2.setTypeface(miPropiaTypeFace);
+		txtPass2 = (EditText) findViewById(R.id.txt_pass_02);
+		txtPass2.setTypeface(tfHelveticaLTStdCond);
 
-		Button registrarse = (Button) findViewById(R.id.btnCrearcuenta);
-		registrarse.setTypeface(miPropiaTypeFace);
+		Button registrarse = (Button) findViewById(R.id.btn_crear_cuenta);
+		registrarse.setTypeface(tfHelveticaLTStdCond);
 		registrarse.setOnClickListener(this);
 
 	}
@@ -72,7 +71,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btnCrearcuenta:
+		case R.id.btn_crear_cuenta:
 			String usuario = txtUsuario.getText().toString();
 			String email = txtEmail.getText().toString();
 			String pass1 = txtPass1.getText().toString();
@@ -122,7 +121,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				JSONObject datos = new JSONObject(result);
 				alert = new AlertDialog.Builder(CrearCuenta.this).create();
 				alert.setTitle("Mensaje");
-				alert.setIcon(R.drawable.ic_action_accept);
+				alert.setIcon(R.drawable.ic_action_cancel_32);
 				if (result.equals("error")) {
 					alert.setMessage("Error al conectar con el servidor.");
 					alert.setButton("Aceptar",
@@ -163,8 +162,8 @@ public class CrearCuenta extends Activity implements OnClickListener {
 							});
 				}
 				alert.show();
-			} catch (Exception e) {
-				Log.e("onPostExecute", e.getLocalizedMessage());
+			} catch (Exception e) {							
+				Toast.makeText(getApplicationContext(), "CrearCuenta: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();			
 			}
 
 		}

@@ -11,7 +11,6 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,55 +21,55 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Pensamiento extends Activity implements OnClickListener {
-	TextView txtPensamiento;
-	TextView txtAutor;
-	TextView planlectura;
-	TextView textosPlanLectura;
-	TextView nombreCualidad;
-	TextView tvIdCualidad;
+	TextView txvPensamiento;
+	TextView txvAutorPensamiento;
+	TextView txvLabelPlanlectura;
+	TextView txvPlanLectura;
+	TextView txvNombreCualidad;
+	TextView txvIdCualidad;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pensamiento);
 
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfHelveticaCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		Typeface miNumeroTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfGeosansLightOblique1 = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight-Oblique_1.ttf");
 
-		Typeface miVersiculoTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfGeosansLight2 = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
-		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfHelveticaLightCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		TextView title = (TextView) findViewById(R.id.txt_cabecera);
-		title.setTypeface(miPropiaTypeFace);
+		TextView txvCabecera = (TextView) findViewById(R.id.txt_cabecera);
+		txvCabecera.setTypeface(tfHelveticaCond);
 
-		txtPensamiento = (TextView) findViewById(R.id.txt_pensamiento);
-		txtPensamiento.setTypeface(miVersiculoTypeFace);
+		txvPensamiento = (TextView) findViewById(R.id.txv_pensamiento);
+		txvPensamiento.setTypeface(tfGeosansLight2);
 
-		txtAutor = (TextView) findViewById(R.id.txt_autorPensamiento);
-		txtAutor.setTypeface(miNumeroTypeFace);
+		txvAutorPensamiento = (TextView) findViewById(R.id.txv_autor_pensamiento);
+		txvAutorPensamiento.setTypeface(tfGeosansLightOblique1);
 
-		planlectura = (TextView) findViewById(R.id.lbl_Plan_Lectura);
-		planlectura.setTypeface(miPlanTypeFace);
+		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
+		txvLabelPlanlectura.setTypeface(tfHelveticaLightCond);
 
-		textosPlanLectura = (TextView) findViewById(R.id.txt_Plan_Lectura);
-		textosPlanLectura.setTypeface(miVersiculoTypeFace);
+		txvPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
+		txvPlanLectura.setTypeface(tfGeosansLight2);
 
-		nombreCualidad = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
+		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 
-		TextView txvCompartir = (TextView) findViewById(R.id.txt_compartir);
-		txvCompartir.setOnClickListener(this);
+		TextView txvCompartirPensamiento = (TextView) findViewById(R.id.txv_compartir_pensamiento);
+		txvCompartirPensamiento.setOnClickListener(this);
 
-		TextView txtEvaluacion = (TextView) findViewById(R.id.txt_Evaluacion);
-		txtEvaluacion.setOnClickListener(this);
+		TextView txvIrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion);
+		txvIrEvaluacion.setOnClickListener(this);
 
-		TextView txtLibroReferencia = (TextView) findViewById(R.id.txt_LibroReferencia);
-		txtLibroReferencia.setOnClickListener(this);
+		TextView txtIrLibroReferencia = (TextView) findViewById(R.id.txv_ir_libro_referencia);
+		txtIrLibroReferencia.setOnClickListener(this);
 
 		String fecha = Util.getFechaActual().substring(0, 5);
 
@@ -84,12 +83,12 @@ public class Pensamiento extends Activity implements OnClickListener {
 						+ fecha);
 
 		Bundle bundle = getIntent().getExtras();
-		nombreCualidad.setText(bundle.getString("Nombre Cualidad"));
-		textosPlanLectura.setText(bundle.getString("Plan lectura"));
-		tvIdCualidad = new TextView(this);
-		tvIdCualidad.setText(bundle.getString("idCualidad"));
-		registerForContextMenu(txtLibroReferencia);
-		txtLibroReferencia.setOnClickListener(new OnClickListener() {
+		txvNombreCualidad.setText(bundle.getString("Nombre Cualidad"));
+		txvPlanLectura.setText(bundle.getString("Plan lectura"));
+		txvIdCualidad = new TextView(this);
+		txvIdCualidad.setText(bundle.getString("idCualidad"));
+		registerForContextMenu(txtIrLibroReferencia);
+		txtIrLibroReferencia.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				openContextMenu(v);
@@ -100,20 +99,19 @@ public class Pensamiento extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.txt_Evaluacion:
+		case R.id.txv_ir_evaluacion:
 			SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
-			String fechaevaluacion = preferencias.getString("eval", "0");
-			if (!Val.isEvaluated(fechaevaluacion)) {
+			if (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
 				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
 			}else{
 				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
 			}
 			break;
-		case R.id.txt_compartir:
-			Util.compartir(this, "Pensamiento", txtPensamiento.getText()
-					.toString() + " " + txtAutor.getText().toString());
+		case R.id.txv_compartir_pensamiento:
+			Util.compartir(this, "Pensamiento", txvPensamiento.getText()
+					.toString() + " " + txvAutorPensamiento.getText().toString());
 			break;
 		}
 	}
@@ -134,7 +132,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		case R.id.opcVerLibros:
 			Intent i = new Intent(this, Referencia.class);
-			i.putExtra("id cualidad", tvIdCualidad.getText());
+			i.putExtra("id cualidad", txvIdCualidad.getText());
 			startActivity(i);
 			return true;
 		default:
@@ -159,12 +157,12 @@ public class Pensamiento extends Activity implements OnClickListener {
 				JSONObject datos = new JSONObject();
 				datos = jsonArray.getJSONObject(0);
 
-				txtPensamiento.setText("\"" + datos.getString("pensamiento")
+				txvPensamiento.setText("\"" + datos.getString("pensamiento")
 						+ "\"");
-				txtAutor.setText(datos.getString("autorpensamiento"));
+				txvAutorPensamiento.setText(datos.getString("autorpensamiento"));
 
 			} catch (Exception e) {
-				Log.e("onPostExecute", e.getLocalizedMessage());
+				Toast.makeText(getApplicationContext(), "Pensamiento: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();				
 			}
 			Util.CerrarDialog();
 		}

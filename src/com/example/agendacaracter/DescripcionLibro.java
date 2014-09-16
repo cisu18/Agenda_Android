@@ -55,13 +55,13 @@ public class DescripcionLibro extends Activity {
 		descripcionlibro = (TextView) findViewById(R.id.txt_Descripcion_Libro);
 		descripcionlibro.setTypeface(miDescripcionTypeFace);
 
-		TextView reservacuenta = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
+		TextView reservacuenta = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		reservacuenta.setTypeface(miPropiaTypeFace);
 
 		Button btnaqui = (Button) findViewById(R.id.button1);
 		btnaqui.setTypeface(miPropiaTypeFace);
 
-		TextView redesociales = (TextView) findViewById(R.id.lbl_Plan_Lectura);
+		TextView redesociales = (TextView) findViewById(R.id.txv_label_plan_lectura);
 		redesociales.setTypeface(miPropiaTypeFace);
 
 		imagenLibro = (ImageView) findViewById(R.id.img_Libro_Descripcion);

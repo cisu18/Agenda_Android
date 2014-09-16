@@ -42,7 +42,7 @@
             android:gravity="center_horizontal" >
 
             <TextView
-                android:id="@+id/txv_mensaje_resultado_evaluacion"
+                android:id="@+id/txv_resultado_evaluacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -52,7 +52,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/txv_recomendacion"
+                android:id="@+id/txv_label_recomendacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -63,7 +63,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/txv_mensaje_recomendacion"
+                android:id="@+id/txv_recomendacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

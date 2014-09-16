@@ -1,75 +1,65 @@
 package com.example.agendacaracter;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.reutilizables.Util;
+import com.example.reutilizables.Val;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import android.widget.TextView;
 
 public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
-	private int puntaje;
-	TextView txvMensajeCarita;
-	TextView txvMensajeResultadoEvaluacion;
-	TextView txvMensajeRecomendacion;	
+	private int intPuntaje;
+	private TextView txvMensajeCarita;
+	private TextView txvResultadoEvaluacion;
+	private TextView txvRecomendacion;	
 	
-	Button btnCompartirResultado;	
-	StringBuilder compartir = new StringBuilder();
+	private Button btnCompartirResultado;	
+	private StringBuilder stbCompartir = new StringBuilder();
 	
-	SharedPreferences preferencias;
-
+	private SharedPreferences preferencias;
+	private int idUsuario=0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_resultado_evaluacion);
 
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		Typeface miContenidoTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface tfGeosansLight2 = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 		
 		txvMensajeCarita = (TextView) findViewById(R.id.txv_mensaje_carita);
-		txvMensajeCarita.setTypeface(miPropiaTypeFace);
+		txvMensajeCarita.setTypeface(tfHelveticaLTStdCond);
 		
-		txvMensajeResultadoEvaluacion = (TextView) findViewById(R.id.txv_mensaje_resultado_evaluacion);
-		txvMensajeResultadoEvaluacion.setTypeface(miPropiaTypeFace);
+		txvResultadoEvaluacion = (TextView) findViewById(R.id.txv_resultado_evaluacion);
+		txvResultadoEvaluacion.setTypeface(tfHelveticaLTStdCond);
 
-		txvMensajeRecomendacion = (TextView) findViewById(R.id.txv_mensaje_recomendacion);
-		txvMensajeRecomendacion.setTypeface(miContenidoTypeFace); 
+		txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
+		txvRecomendacion.setTypeface(tfGeosansLight2); 
 		
-		TextView txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
-		txvRecomendacion.setTypeface(miContenidoTypeFace); 
+		TextView txvLabelRecomendacion = (TextView) findViewById(R.id.txv_label_recomendacion);
+		txvLabelRecomendacion.setTypeface(tfGeosansLight2); 
 				
 		btnCompartirResultado = (Button) findViewById(R.id.btn_compartir_puntaje);
-		btnCompartirResultado.setTypeface(miPropiaTypeFace);
+		btnCompartirResultado.setTypeface(tfHelveticaLTStdCond);
 		btnCompartirResultado.setOnClickListener(this);
 		
 		preferencias = getSharedPreferences("user",
@@ -79,15 +69,15 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 	public void cargaData() {
 		Bundle bundle = getIntent().getExtras();
-		puntaje = bundle.getInt("puntaje");		
-		int idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
+		intPuntaje = bundle.getInt("puntaje");		
+		 idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
 		if (idUsuario > 0) {
 			new ReadJSONFeedTask()
 					.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"
 							+ Util.getFechaActual()
 							+ "/usuario/"
 							+ idUsuario
-							+ "/puntaje/" + puntaje + "/format/json");
+							+ "/puntaje/" + intPuntaje + "/format/json");
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
@@ -99,90 +89,89 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.btn_compartir_puntaje:
-				Util.compartir(this, "Resultado Evaluación", compartir.toString());
+				Util.compartir(this, "Resultado Evaluación", stbCompartir.toString());
 			break;
 		}
 	}
 	
 	private void mostrarMensajeDiario(int estado, int puntajeMensual) {
-		StringBuilder txtMensajeResultado = new StringBuilder();
-		StringBuilder txtRecomendacion = new StringBuilder();
-		StringBuilder txtMensajeCarita = new StringBuilder();
-		int porcentaje = 0;
+		StringBuilder stbMensajeResultado = new StringBuilder();
+		StringBuilder stbRecomendacion = new StringBuilder();
+		StringBuilder stbMensajeCarita = new StringBuilder();
+		int intPorcentaje = 0;
 		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion); 
 		if (estado == 1) {
-			porcentaje = puntajeMensual * 20;
-			txtMensajeResultado.append("Tu avance personal de este mes es ");
-			compartir.append("Mi avance personal de este mes es ");
+			intPorcentaje = puntajeMensual * 20;
+			stbMensajeResultado.append("Tu avance personal de este mes es ");
+			stbCompartir.append("Mi avance personal de este mes es ");
 			
 		} else if (estado == 2) {
 
-			porcentaje = puntaje * 20;
-			txtMensajeResultado.append("Tu avance personal de hoy es: ");
-			compartir.append("Mi avance personal de hoy es ");
+			intPorcentaje = intPuntaje * 20;
+			stbMensajeResultado.append("Tu avance personal de hoy es: ");
+			stbCompartir.append("Mi avance personal de hoy es ");
 			
 		}
-		switch (porcentaje) {
+		switch (intPorcentaje) {
 		case 20:
-			txtMensajeResultado.append(porcentaje + "%");
-			compartir.append(porcentaje
+			stbMensajeResultado.append(intPorcentaje + "%");
+			stbCompartir.append(intPorcentaje
 					+ "%\nEs la oportunidad iniciar mi cambio personal.");
-			txtRecomendacion
+			stbRecomendacion
 					.append("Es una oportunidad de iniciar tu cambio personal.");
-			txvMensajeRecomendacion.setText("");
-			txtMensajeCarita.append("¡Vamos!");
-			img.setImageResource(R.drawable.aceptar_20);
+			txvRecomendacion.setText("");
+			stbMensajeCarita.append("¡Vamos!");
+			img.setImageResource(R.drawable.cara_01);
 			break;
 		case 40:
-			txtMensajeResultado.append(porcentaje + "%");
-			compartir
-					.append(porcentaje
+			stbMensajeResultado.append(intPorcentaje + "%");
+			stbCompartir
+					.append(intPorcentaje
 							+ "%\nUn poco más de esfuerzo y veré una diferencia que formará mi carácter.");
-			txtRecomendacion
+			stbRecomendacion
 					.append("Un poco más de esfuerzo y podrías ver una diferencia que formará tu carácter.");
-			txtMensajeCarita.append("¡Sigue adelante!");
-			img.setImageResource(R.drawable.compartir_42);
+			stbMensajeCarita.append("¡Sigue adelante!");
+			img.setImageResource(R.drawable.cara_02);
 			break;
 		case 60:
-			txtMensajeResultado.append(porcentaje + "%");
-			compartir
-					.append(porcentaje
+			stbMensajeResultado.append(intPorcentaje + "%");
+			stbCompartir
+					.append(intPorcentaje
 							+ "%\n¿Cómo puedo hacerlo mejor? Hoy puedo trasmitir mi ejemplo a otras personas.");
-			txtRecomendacion
+			stbRecomendacion
 					.append("¿Cómo podrías hacerlo mejor? Puedes trasmitir tu ejemplo a otras personas.");
-			txtMensajeCarita.append("Vas bien");
-			img.setImageResource(R.drawable.cara2);
+			stbMensajeCarita.append("Vas bien");
+			img.setImageResource(R.drawable.cara_03);
 			break;
 		case 80:
-			txtMensajeResultado.append(porcentaje + "%");
-			compartir.append(porcentaje
+			stbMensajeResultado.append(intPorcentaje + "%");
+			stbCompartir.append(intPorcentaje
 					+ "%\nSe está formando un hábito fuerte en mí.");
-			txtRecomendacion.append("Se está formando un hábito fuerte en ti.");
-			txtMensajeCarita.append("Muy bien");
+			stbRecomendacion.append("Se está formando un hábito fuerte en ti.");
+			stbMensajeCarita.append("Muy bien");
+			img.setImageResource(R.drawable.cara_04);
 			break;
 		case 100:
-			txtMensajeResultado.append(porcentaje + "%");
-			compartir
-					.append(porcentaje
+			stbMensajeResultado.append(intPorcentaje + "%");
+			stbCompartir
+					.append(intPorcentaje
 							+ "%\nPuedo ser un mentor para alguien más, otras personas necesitan mi ayuda.");
-			txtRecomendacion
+			stbRecomendacion
 					.append("Piensa en ser un mentor para alguien más. Recuerda otras personas también necesitan ayuda.");
-			txtMensajeCarita.append("Excelente");
-			img.setImageResource(R.drawable.cara1);
+			stbMensajeCarita.append("Excelente");
+			img.setImageResource(R.drawable.cara_05);
 			break;
 		}
-		txvMensajeResultadoEvaluacion.setText(txtMensajeResultado);
-		txvMensajeRecomendacion.setText(txtRecomendacion);
-		txvMensajeCarita.setText(txtMensajeCarita);
-		Editor editor = preferencias.edit();
-		editor.putString("eval", Util.getFechaActual());		
-		editor.commit();
+		txvResultadoEvaluacion.setText(stbMensajeResultado);
+		txvRecomendacion.setText(stbRecomendacion);
+		txvMensajeCarita.setText(stbMensajeCarita);
+		Val.setEvaluated(getApplicationContext(), idUsuario+"");		
 	}	
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
-			return readJSONFeed(urls[0]);
+			return Util.readJSONFeed(urls[0],getApplicationContext());
 		}
 
 		protected void onPostExecute(String result) {
@@ -195,38 +184,8 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 						Integer.parseInt(datos.getString("puntaje")));
 				
 			} catch (Exception e) {
-				Log.e("onPostExecute", e.getLocalizedMessage());
+				Toast.makeText(getApplicationContext(), "ResultadoEvaluación: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();				
 			}
 		}
-	}
-
-	public String readJSONFeed(String URL) {
-		StringBuilder stringBuilder = new StringBuilder();
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(URL);
-		try {
-			HttpResponse response = httpClient.execute(httpGet);
-			StatusLine statusLine = response.getStatusLine();
-			int statusCode = statusLine.getStatusCode();
-
-			if (statusCode == 200) {
-				HttpEntity entity = response.getEntity();
-				InputStream inputStream = entity.getContent();
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream));
-				String line;
-
-				while ((line = reader.readLine()) != null) {
-					stringBuilder.append(line);
-				}
-				inputStream.close();
-			} else {
-				Log.e("JSON", "No se ha podido descargar archivo");
-			}
-		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
-		}
-
-		return stringBuilder.toString();
-	}
+	}	
 }

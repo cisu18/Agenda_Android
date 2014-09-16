@@ -14,7 +14,7 @@
     android:padding="35dp" >
    
     <EditText
-        android:id="@+id/txt_UserName"
+        android:id="@+id/txt_username"
         android:maxLength="30"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
         android:textColorHint="@color/letras_inicio" />
     
     <EditText
-        android:id="@+id/txt_Email"
+        android:id="@+id/txt_email"
         android:maxLength="50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +44,7 @@
         android:textColorLink="@color/YELLOW" />
 
     <EditText
-        android:id="@+id/txt_Pass1"
+        android:id="@+id/txt_pass_01"
         android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,7 +58,7 @@
         android:textColorHint="@color/letras_inicio" />
       
     <EditText
-        android:id="@+id/txt_Pass2"
+        android:id="@+id/txt_pass_02"
         android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -74,7 +74,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/btnCrearcuenta"
+        android:id="@+id/btn_crear_cuenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

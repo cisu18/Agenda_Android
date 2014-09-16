@@ -17,13 +17,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
 import android.widget.Toast;
-
-import com.example.agendacaracter.MainActivity;
-
 public class Util {
 	
 	public static ProgressDialog dialog;
@@ -65,11 +59,12 @@ public class Util {
 				}
 				inputStream.close();
 			} else {
-				Toast.makeText(context, context+"readJSONFeed: No se ha podido descargar archivo", Toast.LENGTH_SHORT).show();
-				Log.e("JSON", "No se ha podido descargar archivo" +context);
+				
+				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
+				
 			}
 		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
+			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
 		}
 		return stringBuilder.toString();
 	}

@@ -63,7 +63,7 @@ public class Login extends Activity implements OnClickListener{
 		Button iniciosesion = (Button) findViewById(R.id.btnRegister);
 		iniciosesion.setTypeface(miPropiaTypeFace);
 
-		Button crearcuenta = (Button) findViewById(R.id.btnCrearcuenta);
+		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
 		crearcuenta.setTypeface(miPropiaTypeFace);
 
 		iniciosesion.setOnClickListener(this);
@@ -112,7 +112,7 @@ public class Login extends Activity implements OnClickListener{
 			}
 
 			break;
-		case R.id.btnCrearcuenta:
+		case R.id.btn_crear_cuenta:
 			Intent i = new Intent(this, CrearCuenta.class);
 			startActivity(i);
 			break;
