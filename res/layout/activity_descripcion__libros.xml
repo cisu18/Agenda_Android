@@ -39,7 +39,7 @@
             android:id="@+id/img_Libro_Descripcion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_launcher1" />
 
          <TextView
@@ -73,7 +73,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="15dp"
-        android:background="@color/gmail"
+        android:background="@drawable/botones_rojos"
         android:gravity="center"
         android:text="AQUÍ"
         android:textColor="@color/LETRA" />

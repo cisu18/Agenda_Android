@@ -88,7 +88,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="40dp"
-            android:background="@color/gmail"
+            android:background="@drawable/botones_rojos"
             android:gravity="center"
             android:text="Compartir"
             android:textColor="@color/LETRA"
