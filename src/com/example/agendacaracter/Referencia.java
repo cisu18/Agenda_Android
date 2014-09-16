@@ -102,9 +102,10 @@ public class Referencia extends Activity {
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			} catch (JSONException e) {
-				Toast.makeText(getApplicationContext(),
-						"Unable to fetch data from server", Toast.LENGTH_LONG)
-						.show();
+				Toast.makeText(
+						getApplicationContext(),
+						"No se pudieron obtener datos del servidor: Libros de referencia",
+						Toast.LENGTH_LONG).show();
 			}
 
 			Util.cerrarDialogLoad();

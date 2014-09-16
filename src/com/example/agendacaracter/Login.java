@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -16,16 +15,17 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-
+import com.example.reutilizables.Util;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,18 +35,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Login extends Activity implements OnClickListener{
+public class Login extends Activity implements OnClickListener {
 
 	public EditText usuario;
 	public EditText contrasenia;
-	private ProgressDialog pDialog;
-
+	 private MainActivity claseprincipal= new MainActivity();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-
+		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
@@ -68,28 +68,14 @@ public class Login extends Activity implements OnClickListener{
 
 		iniciosesion.setOnClickListener(this);
 		crearcuenta.setOnClickListener(this);
-		/*usuario.setOnKeyListener(new View.OnKeyListener() {
-			
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				String c = String.valueOf((char)event.getUnicodeChar());
-				String val = usuario.getText().toString();
-				if(!Val.isUserValid(c)){					
-					usuario.setText(val.substring(0, val.length()-1));
-					Log.e("KEY",c);
-				}
-				return false;
-			}
-		});*/
-		
+		estaConectado();
+
 	}
-	
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 		}
-
 		return false;
 	}
 
@@ -100,10 +86,11 @@ public class Login extends Activity implements OnClickListener{
 
 			String us = usuario.getText().toString();
 			String cl = contrasenia.getText().toString();
-			
+
 			if (us.equals("") || cl.equals("")) {
-				showAlertDialog(Login.this, "Ingresar Datos...",
-						"Porfavor completa todos los campos...", false);
+				Toast.makeText(getApplicationContext(),
+						"Porfavor completa todos los campos", Toast.LENGTH_LONG)
+						.show();
 
 			} else {
 				new ReadUsuarioJSONFeedTask()
@@ -130,13 +117,7 @@ public class Login extends Activity implements OnClickListener{
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-
-			pDialog = new ProgressDialog(Login.this);
-			pDialog.setMessage("Iniciando Sesion...");
-			pDialog.setTitle("Login");
-			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(true);
-			pDialog.show();
+			Util.MostrarDialog(Login.this);
 
 		}
 
@@ -166,10 +147,12 @@ public class Login extends Activity implements OnClickListener{
 
 			} catch (Exception e) {
 				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
-				showAlertDialog(Login.this, "Datos Incorrectos...",
-						"La contraseña o usuario no son validos...", false);
+				Toast.makeText(
+						getApplicationContext(),
+						"Datos Incorrectos: La contraseña o usuario no son validos...",
+						Toast.LENGTH_LONG).show();
 			}
-			pDialog.dismiss();
+			Util.cerrarDialogLoad();
 		}
 
 	}
@@ -211,26 +194,79 @@ public class Login extends Activity implements OnClickListener{
 			}
 		} catch (Exception e) {
 			Log.e("readJSONFeed", e.getLocalizedMessage());
+
 		}
 
 		return stringBuilder.toString();
 	}
+	
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				showAlertDialog(Login.this, "Conexion a Internet",
+						"Tu Dispositivo necesita una conexion a internet.",
+						false);
+
+				return false;
+
+			}
+		}
+	}
+
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	public void showAlertDialog(Context context, String title, String message,
 			Boolean status) {
+
 		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
 		alertDialog.setTitle(title);
 		alertDialog.setMessage(message);
 		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
 				: R.drawable.ic_action_cancel);
-
 		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
 			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
+				claseprincipal.principal.finish();
+				finish();
 			}
 
 		});
 		alertDialog.show();
+
 	}
+
+	
 
 }

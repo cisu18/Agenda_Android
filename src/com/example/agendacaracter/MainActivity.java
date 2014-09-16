@@ -40,11 +40,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView IrEvaluacion;
 
 	public TextView tvIdCualidad;
+	public static Activity principal;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		principal=this;
 		setContentView(R.layout.activity_main);
 
 		SharedPreferences prefe = getSharedPreferences("user",
@@ -127,9 +128,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			 */
 			Intent in = new Intent(this, EvaluacionDiaria.class);
 			startActivity(in);
-			/* }else{
-				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
-			} */
+			/*
+			 * }else{ Toast.makeText(this, "Usted ya realizo su evaluación",
+			 * Toast.LENGTH_SHORT).show(); }
+			 */
 			break;
 		case R.id.txv_compartir_versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo
@@ -147,7 +149,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public void establecerFecha() {
 
-		String formato = "MMMM'\t\t'yyyy'\t\t'EEEE'\t\t'dd";
+		String formato = "MMMM'\t\t'yyyy'\t\t'EEEE' 'dd";
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat(formato,
 				Locale.getDefault());
@@ -245,6 +247,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
 		alertDialog.setTitle(title);
 		alertDialog.setMessage(message);
 		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
@@ -287,8 +290,15 @@ public class MainActivity extends Activity implements OnClickListener {
 				textobiblico.setText(datos.getString("numeroversiculo"));
 				textosPlanLectura.setText(datos.getString("planlectura"));
 
+				if(result.equals("")){
+					Toast.makeText(
+							getApplicationContext(),
+							"No se pudieron obtener datos del servidor: Versiculo diario",
+							Toast.LENGTH_LONG).show();
+				}
 			} catch (Exception e) {
 				Toast.makeText(getApplicationContext(), "Main: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();
+				e.printStackTrace();
 			}
 			Util.cerrarDialogLoad();
 		}

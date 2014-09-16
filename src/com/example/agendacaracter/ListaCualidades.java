@@ -10,7 +10,6 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -20,6 +19,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.entidad.Cualidades;
 import com.example.reutilizables.AdaptadorCualidades;
 import com.example.reutilizables.Util;
@@ -141,7 +142,11 @@ public class ListaCualidades extends Activity {
 						getApplicationContext(), cualidades));
 
 			} catch (Exception e) {
-				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+				Toast.makeText(
+						getApplicationContext(),
+						"No se pudieron obtener datos del servidor: Lista de Cualidades",
+						Toast.LENGTH_LONG).show();
+				
 			}
 			Util.cerrarDialogLoad();
 		}

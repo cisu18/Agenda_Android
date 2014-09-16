@@ -1,16 +1,8 @@
 package com.example.agendacaracter;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import com.example.entidad.Libro;
 import com.example.reutilizables.Util;
@@ -19,7 +11,6 @@ import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,12 +34,13 @@ public class DescripcionLibro extends Activity {
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
+
 		Typeface miDescripcionTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
 
 		TextView title = (TextView) findViewById(R.id.txv_cabecera);
+
 
 		title.setTypeface(miPropiaTypeFace);
 
@@ -69,15 +61,15 @@ public class DescripcionLibro extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		String idLibro = bundle.getString("id libro");
 		String url = bundle.getString("url");
-		
+
 		new JSONAsyncTask()
 				.execute("http://192.168.0.55/Agenda_WS/libro/libro_byid/format/json/id/"
 						+ idLibro);
 		new DescargarImagen().execute(url);
 
 	}
-	
-	class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
+
+	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
 		@Override
 		protected void onPreExecute() {
@@ -86,51 +78,34 @@ public class DescripcionLibro extends Activity {
 		}
 
 		@Override
-		protected Boolean doInBackground(String... urls) {
-			try {
+		protected String doInBackground(String... urls) {
 
-				HttpGet httppost = new HttpGet(urls[0]);
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpResponse response = httpclient.execute(httppost);
-
-				int status = response.getStatusLine().getStatusCode();
-
-				if (status == 200) {
-					HttpEntity entity = response.getEntity();
-					String data = EntityUtils.toString(entity);
-
-					listadoLibro = new ArrayList<Libro>();
-					JSONObject object = new JSONObject();
-					JSONArray jarray = new JSONArray(data);
-
-					object = jarray.getJSONObject(0);
-
-					libro.setIdLibro(object.getString("libro_id"));
-					libro.setTitulo(object.getString("titulo"));
-					libro.setUrlImagen(object.getString("urlimg"));
-					libro.setDescripcionLibro(object.getString("descripcion"));
-					listadoLibro.add(libro);
-
-					return true;
-				}
-
-			} catch (ParseException e1) {
-				e1.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			return false;
+			return Util.readJSONFeed(urls[0], getApplicationContext());
 		}
 
-		protected void onPostExecute(Boolean result) {
-			
-			descripcionlibro.setText(libro.getDescripcionLibro());
-			if (result == false)
-				Toast.makeText(getApplicationContext(),
-						"Unable to fetch data from server", Toast.LENGTH_LONG)
-						.show();
+		protected void onPostExecute(String result) {
+
+			try {
+				listadoLibro = new ArrayList<Libro>();
+				JSONObject object = new JSONObject();
+				JSONArray jarray = new JSONArray(result);
+
+				object = jarray.getJSONObject(0);
+
+				libro.setIdLibro(object.getString("libro_id"));
+				libro.setTitulo(object.getString("titulo"));
+				libro.setUrlImagen(object.getString("urlimg"));
+				libro.setDescripcionLibro(object.getString("descripcion"));
+				listadoLibro.add(libro);
+				descripcionlibro.setText(libro.getDescripcionLibro());
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				Toast.makeText(
+						getApplicationContext(),
+						"No se pudieron obtener datos del servidor: Descripcion de libro",
+						Toast.LENGTH_LONG).show();
+			}
 
 		}
 	}
@@ -143,7 +118,6 @@ public class DescripcionLibro extends Activity {
 			super.onPreExecute();
 		}
 
-		
 		protected Bitmap doInBackground(String... urls) {
 			String urldisplay = urls[0];
 			Bitmap Imagen_Libro_Bitmap = null;
