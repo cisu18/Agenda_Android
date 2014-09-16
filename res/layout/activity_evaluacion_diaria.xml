@@ -7,7 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical" >
 
         <TextView
@@ -17,8 +18,8 @@
             android:layout_gravity="center"
             android:background="@color/CABECERA"
             android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
             android:text="@string/evaluacion_diaria"
             android:textColor="@color/LETRA"
             android:textColorLink="@color/LETRA"
@@ -31,10 +32,10 @@
             android:layout_height="wrap_content"
             android:background="@color/LETRA"
             android:gravity="center"
-            android:paddingBottom="15dp"
+            android:paddingBottom="13dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:paddingTop="14dp"
+            android:paddingTop="13dp"
             android:text="¿Quieres desarrollar esta cualidad en tu vida? Responde las siguientes preguntas:"
             android:textColor="@color/letras_inicio"
             android:textSize="21sp"
@@ -53,18 +54,19 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/sp_critetio_evaluacion01"           
+            android:id="@+id/sp_critetio_evaluacion01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"/>
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp" />
 
         <TextView
-            android:id="@+id/txv_pregunta_02" 
+            android:id="@+id/txv_pregunta_02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="2. ¿Existió hoy alguna situación o circunstancia en la que aplicaste esta cualidad?"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/CABECERA"
@@ -77,22 +79,13 @@
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center_horizontal" >
-        </LinearLayout>
-
         <Button
             android:id="@+id/btn_siguiente"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:background="@color/gmail"
             android:minHeight="40dp"
             android:paddingLeft="20dp"

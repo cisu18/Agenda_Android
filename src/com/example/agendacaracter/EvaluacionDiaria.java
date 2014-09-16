@@ -70,13 +70,13 @@ public class EvaluacionDiaria extends Activity {
 			public View getView(int position, View convertView,
 					android.view.ViewGroup parent) {
 				tfJokerman = Typeface.createFromAsset(getAssets(),
-						"fonts/Jokerman.ttf");
+						"fonts/HelveticaLTStd-Cond.otf");
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				v.setTextColor(Color.RED);
-				v.setBackgroundColor(Color.BLUE);
-				v.setTextSize(35);
+				v.setTextColor(Color.WHITE);
+				//v.setBackgroundColor(Color.BLUE);
+				v.setTextSize(18);
 				return v;
 			}
 
@@ -85,14 +85,14 @@ public class EvaluacionDiaria extends Activity {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				v.setTextColor(Color.GREEN);
-				v.setBackgroundColor(Color.YELLOW);
-				v.setTextSize(35);
+				//v.setTextColor(Color.GREEN);
+				//v.setBackgroundColor(Color.YELLOW);
+				v.setTextSize(18);
 				return v;
 			}
 		};
 
-		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);		
+		adapter1.setDropDownViewResource(android.R.layout.simple_list_item_checked);		
 		spCritetioEvaluacion01.setAdapter(adapter1);
 		spCritetioEvaluacion02.setAdapter(adapter1);
 	}

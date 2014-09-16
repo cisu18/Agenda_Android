@@ -43,13 +43,17 @@ public class DescripcionLibro extends Activity {
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		
+		Typeface miDescripcionTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/GeosansLight_2.ttf");
+
 
 		TextView title = (TextView) findViewById(R.id.txt_cabecera);
 
 		title.setTypeface(miPropiaTypeFace);
 
 		descripcionlibro = (TextView) findViewById(R.id.txt_Descripcion_Libro);
-		descripcionlibro.setTypeface(miPropiaTypeFace);
+		descripcionlibro.setTypeface(miDescripcionTypeFace);
 
 		TextView reservacuenta = (TextView) findViewById(R.id.txt_Nombre_Cualidad);
 		reservacuenta.setTypeface(miPropiaTypeFace);
