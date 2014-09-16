@@ -56,17 +56,16 @@ public class EvaluacionDiaria extends Activity {
 				mostrarAlerta();
 			}
 		});
-		llenarSpinner();		
+		llenarSpinner();
 	}
 
-	
 	public <ViewGroup> void llenarSpinner() {
 		spCritetioEvaluacion01 = (Spinner) findViewById(R.id.sp_critetio_evaluacion01);
 		spCritetioEvaluacion02 = (Spinner) findViewById(R.id.sp_critetio_evaluacion02);
 		String[] list = getResources().getStringArray(
-				R.array.criterios_evaluacion);		
+				R.array.criterios_evaluacion);
 		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, list) {
+				R.layout.spinner_row, list) {
 			public View getView(int position, View convertView,
 					android.view.ViewGroup parent) {
 				tfJokerman = Typeface.createFromAsset(getAssets(),
@@ -92,7 +91,7 @@ public class EvaluacionDiaria extends Activity {
 			}
 		};
 
-		adapter1.setDropDownViewResource(android.R.layout.simple_list_item_checked);		
+		adapter1.setDropDownViewResource(android.R.layout.simple_list_item_checked);
 		spCritetioEvaluacion01.setAdapter(adapter1);
 		spCritetioEvaluacion02.setAdapter(adapter1);
 	}
@@ -102,11 +101,12 @@ public class EvaluacionDiaria extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	public void mostrarAlerta() {
 		alert = new AlertDialog.Builder(EvaluacionDiaria.this).create();
 		alert.setTitle("Mensaje");
 		alert.setIcon(R.drawable.ic_action_accept);
+		alert.setCanceledOnTouchOutside(false);
 		alert.setMessage("¿Esta seguro que quiere ver los resultados de su evaluación?");
 		alert.setButton2("Cancelar", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {

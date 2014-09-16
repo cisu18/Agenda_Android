@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Pensamiento extends Activity implements OnClickListener {
 	TextView txtPensamiento;
@@ -106,6 +107,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			if (!Val.isEvaluated(fechaevaluacion)) {
 				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
+			}else{
+				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
 			}
 			break;
 		case R.id.txt_compartir:

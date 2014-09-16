@@ -3,6 +3,8 @@ package com.example.reutilizables;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.util.Log;
+
 
 public class Val {
 
@@ -19,12 +21,12 @@ public class Val {
 		}
 		return isValid;
 	}
-	public static boolean isUserValid(String email) {
+	public static boolean isUserValid(String c) {
 		boolean isValid = false;
 
-		String expression = "^[A-Z]{2,4}$";
-		CharSequence inputStr = email;
-
+		String expression = "^[a-zA-Z0-9]";
+		CharSequence inputStr = c;
+		Log.e("vAL:Error",c);
 		Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(inputStr);
 		if (matcher.matches()) {

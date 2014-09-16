@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -126,7 +127,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			 */
 			Intent in = new Intent(this, EvaluacionDiaria.class);
 			startActivity(in);
-			/* } */
+			/* }else{
+				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
+			} */
 			break;
 		case R.id.txt_Compartir_Versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo

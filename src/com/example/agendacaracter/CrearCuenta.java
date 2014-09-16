@@ -202,10 +202,11 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				inputStream.close();
 			} else {
 				res.append("error");
-				Log.e("JSON", "No se ha podido recibir archivo");
+				Toast.makeText(this, "CrearCuenta: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
+			Toast.makeText(this, "CrearCuenta: Error Interno -> readJSONFeed."+ e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+			
 		}
 
 		return res.toString();

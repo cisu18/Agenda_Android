@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:drawableRight="@drawable/user_login2"
             android:hint="Usuario"
-            android:inputType="text"
+            android:inputType="text|textNoSuggestions"
             android:textAllCaps="true"
             android:textColor="@color/LETRA"
             android:textColorHint="@color/letras_inicio" />

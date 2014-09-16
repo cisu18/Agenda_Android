@@ -36,7 +36,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Login extends Activity implements OnClickListener {
+public class Login extends Activity implements OnClickListener{
 
 	public EditText usuario;
 	public EditText contrasenia;
@@ -68,7 +68,22 @@ public class Login extends Activity implements OnClickListener {
 
 		iniciosesion.setOnClickListener(this);
 		crearcuenta.setOnClickListener(this);
+		/*usuario.setOnKeyListener(new View.OnKeyListener() {
+			
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				String c = String.valueOf((char)event.getUnicodeChar());
+				String val = usuario.getText().toString();
+				if(!Val.isUserValid(c)){					
+					usuario.setText(val.substring(0, val.length()-1));
+					Log.e("KEY",c);
+				}
+				return false;
+			}
+		});*/
+		
 	}
+	
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -85,7 +100,7 @@ public class Login extends Activity implements OnClickListener {
 
 			String us = usuario.getText().toString();
 			String cl = contrasenia.getText().toString();
-
+			
 			if (us.equals("") || cl.equals("")) {
 				showAlertDialog(Login.this, "Ingresar Datos...",
 						"Porfavor completa todos los campos...", false);
