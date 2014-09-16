@@ -45,7 +45,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		Typeface tfHelveticaLightCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		TextView txvCabecera = (TextView) findViewById(R.id.txt_cabecera);
+		TextView txvCabecera = (TextView) findViewById(R.id.txv_cabecera);
 		txvCabecera.setTypeface(tfHelveticaCond);
 
 		txvPensamiento = (TextView) findViewById(R.id.txv_pensamiento);
@@ -164,7 +164,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				Toast.makeText(getApplicationContext(), "Pensamiento: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();				
 			}
-			Util.CerrarDialog();
+			Util.cerrarDialogLoad();
 		}
 	}
 

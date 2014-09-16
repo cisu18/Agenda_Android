@@ -15,7 +15,7 @@
 
         <EditText
             android:maxLength="30"
-            android:id="@+id/txtUserName"
+            android:id="@+id/txv_username_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:drawableRight="@drawable/user_login2"
@@ -26,7 +26,7 @@
             android:textColorHint="@color/letras_inicio" />
 
         <EditText
-            android:id="@+id/txtPass"
+            android:id="@+id/txv_pass_login"
             android:maxLength="15"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -39,7 +39,7 @@
             android:textColorHint="@color/letras_inicio" />
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btn_iniciar_sesion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
@@ -74,7 +74,7 @@
             android:gravity="center" >
 
             <TextView
-                android:id="@+id/txt_cabecera"
+                android:id="@+id/txv_cabecera"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -92,7 +92,7 @@
             android:gravity="center" >
 
             <ImageView
-                android:id="@+id/img_Libro_Descripcion"
+                android:id="@+id/img_login_facebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/face" />
@@ -102,7 +102,7 @@
                 android:layout_height="match_parent" >
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/img_login_google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -112,7 +112,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/img_login_twitter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

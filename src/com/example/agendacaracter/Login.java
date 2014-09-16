@@ -50,17 +50,17 @@ public class Login extends Activity implements OnClickListener{
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		usuario = (EditText) findViewById(R.id.txtUserName);
+		usuario = (EditText) findViewById(R.id.txv_username_login);
 		usuario.setTypeface(miPropiaTypeFace);
 
-		contrasenia = (EditText) findViewById(R.id.txtPass);
+		contrasenia = (EditText) findViewById(R.id.txv_pass_login);
 		contrasenia.setTypeface(miPropiaTypeFace);
 
-		TextView logincon = (TextView) findViewById(R.id.txt_cabecera);
+		TextView logincon = (TextView) findViewById(R.id.txv_cabecera);
 
 		logincon.setTypeface(miPropiaTypeFace);
 
-		Button iniciosesion = (Button) findViewById(R.id.btnRegister);
+		Button iniciosesion = (Button) findViewById(R.id.btn_iniciar_sesion);
 		iniciosesion.setTypeface(miPropiaTypeFace);
 
 		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
@@ -96,7 +96,7 @@ public class Login extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btnRegister:
+		case R.id.btn_iniciar_sesion:
 
 			String us = usuario.getText().toString();
 			String cl = contrasenia.getText().toString();

@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:id="@+id/txt_Descripcion_Libro"
+                    android:id="@+id/txt_label_versiculo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -85,7 +85,7 @@
         </TableLayout>
 
         <TextView
-            android:id="@+id/txt_Numero_Versiculo"
+            android:id="@+id/txv_numero_versiculo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -116,7 +116,7 @@
                 android:orientation="horizontal" >
 
                 <TextView
-                    android:id="@+id/txt_Compartir_Versiculo"
+                    android:id="@+id/txv_compartir_versiculo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -128,7 +128,7 @@
                     android:textColor="@color/LETRA" />
 
                 <TextView
-                    android:id="@+id/txt_Pensamiento_Diario"
+                    android:id="@+id/txv_ir_pensamiento_diario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/facebook"
@@ -138,7 +138,7 @@
                     android:textColor="@color/LETRA" />
 
                 <TextView
-                    android:id="@+id/txtEvaluacionDiaria"
+                    android:id="@+id/txv_ir_evaluacion_diaria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"

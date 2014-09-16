@@ -13,7 +13,7 @@
         
 
             <TextView
-                android:id="@+id/txt_cabecera"
+                android:id="@+id/txv_cabecera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/CABECERA"
@@ -28,7 +28,7 @@
     </TableLayout>
 
     <GridView
-        android:id="@+id/list"
+        android:id="@+id/grv_libros_referencia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2" >

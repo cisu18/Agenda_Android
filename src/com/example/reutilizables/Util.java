@@ -77,7 +77,7 @@ public class Util {
 		dialog.setCancelable(false);
 		
 	}
-	public static void CerrarDialog(){
+	public static void cerrarDialogLoad(){
 		
 		dialog.dismiss();
 	}	

@@ -16,7 +16,7 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:id="@+id/ivImgLibro"
+                android:id="@+id/img_item_lista_libros_referencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -30,7 +30,7 @@
     </LinearLayout>
 
 <TextView
-    android:id="@+id/tvTitLibro"
+    android:id="@+id/txv_item_titulo_lista_libros_referencia"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical|center_horizontal"
@@ -42,7 +42,7 @@
     android:textSize="16sp" />
 
 <TextView
-    android:id="@+id/tvidLibroxml"
+    android:id="@+id/txv_item_id_lista_libros_referencia"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"    
     android:gravity="center_vertical|center_horizontal" />

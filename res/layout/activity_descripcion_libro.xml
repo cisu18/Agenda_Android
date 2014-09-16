@@ -12,7 +12,7 @@
 
     <TextView
 
-        android:id="@+id/txt_cabecera"
+        android:id="@+id/txv_cabecera"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,14 +36,14 @@
         android:layout_marginTop="25dp" >
 
         <ImageView
-            android:id="@+id/img_Libro_Descripcion"
+            android:id="@+id/img_libro_descripcion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:src="@drawable/ic_launcher1" />
 
          <TextView
-             android:id="@+id/txt_Descripcion_Libro"
+             android:id="@+id/txt_descripcion_libro"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:layout_gravity="center"
@@ -67,7 +67,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_reserva_aqui"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="50dp"
@@ -116,7 +116,7 @@
             android:layout_height="match_parent" >
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/img_login_google"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -127,7 +127,7 @@
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/img_login_twitter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"

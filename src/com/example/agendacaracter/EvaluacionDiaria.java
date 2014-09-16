@@ -37,7 +37,7 @@ public class EvaluacionDiaria extends Activity {
 		Typeface tfGeosansLight = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
-		TextView title = (TextView) findViewById(R.id.txt_cabecera);
+		TextView title = (TextView) findViewById(R.id.txv_cabecera);
 		title.setTypeface(tfHelvetica);
 
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
@@ -65,7 +65,7 @@ public class EvaluacionDiaria extends Activity {
 		String[] list = getResources().getStringArray(
 				R.array.criterios_evaluacion);
 		ArrayAdapter<String> adaptadorSpinner = new ArrayAdapter<String>(this,
-				R.layout.spinner_row, list) {
+				R.layout.custom_row_spinner, list) {
 			public View getView(int position, View convertView,
 					android.view.ViewGroup parent) {
 				tfJokerman = Typeface.createFromAsset(getAssets(),

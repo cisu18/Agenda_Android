@@ -37,11 +37,11 @@ public class ListaCualidades extends Activity {
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		TextView lista_cualidades = (TextView) findViewById(R.id.txt_cabecera);
+		TextView lista_cualidades = (TextView) findViewById(R.id.txv_cabecera);
 
 		lista_cualidades.setTypeface(miPropiaTypeFace);
 
-		lista_mensual = (ListView) findViewById(R.id.listView1);
+		lista_mensual = (ListView) findViewById(R.id.lsv_cualidad);
 
 		new ReadCualidadesJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
@@ -143,7 +143,7 @@ public class ListaCualidades extends Activity {
 			} catch (Exception e) {
 				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
 			}
-			Util.CerrarDialog();
+			Util.cerrarDialogLoad();
 		}
 	}
 

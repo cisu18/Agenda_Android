@@ -6,7 +6,6 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.example.reutilizables.Util;
-import com.example.reutilizables.Val;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,7 +18,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,10 +73,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		cualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		cualidad.setTypeface(miPropiaTypeFace);
 
-		versiculo = (TextView) findViewById(R.id.txt_Descripcion_Libro);
+		versiculo = (TextView) findViewById(R.id.txt_label_versiculo);
 		versiculo.setTypeface(miVersiculoTypeFace);
 
-		textobiblico = (TextView) findViewById(R.id.txt_Numero_Versiculo);
+		textobiblico = (TextView) findViewById(R.id.txv_numero_versiculo);
 		textobiblico.setTypeface(miNumeroTypeFace);
 
 		planlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
@@ -87,9 +85,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		textosPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		textosPlanLectura.setTypeface(miVersiculoTypeFace);
 
-		compartirVersiculo = (TextView) findViewById(R.id.txt_Compartir_Versiculo);
-		IrPensamiento = (TextView) findViewById(R.id.txt_Pensamiento_Diario);
-		IrEvaluacion = (TextView) findViewById(R.id.txtEvaluacionDiaria);
+		compartirVersiculo = (TextView) findViewById(R.id.txv_compartir_versiculo);
+		IrPensamiento = (TextView) findViewById(R.id.txv_ir_pensamiento_diario);
+		IrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion_diaria);
 
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
@@ -113,14 +111,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.txt_Pensamiento_Diario:
+		case R.id.txv_ir_pensamiento_diario:
 			Intent i = new Intent(this, Pensamiento.class);
 			i.putExtra("idCualidad", tvIdCualidad.getText());
 			i.putExtra("Nombre Cualidad", cualidad.getText());
 			i.putExtra("Plan lectura", textosPlanLectura.getText());
 			startActivity(i);
 			break;
-		case R.id.txtEvaluacionDiaria:
+		case R.id.txv_ir_evaluacion_diaria:
 			/*
 			 * SharedPreferences preferencias = getSharedPreferences("user",
 			 * Context.MODE_PRIVATE); String fechaevaluacion =
@@ -133,7 +131,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
 			} */
 			break;
-		case R.id.txt_Compartir_Versiculo:
+		case R.id.txv_compartir_versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo
 					.getText().toString()
 					+ " "
@@ -290,9 +288,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				textosPlanLectura.setText(datos.getString("planlectura"));
 
 			} catch (Exception e) {
-				Log.e("onPostExecute", e.getLocalizedMessage());
+				Toast.makeText(getApplicationContext(), "Main: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();
 			}
-			Util.CerrarDialog();
+			Util.cerrarDialogLoad();
 		}
 	}
 

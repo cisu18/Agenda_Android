@@ -29,7 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DescripcionLibro extends Activity {
-	private ImageView imagenLibro;
+	private ImageView imgLibro;
 	private TextView descripcionlibro;
 	ArrayList<Libro> listadoLibro;
 	DescargarImagen adapter;
@@ -39,7 +39,7 @@ public class DescripcionLibro extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_descripcion__libros);
+		setContentView(R.layout.activity_descripcion_libro);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
@@ -48,23 +48,23 @@ public class DescripcionLibro extends Activity {
 				"fonts/GeosansLight_2.ttf");
 
 
-		TextView title = (TextView) findViewById(R.id.txt_cabecera);
+		TextView title = (TextView) findViewById(R.id.txv_cabecera);
 
 		title.setTypeface(miPropiaTypeFace);
 
-		descripcionlibro = (TextView) findViewById(R.id.txt_Descripcion_Libro);
+		descripcionlibro = (TextView) findViewById(R.id.txt_descripcion_libro);
 		descripcionlibro.setTypeface(miDescripcionTypeFace);
 
 		TextView reservacuenta = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		reservacuenta.setTypeface(miPropiaTypeFace);
 
-		Button btnaqui = (Button) findViewById(R.id.button1);
+		Button btnaqui = (Button) findViewById(R.id.btn_reserva_aqui);
 		btnaqui.setTypeface(miPropiaTypeFace);
 
 		TextView redesociales = (TextView) findViewById(R.id.txv_label_plan_lectura);
 		redesociales.setTypeface(miPropiaTypeFace);
 
-		imagenLibro = (ImageView) findViewById(R.id.img_Libro_Descripcion);
+		imgLibro = (ImageView) findViewById(R.id.img_libro_descripcion);
 
 		Bundle bundle = getIntent().getExtras();
 		String idLibro = bundle.getString("id libro");
@@ -159,8 +159,8 @@ public class DescripcionLibro extends Activity {
 
 		protected void onPostExecute(Bitmap result) {
 
-			imagenLibro.setImageBitmap(result);
-			Util.CerrarDialog();
+			imgLibro.setImageBitmap(result);
+			Util.cerrarDialogLoad();
 		}
 
 	}

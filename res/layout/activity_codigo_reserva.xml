@@ -14,7 +14,7 @@
 
     <TextView
 
-        android:id="@+id/txt_cabecera"
+        android:id="@+id/txv_cabecera"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +30,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/txt_Descripcion_Libro"
+        android:id="@+id/txt_descripcion_libro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
@@ -40,14 +40,14 @@
         android:textSize="16sp" />
 
     <ImageView
-        android:id="@+id/img_Libro_Descripcion"
+        android:id="@+id/img_libro_descripcion"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:src="@drawable/codigo_64" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_reserva_aqui"
         android:layout_width="98dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

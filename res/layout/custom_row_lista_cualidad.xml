@@ -5,7 +5,7 @@
     android:orientation="vertical" >
     
     <TextView
-        android:id="@+id/txtmes"
+        android:id="@+id/txv_item_mes_lista_cualidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="@color/CABECERA"
@@ -13,7 +13,7 @@
         android:textSize="22sp" />
 
    <TextView
-       android:id="@+id/txtcualidad"
+       android:id="@+id/txv_item_cualidad_lista_cualidad"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:shadowColor="@color/CABECERA"
@@ -21,7 +21,7 @@
        android:textSize="18sp" />
 
    <TextView
-       android:id="@+id/txtid"
+       android:id="@+id/txv_item_id_lista_cualidad"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content" 
        android:shadowColor="@color/CABECERA"/>    

@@ -47,11 +47,11 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 		if (v == null) {
 			holder = new ViewHolder();
 			v = vi.inflate(Resource, null);
-			holder.ivLibroImagen = (ImageView) v.findViewById(R.id.ivImgLibro);
-			holder.tvTituloLibro = (TextView) v.findViewById(R.id.tvTitLibro);		
-			holder.tvIdLibro = (TextView) v.findViewById(R.id.tvidLibroxml);
+			holder.ivLibroImagen = (ImageView) v.findViewById(R.id.img_item_lista_libros_referencia);
+			holder.tvTituloLibro = (TextView) v.findViewById(R.id.txv_item_titulo_lista_libros_referencia);		
+			holder.tvIdLibro = (TextView) v.findViewById(R.id.txv_item_id_lista_libros_referencia);
 			
-			TextView lista_libros = (TextView) v.findViewById(R.id.tvTitLibro);
+			TextView lista_libros = (TextView) v.findViewById(R.id.txv_item_titulo_lista_libros_referencia);
 			lista_libros.setTypeface(TituloLibro);
 			
 			v.setTag(holder);

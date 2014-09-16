@@ -13,18 +13,18 @@ public class CodigoReserva extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_codigo__reserva);	
+		setContentView(R.layout.activity_codigo_reserva);	
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");		
 
-		TextView codigoreserva = (TextView)findViewById(R.id.txt_cabecera);
+		TextView codigoreserva = (TextView)findViewById(R.id.txv_cabecera);
 
 		codigoreserva.setTypeface(miPropiaTypeFace);
 		
-		TextView indicaciones = (TextView)findViewById(R.id.txt_Descripcion_Libro);
+		TextView indicaciones = (TextView)findViewById(R.id.txt_descripcion_libro);
 		indicaciones.setTypeface(miPropiaTypeFace);
 		
-		Button aceptar = (Button)findViewById(R.id.button1);
+		Button aceptar = (Button)findViewById(R.id.btn_reserva_aqui);
 		aceptar.setTypeface(miPropiaTypeFace);
 		
 		
@@ -32,7 +32,7 @@ public class CodigoReserva extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.codigo__reserva, menu);
+		getMenuInflater().inflate(R.menu.codigo_reserva, menu);
 		return true;
 	}
 

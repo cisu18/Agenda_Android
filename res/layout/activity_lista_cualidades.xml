@@ -12,7 +12,7 @@
 
         <TextView
 
-            android:id="@+id/txt_cabecera"
+            android:id="@+id/txv_cabecera"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/lsv_cualidad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="10dp" >

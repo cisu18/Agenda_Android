@@ -34,7 +34,7 @@ public class Referencia extends Activity {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		TextView usuario = (TextView) findViewById(R.id.txt_cabecera);
+		TextView usuario = (TextView) findViewById(R.id.txv_cabecera);
 
 		usuario.setTypeface(miPropiaTypeFace);
 
@@ -47,8 +47,8 @@ public class Referencia extends Activity {
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"
 						+ idCualidad);
 
-		final GridView listview = (GridView) findViewById(R.id.list);
-		adapter = new AdaptadorLibro(getApplicationContext(), R.layout.row,
+		final GridView listview = (GridView) findViewById(R.id.grv_libros_referencia);
+		adapter = new AdaptadorLibro(getApplicationContext(), R.layout.custom_row_lista_libros_referencia,
 				listadoLibros);
 
 		listview.setAdapter(adapter);
@@ -107,7 +107,7 @@ public class Referencia extends Activity {
 						.show();
 			}
 
-			Util.CerrarDialog();
+			Util.cerrarDialogLoad();
 
 		}
 	}

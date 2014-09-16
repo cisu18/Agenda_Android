@@ -42,18 +42,18 @@ public class AdaptadorCualidades extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.customs_row_view, null);
+			convertView = mInflater.inflate(R.layout.custom_row_lista_cualidad, null);
 			holder = new ViewHolder();
-			holder.mes = (TextView) convertView.findViewById(R.id.txtmes);
-			holder.cualidad = (TextView) convertView.findViewById(R.id.txtcualidad);			
-			holder.id = (TextView) convertView.findViewById(R.id.txtid);
+			holder.mes = (TextView) convertView.findViewById(R.id.txv_item_mes_lista_cualidad);
+			holder.cualidad = (TextView) convertView.findViewById(R.id.txv_item_cualidad_lista_cualidad);			
+			holder.id = (TextView) convertView.findViewById(R.id.txv_item_id_lista_cualidad);
 			
 			TextView mes_cualidad = (TextView) convertView
-					.findViewById(R.id.txtmes);
+					.findViewById(R.id.txv_item_mes_lista_cualidad);
 			mes_cualidad.setTypeface(tf);
 
 			TextView lista_cualidades = (TextView) convertView
-					.findViewById(R.id.txtcualidad);
+					.findViewById(R.id.txv_item_cualidad_lista_cualidad);
 			lista_cualidades.setTypeface(tf);
 			
 			
