@@ -10,6 +10,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -64,6 +66,10 @@
         <activity
             android:name=".Demos"
             android:label="@string/title_activity_demos" >
+        </activity>
+        <activity
+            android:name=".TwitterActivity"
+            android:label="@string/title_activity_twitter" >
         </activity>
     </application>
 

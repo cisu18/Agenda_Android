@@ -35,6 +35,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +73,9 @@ public class Login extends Activity implements OnClickListener {
 
 		btnIniciarSesion.setOnClickListener(this);
 		btnCrearCuenta.setOnClickListener(this);
+
+		ImageView img_twitter = (ImageView) findViewById(R.id.imv_twitter_descripcion);
+		img_twitter.setOnClickListener(this);
 		// estaConectado();
 
 	}
@@ -101,10 +105,13 @@ public class Login extends Activity implements OnClickListener {
 						.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
 
 			}
-
 			break;
 		case R.id.btn_crear_cuenta:
 			Intent i = new Intent(this, CrearCuenta.class);
+			startActivity(i);
+			break;
+		case R.id.imv_twitter_descripcion:
+			i = new Intent(this, TwitterActivity.class);
 			startActivity(i);
 			break;
 		default:

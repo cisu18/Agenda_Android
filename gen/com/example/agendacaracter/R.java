@@ -113,11 +113,11 @@ public final class R {
         public static final int view_as_list_64=0x7f020042;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f0a003c;
-        public static final int action_inicio=0x7f0a003b;
-        public static final int action_listar=0x7f0a003e;
-        public static final int action_menu=0x7f0a003d;
-        public static final int action_settings=0x7f0a003a;
+        public static final int action_cerrar_sesion=0x7f0a003d;
+        public static final int action_inicio=0x7f0a003c;
+        public static final int action_listar=0x7f0a003f;
+        public static final int action_menu=0x7f0a003e;
+        public static final int action_settings=0x7f0a003b;
         public static final int btn_compartir_puntaje=0x7f0a0032;
         public static final int btn_crear_cuenta=0x7f0a0009;
         public static final int btn_iniciar_sesion=0x7f0a000c;
@@ -125,14 +125,14 @@ public final class R {
         public static final int btn_ver_resultado_evaluacion=0x7f0a0017;
         public static final int grv_libros_referencia=0x7f0a002c;
         public static final int img_carita_resultado_evaluacion=0x7f0a002e;
-        public static final int img_item_lista_libros_referencia=0x7f0a0036;
+        public static final int img_item_lista_libros_referencia=0x7f0a0037;
         public static final int imv_facebook_descripcion=0x7f0a0011;
         public static final int imv_google_descripcion=0x7f0a000d;
         public static final int imv_libro_descripcion=0x7f0a0003;
         public static final int imv_login_facebook=0x7f0a0019;
         public static final int imv_twitter_descripcion=0x7f0a000e;
         public static final int lsv_cualidades=0x7f0a0018;
-        public static final int opcVerLibros=0x7f0a003f;
+        public static final int opcVerLibros=0x7f0a0040;
         public static final int scrollView1=0x7f0a0000;
         public static final int spi_critetio_evaluacion_01=0x7f0a0014;
         public static final int spi_critetio_evaluacion_02=0x7f0a0016;
@@ -140,6 +140,7 @@ public final class R {
         public static final int tableRow2=0x7f0a001c;
         public static final int tableRow3=0x7f0a001e;
         public static final int tableRow4=0x7f0a0021;
+        public static final int twitter_login_web_view=0x7f0a0033;
         public static final int txt_email=0x7f0a0006;
         public static final int txt_introduccion=0x7f0a0012;
         public static final int txt_label_versiculo=0x7f0a001f;
@@ -156,11 +157,11 @@ public final class R {
         public static final int txv_ir_evaluacion_diaria=0x7f0a0024;
         public static final int txv_ir_libro_referencia=0x7f0a002b;
         public static final int txv_ir_pensamiento_diario=0x7f0a0023;
-        public static final int txv_item_cualidad_lista_cualidad=0x7f0a0034;
-        public static final int txv_item_id_lista_cualidad=0x7f0a0035;
-        public static final int txv_item_id_lista_libros_referencia=0x7f0a0038;
-        public static final int txv_item_mes_lista_cualidad=0x7f0a0033;
-        public static final int txv_item_titulo_lista_libros_referencia=0x7f0a0037;
+        public static final int txv_item_cualidad_lista_cualidad=0x7f0a0035;
+        public static final int txv_item_id_lista_cualidad=0x7f0a0036;
+        public static final int txv_item_id_lista_libros_referencia=0x7f0a0039;
+        public static final int txv_item_mes_lista_cualidad=0x7f0a0034;
+        public static final int txv_item_titulo_lista_libros_referencia=0x7f0a0038;
         public static final int txv_label_recomendacion=0x7f0a0030;
         public static final int txv_mensaje_carita=0x7f0a002d;
         public static final int txv_mensaje_plan_lectura=0x7f0a0025;
@@ -175,7 +176,7 @@ public final class R {
         public static final int txv_recomendacion=0x7f0a0031;
         public static final int txv_redes_sociales=0x7f0a0010;
         public static final int txv_resultado_evaluacion=0x7f0a002f;
-        public static final int txv_spinner_item=0x7f0a0039;
+        public static final int txv_spinner_item=0x7f0a003a;
         public static final int txv_username_login=0x7f0a000a;
     }
     public static final class layout {
@@ -190,9 +191,10 @@ public final class R {
         public static final int activity_pensamiento=0x7f030008;
         public static final int activity_referencia=0x7f030009;
         public static final int activity_resultado_evaluacion=0x7f03000a;
-        public static final int custom_row_lista_cualidad=0x7f03000b;
-        public static final int custom_row_lista_libros_referencia=0x7f03000c;
-        public static final int custom_row_spinner=0x7f03000d;
+        public static final int activity_twitter=0x7f03000b;
+        public static final int custom_row_lista_cualidad=0x7f03000c;
+        public static final int custom_row_lista_libros_referencia=0x7f03000d;
+        public static final int custom_row_spinner=0x7f03000e;
     }
     public static final class menu {
         public static final int codigo_reserva=0x7f090000;
@@ -207,6 +209,7 @@ public final class R {
         public static final int menu_contextual_cualidades=0x7f090009;
         public static final int pensamiento=0x7f09000a;
         public static final int referencia=0x7f09000b;
+        public static final int twitter=0x7f09000c;
     }
     public static final class string {
         public static final int action_settings=0x7f050000;
@@ -234,6 +237,7 @@ public final class R {
         public static final int referencia=0x7f05000c;
         public static final int resultado_evaluacion=0x7f050011;
         public static final int title_activity_demos=0x7f050010;
+        public static final int title_activity_twitter=0x7f050013;
     }
     public static final class style {
         /** 

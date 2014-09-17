@@ -25,15 +25,16 @@
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
-    
     <string name="hello_world">Hello world!</string>
-    
+
     <string-array name="criterios_evaluacion">
         <item>Nada</item>
         <item>Muy poco</item>
         <item>Algo</item>
         <item>Casi Siempre</item>
-        <item>Siempre</item>        
+        <item>Siempre</item>
     </string-array>
+
+    <string name="title_activity_twitter">TwitterActivity</string>
 
 </resources>

@@ -5,6 +5,9 @@ import org.json.JSONObject;
 import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -94,6 +97,35 @@ public class Pensamiento extends Activity implements OnClickListener {
 				openContextMenu(v);
 			}
 		});
+		mostrarNotBarra();
+	}
+	
+	private void mostrarNotBarra() {
+		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+		// Agregando el icono, texto y momento para lanzar la notificación
+		int icon = R.drawable.key;
+		CharSequence tickerText = "Notification Bar";
+		long when = System.currentTimeMillis();
+
+		Notification notification = new Notification(icon, tickerText, when);
+		Context context = getApplicationContext();
+		CharSequence contentTitle = "Notificación en barra";
+		CharSequence contentText = "Mensaje corto de la notificación";
+
+		// Agregando sonido
+		notification.defaults |= Notification.DEFAULT_SOUND;
+		// Agregando vibración
+		notification.defaults |= Notification.DEFAULT_VIBRATE;
+
+		Intent notificationIntent = new Intent(this,
+				MainActivity.class);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+				notificationIntent, 0);
+		notification.setLatestEventInfo(context, contentTitle, contentText,
+				contentIntent);
+
+		mNotificationManager.notify(1, notification);
 	}
 
 	@Override
