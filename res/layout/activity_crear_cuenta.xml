@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado" >
+    android:background="@drawable/textura_2" >
     
 <LinearLayout
     android:layout_width="match_parent"
@@ -15,19 +15,18 @@
    
     <EditText
         android:id="@+id/txt_username"
-        android:maxLength="30"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawableLeft="@drawable/usera"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="text"
-        android:textColor="@color/LETRA"
-        android:textColorHint="@color/letras_inicio" />
+        android:maxLength="30"
+        android:textColor="@color/letras_funtes"
+        android:textColorHint="@color/letras_funtes" />
     
     <EditText
         android:id="@+id/txt_email"
-        android:maxLength="50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left|bottom"
@@ -36,16 +35,15 @@
         android:ems="10"
         android:hint="@string/correoelectronico"
         android:inputType="textEmailAddress"
+        android:maxLength="50"
         android:shadowDx="14"
         android:shadowDy="58"
         android:textAllCaps="true"
-        android:textColor="@color/LETRA"
-        android:textColorHint="@color/letras_inicio"
-        android:textColorLink="@color/YELLOW" />
+        android:textColor="@color/letras_funtes"
+        android:textColorHint="@color/letras_funtes" />
 
     <EditText
         android:id="@+id/txt_pass_01"
-        android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="30dp"
@@ -54,22 +52,21 @@
         android:ems="10"
         android:hint="@string/contrasena"
         android:inputType="textPassword"
-        android:textColor="@color/LETRA"
-        android:textColorHint="@color/letras_inicio" />
+        android:maxLength="15"
+        android:textColor="@color/letras_funtes"
+        android:textColorHint="@color/letras_funtes" />
       
     <EditText
         android:id="@+id/txt_pass_02"
-        android:maxLength="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="30dip"
         android:ems="10"
         android:hint="Confirmar Constraseña"
         android:inputType="textPassword"
-        android:shadowColor="@color/YELLOW"
-        android:textColor="@color/LETRA"
-        android:textColorHint="@color/LETRA"
-        android:textColorLink="@color/YELLOW" >
+        android:maxLength="15"
+        android:textColor="@color/letras_funtes"
+        android:textColorHint="@color/letras_funtes" >
 
     </EditText>
 
@@ -78,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:background="@drawable/botones_rojos"
+        android:background="@color/gmail"
         android:paddingLeft="15dip"
         android:paddingRight="15dip"
         android:text="Registrarse"

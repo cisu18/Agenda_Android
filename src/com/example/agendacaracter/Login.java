@@ -41,6 +41,7 @@ public class Login extends Activity implements OnClickListener {
 
 	public EditText usuario;
 	public EditText contrasenia;
+	public TextView bienvenido;
 	 private MainActivity claseprincipal= new MainActivity();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,15 @@ public class Login extends Activity implements OnClickListener {
 		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		
+		Typeface InicioTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Homestead-Display.ttf");
+		
+		Typeface heTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
+		
+		bienvenido = (TextView) findViewById(R.id.txv_bienvenido);
+		bienvenido.setTypeface(heTypeFace);
 
 		usuario = (EditText) findViewById(R.id.txv_username_login);
 		usuario.setTypeface(miPropiaTypeFace);
@@ -61,10 +71,10 @@ public class Login extends Activity implements OnClickListener {
 		logincon.setTypeface(miPropiaTypeFace);
 
 		Button iniciosesion = (Button) findViewById(R.id.btn_iniciar_sesion);
-		iniciosesion.setTypeface(miPropiaTypeFace);
+		iniciosesion.setTypeface(heTypeFace);
 
 		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
-		crearcuenta.setTypeface(miPropiaTypeFace);
+		crearcuenta.setTypeface(heTypeFace);
 
 		iniciosesion.setOnClickListener(this);
 		crearcuenta.setOnClickListener(this);

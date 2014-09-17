@@ -3,7 +3,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado"
+    android:background="@drawable/textura_2"
     android:scrollbars="horizontal|vertical" >
 
     <LinearLayout
@@ -21,7 +21,9 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/LETRA"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/CABECERA"
                 android:gravity="center"
                 android:paddingBottom="3dp"
                 android:paddingTop="3dp" >
@@ -31,10 +33,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Cualidad"
+                    android:paddingBottom="9dp"
+                    android:paddingTop="9dp"
+                    android:text="CREATIVIDAD"
                     android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="21sp" />
+                    android:textColor="@color/LETRA"
+                    android:textSize="22sp" />
 
             </TableRow>
 
@@ -42,20 +47,18 @@
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/CABECERA"
                 android:gravity="center" >
 
                 <TextView
                     android:id="@+id/txv_cabecera"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/CABECERA"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:paddingBottom="7dp"
-                    android:paddingTop="7dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="@string/pensamiento"
-                    android:textColor="@color/LETRA"
-                    android:textColorLink="@color/LETRA"
+                    android:textColor="@color/letras_funtes"
                     android:textSize="22sp" />
 
             </TableRow>
@@ -70,13 +73,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="es un lindo y bello pensamiento "
-                    android:textColor="@color/LETRA"
+                    android:textColor="@color/letras_funtes"
                     android:textSize="20sp" />
 
             </TableRow>
@@ -91,14 +94,14 @@
             android:gravity="right"
             android:paddingRight="20dp"
             android:text="Anonimo"
-            android:textColor="@color/LETRA"
+            android:textColor="@color/letras_funtes"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:orientation="vertical"
             android:stretchColumns="0,1,2" >
@@ -114,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:background="@color/CABECERA"
+                    android:background="@color/twitter"
                     android:clickable="true"
                     android:drawableBottom="@drawable/compartir"
                     android:paddingBottom="13dp"
@@ -135,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:background="@color/facebook"
+                    android:background="@color/CABECERA"
                     android:drawableBottom="@drawable/libros_ref"
                     android:gravity="center"
                     android:paddingBottom="13dp"
@@ -161,8 +164,8 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="20dp"
                     android:text="Plan de Lectura Anual de la Biblia:"
-                    android:textColor="@color/CABECERA"
-                    android:textSize="18sp" />
+                    android:textColor="@color/twitter"
+                    android:textSize="19sp" />
 
                 <TextView
                     android:id="@+id/txv_plan_lectura"
@@ -173,8 +176,8 @@
                     android:paddingBottom="10dp"
                     android:paddingLeft="20dp"
                     android:text="hgewry jhewrguw"
-                    android:textColor="@color/LETRA"
-                    android:textSize="18sp" />
+                    android:textColor="@color/letras_funtes"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 

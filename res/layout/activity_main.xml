@@ -3,16 +3,70 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado"
+    android:background="@drawable/textura_2"
     android:scrollbars="horizontal|vertical"
     tools:context="com.example.agendacaracter.MainActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingBottom="30dp" >
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:columnCount="1" >
+
+            <TextView
+                android:id="@+id/txv_dia_numero"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_rowSpan="2"
+                android:background="@color/CABECERA"
+                android:paddingLeft="15dp"
+                android:text="17"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/LETRA"
+                android:textSize="44sp" />
+
+            <TextView
+                android:id="@+id/txv_mes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_marginLeft="55dp"
+                android:layout_row="0"
+                android:background="@color/CABECERA"
+                android:gravity="left"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Agosto 2015"
+                android:textColor="@color/LETRA"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txv_dia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_marginLeft="55dp"
+                android:background="@color/CABECERA"
+                android:gravity="left"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:text="Miércoles"
+                android:textColor="@color/LETRA"
+                android:textSize="18sp" />
+
+        </GridLayout>
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -20,33 +74,10 @@
             android:stretchColumns="0,1,2" >
 
             <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/CABECERA" >
-
-                <TextView
-                    android:id="@+id/txv_fecha_movil"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/CABECERA"
-                    android:gravity="center"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:tag="26dp"
-                    android:text="AGOSTO 2015 SABADO 28"
-                    android:textColor="@color/LETRA"
-                    android:textColorLink="@color/LETRA"
-                    android:textSize="22sp" />
-
-            </TableRow>
-
-            <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:background="@color/LETRA"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:paddingBottom="6dp"
                 android:paddingTop="5dp" >
@@ -56,10 +87,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:text="sfsdfsd"
+                    android:text="CREATIVIDAD"
                     android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="20sp" />
+                    android:textColor="@color/letras_funtes"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -78,7 +111,7 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:text="dfgserg etgertwer erterter etewt wete "
-                    android:textColor="@color/LETRA"
+                    android:textColor="@color/letras_funtes"
                     android:textSize="20sp" />
 
             </TableRow>
@@ -95,7 +128,7 @@
             android:gravity="right"
             android:paddingRight="20dp"
             android:text="sdgsdrftg 43543"
-            android:textColor="@color/LETRA"
+            android:textColor="@color/letras_funtes"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
 
@@ -120,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:background="@color/CABECERA"
+                    android:background="@color/twitter"
                     android:clickable="true"
                     android:drawableBottom="@drawable/compartir"
                     android:gravity="center"
@@ -131,7 +164,7 @@
                     android:id="@+id/txv_ir_pensamiento_diario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/facebook"
+                    android:background="@color/CABECERA"
                     android:drawableBottom="@drawable/pensamiento_48"
                     android:gravity="center"
                     android:paddingBottom="13dp"
@@ -161,10 +194,11 @@
                 android:id="@+id/txv_label_plan_lectura"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="20dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:text="Plan de Lectura Anual de la Biblia:"
-                android:textColor="@color/CABECERA"
-                android:textSize="18sp" />
+                android:textColor="@color/twitter"
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/txv_plan_lectura"
@@ -174,10 +208,17 @@
                 android:gravity="left"
                 android:paddingLeft="20dp"
                 android:text="hgewry jhewrguw"
-                android:textColor="@color/LETRA"
-                android:textSize="18sp" />
+                android:textColor="@color/letras_funtes"
+                android:textSize="20sp" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txv_fecha_movil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
     </LinearLayout>
 
 </ScrollView>

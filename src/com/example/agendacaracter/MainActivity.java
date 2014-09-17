@@ -29,6 +29,9 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements OnClickListener {
 
 	private TextView fechaMovil;
+	private TextView txvDia_numero;
+	private TextView txvDia;
+	private TextView txvMes;
 	private TextView cualidad;
 	private TextView versiculo;
 	private TextView textobiblico;
@@ -70,6 +73,15 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		fechaMovil = (TextView) findViewById(R.id.txv_fecha_movil);
 		fechaMovil.setTypeface(miPropiaTypeFace);
+		
+		txvDia_numero = (TextView) findViewById(R.id.txv_dia_numero);
+		txvDia_numero.setTypeface(miPlanTypeFace);
+		
+		txvDia = (TextView) findViewById(R.id.txv_dia);
+		txvDia.setTypeface(miPropiaTypeFace);
+		
+		txvMes = (TextView) findViewById(R.id.txv_mes);
+		txvMes.setTypeface(miVersiculoTypeFace);
 
 		cualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		cualidad.setTypeface(miPropiaTypeFace);
@@ -149,7 +161,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public void establecerFecha() {
 
-		String formato = "MMMM'\t\t'yyyy'\t\t'EEEE' 'dd";
+		String formato = "dd EEEE'\t\t\t\t'MMMM' 'yyyy";
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat(formato,
 				Locale.getDefault());

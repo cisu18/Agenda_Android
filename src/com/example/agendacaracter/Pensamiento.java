@@ -61,6 +61,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txvPlanLectura.setTypeface(tfGeosansLight2);
 
 		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
+		txvNombreCualidad.setTypeface(tfHelveticaCond);
 
 		TextView txvCompartirPensamiento = (TextView) findViewById(R.id.txv_compartir_pensamiento);
 		txvCompartirPensamiento.setOnClickListener(this);
