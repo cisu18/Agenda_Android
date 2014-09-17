@@ -45,7 +45,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		Typeface tfHelveticaLightCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		TextView txvCabecera = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvCabecera = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		txvCabecera.setTypeface(tfHelveticaCond);
 
 		txvPensamiento = (TextView) findViewById(R.id.txv_pensamiento);
@@ -54,13 +54,13 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txvAutorPensamiento = (TextView) findViewById(R.id.txv_autor_pensamiento);
 		txvAutorPensamiento.setTypeface(tfGeosansLightOblique1);
 
-		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
+		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_redes_sociales);
 		txvLabelPlanlectura.setTypeface(tfHelveticaLightCond);
 
 		txvPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		txvPlanLectura.setTypeface(tfGeosansLight2);
 
-		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
+		txvNombreCualidad = (TextView) findViewById(R.id.txv_mensaje_reserva);
 
 		TextView txvCompartirPensamiento = (TextView) findViewById(R.id.txv_compartir_pensamiento);
 		txvCompartirPensamiento.setOnClickListener(this);

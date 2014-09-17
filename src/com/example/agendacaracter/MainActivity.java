@@ -45,9 +45,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		principal=this;
 		setContentView(R.layout.activity_main);
-
+		principal=this;
 		SharedPreferences prefe = getSharedPreferences("user",
 				Context.MODE_PRIVATE);
 		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
@@ -80,7 +79,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		textobiblico = (TextView) findViewById(R.id.txv_numero_versiculo);
 		textobiblico.setTypeface(miNumeroTypeFace);
 
-		planlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
+		planlectura = (TextView) findViewById(R.id.txv_mensaje_plan_lectura);
 		planlectura.setTypeface(miPlanTypeFace);
 
 		textosPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);

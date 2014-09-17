@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -15,7 +16,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-import com.example.reutilizables.Util;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -37,38 +38,41 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.reutilizables.Util;
+
 public class Login extends Activity implements OnClickListener {
 
-	public EditText usuario;
-	public EditText contrasenia;
-	 private MainActivity claseprincipal= new MainActivity();
+	public EditText etxUsuarioNombre;
+	public EditText etxContrasenia;
+	private MainActivity claseprincipal = new MainActivity();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		usuario = (EditText) findViewById(R.id.txv_username_login);
-		usuario.setTypeface(miPropiaTypeFace);
+		etxUsuarioNombre = (EditText) findViewById(R.id.txv_username_login);
+		etxUsuarioNombre.setTypeface(miPropiaTypeFace);
 
-		contrasenia = (EditText) findViewById(R.id.txv_pass_login);
-		contrasenia.setTypeface(miPropiaTypeFace);
+		etxContrasenia = (EditText) findViewById(R.id.txv_pass_login);
+		etxContrasenia.setTypeface(miPropiaTypeFace);
 
-		TextView logincon = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvMensajeDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
-		logincon.setTypeface(miPropiaTypeFace);
+		txvMensajeDescripcion.setTypeface(miPropiaTypeFace);
 
-		Button iniciosesion = (Button) findViewById(R.id.btn_iniciar_sesion);
-		iniciosesion.setTypeface(miPropiaTypeFace);
+		Button btnIniciarSesion = (Button) findViewById(R.id.btn_iniciar_sesion);
+		btnIniciarSesion.setTypeface(miPropiaTypeFace);
 
-		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
-		crearcuenta.setTypeface(miPropiaTypeFace);
+		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
+		btnCrearCuenta.setTypeface(miPropiaTypeFace);
 
-		iniciosesion.setOnClickListener(this);
-		crearcuenta.setOnClickListener(this);
-		estaConectado();
+		btnIniciarSesion.setOnClickListener(this);
+		btnCrearCuenta.setOnClickListener(this);
+		// estaConectado();
 
 	}
 
@@ -84,8 +88,8 @@ public class Login extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.btn_iniciar_sesion:
 
-			String us = usuario.getText().toString();
-			String cl = contrasenia.getText().toString();
+			String us = etxUsuarioNombre.getText().toString();
+			String cl = etxContrasenia.getText().toString();
 
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
@@ -163,8 +167,8 @@ public class Login extends Activity implements OnClickListener {
 		HttpPost httpPost = new HttpPost(URL);
 
 		try {
-			String username = usuario.getText().toString();
-			String password = contrasenia.getText().toString();
+			String username = etxUsuarioNombre.getText().toString();
+			String password = etxContrasenia.getText().toString();
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>(3);
 			params.add(new BasicNameValuePair("username", username));
@@ -199,7 +203,7 @@ public class Login extends Activity implements OnClickListener {
 
 		return stringBuilder.toString();
 	}
-	
+
 	protected Boolean estaConectado() {
 		if (conectadoWifi()) {
 			return true;
@@ -266,7 +270,5 @@ public class Login extends Activity implements OnClickListener {
 		alertDialog.show();
 
 	}
-
-	
 
 }

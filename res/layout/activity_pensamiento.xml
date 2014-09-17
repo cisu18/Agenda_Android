@@ -27,7 +27,7 @@
                 android:paddingTop="3dp" >
 
                 <TextView
-                    android:id="@+id/txv_nombre_cualidad"
+                    android:id="@+id/txv_mensaje_reserva"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -46,7 +46,7 @@
                 android:gravity="center" >
 
                 <TextView
-                    android:id="@+id/txv_cabecera"
+                    android:id="@+id/txv_cabecera_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/CABECERA"
@@ -156,7 +156,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/txv_label_plan_lectura"
+                    android:id="@+id/txv_redes_sociales"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="20dp"

@@ -74,7 +74,7 @@
             android:gravity="center" >
 
             <TextView
-                android:id="@+id/txv_cabecera"
+                android:id="@+id/txv_cabecera_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -92,7 +92,7 @@
             android:gravity="center" >
 
             <ImageView
-                android:id="@+id/img_login_facebook"
+                android:id="@+id/imv_login_facebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/face" />
@@ -102,7 +102,7 @@
                 android:layout_height="match_parent" >
 
                 <ImageView
-                    android:id="@+id/img_login_google"
+                    android:id="@+id/imv_google_descripcion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -112,7 +112,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/img_login_twitter"
+                android:id="@+id/imv_twitter_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
