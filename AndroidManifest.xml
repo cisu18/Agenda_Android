@@ -71,6 +71,7 @@
             android:name=".TwitterActivity"
             android:label="@string/title_activity_twitter" >
         </activity>
+        <service android:name="com.example.servicios.ServicioAlerta" />
     </application>
 
 </manifest>

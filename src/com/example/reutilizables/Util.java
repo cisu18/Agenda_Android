@@ -29,11 +29,17 @@ public class Util {
 		return formateador.format(ahora);
 	}
 	
+	@SuppressLint("SimpleDateFormat") public static String getHoraAlerta() {
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("HH:mm");
+		return formateador.format(ahora);
+	}
+	
 	public static void compartir(Context context,String title,String post) {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT, title);
-		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\nAgenda Carácter\nCLM Developers - CLM Editores");
+		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\n#Agendacarácter\nCLM Deved");
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}

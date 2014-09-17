@@ -6,6 +6,7 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.example.reutilizables.Util;
+import com.example.servicios.ServicioAlerta;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -86,6 +87,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
 		tvIdCualidad = new TextView(this);
+		iniciarServicios();
 
 
 		estaConectado();
@@ -114,6 +116,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		
 
+	}
+	public void iniciarServicios(){
+		startService(new Intent(getBaseContext(), ServicioAlerta.class));
 	}
 
 	@Override
