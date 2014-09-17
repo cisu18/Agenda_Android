@@ -39,32 +39,23 @@ import com.example.reutilizables.Util;
 
 public class Login extends Activity implements OnClickListener {
 
-<<<<<<< HEAD
-	public EditText usuario;
-	public EditText contrasenia;
-	public TextView bienvenido;
-	 private MainActivity claseprincipal= new MainActivity();
-=======
 	public EditText etxUsuarioNombre;
 	public EditText etxContrasenia;
+	public TextView txvBienvenido;	
 
->>>>>>> bad6e0e9a138a10024858819806938919bab0fd8
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");
-		
-		Typeface InicioTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/Homestead-Display.ttf");
-		
+				"fonts/HelveticaLTStd-Cond.otf");		
+			
 		Typeface heTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");
 		
-		bienvenido = (TextView) findViewById(R.id.txv_bienvenido);
-		bienvenido.setTypeface(heTypeFace);
+		txvBienvenido = (TextView) findViewById(R.id.txv_bienvenido);
+		txvBienvenido.setTypeface(heTypeFace);
 
 		etxUsuarioNombre = (EditText) findViewById(R.id.txv_username_login);
 		etxUsuarioNombre.setTypeface(miPropiaTypeFace);
@@ -77,21 +68,14 @@ public class Login extends Activity implements OnClickListener {
 		txvMensajeDescripcion.setTypeface(miPropiaTypeFace);
 
 		Button btnIniciarSesion = (Button) findViewById(R.id.btn_iniciar_sesion);
-		btnIniciarSesion.setTypeface(miPropiaTypeFace);
+		btnIniciarSesion.setTypeface(heTypeFace);
 
-<<<<<<< HEAD
-		Button iniciosesion = (Button) findViewById(R.id.btn_iniciar_sesion);
-		iniciosesion.setTypeface(heTypeFace);
-
-		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
-		crearcuenta.setTypeface(heTypeFace);
-=======
 		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
-		btnCrearCuenta.setTypeface(miPropiaTypeFace);
+		btnCrearCuenta.setTypeface(heTypeFace);
+
 
 		btnIniciarSesion.setOnClickListener(this);
 		btnCrearCuenta.setOnClickListener(this);
->>>>>>> bad6e0e9a138a10024858819806938919bab0fd8
 
 		ImageView img_twitter = (ImageView) findViewById(R.id.imv_twitter_descripcion);
 		img_twitter.setOnClickListener(this);
