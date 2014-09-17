@@ -17,7 +17,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
+import android.util.Log;
 public class Util {
 	
 	public static ProgressDialog dialog;
@@ -29,16 +29,22 @@ public class Util {
 		return formateador.format(ahora);
 	}
 	
+	@SuppressLint("SimpleDateFormat") public static String getHoraAlerta() {
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("HH:mm");
+		return formateador.format(ahora);
+	}
+	
 	public static void compartir(Context context,String title,String post) {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT, title);
-		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\nAgenda Carácter\nCLM Developers - CLM Editores");
+		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\n#Agendacarácter\nCLM Deved");
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}
 	
-	public static String readJSONFeed(String url, Context context) {
+	public static String readJSONFeed(String url, Context context){
 		StringBuilder stringBuilder = new StringBuilder();
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet=new HttpGet(url);		
@@ -59,12 +65,13 @@ public class Util {
 				}
 				inputStream.close();
 			} else {
-				
-				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
+				Log.e("Error:","No se descargaron los datos del servidor");
+//				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
 				
 			}
 		} catch (Exception e) {
-			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
+			Log.e("Error:","No se descargaron los datos del servidor");
+//			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
 		}
 		return stringBuilder.toString();
 	}

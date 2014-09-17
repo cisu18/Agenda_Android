@@ -24,7 +24,7 @@ public class Referencia extends Activity {
 
 	ArrayList<Libro> listadoLibros;
 
-	AdaptadorLibro adapter;
+	AdaptadorLibro adaptadorLibros;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,9 @@ public class Referencia extends Activity {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
-		TextView usuario = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
-		usuario.setTypeface(miPropiaTypeFace);
+		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		listadoLibros = new ArrayList<Libro>();
 
@@ -47,13 +47,13 @@ public class Referencia extends Activity {
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"
 						+ idCualidad);
 
-		final GridView listview = (GridView) findViewById(R.id.grv_libros_referencia);
-		adapter = new AdaptadorLibro(getApplicationContext(), R.layout.custom_row_lista_libros_referencia,
-				listadoLibros);
+		final GridView grv_Libros_Referencia = (GridView) findViewById(R.id.grv_libros_referencia);
+		adaptadorLibros = new AdaptadorLibro(getApplicationContext(),
+				R.layout.custom_row_lista_libros_referencia, listadoLibros);
 
-		listview.setAdapter(adapter);
+		grv_Libros_Referencia.setAdapter(adaptadorLibros);
 
-		listview.setOnItemClickListener(new OnItemClickListener() {
+		grv_Libros_Referencia.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
@@ -66,7 +66,6 @@ public class Referencia extends Activity {
 				i.putExtra("id libro", idLibro);
 				i.putExtra("url", url);
 				startActivity(i);
-				finish();
 			}
 		});
 	}
@@ -86,7 +85,7 @@ public class Referencia extends Activity {
 
 		protected void onPostExecute(String result) {
 
-			adapter.notifyDataSetChanged();
+			adaptadorLibros.notifyDataSetChanged();
 			try {
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);

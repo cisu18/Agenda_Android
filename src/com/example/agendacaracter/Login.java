@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -15,17 +16,13 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
-import com.example.reutilizables.Util;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,20 +31,29 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.reutilizables.Util;
+
 public class Login extends Activity implements OnClickListener {
 
+<<<<<<< HEAD
 	public EditText usuario;
 	public EditText contrasenia;
 	public TextView bienvenido;
 	 private MainActivity claseprincipal= new MainActivity();
+=======
+	public EditText etxUsuarioNombre;
+	public EditText etxContrasenia;
+
+>>>>>>> bad6e0e9a138a10024858819806938919bab0fd8
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 		
@@ -60,25 +66,36 @@ public class Login extends Activity implements OnClickListener {
 		bienvenido = (TextView) findViewById(R.id.txv_bienvenido);
 		bienvenido.setTypeface(heTypeFace);
 
-		usuario = (EditText) findViewById(R.id.txv_username_login);
-		usuario.setTypeface(miPropiaTypeFace);
+		etxUsuarioNombre = (EditText) findViewById(R.id.txv_username_login);
+		etxUsuarioNombre.setTypeface(miPropiaTypeFace);
 
-		contrasenia = (EditText) findViewById(R.id.txv_pass_login);
-		contrasenia.setTypeface(miPropiaTypeFace);
+		etxContrasenia = (EditText) findViewById(R.id.txv_pass_login);
+		etxContrasenia.setTypeface(miPropiaTypeFace);
 
-		TextView logincon = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvMensajeDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
-		logincon.setTypeface(miPropiaTypeFace);
+		txvMensajeDescripcion.setTypeface(miPropiaTypeFace);
 
+		Button btnIniciarSesion = (Button) findViewById(R.id.btn_iniciar_sesion);
+		btnIniciarSesion.setTypeface(miPropiaTypeFace);
+
+<<<<<<< HEAD
 		Button iniciosesion = (Button) findViewById(R.id.btn_iniciar_sesion);
 		iniciosesion.setTypeface(heTypeFace);
 
 		Button crearcuenta = (Button) findViewById(R.id.btn_crear_cuenta);
 		crearcuenta.setTypeface(heTypeFace);
+=======
+		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
+		btnCrearCuenta.setTypeface(miPropiaTypeFace);
 
-		iniciosesion.setOnClickListener(this);
-		crearcuenta.setOnClickListener(this);
-		estaConectado();
+		btnIniciarSesion.setOnClickListener(this);
+		btnCrearCuenta.setOnClickListener(this);
+>>>>>>> bad6e0e9a138a10024858819806938919bab0fd8
+
+		ImageView img_twitter = (ImageView) findViewById(R.id.imv_twitter_descripcion);
+		img_twitter.setOnClickListener(this);
+		// estaConectado();
 
 	}
 
@@ -94,8 +111,8 @@ public class Login extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.btn_iniciar_sesion:
 
-			String us = usuario.getText().toString();
-			String cl = contrasenia.getText().toString();
+			String us = etxUsuarioNombre.getText().toString();
+			String cl = etxContrasenia.getText().toString();
 
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
@@ -107,10 +124,13 @@ public class Login extends Activity implements OnClickListener {
 						.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
 
 			}
-
 			break;
 		case R.id.btn_crear_cuenta:
 			Intent i = new Intent(this, CrearCuenta.class);
+			startActivity(i);
+			break;
+		case R.id.imv_twitter_descripcion:
+			i = new Intent(this, TwitterActivity.class);
 			startActivity(i);
 			break;
 		default:
@@ -143,8 +163,7 @@ public class Login extends Activity implements OnClickListener {
 			try {
 
 				JSONObject datos = new JSONObject(result);
-				Intent in = new Intent(getApplicationContext(),
-						MainActivity.class);
+				
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				Editor editor = prefe.edit();
@@ -152,6 +171,8 @@ public class Login extends Activity implements OnClickListener {
 				editor.putString("username", datos.getString("usuario"));
 				editor.putString("useremail", datos.getString("email"));
 				editor.commit();
+				Intent in = new Intent(getApplicationContext(),
+						MainActivity.class);
 				startActivity(in);
 				finish();
 
@@ -173,8 +194,8 @@ public class Login extends Activity implements OnClickListener {
 		HttpPost httpPost = new HttpPost(URL);
 
 		try {
-			String username = usuario.getText().toString();
-			String password = contrasenia.getText().toString();
+			String username = etxUsuarioNombre.getText().toString();
+			String password = etxContrasenia.getText().toString();
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>(3);
 			params.add(new BasicNameValuePair("username", username));
@@ -209,74 +230,5 @@ public class Login extends Activity implements OnClickListener {
 
 		return stringBuilder.toString();
 	}
-	
-	protected Boolean estaConectado() {
-		if (conectadoWifi()) {
-			return true;
-		} else {
-			if (conectadoRedMovil()) {
-				return true;
-			} else {
-				showAlertDialog(Login.this, "Conexion a Internet",
-						"Tu Dispositivo necesita una conexion a internet.",
-						false);
-
-				return false;
-
-			}
-		}
-	}
-
-	protected Boolean conectadoWifi() {
-		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		if (connectivity != null) {
-			NetworkInfo info = connectivity
-					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-			if (info != null) {
-				if (info.isConnected()) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	protected Boolean conectadoRedMovil() {
-		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		if (connectivity != null) {
-			NetworkInfo info = connectivity
-					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-			if (info != null) {
-				if (info.isConnected()) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	public void showAlertDialog(Context context, String title, String message,
-			Boolean status) {
-
-		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-		alertDialog.setCanceledOnTouchOutside(false);
-		alertDialog.setCancelable(false);
-		alertDialog.setTitle(title);
-		alertDialog.setMessage(message);
-		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
-				: R.drawable.ic_action_cancel);
-		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-
-			public void onClick(DialogInterface dialog, int which) {
-				claseprincipal.principal.finish();
-				finish();
-			}
-
-		});
-		alertDialog.show();
-
-	}
-
-	
 
 }

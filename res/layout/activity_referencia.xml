@@ -13,7 +13,7 @@
         
 
             <TextView
-                android:id="@+id/txv_cabecera"
+                android:id="@+id/txv_cabecera_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/CABECERA"

@@ -20,10 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DescripcionLibro extends Activity {
-	private ImageView imgLibro;
-	private TextView descripcionlibro;
-	ArrayList<Libro> listadoLibro;
-	DescargarImagen adapter;
+	private ImageView imvLibroDescripcion;
+	private TextView txvDesripcionLibro;
+	ArrayList<Libro> listadoLibros;
+	DescargarImagen adaptadorImagen;
 
 	Libro libro = new Libro();
 
@@ -38,34 +38,32 @@ public class DescripcionLibro extends Activity {
 		Typeface miDescripcionTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
-		TextView title = (TextView) findViewById(R.id.txv_cabecera);
+		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
+		txvDesripcionLibro = (TextView) findViewById(R.id.txv_descripcion_libro);
+		txvDesripcionLibro.setTypeface(miDescripcionTypeFace);
 
-		title.setTypeface(miPropiaTypeFace);
+		TextView txvMensajeReserva = (TextView) findViewById(R.id.txv_mensaje_reserva);
+		txvMensajeReserva.setTypeface(miPropiaTypeFace);
 
-		descripcionlibro = (TextView) findViewById(R.id.txt_descripcion_libro);
-		descripcionlibro.setTypeface(miDescripcionTypeFace);
+		Button btnReservaAqui = (Button) findViewById(R.id.btn_reserva_aqui);
+		btnReservaAqui.setTypeface(miPropiaTypeFace);
 
-		TextView reservacuenta = (TextView) findViewById(R.id.txv_nombre_cualidad);
-		reservacuenta.setTypeface(miPropiaTypeFace);
+		TextView txvRedesSociales = (TextView) findViewById(R.id.txv_redes_sociales);
+		txvRedesSociales.setTypeface(miPropiaTypeFace);
 
-		Button btnaqui = (Button) findViewById(R.id.btn_reserva_aqui);
-		btnaqui.setTypeface(miPropiaTypeFace);
-
-		TextView redesociales = (TextView) findViewById(R.id.txv_label_plan_lectura);
-		redesociales.setTypeface(miPropiaTypeFace);
-
-		imgLibro = (ImageView) findViewById(R.id.img_libro_descripcion);
+		imvLibroDescripcion = (ImageView) findViewById(R.id.imv_libro_descripcion);
 
 		Bundle bundle = getIntent().getExtras();
-		String idLibro = bundle.getString("id libro");
-		String url = bundle.getString("url");
+		String parametroIdLibro = bundle.getString("id libro");
+		String parametroUrlImagen = bundle.getString("url");
 
 		new JSONAsyncTask()
 				.execute("http://192.168.0.55/Agenda_WS/libro/libro_byid/format/json/id/"
-						+ idLibro);
-		new DescargarImagen().execute(url);
+						+ parametroIdLibro);
+		new DescargarImagen().execute(parametroUrlImagen);
 
 	}
 
@@ -86,7 +84,7 @@ public class DescripcionLibro extends Activity {
 		protected void onPostExecute(String result) {
 
 			try {
-				listadoLibro = new ArrayList<Libro>();
+				listadoLibros = new ArrayList<Libro>();
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);
 
@@ -96,8 +94,8 @@ public class DescripcionLibro extends Activity {
 				libro.setTitulo(object.getString("titulo"));
 				libro.setUrlImagen(object.getString("urlimg"));
 				libro.setDescripcionLibro(object.getString("descripcion"));
-				listadoLibro.add(libro);
-				descripcionlibro.setText(libro.getDescripcionLibro());
+				listadoLibros.add(libro);
+				txvDesripcionLibro.setText(libro.getDescripcionLibro());
 
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -133,7 +131,7 @@ public class DescripcionLibro extends Activity {
 
 		protected void onPostExecute(Bitmap result) {
 
-			imgLibro.setImageBitmap(result);
+			imvLibroDescripcion.setImageBitmap(result);
 			Util.cerrarDialogLoad();
 		}
 

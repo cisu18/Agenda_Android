@@ -27,9 +27,9 @@ import com.example.reutilizables.Util;
 
 public class ListaCualidades extends Activity {
 
-	private ListView lista_mensual;
-	ArrayList<Cualidades> cualidades;
-	Cualidades cu = new Cualidades();
+	private ListView lsvListaCualidades;
+	ArrayList<Cualidades> listaCualidades;
+	Cualidades cualidad = new Cualidades();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +38,18 @@ public class ListaCualidades extends Activity {
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		TextView lista_cualidades = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
-		lista_cualidades.setTypeface(miPropiaTypeFace);
+		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
-		lista_mensual = (ListView) findViewById(R.id.lsv_cualidad);
+		lsvListaCualidades = (ListView) findViewById(R.id.lsv_cualidades);
 
 		new ReadCualidadesJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
 
-		registerForContextMenu(lista_mensual);
+		registerForContextMenu(lsvListaCualidades);
 
-		lista_mensual.setOnItemClickListener(new OnItemClickListener() {
+		lsvListaCualidades.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int position,
 					long id) {
@@ -88,15 +88,16 @@ public class ListaCualidades extends Activity {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
-		cu = (Cualidades) lista_mensual.getAdapter().getItem(info.position);
-		menu.setHeaderTitle(cu.getCualidad());
+		cualidad = (Cualidades) lsvListaCualidades.getAdapter().getItem(
+				info.position);
+		menu.setHeaderTitle(cualidad.getCualidad());
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu);
 	}
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		String id = cu.getId();
+		String id = cualidad.getId();
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
@@ -126,7 +127,7 @@ public class ListaCualidades extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				cualidades = new ArrayList<Cualidades>();
+				listaCualidades = new ArrayList<Cualidades>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
 					Cualidades c = new Cualidades();
@@ -134,19 +135,19 @@ public class ListaCualidades extends Activity {
 					c.setId(datos.getString("id"));
 					c.setCualidad(datos.getString("cualidad"));
 					c.setMes(datos.getString("mes"));
-					cualidades.add(c);
+					listaCualidades.add(c);
 
 				}
 
-				lista_mensual.setAdapter(new AdaptadorCualidades(
-						getApplicationContext(), cualidades));
+				lsvListaCualidades.setAdapter(new AdaptadorCualidades(
+						getApplicationContext(), listaCualidades));
 
 			} catch (Exception e) {
 				Toast.makeText(
 						getApplicationContext(),
 						"No se pudieron obtener datos del servidor: Lista de Cualidades",
 						Toast.LENGTH_LONG).show();
-				
+
 			}
 			Util.cerrarDialogLoad();
 		}

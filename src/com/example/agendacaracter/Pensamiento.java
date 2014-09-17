@@ -4,7 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
+import com.example.servicios.ServicioAlerta;
+
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,7 +37,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pensamiento);
-
 		Typeface tfHelveticaCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
@@ -45,7 +49,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		Typeface tfHelveticaLightCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		TextView txvCabecera = (TextView) findViewById(R.id.txv_cabecera);
+		TextView txvCabecera = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		txvCabecera.setTypeface(tfHelveticaCond);
 
 		txvPensamiento = (TextView) findViewById(R.id.txv_pensamiento);
@@ -54,14 +58,18 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txvAutorPensamiento = (TextView) findViewById(R.id.txv_autor_pensamiento);
 		txvAutorPensamiento.setTypeface(tfGeosansLightOblique1);
 
-		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
+		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_redes_sociales);
 		txvLabelPlanlectura.setTypeface(tfHelveticaLightCond);
 
 		txvPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		txvPlanLectura.setTypeface(tfGeosansLight2);
 
+<<<<<<< HEAD
 		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		txvNombreCualidad.setTypeface(tfHelveticaCond);
+=======
+		txvNombreCualidad = (TextView) findViewById(R.id.txv_mensaje_reserva);
+>>>>>>> bad6e0e9a138a10024858819806938919bab0fd8
 
 		TextView txvCompartirPensamiento = (TextView) findViewById(R.id.txv_compartir_pensamiento);
 		txvCompartirPensamiento.setOnClickListener(this);
@@ -94,8 +102,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			public void onClick(View v) {
 				openContextMenu(v);
 			}
-		});
-	}
+		});	
+	}	
 
 	@Override
 	public void onClick(View v) {

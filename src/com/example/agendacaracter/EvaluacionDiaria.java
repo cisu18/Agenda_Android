@@ -37,7 +37,7 @@ public class EvaluacionDiaria extends Activity {
 		Typeface tfGeosansLight = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
-		TextView title = (TextView) findViewById(R.id.txv_cabecera);
+		TextView title = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		title.setTypeface(tfHelvetica);
 
 		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
