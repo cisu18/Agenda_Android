@@ -17,7 +17,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
+import android.util.Log;
 public class Util {
 	
 	public static ProgressDialog dialog;
@@ -38,7 +38,7 @@ public class Util {
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}
 	
-	public static String readJSONFeed(String url, Context context) {
+	public static String readJSONFeed(String url, Context context){
 		StringBuilder stringBuilder = new StringBuilder();
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet=new HttpGet(url);		
@@ -59,12 +59,13 @@ public class Util {
 				}
 				inputStream.close();
 			} else {
-				
-				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
+				Log.e("Error:","No se descargaron los datos del servidor");
+//				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
 				
 			}
 		} catch (Exception e) {
-			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
+			Log.e("Error:","No se descargaron los datos del servidor");
+//			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
 		}
 		return stringBuilder.toString();
 	}

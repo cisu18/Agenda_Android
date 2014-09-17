@@ -46,15 +46,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		principal=this;
-		SharedPreferences prefe = getSharedPreferences("user",
-				Context.MODE_PRIVATE);
-		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-		if (idUsuario == 0) {
-			Intent i = new Intent(this, Login.class);
-			startActivity(i);
-		}
-
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
@@ -93,10 +84,35 @@ public class MainActivity extends Activity implements OnClickListener {
 		IrEvaluacion.setOnClickListener(this);
 		compartirVersiculo.setOnClickListener(this);
 
-		estaConectado();
-		establecerFecha();
 
 		tvIdCualidad = new TextView(this);
+
+
+		estaConectado();
+		if(estaConectado()){
+			SharedPreferences prefe = getSharedPreferences("user",
+					Context.MODE_PRIVATE);
+			int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+			if (idUsuario == 0) {
+				Intent i = new Intent(this, Login.class);
+				startActivity(i);
+//				finish();
+			}else{
+				principal=this;
+				establecerFecha();
+
+				
+			}
+			
+		}else{
+			showAlertDialog(MainActivity.this, "Conexion a Internet",
+					"Tu Dispositivo necesita una conexion a internet.",
+					false);
+		}
+		
+
+
+		
 
 	}
 
@@ -203,10 +219,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			if (conectadoRedMovil()) {
 				return true;
 			} else {
-				showAlertDialog(MainActivity.this, "Conexion a Internet",
-						"Tu Dispositivo necesita una conexion a internet.",
-						false);
-
 				return false;
 
 			}
@@ -289,12 +301,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				textobiblico.setText(datos.getString("numeroversiculo"));
 				textosPlanLectura.setText(datos.getString("planlectura"));
 
-				if(result.equals("")){
-					Toast.makeText(
-							getApplicationContext(),
-							"No se pudieron obtener datos del servidor: Versiculo diario",
-							Toast.LENGTH_LONG).show();
-				}
 			} catch (Exception e) {
 				Toast.makeText(getApplicationContext(), "Main: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();
 				e.printStackTrace();
