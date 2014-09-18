@@ -124,10 +124,6 @@ public class MainActivity extends Activity implements OnClickListener {
 					false);
 		}
 		
-
-
-		
-
 	}
 	public void iniciarServicios(){
 		startService(new Intent(getBaseContext(), ServicioAlerta.class));

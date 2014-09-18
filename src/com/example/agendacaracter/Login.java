@@ -79,6 +79,9 @@ public class Login extends Activity implements OnClickListener {
 
 		ImageView img_twitter = (ImageView) findViewById(R.id.imv_twitter_descripcion);
 		img_twitter.setOnClickListener(this);
+		
+		ImageView img_faccebook = (ImageView) findViewById(R.id.imv_login_facebook);
+		img_faccebook.setOnClickListener(this);
 		// estaConectado();
 
 	}
@@ -115,6 +118,10 @@ public class Login extends Activity implements OnClickListener {
 			break;
 		case R.id.imv_twitter_descripcion:
 			i = new Intent(this, TwitterActivity.class);
+			startActivity(i);
+			break;
+		case R.id.imv_login_facebook:
+			i = new Intent(this, FacebookActivity.class);
 			startActivity(i);
 			break;
 		default:

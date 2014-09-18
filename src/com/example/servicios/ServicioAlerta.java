@@ -37,9 +37,9 @@ public class ServicioAlerta extends Service {
 			public void run() {
 				
 				if (Util.getHoraAlerta().equals("06:00")&&!alert6) {
-					mostrarNotBarra("Nuevo versículo... ;-)", MainActivity.class);
+					mostrarNotBarra("¡Nuevo versículo! ;-)", MainActivity.class);
 					alert6=true;
-				}else if(Util.getHoraAlerta().equals("12:00")&&!alert12){
+				}else if(Util.getHoraAlerta().equals("16:27")&&!alert12){
 					mostrarNotBarra("!Quiero evaluarme! :-)", EvaluacionDiaria.class);
 					alert12=true;
 				}else if(Util.getHoraAlerta().equals("20:00")&&!alert8){
