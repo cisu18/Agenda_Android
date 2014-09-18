@@ -17,8 +17,8 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:shadowColor="@color/CABECERA"
-       android:textColor="@color/LETRA" 
-       android:textSize="18sp" />
+       android:textColor="@color/letras_funtes"
+       android:textSize="20sp" />
 
    <TextView
        android:id="@+id/txv_item_id_lista_cualidad"

@@ -8,15 +8,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="30dp" >
+        android:layout_gravity="center"
+        android:layout_marginTop="26dp"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/txv_bienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="18dp"
             android:text="Bienvenido"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/letras_funtes"
@@ -26,6 +27,8 @@
             android:id="@+id/txv_username_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:drawableRight="@drawable/usera"
             android:hint="Usuario"
             android:inputType="text|textNoSuggestions"
@@ -39,6 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
             android:drawableRight="@drawable/key2"
             android:hint="Contraseña"
@@ -54,7 +59,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="11dp"
             android:background="@color/twitter"
             android:gravity="center"
             android:text="Inicia Sesión"
@@ -79,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="18dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="13dp"
             android:gravity="center" >
 
             <TextView
@@ -87,45 +91,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="También puede iniciar sesión con:"
                 android:textColor="@color/letras_funtes"
                 android:textSize="16sp"
                 android:textStyle="normal" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" >
-
-            <ImageView
-                android:id="@+id/imv_login_facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/face" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" >
-
-                <ImageView
-                    android:id="@+id/imv_google_descripcion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:src="@drawable/gmail" />
-            </RelativeLayout>
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:paddingBottom="15dp" >
 
             <ImageView
                 android:id="@+id/imv_twitter_descripcion"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_height="47dp"
                 android:src="@drawable/twitter" />
+
+            <ImageView
+                android:id="@+id/imv_login_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginLeft="55dp"
+                android:src="@drawable/face" />
+
         </LinearLayout>
   
         </LinearLayout>    

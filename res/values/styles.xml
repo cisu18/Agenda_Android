@@ -33,7 +33,8 @@
     <color name="spinner">#F8F8FF</color>
    <!-- <color name="letras_funtes">#515152</color> -->
    <color name="letras_funtes">#464747</color> 
-    <color name="letra_cualidades">#373838</color>
+    <color name="letra_cualidades">#373838</color> 
+     <color name="fondo_pregunta">#ACDDFC</color>
  
 </resources>
 

@@ -73,13 +73,13 @@ public class EvaluacionDiaria extends Activity {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				v.setTextColor(Color.WHITE);
+				v.setTextColor(Color.rgb(255, 109, 104));
 				//v.setBackgroundColor(Color.BLUE);
 				v.setTextSize(18);
 				return v;
 			}
 
-			public View getDropDownView(int position, View convertView,
+			/*public View getDropDownView(int position, View convertView,
 					android.view.ViewGroup parent) {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
@@ -88,7 +88,7 @@ public class EvaluacionDiaria extends Activity {
 				//v.setBackgroundColor(Color.YELLOW);
 				v.setTextSize(18);
 				return v;
-			}
+			}*/
 		};
 
 		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_list_item_checked);

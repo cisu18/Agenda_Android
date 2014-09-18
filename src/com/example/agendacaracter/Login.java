@@ -51,11 +51,11 @@ public class Login extends Activity implements OnClickListener {
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");		
 			
-		Typeface heTypeFace = Typeface.createFromAsset(getAssets(),
+		Typeface HelveticaBoldTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");
 		
 		txvBienvenido = (TextView) findViewById(R.id.txv_bienvenido);
-		txvBienvenido.setTypeface(heTypeFace);
+		txvBienvenido.setTypeface(HelveticaBoldTypeFace);
 
 		etxUsuarioNombre = (EditText) findViewById(R.id.txv_username_login);
 		etxUsuarioNombre.setTypeface(miPropiaTypeFace);
@@ -68,10 +68,10 @@ public class Login extends Activity implements OnClickListener {
 		txvMensajeDescripcion.setTypeface(miPropiaTypeFace);
 
 		Button btnIniciarSesion = (Button) findViewById(R.id.btn_iniciar_sesion);
-		btnIniciarSesion.setTypeface(heTypeFace);
+		btnIniciarSesion.setTypeface(HelveticaBoldTypeFace);
 
 		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
-		btnCrearCuenta.setTypeface(heTypeFace);
+		btnCrearCuenta.setTypeface(HelveticaBoldTypeFace);
 
 
 		btnIniciarSesion.setOnClickListener(this);

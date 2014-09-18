@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO"
+    android:background="@drawable/textura_2"
     android:orientation="vertical"
     tools:context="com.example.agendacaracter.ListaCualidades" >
 
@@ -11,31 +11,32 @@
         android:layout_height="wrap_content" >
 
         <TextView
-
             android:id="@+id/txv_cabecera_descripcion"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@color/CABECERA"
             android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
+            android:paddingBottom="13dp"
             android:paddingLeft="25dp"
             android:paddingRight="18dp"
-            android:paddingTop="10dp"
+            android:paddingTop="13dp"
             android:tag="26dp"
             android:text="@string/lista_cualidades"
             android:textColor="@color/LETRA"
             android:textColorLink="@color/LETRA"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <ListView
         android:id="@+id/lsv_cualidades"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="10dp" >
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp" >
+
     </ListView>
 
 </LinearLayout>

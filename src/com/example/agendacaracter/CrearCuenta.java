@@ -41,6 +41,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	EditText txtPass1;
 	EditText txtPass2;
 	AlertDialog alert;
+	Button btnCrearCuenta;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,10 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-
+		
+		Typeface HelveticaBoldTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
+		
 		txtEmail = (EditText) findViewById(R.id.txt_email);
 		txtEmail.setTypeface(tfHelveticaLTStdCond);
 
@@ -62,9 +66,10 @@ public class CrearCuenta extends Activity implements OnClickListener {
 		txtPass2 = (EditText) findViewById(R.id.txt_pass_02);
 		txtPass2.setTypeface(tfHelveticaLTStdCond);
 
-		Button registrarse = (Button) findViewById(R.id.btn_crear_cuenta);
-		registrarse.setTypeface(tfHelveticaLTStdCond);
-		registrarse.setOnClickListener(this);
+		btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
+		btnCrearCuenta.setTypeface(HelveticaBoldTypeFace);
+		
+		btnCrearCuenta.setOnClickListener(this);
 
 	}
 	
