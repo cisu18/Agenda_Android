@@ -11,16 +11,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.agendacaracter.R;
-import com.example.entidad.Cualidades;
+import com.example.entidad.cualidad;
 
 public class AdaptadorCualidades extends BaseAdapter {
 
 	Typeface tf;
-	private static ArrayList<Cualidades> searchArrayList;
+	private static ArrayList<cualidad> searchArrayList;
 
 	private LayoutInflater mInflater;
 
-	public AdaptadorCualidades(Context context, ArrayList<Cualidades> results) {
+	public AdaptadorCualidades(Context context, ArrayList<cualidad> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),

@@ -21,15 +21,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.entidad.Cualidades;
+import com.example.entidad.cualidad;
 import com.example.reutilizables.AdaptadorCualidades;
 import com.example.reutilizables.Util;
 
 public class ListaCualidades extends Activity {
 
 	private ListView lsvListaCualidades;
-	ArrayList<Cualidades> listaCualidades;
-	Cualidades cualidad = new Cualidades();
+	ArrayList<cualidad> listaCualidades;
+	cualidad cualidad = new cualidad();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class ListaCualidades extends Activity {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
-		cualidad = (Cualidades) lsvListaCualidades.getAdapter().getItem(
+		cualidad = (cualidad) lsvListaCualidades.getAdapter().getItem(
 				info.position);
 		menu.setHeaderTitle(cualidad.getCualidad());
 		MenuInflater inflater = getMenuInflater();
@@ -127,10 +127,10 @@ public class ListaCualidades extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				listaCualidades = new ArrayList<Cualidades>();
+				listaCualidades = new ArrayList<cualidad>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualidades c = new Cualidades();
+					cualidad c = new cualidad();
 					datos = jsonArray.getJSONObject(i);
 					c.setId(datos.getString("id"));
 					c.setCualidad(datos.getString("cualidad"));
