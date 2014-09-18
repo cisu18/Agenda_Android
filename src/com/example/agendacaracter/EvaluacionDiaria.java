@@ -96,12 +96,6 @@ public class EvaluacionDiaria extends Activity {
 		spiCritetioEvaluacion02.setAdapter(adaptadorSpinner);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
 	public void mostrarAlerta() {
 		alert = new AlertDialog.Builder(EvaluacionDiaria.this).create();
 		alert.setTitle("Mensaje");
