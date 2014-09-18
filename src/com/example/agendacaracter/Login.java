@@ -41,19 +41,19 @@ public class Login extends Activity implements OnClickListener {
 
 	public EditText etxUsuarioNombre;
 	public EditText etxContrasenia;
-	public TextView txvBienvenido;	
-
+	public TextView txvBienvenido;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");		
-			
+				"fonts/HelveticaLTStd-Cond.otf");
+
 		Typeface HelveticaBoldTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");
-		
+
 		txvBienvenido = (TextView) findViewById(R.id.txv_bienvenido);
 		txvBienvenido.setTypeface(HelveticaBoldTypeFace);
 
@@ -73,18 +73,18 @@ public class Login extends Activity implements OnClickListener {
 		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
 		btnCrearCuenta.setTypeface(HelveticaBoldTypeFace);
 
-
 		btnIniciarSesion.setOnClickListener(this);
 		btnCrearCuenta.setOnClickListener(this);
 
 		ImageView img_twitter = (ImageView) findViewById(R.id.imv_twitter_descripcion);
 		img_twitter.setOnClickListener(this);
-		
+
 		ImageView img_faccebook = (ImageView) findViewById(R.id.imv_login_facebook);
 		img_faccebook.setOnClickListener(this);
-		// estaConectado();
+
 
 	}
+	
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -95,6 +95,7 @@ public class Login extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Intent i;
 		switch (v.getId()) {
 		case R.id.btn_iniciar_sesion:
 
@@ -113,7 +114,7 @@ public class Login extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.btn_crear_cuenta:
-			Intent i = new Intent(this, CrearCuenta.class);
+			i = new Intent(this, CrearCuenta.class);
 			startActivity(i);
 			break;
 		case R.id.imv_twitter_descripcion:
@@ -154,7 +155,7 @@ public class Login extends Activity implements OnClickListener {
 			try {
 
 				JSONObject datos = new JSONObject(result);
-				
+
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				Editor editor = prefe.edit();
@@ -221,5 +222,4 @@ public class Login extends Activity implements OnClickListener {
 
 		return stringBuilder.toString();
 	}
-
 }

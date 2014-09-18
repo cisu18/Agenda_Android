@@ -40,7 +40,7 @@ public class Util {
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT, title);
 		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\n#Agendacarácter\nCLM Deved");
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);		
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}
 	
