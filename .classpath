@@ -3,5 +3,10 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+<<<<<<< Updated upstream
 	<classpathentry kind="output" path="bin"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/CLM Editores/workspace/Agenda_Android/libs/twitter4j-core-4.0.2.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+>>>>>>> Stashed changes
 </classpath>
