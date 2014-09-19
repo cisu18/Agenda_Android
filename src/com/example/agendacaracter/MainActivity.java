@@ -29,7 +29,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private TextView fechaMovil;
 	private TextView txvDia_numero;
 	private TextView txvDia;
 	private TextView txvMes;
@@ -62,15 +61,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		Typeface miPlanTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-LightCond.otf");
 
-		fechaMovil = (TextView) findViewById(R.id.txv_fecha_movil);
-		fechaMovil.setTypeface(miPropiaTypeFace);
-		
 		txvDia_numero = (TextView) findViewById(R.id.txv_dia_numero);
 		txvDia_numero.setTypeface(miPlanTypeFace);
-		
+
 		txvDia = (TextView) findViewById(R.id.txv_dia);
 		txvDia.setTypeface(miPropiaTypeFace);
-		
+
 		txvMes = (TextView) findViewById(R.id.txv_mes);
 		txvMes.setTypeface(miVersiculoTypeFace);
 
@@ -97,35 +93,32 @@ public class MainActivity extends Activity implements OnClickListener {
 		IrEvaluacion.setOnClickListener(this);
 		compartirVersiculo.setOnClickListener(this);
 
-
 		tvIdCualidad = new TextView(this);
 		iniciarServicios();
 
-
 		estaConectado();
-		if(estaConectado()){
+		if (estaConectado()) {
 			SharedPreferences prefe = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
 			if (idUsuario == 0) {
 				Intent i = new Intent(this, Login.class);
 				startActivity(i);
-//				finish();
-			}else{
-				principal=this;
+				// finish();
+			} else {
+				principal = this;
 				establecerFecha();
 
-				
 			}
-			
-		}else{
+
+		} else {
 			showAlertDialog(MainActivity.this, "Conexion a Internet",
-					"Tu Dispositivo necesita una conexion a internet.",
-					false);
+					"Tu Dispositivo necesita una conexion a internet.", false);
 		}
-		
+
 	}
-	public void iniciarServicios(){
+
+	public void iniciarServicios() {
 		startService(new Intent(getBaseContext(), ServicioAlerta.class));
 	}
 
@@ -152,7 +145,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			 * SharedPreferences preferencias = getSharedPreferences("user",
 			 * Context.MODE_PRIVATE); String fechaevaluacion =
 			 * preferencias.getString("eval", "0"); if
-			 * (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
+			 * (!Val.isEvaluated(getApplicationContext
+			 * (),preferencias.getString("id", "0"))) {
 			 */
 			Intent in = new Intent(this, EvaluacionDiaria.class);
 			startActivity(in);
@@ -177,13 +171,25 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public void establecerFecha() {
 
-		String formato = "dd EEEE'\t\t\t\t'MMMM' 'yyyy";
+		String formato = "MMMM' 'yyyy";
+		String formatonumdia = "dd";
+		String formatodia = "EEEE";
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat(formato,
 				Locale.getDefault());
+		SimpleDateFormat dateFormatnumdia = new SimpleDateFormat(formatonumdia,
+				Locale.getDefault());
+		SimpleDateFormat dateFormatdia = new SimpleDateFormat(formatodia,
+				Locale.getDefault());
+
 		Date cal1 = new Date();
 		String fecha = dateFormat.format(cal1);
-		fechaMovil.setText(fecha);
+		String dia = dateFormatnumdia.format(cal1);
+		String nombredia = dateFormatdia.format(cal1);
+
+		txvMes.setText(fecha);
+		txvDia_numero.setText(dia);
+		txvDia.setText(nombredia);
 
 		String fechaWebService = Util.getFechaActual().substring(0, 5);
 
@@ -219,6 +225,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
 
+			return true;
+		case R.id.action_listar_avance:
+			Intent intAvance=new Intent(this,AvanceMensual.class);
+			startActivity(intAvance);
 			return true;
 		default:
 			return false;
@@ -315,7 +325,10 @@ public class MainActivity extends Activity implements OnClickListener {
 				textosPlanLectura.setText(datos.getString("planlectura"));
 
 			} catch (Exception e) {
-				Toast.makeText(getApplicationContext(), "Main: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(
+						getApplicationContext(),
+						"Main: Error Interno -> onPostExecute. "
+								+ e.getMessage(), Toast.LENGTH_SHORT).show();
 				e.printStackTrace();
 			}
 			Util.cerrarDialogLoad();

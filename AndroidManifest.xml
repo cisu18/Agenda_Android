@@ -78,9 +78,17 @@
             android:name=".FacebookActivity"
             android:label="@string/title_activity_facebook" >
         </activity>
-        <activity android:name="com.facebook.LoginActivity" ></activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        <activity android:name="com.facebook.LoginActivity" >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
+
+        <activity
+            android:name=".AvanceMensual"
+            android:label="@string/title_activity_avance_mensual" >
+        </activity>
     </application>
 
 </manifest>

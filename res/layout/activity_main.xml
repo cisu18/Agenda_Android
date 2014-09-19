@@ -213,12 +213,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txv_fecha_movil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
     </LinearLayout>
 
 </ScrollView>
