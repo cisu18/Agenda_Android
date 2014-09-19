@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="5dp"
     android:orientation="vertical" >
 
     <TextView
@@ -62,22 +62,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="Reserva tu Compra:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/twitter"
-        android:textSize="16sp" />
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/btn_reserva_aqui"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="15dp"
         android:background="@color/gmail"
         android:gravity="center"
-        android:text="AQUÍ"
+        android:text="Aquí"
         android:textColor="@color/LETRA" />
 
 </LinearLayout>

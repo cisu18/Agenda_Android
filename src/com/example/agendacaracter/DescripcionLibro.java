@@ -34,6 +34,9 @@ public class DescripcionLibro extends Activity {
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		
+		Typeface tfHelveticaBold = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
 
 		Typeface miDescripcionTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
@@ -49,10 +52,7 @@ public class DescripcionLibro extends Activity {
 		txvMensajeReserva.setTypeface(miPropiaTypeFace);
 
 		Button btnReservaAqui = (Button) findViewById(R.id.btn_reserva_aqui);
-		btnReservaAqui.setTypeface(miPropiaTypeFace);
-
-		TextView txvRedesSociales = (TextView) findViewById(R.id.txv_redes_sociales);
-		txvRedesSociales.setTypeface(miPropiaTypeFace);
+		btnReservaAqui.setTypeface(tfHelveticaBold);
 
 		imvLibroDescripcion = (ImageView) findViewById(R.id.imv_libro_descripcion);
 

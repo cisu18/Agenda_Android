@@ -21,7 +21,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
     android:layout_alignTop="@+id/txv_nombre_cualidad"
-    android:layout_marginLeft="125dp"
+    android:layout_marginLeft="115dp"
     android:layout_marginRight="25dp"
     android:maxHeight="7dp"
     android:paddingLeft="10dp" />

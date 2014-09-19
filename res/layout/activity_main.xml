@@ -135,7 +135,7 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="52dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="vertical"
             android:stretchColumns="0,1,2" >

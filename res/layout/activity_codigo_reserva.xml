@@ -26,7 +26,7 @@
         android:text="@string/codigo__reserva"
         android:textColor="@color/LETRA"
         android:textColorLink="@color/LETRA"
-        android:textSize="24sp" />
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/txv_descripcion_libro"
@@ -50,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@color/gmail"
         android:text="Aceptar"
