@@ -36,8 +36,7 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 		listLibro = objects;
 		
 		TituloLibro = Typeface.createFromAsset(context.getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");
-		
+				"fonts/HelveticaLTStd-Cond.otf");		
 	}
 
 
@@ -52,7 +51,7 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 			holder.tvIdLibro = (TextView) v.findViewById(R.id.txv_item_id_lista_libros_referencia);
 			
 			TextView lista_libros = (TextView) v.findViewById(R.id.txv_item_titulo_lista_libros_referencia);
-			lista_libros.setTypeface(TituloLibro);
+			lista_libros.setTypeface(TituloLibro);			
 			
 			v.setTag(holder);
 		} else {

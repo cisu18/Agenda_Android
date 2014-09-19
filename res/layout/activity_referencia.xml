@@ -2,36 +2,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado"
+    android:background="@drawable/textura_2"
     android:orientation="vertical" >
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:stretchColumns="0,1,2" >
-
-        
 
             <TextView
                 android:id="@+id/txv_cabecera_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@color/CABECERA"
                 android:gravity="center"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
+                android:paddingBottom="13dp"
+                android:paddingTop="13dp"
+            	android:paddingLeft="25dp"
+            	android:paddingRight="18dp"
                 android:tag="26dp"
                 android:text="@string/referencia"
                 android:textColor="@color/LETRA"
                 android:textColorLink="@color/LETRA"
-                android:textSize="24sp" />
+                android:textSize="22sp" />        
+
     </TableLayout>
 
     <GridView
         android:id="@+id/grv_libros_referencia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2" >
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:numColumns="2"
+        android:paddingTop="10dp" >
 
     </GridView>
 

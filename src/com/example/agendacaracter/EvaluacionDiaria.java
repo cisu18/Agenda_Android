@@ -40,8 +40,8 @@ public class EvaluacionDiaria extends Activity {
 		TextView title = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		title.setTypeface(tfHelvetica);
 
-		TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
-		indicaciones.setTypeface(tfHelvetica);
+		//TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
+		//indicaciones.setTypeface(tfHelvetica);
 
 		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(tfGeosansLight);
@@ -73,22 +73,22 @@ public class EvaluacionDiaria extends Activity {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				v.setTextColor(Color.rgb(255, 109, 104));
-				//v.setBackgroundColor(Color.BLUE);
+				v.setTextColor(Color.rgb(255, 109, 104));			
 				v.setTextSize(18);
 				return v;
 			}
 
-			/*public View getDropDownView(int position, View convertView,
+			public View getDropDownView(int position, View convertView,
 					android.view.ViewGroup parent) {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				//v.setTextColor(Color.GREEN);
-				//v.setBackgroundColor(Color.YELLOW);
+				v.setTextColor(Color.rgb(255, 255, 255));
+				v.setPadding(10,5,0,10);
+				v.setBackgroundColor(Color.rgb(77, 99, 113));
 				v.setTextSize(18);
 				return v;
-			}*/
+			}
 		};
 
 		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_list_item_checked);

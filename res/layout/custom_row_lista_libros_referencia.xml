@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:paddingBottom="15dp"                
+                android:paddingBottom="12dp"
                 android:scaleType="center"
                 android:src="@drawable/ic_launcher" />
 
@@ -38,7 +38,7 @@
     android:paddingRight="15dp"
     android:text="este es la descripcion del libro "
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="#FFF"
+    android:textColor="@color/letras_funtes"
     android:textSize="16sp" />
 
 <TextView

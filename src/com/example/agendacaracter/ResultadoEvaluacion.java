@@ -42,12 +42,16 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		
+		Typeface tfHelveticaBoldLTStdCond = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
+
 
 		Typeface tfGeosansLight2 = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 		
 		txvMensajeCarita = (TextView) findViewById(R.id.txv_mensaje_carita);
-		txvMensajeCarita.setTypeface(tfHelveticaLTStdCond);
+		txvMensajeCarita.setTypeface(tfHelveticaBoldLTStdCond);
 		
 		txvResultadoEvaluacion = (TextView) findViewById(R.id.txv_resultado_evaluacion);
 		txvResultadoEvaluacion.setTypeface(tfHelveticaLTStdCond);
@@ -59,7 +63,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		txvLabelRecomendacion.setTypeface(tfGeosansLight2); 
 				
 		btnCompartirResultado = (Button) findViewById(R.id.btn_compartir_puntaje);
-		btnCompartirResultado.setTypeface(tfHelveticaLTStdCond);
+		btnCompartirResultado.setTypeface(tfHelveticaBoldLTStdCond);
 		btnCompartirResultado.setOnClickListener(this);
 		
 		preferencias = getSharedPreferences("user",
