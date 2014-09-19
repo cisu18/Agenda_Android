@@ -3,19 +3,18 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/FONDO" >
+    android:background="@drawable/textura_2" >
     
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/FONDO"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
     android:orientation="vertical" >
 
     <TextView
-
         android:id="@+id/txv_cabecera_descripcion"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -36,7 +35,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
-        android:textColor="@color/LETRA"
+        android:textColor="@color/letras_funtes"
         android:textSize="16sp" />
 
     <ImageView
@@ -48,11 +47,11 @@
 
     <Button
         android:id="@+id/btn_reserva_aqui"
-        android:layout_width="98dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@color/CABECERA"
+        android:background="@color/gmail"
         android:text="Aceptar"
         android:textColor="@color/LETRA" />
 

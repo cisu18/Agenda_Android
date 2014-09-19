@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
 <TextView
@@ -11,27 +11,32 @@
     android:layout_alignParentTop="true"
     android:layout_marginTop="20dp"
     android:shadowColor="@color/CABECERA"
-    android:textColor="#00b5b5"
+    android:textColor="@color/letras_funtes"
     android:textSize="20sp" />
-<ProgressBar
+
+<ProgressBar
     android:id="@+id/pb_avance_cualidad"
     style="?android:attr/progressBarStyleHorizontal"
-    android:layout_width="160dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
     android:layout_alignTop="@+id/txv_nombre_cualidad"
-    android:layout_marginRight="62dp"
-    android:maxHeight="7dp" />
+    android:layout_marginLeft="125dp"
+    android:layout_marginRight="25dp"
+    android:maxHeight="7dp"
+    android:paddingLeft="10dp" />
 
 <TextView
     android:id="@+id/txv_id_avance"
-    android:layout_width="59dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignBottom="@+id/txv_nombre_cualidad"
     android:layout_alignRight="@+id/pb_avance_cualidad"
-    android:layout_marginRight="15dp"
+    android:gravity="center"
+    android:paddingLeft="130dp"
     android:shadowColor="@color/CABECERA"
-    android:textColor="#00b5b5"
+    android:text="rtret"
+    android:textColor="@color/twitter"
     android:textSize="16sp" />
 
 </RelativeLayout>

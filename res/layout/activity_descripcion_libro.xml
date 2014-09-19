@@ -8,6 +8,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:layout_marginTop="10dp"
     android:orientation="vertical" >
 
@@ -78,54 +79,6 @@
         android:gravity="center"
         android:text="AQUÍ"
         android:textColor="@color/LETRA" />
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center"
-           android:layout_marginTop="30dp"
-           android:gravity="center" >
-
-        <TextView
-            android:id="@+id/txv_redes_sociales"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Redes Sociales:"
-            android:textColor="@color/letras_funtes"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center" >
-
-        <ImageView
-            android:id="@+id/imv_facebook_descripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/face" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-
-        </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/imv_twitter_descripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:src="@drawable/twitter" />
-
-    </LinearLayout>
 
 </LinearLayout>
 </ScrollView>
