@@ -1,115 +1,131 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:scrollbars="horizontal|vertical" >
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/textura_2" >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txv_cabecera_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/CABECERA"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:tag="26dp"
+        android:text="@string/descripcion__libros"
+        android:textColor="@color/LETRA"
+        android:textColorLink="@color/LETRA"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp" >
+
+        <ImageView
+            android:id="@+id/imv_libro_descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_launcher" />
+
+         <TextView
+             android:id="@+id/txv_descripcion_libro"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_gravity="center"
+             android:layout_marginLeft="20dp"
+             android:gravity="left"
+             android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
+             android:textColor="@color/letras_funtes"
+             android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txv_mensaje_reserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Reserva tu Compra:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/twitter"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_reserva_aqui"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/gmail"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="30dp"
-        android:showDividers="beginning" >
+        android:text="AQUÍ"
+        android:textColor="@color/LETRA" />
 
-        <EditText
-            android:id="@+id/txv_username_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableRight="@drawable/user_login"
-            android:hint="Usuario"
-            android:inputType="text"
-            android:textAllCaps="true"
-            android:textColor="@color/LETRA" />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginTop="30dp"
+           android:gravity="center" >
 
-        <EditText
-            android:id="@+id/txv_pass_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="20dp"
-            android:drawableRight="@drawable/contra_login"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:textColor="@color/LETRA" />
-
-        <Button
-            android:id="@+id/btn_iniciar_sesion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="11dp"
-            android:background="@drawable/degradado"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="Inicia Sesión"
-            android:textColor="@color/LETRA"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btn_crear_cuenta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/CABECERA"
-            android:paddingLeft="35dp"
-            android:paddingRight="50dp"
-            android:text="Regístrate"
-            android:textColor="@color/LETRA"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-             android:layout_centerInParent="true"
+        <TextView
+            android:id="@+id/txv_redes_sociales"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="18dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center" >
-
-            <TextView
-                android:id="@+id/txv_cabecera_descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="También puede iniciar sesión con:"
-                android:textColor="@color/LETRA"
-                android:textSize="16sp"
-                android:textStyle="normal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:gravity="center"
-             android:layout_centerInParent="true" >
+            android:text="Redes Sociales:"
+            android:textColor="@color/letras_funtes"
+            android:textSize="16sp"
+            android:textStyle="normal" />
 
-            <ImageView
-                android:id="@+id/imv_libro_descripcion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/face" />
+    </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" >
-            </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center" >
 
-            <ImageView
-                android:id="@+id/imv_twitter_descripcion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/twitter" />
-        </LinearLayout>  
-      </LinearLayout>    
+        <ImageView
+            android:id="@+id/imv_facebook_descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/face" />
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imv_twitter_descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/twitter" />
+
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

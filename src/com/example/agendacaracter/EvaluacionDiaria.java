@@ -32,15 +32,16 @@ public class EvaluacionDiaria extends Activity {
 
 		Typeface tfHelvetica = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		
+		Typeface tfHelveticaBold = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
 
 		Typeface tfGeosansLight = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
 
 		TextView title = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		title.setTypeface(tfHelvetica);
-
-		//TextView indicaciones = (TextView) findViewById(R.id.txt_introduccion);
-		//indicaciones.setTypeface(tfHelvetica);
+	
 
 		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(tfGeosansLight);
@@ -49,7 +50,7 @@ public class EvaluacionDiaria extends Activity {
 		txvPregunta02.setTypeface(tfGeosansLight);
 
 		Button btnSiguiente = (Button) findViewById(R.id.btn_ver_resultado_evaluacion);
-		btnSiguiente.setTypeface(tfHelvetica);
+		btnSiguiente.setTypeface(tfHelveticaBold);
 		btnSiguiente.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				mostrarAlerta();

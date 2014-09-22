@@ -75,11 +75,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		String fecha = Util.getFechaActual().substring(0, 5);
 
-		// fecha="09-10"; //mensaje corto
-		// fecha="24-11"; //mensaje largo
-		// fecha="24-08"; //autor corto
-		// fecha="02-12"; //autor largo
-
 		new ReadJSONFeedTask()
 				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
 						+ fecha);

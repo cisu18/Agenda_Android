@@ -86,8 +86,8 @@ public class AdaptadorAvance extends BaseAdapter {
 		bgclip.setLevel(10000);
 
 		// SecondaryProgress
-		GradientDrawable fg2GradDrawable = new GradientDrawable(
-				fgGradDirection, new int[] { 0xffFF0000, 0xffFFFFFF });
+		GradientDrawable fg2GradDrawable = new GradientDrawable(				
+				fgGradDirection, new int[] { 0xff464747, 0xffFFFFFF });
 		fg2GradDrawable.setShape(GradientDrawable.RECTANGLE);
 		fg2GradDrawable.setCornerRadius(8);
 		ClipDrawable fg2clip = new ClipDrawable(fg2GradDrawable, Gravity.LEFT,
@@ -95,7 +95,7 @@ public class AdaptadorAvance extends BaseAdapter {
 
 		// Progress
 		GradientDrawable fg1GradDrawable = new GradientDrawable(
-				fgGradDirection, new int[] { 0xff0000FF, 0xffFFFFFF });
+				fgGradDirection, new int[] { 0xff00456e,0xff00cec5  });
 		fg1GradDrawable.setShape(GradientDrawable.RECTANGLE);
 		fg1GradDrawable.setCornerRadius(8);
 		ClipDrawable fg1clip = new ClipDrawable(fg1GradDrawable, Gravity.LEFT,

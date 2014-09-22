@@ -216,6 +216,7 @@ containing a value of this type.
         public static final int right_cab=0x7f05000f;
     }
     public static final class drawable {
+<<<<<<< HEAD
         public static final int accept_48=0x7f020000;
         public static final int aceptar=0x7f020001;
         public static final int aceptar_20=0x7f020002;
@@ -324,6 +325,107 @@ containing a value of this type.
         public static final int user_login2=0x7f020068;
         public static final int usera=0x7f020069;
         public static final int view_as_list_64=0x7f02006a;
+=======
+        public static final int add=0x7f020000;
+        public static final int botones_azules=0x7f020001;
+        public static final int botones_celeste=0x7f020002;
+        public static final int botones_rojos=0x7f020003;
+        public static final int btn_login=0x7f020004;
+        public static final int btn_logout=0x7f020005;
+        public static final int cara_01=0x7f020006;
+        public static final int cara_02=0x7f020007;
+        public static final int cara_03=0x7f020008;
+        public static final int cara_04=0x7f020009;
+        public static final int cara_05=0x7f02000a;
+        public static final int codigo_64=0x7f02000b;
+        public static final int com_facebook_button_blue=0x7f02000c;
+        public static final int com_facebook_button_blue_focused=0x7f02000d;
+        public static final int com_facebook_button_blue_normal=0x7f02000e;
+        public static final int com_facebook_button_blue_pressed=0x7f02000f;
+        public static final int com_facebook_button_check=0x7f020010;
+        public static final int com_facebook_button_check_off=0x7f020011;
+        public static final int com_facebook_button_check_on=0x7f020012;
+        public static final int com_facebook_button_grey_focused=0x7f020013;
+        public static final int com_facebook_button_grey_normal=0x7f020014;
+        public static final int com_facebook_button_grey_pressed=0x7f020015;
+        public static final int com_facebook_close=0x7f020016;
+        public static final int com_facebook_inverse_icon=0x7f020017;
+        public static final int com_facebook_list_divider=0x7f020018;
+        public static final int com_facebook_list_section_header_background=0x7f020019;
+        public static final int com_facebook_loginbutton_silver=0x7f02001a;
+        public static final int com_facebook_logo=0x7f02001b;
+        public static final int com_facebook_picker_default_separator_color=0x7f020062;
+        public static final int com_facebook_picker_item_background=0x7f02001c;
+        public static final int com_facebook_picker_list_focused=0x7f02001d;
+        public static final int com_facebook_picker_list_longpressed=0x7f02001e;
+        public static final int com_facebook_picker_list_pressed=0x7f02001f;
+        public static final int com_facebook_picker_list_selector=0x7f020020;
+        public static final int com_facebook_picker_list_selector_background_transition=0x7f020021;
+        public static final int com_facebook_picker_list_selector_disabled=0x7f020022;
+        public static final int com_facebook_picker_magnifier=0x7f020023;
+        public static final int com_facebook_picker_top_button=0x7f020024;
+        public static final int com_facebook_place_default_icon=0x7f020025;
+        public static final int com_facebook_profile_default_icon=0x7f020026;
+        public static final int com_facebook_profile_picture_blank_portrait=0x7f020027;
+        public static final int com_facebook_profile_picture_blank_square=0x7f020028;
+        public static final int com_facebook_tooltip_black_background=0x7f020029;
+        public static final int com_facebook_tooltip_black_bottomnub=0x7f02002a;
+        public static final int com_facebook_tooltip_black_topnub=0x7f02002b;
+        public static final int com_facebook_tooltip_black_xout=0x7f02002c;
+        public static final int com_facebook_tooltip_blue_background=0x7f02002d;
+        public static final int com_facebook_tooltip_blue_bottomnub=0x7f02002e;
+        public static final int com_facebook_tooltip_blue_topnub=0x7f02002f;
+        public static final int com_facebook_tooltip_blue_xout=0x7f020030;
+        public static final int com_facebook_top_background=0x7f020031;
+        public static final int com_facebook_top_button=0x7f020032;
+        public static final int com_facebook_usersettingsfragment_background_gradient=0x7f020033;
+        public static final int compartir=0x7f020034;
+        public static final int contra_login=0x7f020035;
+        public static final int contra_login2=0x7f020036;
+        public static final int degradado=0x7f020037;
+        public static final int df=0x7f020038;
+        public static final int email24=0x7f020039;
+        public static final int email_28=0x7f02003a;
+        public static final int email_32=0x7f02003b;
+        public static final int emaila=0x7f02003c;
+        public static final int evaluacion=0x7f02003d;
+        public static final int face=0x7f02003e;
+        public static final int gmail=0x7f02003f;
+        public static final int ic_action_accept=0x7f020040;
+        public static final int ic_action_cancel=0x7f020041;
+        public static final int ic_action_cancel_32=0x7f020042;
+        public static final int ic_action_cancel_48=0x7f020043;
+        public static final int ic_action_email=0x7f020044;
+        public static final int ic_action_email_32=0x7f020045;
+        public static final int ic_action_overflow=0x7f020046;
+        public static final int ic_action_user=0x7f020047;
+        public static final int ic_launcher=0x7f020048;
+        public static final int ic_launcher1=0x7f020049;
+        public static final int key=0x7f02004a;
+        public static final int key2=0x7f02004b;
+        public static final int key24=0x7f02004c;
+        public static final int key_28=0x7f02004d;
+        public static final int key_32=0x7f02004e;
+        public static final int key_48=0x7f02004f;
+        public static final int key_log_32=0x7f020050;
+        public static final int libros_ref=0x7f020051;
+        public static final int list38=0x7f020052;
+        public static final int next_item=0x7f020053;
+        public static final int overflow=0x7f020054;
+        public static final int overflow_prin=0x7f020055;
+        public static final int pensamiento_48=0x7f020056;
+        public static final int share_48=0x7f020057;
+        public static final int spinner=0x7f020058;
+        public static final int textura_2=0x7f020059;
+        public static final int twitter=0x7f02005a;
+        public static final int user_24=0x7f02005b;
+        public static final int user_28=0x7f02005c;
+        public static final int user_48=0x7f02005d;
+        public static final int user_login=0x7f02005e;
+        public static final int user_login2=0x7f02005f;
+        public static final int usera=0x7f020060;
+        public static final int view_as_list_64=0x7f020061;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
     }
     public static final class id {
         public static final int action_cerrar_sesion=0x7f04005f;
@@ -334,9 +436,15 @@ containing a value of this type.
         public static final int action_settings=0x7f04005d;
         public static final int btn_compartir_puntaje=0x7f040037;
         public static final int btn_crear_cuenta=0x7f04000d;
+<<<<<<< HEAD
         public static final int btn_iniciar_sesion=0x7f040010;
         public static final int btn_reserva_aqui=0x7f040008;
         public static final int btn_ver_resultado_evaluacion=0x7f040019;
+=======
+        public static final int btn_iniciar_sesion=0x7f04001b;
+        public static final int btn_reserva_aqui=0x7f040008;
+        public static final int btn_ver_resultado_evaluacion=0x7f040016;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
         public static final int com_facebook_body_frame=0x7f04004b;
         public static final int com_facebook_button_xout=0x7f04004d;
         public static final int com_facebook_login_activity_progress_bar=0x7f04003b;
@@ -366,21 +474,34 @@ containing a value of this type.
         public static final int imageView1=0x7f040058;
         public static final int img_carita_resultado_evaluacion=0x7f040033;
         public static final int img_item_lista_libros_referencia=0x7f040059;
+<<<<<<< HEAD
         public static final int imv_facebook_descripcion=0x7f040014;
+=======
+        public static final int imv_facebook_descripcion=0x7f040010;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
         public static final int imv_libro_descripcion=0x7f040007;
         public static final int imv_login_facebook=0x7f04001c;
         public static final int imv_twitter_descripcion=0x7f040011;
         public static final int large=0x7f040002;
         public static final int lsv_avance_mensual=0x7f040004;
+<<<<<<< HEAD
         public static final int lsv_cualidades=0x7f04001a;
+=======
+        public static final int lsv_cualidades=0x7f040017;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
         public static final int normal=0x7f040001;
         public static final int opcVerLibros=0x7f040063;
         public static final int pb_avance_cualidad=0x7f040053;
         public static final int picker_subtitle=0x7f040048;
         public static final int scrollView1=0x7f040005;
         public static final int small=0x7f040000;
+<<<<<<< HEAD
         public static final int spi_critetio_evaluacion_01=0x7f040016;
         public static final int spi_critetio_evaluacion_02=0x7f040018;
+=======
+        public static final int spi_critetio_evaluacion_01=0x7f040013;
+        public static final int spi_critetio_evaluacion_02=0x7f040015;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
         public static final int tableRow1=0x7f04002b;
         public static final int tableRow2=0x7f040020;
         public static final int tableRow3=0x7f040022;
@@ -392,7 +513,11 @@ containing a value of this type.
         public static final int txt_pass_02=0x7f04000c;
         public static final int txt_username=0x7f040009;
         public static final int txv_autor_pensamiento=0x7f04002d;
+<<<<<<< HEAD
         public static final int txv_bienvenido=0x7f04001b;
+=======
+        public static final int txv_bienvenido=0x7f040018;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
         public static final int txv_cabecera_descripcion=0x7f040003;
         public static final int txv_compartir_pensamiento=0x7f04002e;
         public static final int txv_compartir_versiculo=0x7f040026;
@@ -412,6 +537,7 @@ containing a value of this type.
         public static final int txv_label_recomendacion=0x7f040035;
         public static final int txv_mensaje_carita=0x7f040032;
         public static final int txv_mensaje_plan_lectura=0x7f040029;
+<<<<<<< HEAD
         public static final int txv_mensaje_reserva=0x7f040012;
         public static final int txv_mes=0x7f04001e;
         public static final int txv_nombre_cualidad=0x7f040021;
@@ -426,6 +552,22 @@ containing a value of this type.
         public static final int txv_resultado_evaluacion=0x7f040034;
         public static final int txv_spinner_item=0x7f04005c;
         public static final int txv_username_login=0x7f04000e;
+=======
+        public static final int txv_mensaje_reserva=0x7f04000e;
+        public static final int txv_mes=0x7f04001e;
+        public static final int txv_nombre_cualidad=0x7f040021;
+        public static final int txv_numero_versiculo=0x7f040024;
+        public static final int txv_pass_login=0x7f04001a;
+        public static final int txv_pensamiento=0x7f04002c;
+        public static final int txv_plan_lectura=0x7f04002a;
+        public static final int txv_pregunta_01=0x7f040012;
+        public static final int txv_pregunta_02=0x7f040014;
+        public static final int txv_recomendacion=0x7f040036;
+        public static final int txv_redes_sociales=0x7f04000f;
+        public static final int txv_resultado_evaluacion=0x7f040034;
+        public static final int txv_spinner_item=0x7f04005c;
+        public static final int txv_username_login=0x7f040019;
+>>>>>>> fa9252ebe30296d56c9a331223d9f48b262dc686
     }
     public static final class layout {
         public static final int activity_avance_mensual=0x7f030000;

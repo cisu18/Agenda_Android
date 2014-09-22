@@ -24,8 +24,6 @@
        android:textColor="@color/letras_funtes"
        android:textSize="20sp" />
 
-  
-
    <TextView
        android:id="@+id/txv_item_id_lista_cualidad"
        android:layout_width="wrap_content"
@@ -33,13 +31,15 @@
        android:layout_alignParentLeft="true"
        android:layout_below="@+id/txv_item_cualidad_lista_cualidad"
        android:shadowColor="@color/CABECERA" />
+
  <ImageView
-       android:id="@+id/imageView1"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentRight="true"
-       android:layout_alignParentTop="true"
-       android:layout_marginRight="14dp"
-       android:layout_marginTop="25dp"
-       android:src="@drawable/next_item" />
+     android:id="@+id/imageView1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentRight="true"
+     android:layout_alignParentTop="true"
+     android:layout_marginRight="15dp"
+     android:layout_marginTop="25dp"
+     android:src="@drawable/add" />
+
 </RelativeLayout>
