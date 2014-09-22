@@ -25,10 +25,13 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -83,6 +86,29 @@ public class Login extends Activity implements OnClickListener {
 		img_faccebook.setOnClickListener(this);
 
 
+//				etxUsuarioNombre.setOnKeyListener(new OnKeyListener() {
+//			
+//			
+//			@Override
+//			public boolean onKey(View v, int keyCode, KeyEvent event) {
+//				// TODO Auto-generated method stub
+//			Log.e("letras",event.toString());
+//			switch (keyCode) {
+//			case 1-100:
+//				return true;
+//				
+//
+//			default:
+//				break;
+//			}
+//			return false;
+//							}
+//		}); 
+//			
+			
+			
+			
+			
 	}
 	
 
@@ -92,6 +118,7 @@ public class Login extends Activity implements OnClickListener {
 		}
 		return false;
 	}
+	
 
 	@Override
 	public void onClick(View v) {
@@ -102,16 +129,31 @@ public class Login extends Activity implements OnClickListener {
 			String us = etxUsuarioNombre.getText().toString();
 			String cl = etxContrasenia.getText().toString();
 
+		
+	
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
 						"Porfavor completa todos los campos", Toast.LENGTH_LONG)
 						.show();
+			}else if(!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+				Toast.makeText(getApplicationContext(),
+						"No se permiten caracteres especiales", Toast.LENGTH_LONG)
+						.show();
+				if(!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+					etxUsuarioNombre.setText("");
+				}if(!cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+					etxContrasenia.setText("");
+				}if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")&& !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+					etxUsuarioNombre.setText("");
+					etxContrasenia.setText("");
+				}
 
-			} else {
+			}else{
 				new ReadUsuarioJSONFeedTask()
-						.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
-
+				.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
+	
 			}
+						
 			break;
 		case R.id.btn_crear_cuenta:
 			i = new Intent(this, CrearCuenta.class);

@@ -50,10 +50,10 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
+
 		Typeface HelveticaBoldTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");
-		
+
 		txtEmail = (EditText) findViewById(R.id.txt_email);
 		txtEmail.setTypeface(tfHelveticaLTStdCond);
 
@@ -68,11 +68,11 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 		btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
 		btnCrearCuenta.setTypeface(HelveticaBoldTypeFace);
-		
+
 		btnCrearCuenta.setOnClickListener(this);
 
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -83,7 +83,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			String pass2 = txtPass2.getText().toString();
 			StringBuilder msg = new StringBuilder();
 			boolean con = true;
-
+			String patron = "([a-z]|[A-Z]|\\s|[0-9])+";
 			if (Val.isVacio(usuario, email, pass1, pass2)) {
 				if (!Val.isEmailValid(email)) {
 					msg.append("Email Incorrecto" + "\n");
@@ -93,6 +93,29 @@ public class CrearCuenta extends Activity implements OnClickListener {
 					msg.append("Las contraseñas no coinciden");
 					con = false;
 				}
+				if (!usuario.matches(patron) || !pass1.matches(patron) || !pass2.matches(patron)) {
+					
+					if (!usuario.matches(patron)) {
+						txtUsuario.setText("");
+					}
+					if (!pass1.matches(patron)) {
+						txtPass1.setText("");
+	
+					}
+					if (!pass2.matches(patron)) {
+						txtPass2.setText("");
+	
+					}
+					if (!usuario.matches(patron) && !pass1.matches(patron) && !pass2.matches(patron)) {
+						txtUsuario.setText("");
+						txtPass1.setText("");
+						txtPass2.setText("");
+	
+					}
+					msg.append("No se permiten caracteres especiales");
+					con=false;
+				}
+
 			} else {
 				msg.append("Complete todos los campos");
 				con = false;
@@ -167,8 +190,11 @@ public class CrearCuenta extends Activity implements OnClickListener {
 							});
 				}
 				alert.show();
-			} catch (Exception e) {							
-				Toast.makeText(getApplicationContext(), "CrearCuenta: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();			
+			} catch (Exception e) {
+				Toast.makeText(
+						getApplicationContext(),
+						"CrearCuenta: Error Interno -> onPostExecute. "
+								+ e.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 
 		}
@@ -206,11 +232,18 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				inputStream.close();
 			} else {
 				res.append("error");
-				Toast.makeText(this, "CrearCuenta: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
+				Toast.makeText(
+						this,
+						"CrearCuenta: Error Interno -> readJSONFeed. Status Code",
+						Toast.LENGTH_SHORT).show();
 			}
 		} catch (Exception e) {
-			Toast.makeText(this, "CrearCuenta: Error Interno -> readJSONFeed."+ e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-			
+			Toast.makeText(
+					this,
+					"CrearCuenta: Error Interno -> readJSONFeed."
+							+ e.getLocalizedMessage(), Toast.LENGTH_SHORT)
+					.show();
+
 		}
 
 		return res.toString();
