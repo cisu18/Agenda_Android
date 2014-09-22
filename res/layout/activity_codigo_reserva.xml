@@ -34,7 +34,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="&apos;&apos;Tener iniciativa me ayudó a crecer a mí en mis veinte, en mis treinta me ayudó a superar mis expectativas de mí mismo y en mis cuarenta me ayudan a que otros superen sus expectativas de ellos mismos.&apos;&apos; "
+        android:text="Un pequeño mensaje referente a la reserva"
         android:textColor="@color/letras_funtes"
         android:textSize="16sp" />
 
