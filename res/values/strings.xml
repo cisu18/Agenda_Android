@@ -13,8 +13,11 @@
     <string name="msg_lista_avance">Ver Avance Mensual</string>
     <string name="msg_cerrar_sesion">Cerrar Sesion</string>
     <string name="msg_inicio">Inicio</string>
-    <string name="msg_menu_libros_referencia">Ver libros de referencia</string>
-
+    <string name="msg_menu_libros_referencia">Lectura de Libros</string>
+ 	<string name="msg_menu_libros_peliculas">Peliculas/Serie tv</string>
+    <string name="msg_menu_libros_audios">Audio/Conferencia</string>
+   	<string name="msg_menu_libros_circulos">Circulo de Crecimiento</string>
+      
     <!-- Encabezados -->
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
     <string name="lista_avance">AVANCE MENSUAL</string>

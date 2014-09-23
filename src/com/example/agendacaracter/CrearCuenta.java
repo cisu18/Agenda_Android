@@ -149,7 +149,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				JSONObject datos = new JSONObject(result);
 				alert = new AlertDialog.Builder(CrearCuenta.this).create();
 				alert.setTitle("Mensaje");
-				alert.setIcon(R.drawable.ic_action_cancel_32);
+				alert.setIcon(R.drawable.ic_action_cancel);
 				if (result.equals("error")) {
 					alert.setMessage("Error al conectar con el servidor.");
 					alert.setButton("Aceptar",
