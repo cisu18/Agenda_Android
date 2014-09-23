@@ -92,13 +92,11 @@ public class ListaCualidades extends Activity {
 
 		cualidad = (cualidad) lsvListaCualidades.getAdapter().getItem(
 				info.position);
-<<<<<<< Updated upstream
-		menu.setHeaderTitle("Actividades para fortalecer tu Carácter");
-		menu.setHeaderIcon(getResources().getDrawable(R.drawable.add ));
-//		menu.getItem(0).getIcon().(getResources().getDrawable(R.drawable.add));
-=======
+		
 		menu.setHeaderTitle("Actividades para Fortalecer tu Carácter");
->>>>>>> Stashed changes
+		menu.setHeaderIcon(getResources().getDrawable(R.drawable.add ));
+//		menu.getItem(0).getIcon().(getResources().getDrawable(R.drawable.add));	
+
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu);
 	}
