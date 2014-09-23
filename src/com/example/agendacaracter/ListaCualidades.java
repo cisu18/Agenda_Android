@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -91,6 +93,8 @@ public class ListaCualidades extends Activity {
 		cualidad = (cualidad) lsvListaCualidades.getAdapter().getItem(
 				info.position);
 		menu.setHeaderTitle("Actividades para fortalecer tu Carácter");
+		menu.setHeaderIcon(getResources().getDrawable(R.drawable.add ));
+//		menu.getItem(0).getIcon().(getResources().getDrawable(R.drawable.add));
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu);
 	}
@@ -104,6 +108,10 @@ public class ListaCualidades extends Activity {
 			Intent i = new Intent(this, Referencia.class);
 			i.putExtra("id cualidad", id);
 			startActivity(i);
+			return true;
+		case R.id.opcVerCirculos:
+			Intent circulos=new Intent(this,CirculoCrecimiento.class);
+			startActivity(circulos);
 			return true;
 		default:
 			return super.onContextItemSelected(item);
