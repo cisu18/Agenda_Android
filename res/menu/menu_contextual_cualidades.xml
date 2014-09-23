@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 	<item android:id="@+id/opcVerLibros"
-	    android:title="@string/msg_menu_libros_referencia"></item>
+	    android:title="@string/msg_menu_libros_referencia" ></item>
 	<item android:id="@+id/opcVerPeliculas"
 	    android:title="@string/msg_menu_libros_peliculas"></item>
 	<item android:id="@+id/opcVerAudios"

@@ -144,7 +144,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 							+ "%\n¿Cómo puedo hacerlo mejor? Hoy puedo trasmitir mi ejemplo a otras personas.");
 			stbRecomendacion
 					.append("¿Cómo podrías hacerlo mejor? Puedes trasmitir tu ejemplo a otras personas.");
-			stbMensajeCarita.append("Vas bien");
+			stbMensajeCarita.append("¡Vas bien!");
 			img.setImageResource(R.drawable.cara_03);
 			break;
 		case 80:
@@ -152,7 +152,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			stbCompartir.append(intPorcentaje
 					+ "%\nSe está formando un hábito fuerte en mí.");
 			stbRecomendacion.append("Se está formando un hábito fuerte en ti.");
-			stbMensajeCarita.append("Muy bien");
+			stbMensajeCarita.append("¡Muy bien!");
 			img.setImageResource(R.drawable.cara_04);
 			break;
 		case 100:
@@ -162,7 +162,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 							+ "%\nPuedo ser un mentor para alguien más, otras personas necesitan mi ayuda.");
 			stbRecomendacion
 					.append("Piensa en ser un mentor para alguien más. Recuerda otras personas también necesitan ayuda.");
-			stbMensajeCarita.append("Excelente");
+			stbMensajeCarita.append("¡Excelente!");
 			img.setImageResource(R.drawable.cara_05);
 			break;
 		}

@@ -16,7 +16,7 @@
     <string name="msg_menu_libros_referencia">Lectura de Libros</string>
     <string name="msg_menu_libros_peliculas">Películas/Serie TV</string>
     <string name="msg_menu_libros_audios">Audio/Conferencia</string>
-    <string name="msg_menu_libros_circulos">Circulo de Crecimiento</string>
+    <string name="msg_menu_libros_circulos">Círculo de Crecimiento</string>
 
     <!-- Encabezados -->
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
@@ -30,7 +30,7 @@
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
-    <string name="circulo_crecimirnto">CIRCULO DE CRECIMIENTO</string>
+    <string name="circulo_crecimirnto">CÍRCULO DE CRECIMIENTO</string>
 
     <string-array name="criterios_evaluacion">
         <item>Nada</item>
