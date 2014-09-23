@@ -89,6 +89,10 @@
             android:name=".AvanceMensual"
             android:label="@string/title_activity_avance_mensual" >
         </activity>
+        <activity
+            android:name=".CirculoCrecimiento"
+            android:label="@string/title_activity_circulo_crecimiento" >
+        </activity>
     </application>
 
 </manifest>

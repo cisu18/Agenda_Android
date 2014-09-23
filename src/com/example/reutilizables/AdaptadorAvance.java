@@ -78,7 +78,7 @@ public class AdaptadorAvance extends BaseAdapter {
 
 		// Background
 		GradientDrawable bgGradDrawable = new GradientDrawable(bgGradDirection,
-				new int[] { 0xff303030, 0xff909090 });
+				new int[] { 0xff4d6371, 0xfffefffe });
 		bgGradDrawable.setShape(GradientDrawable.RECTANGLE);
 		bgGradDrawable.setCornerRadius(8);
 		ClipDrawable bgclip = new ClipDrawable(bgGradDrawable, Gravity.LEFT,

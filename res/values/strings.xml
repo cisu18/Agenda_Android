@@ -14,10 +14,10 @@
     <string name="msg_cerrar_sesion">Cerrar Sesion</string>
     <string name="msg_inicio">Inicio</string>
     <string name="msg_menu_libros_referencia">Lectura de Libros</string>
- 	<string name="msg_menu_libros_peliculas">Peliculas/Serie tv</string>
+    <string name="msg_menu_libros_peliculas">Peliculas/Serie tv</string>
     <string name="msg_menu_libros_audios">Audio/Conferencia</string>
-   	<string name="msg_menu_libros_circulos">Circulo de Crecimiento</string>
-      
+    <string name="msg_menu_libros_circulos">Circulo de Crecimiento</string>
+
     <!-- Encabezados -->
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
     <string name="lista_avance">AVANCE MENSUAL</string>
@@ -30,7 +30,7 @@
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="circulo_crecimirnto">CIRCULO DE CRECIMIENTO</string>
 
     <string-array name="criterios_evaluacion">
         <item>Nada</item>
@@ -44,5 +44,6 @@
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="app_id">695214903902557</string>
     <string name="title_activity_avance_mensual">AvanceMensual</string>
+    <string name="title_activity_circulo_crecimiento">CirculoCrecimiento</string>
 
 </resources>
