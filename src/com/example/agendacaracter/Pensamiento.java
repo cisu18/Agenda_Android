@@ -120,7 +120,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades,
-				menu.setHeaderTitle("Actividades para fortalecer tu caracter"));
+				menu.setHeaderTitle("Actividades para Fortalecer tu Carácter"));
 	}
 
 	@Override

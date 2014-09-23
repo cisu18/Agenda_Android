@@ -90,7 +90,7 @@ public class ListaCualidades extends Activity {
 
 		cualidad = (cualidad) lsvListaCualidades.getAdapter().getItem(
 				info.position);
-		menu.setHeaderTitle("Actividades para fortalecer tu caracter");
+		menu.setHeaderTitle("Actividades para fortalecer tu Carácter");
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu);
 	}

@@ -68,17 +68,19 @@ public class AdaptadorAvance extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-
+					
 		holder.cualidad.setText(searchArrayList.get(position).getMes());
+		holder.id.setText(Integer.parseInt(searchArrayList.get(position)
+				.getId()) * 10 + "%");
 		holder.puntaje.setProgress(Integer.parseInt(searchArrayList.get(
-				position).getId()) * 10);
+				position).getId()) * 10);		
 		
 		GradientDrawable.Orientation fgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 		GradientDrawable.Orientation bgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 
 		// Background
 		GradientDrawable bgGradDrawable = new GradientDrawable(bgGradDirection,
-				new int[] { 0xff4d6371, 0xfffefffe });
+				new int[] { 0xffCDDCE5, 0xffCDDCE5 });
 		bgGradDrawable.setShape(GradientDrawable.RECTANGLE);
 		bgGradDrawable.setCornerRadius(8);
 		ClipDrawable bgclip = new ClipDrawable(bgGradDrawable, Gravity.LEFT,
@@ -114,8 +116,7 @@ public class AdaptadorAvance extends BaseAdapter {
 		holder.puntaje.setProgressDrawable(progressLayerDrawable);
 		holder.puntaje.getProgressDrawable().setBounds(bounds);		
 
-		holder.id.setText(Integer.parseInt(searchArrayList.get(position)
-				.getId()) * 10 + "%");
+		
 		return convertView;
 	}
 
