@@ -22,6 +22,9 @@ import android.widget.Toast;
 public class DescripcionLibro extends Activity {
 	private ImageView imvLibroDescripcion;
 	private TextView txvDesripcionLibro;
+	private TextView txvTituloLibro;
+	private TextView txvAutorLibro;
+	private TextView txvEdicionLibro;
 	ArrayList<Libro> listadoLibros;
 	DescargarImagen adaptadorImagen;
 
@@ -42,11 +45,19 @@ public class DescripcionLibro extends Activity {
 				"fonts/GeosansLight_2.ttf");
 
 		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
-
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
+		
+		txvAutorLibro  = (TextView) findViewById(R.id.txv_autor_libro);
+		txvAutorLibro.setTypeface(miPropiaTypeFace);
 
 		txvDesripcionLibro = (TextView) findViewById(R.id.txv_descripcion_libro);
 		txvDesripcionLibro.setTypeface(miDescripcionTypeFace);
+		
+		txvEdicionLibro = (TextView) findViewById(R.id.txv_edicion_libro);
+		txvEdicionLibro.setTypeface(miDescripcionTypeFace);
+		
+		txvTituloLibro = (TextView) findViewById(R.id.txv_titulo_libro);
+		txvTituloLibro.setTypeface(tfHelveticaBold);
 
 		TextView txvMensajeReserva = (TextView) findViewById(R.id.txv_mensaje_reserva);
 		txvMensajeReserva.setTypeface(miPropiaTypeFace);

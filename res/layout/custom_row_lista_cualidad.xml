@@ -8,10 +8,10 @@
         android:id="@+id/txv_item_mes_lista_cualidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:shadowColor="@color/CABECERA"
         android:textColor="#00b5b5"
-        android:textSize="22sp"
-        android:layout_marginTop="5dp" />
+        android:textSize="22sp" />
 
    <TextView
        android:id="@+id/txv_item_cualidad_lista_cualidad"
@@ -19,7 +19,6 @@
        android:layout_height="wrap_content"
        android:layout_alignParentLeft="true"
        android:layout_below="@+id/txv_item_mes_lista_cualidad"
-       android:layout_marginTop="5dp"
        android:shadowColor="@color/CABECERA"
        android:textColor="@color/letras_funtes"
        android:textSize="20sp" />
@@ -34,12 +33,12 @@
 
  <ImageView
      android:id="@+id/imageView1"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
+     android:layout_width="28dp"
+     android:layout_height="28dp"
      android:layout_alignParentRight="true"
      android:layout_alignParentTop="true"
      android:layout_marginRight="15dp"
-     android:layout_marginTop="25dp"
-     android:src="@drawable/add" />
+     android:layout_marginTop="22dp"
+     android:src="@drawable/masrosa" />
 
 </RelativeLayout>

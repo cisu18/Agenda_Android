@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-  
-<LinearLayout
-     android:orientation="vertical"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,31 +19,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:layout_marginTop="15dp"
-                android:paddingBottom="12dp"
+                android:paddingBottom="5dp"
                 android:scaleType="center"
                 android:src="@drawable/ic_launcher" />
 
         </LinearLayout>
-
     </LinearLayout>
 
-<TextView
-    android:id="@+id/txv_item_titulo_lista_libros_referencia"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical|center_horizontal"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:text="este es la descripcion del libro "
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="@color/letras_funtes"
-    android:textSize="16sp" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/CABECERA" />
 
-<TextView
-    android:id="@+id/txv_item_id_lista_libros_referencia"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"    
-    android:gravity="center_vertical|center_horizontal" />
-    
+    <TextView
+        android:id="@+id/txv_item_titulo_lista_libros_referencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="este es la descripcion del libro "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/letras_funtes"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txv_item_id_lista_libros_referencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal" />
+
 </LinearLayout>
