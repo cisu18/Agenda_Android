@@ -25,13 +25,10 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -83,30 +80,7 @@ public class Login extends Activity implements OnClickListener {
 		img_twitter.setOnClickListener(this);
 
 		ImageView img_faccebook = (ImageView) findViewById(R.id.imv_login_facebook);
-		img_faccebook.setOnClickListener(this);
-
-
-//				etxUsuarioNombre.setOnKeyListener(new OnKeyListener() {
-//			
-//			
-//			@Override
-//			public boolean onKey(View v, int keyCode, KeyEvent event) {
-//				// TODO Auto-generated method stub
-//			Log.e("letras",event.toString());
-//			switch (keyCode) {
-//			case 1-100:
-//				return true;
-//				
-//
-//			default:
-//				break;
-//			}
-//			return false;
-//							}
-//		}); 
-//			
-			
-			
+		img_faccebook.setOnClickListener(this);			
 			
 			
 	}
