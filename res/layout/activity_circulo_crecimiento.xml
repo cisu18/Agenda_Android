@@ -14,8 +14,6 @@
      android:background="@color/CABECERA"
      android:gravity="center"
      android:paddingBottom="13dp"
-     android:paddingLeft="25dp"
-     android:paddingRight="18dp"
      android:paddingTop="13dp"
      android:tag="26dp"
      android:text="@string/circulo_crecimiento"
@@ -27,9 +25,9 @@
         android:id="@+id/grv_Lista_Circulos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="2"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp" >
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:numColumns="2" >
 
     </GridView>
 
