@@ -311,7 +311,7 @@ int menu twitter 0x7f0a000f
 int string action_settings 0x7f07001a
 int string app_id 0x7f070034
 int string app_name 0x7f07001b
-int string circulo_crecimirnto 0x7f070031
+int string circulo_crecimiento 0x7f070031
 int string codigo__reserva 0x7f07002d
 int string com_facebook_choose_friends 0x7f07000f
 int string com_facebook_dialogloginactivity_ok_button 0x7f070000
