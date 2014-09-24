@@ -98,26 +98,26 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		}
 	}
 	
-	private void mostrarMensajeDiario(int estado, int puntajeMensual) {
+	private void mostrarMensajeDiario(int estado, int intPorcentaje) {
 		StringBuilder stbMensajeResultado = new StringBuilder();
 		StringBuilder stbRecomendacion = new StringBuilder();
 		StringBuilder stbMensajeCarita = new StringBuilder();
-		int intPorcentaje = 0;
+		
 		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion); 
 		if (estado == 1) {
-			intPorcentaje = puntajeMensual * 20;
+			intPorcentaje = intPorcentaje * 25;
 			stbMensajeResultado.append("Tu avance personal de este mes es ");
 			stbCompartir.append("Mi avance personal de este mes es ");
 			
 		} else if (estado == 2) {
 
-			intPorcentaje = intPuntaje * 20;
+			intPorcentaje = intPorcentaje * 25;
 			stbMensajeResultado.append("Tu avance personal de hoy es: ");
 			stbCompartir.append("Mi avance personal de hoy es ");
 			
 		}
 		switch (intPorcentaje) {
-		case 20:
+		case 0:
 			stbMensajeResultado.append(intPorcentaje + "%");
 			stbCompartir.append(intPorcentaje
 					+ "%\nEs la oportunidad iniciar mi cambio personal.");
@@ -127,7 +127,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			stbMensajeCarita.append("¡Vamos!");
 			img.setImageResource(R.drawable.cara_01);
 			break;
-		case 40:
+		case 25:
 			stbMensajeResultado.append(intPorcentaje + "%");
 			stbCompartir
 					.append(intPorcentaje
@@ -137,7 +137,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			stbMensajeCarita.append("¡Sigue adelante!");
 			img.setImageResource(R.drawable.cara_02);
 			break;
-		case 60:
+		case 50:
 			stbMensajeResultado.append(intPorcentaje + "%");
 			stbCompartir
 					.append(intPorcentaje
@@ -147,7 +147,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			stbMensajeCarita.append("¡Vas bien!");
 			img.setImageResource(R.drawable.cara_03);
 			break;
-		case 80:
+		case 75:
 			stbMensajeResultado.append(intPorcentaje + "%");
 			stbCompartir.append(intPorcentaje
 					+ "%\nSe está formando un hábito fuerte en mí.");

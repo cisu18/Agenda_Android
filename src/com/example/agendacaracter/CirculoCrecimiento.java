@@ -6,10 +6,12 @@ import com.example.entidad.Circulos;
 import com.example.reutilizables.AdaptadorCirculos;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
+import android.widget.TextView;
 
 public class CirculoCrecimiento extends Activity {
 	GridView grvListaCirculos;
@@ -21,6 +23,11 @@ public class CirculoCrecimiento extends Activity {
 		setContentView(R.layout.activity_circulo_crecimiento);
 		grvListaCirculos = (GridView) findViewById(R.id.grv_Lista_Circulos);
         listacirculos= new ArrayList<Circulos>();
+        
+        Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-Cond.otf");
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
+		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
     
         // Introduzco los datos
         circulo = new Circulos("La Cruz - Tumbes", "Julián y Violeta Campaña","Las Gardenias de Villa Hermosa","044-223423");

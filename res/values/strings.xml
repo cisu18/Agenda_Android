@@ -30,7 +30,7 @@
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
-    <string name="circulo_crecimiento">NUESTROS ANEXOS</string>    
+    <string name="circulo_crecimiento">CÍRCULOS DE CRECIMIENTO</string>    
     <string name="peliculas_series">PELÍCULAS Y SERIES</string>
 
     <string-array name="criterios_evaluacion">

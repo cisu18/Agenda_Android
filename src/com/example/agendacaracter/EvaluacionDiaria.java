@@ -123,9 +123,9 @@ public class EvaluacionDiaria extends Activity {
 
 	public int sumarPuntaje() {
 		double puntaje01 = Double.parseDouble(String
-				.valueOf(spiCritetioEvaluacion01.getSelectedItemPosition())) + 1;
+				.valueOf(spiCritetioEvaluacion01.getSelectedItemPosition()));
 		double puntaje02 = Double.parseDouble(String
-				.valueOf(spiCritetioEvaluacion02.getSelectedItemPosition())) + 1;
+				.valueOf(spiCritetioEvaluacion02.getSelectedItemPosition()));
 
 		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);
 		return promedio;
