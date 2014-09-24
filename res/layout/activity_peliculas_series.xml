@@ -23,14 +23,13 @@
      android:textColorLink="@color/LETRA"
      android:textSize="22sp" />
 
-    <GridView
-        android:id="@+id/grv_Lista_peliculas"
+    <ListView
+        android:id="@+id/lsv_Lista_peliculas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="2"
         android:paddingLeft="15dp"
         android:paddingRight="15dp" >
 
-    </GridView>
+    </ListView>
 
 </LinearLayout>

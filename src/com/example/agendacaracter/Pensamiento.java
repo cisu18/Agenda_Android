@@ -133,6 +133,16 @@ public class Pensamiento extends Activity implements OnClickListener {
 			i.putExtra("id cualidad", txvIdCualidad.getText());
 			startActivity(i);
 			return true;
+
+		case R.id.opcVerPeliculas:
+			Intent peliculas=new Intent(this,PeliculasSeries.class);
+			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
+			startActivity(peliculas);
+			return true;
+		case R.id.opcVerCirculos:
+			Intent circulos=new Intent(this,CirculoCrecimiento.class);
+			startActivity(circulos);
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}

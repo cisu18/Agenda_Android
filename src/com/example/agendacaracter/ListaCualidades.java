@@ -109,6 +109,11 @@ public class ListaCualidades extends Activity {
 			i.putExtra("id cualidad", id);
 			startActivity(i);
 			return true;
+		case R.id.opcVerPeliculas:
+			Intent peliculas=new Intent(this,PeliculasSeries.class);
+			peliculas.putExtra("id cualidad", id);
+			startActivity(peliculas);
+			return true;
 		case R.id.opcVerCirculos:
 			Intent circulos=new Intent(this,CirculoCrecimiento.class);
 			startActivity(circulos);
