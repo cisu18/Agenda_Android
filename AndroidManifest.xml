@@ -93,6 +93,10 @@
             android:name=".CirculoCrecimiento"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".PeliculasSeries"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
