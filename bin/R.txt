@@ -85,7 +85,7 @@ int drawable com_facebook_list_divider 0x7f020018
 int drawable com_facebook_list_section_header_background 0x7f020019
 int drawable com_facebook_loginbutton_silver 0x7f02001a
 int drawable com_facebook_logo 0x7f02001b
-int drawable com_facebook_picker_default_separator_color 0x7f020051
+int drawable com_facebook_picker_default_separator_color 0x7f020055
 int drawable com_facebook_picker_item_background 0x7f02001c
 int drawable com_facebook_picker_list_focused 0x7f02001d
 int drawable com_facebook_picker_list_longpressed 0x7f02001e
@@ -118,6 +118,7 @@ int drawable emaila 0x7f020038
 int drawable evaluacion 0x7f020039
 int drawable face 0x7f02003a
 int drawable gmail 0x7f02003b
+<<<<<<< HEAD
 int drawable ic_action_accept 0x7f02003c
 int drawable ic_action_cancel 0x7f02003d
 int drawable ic_action_email 0x7f02003e
@@ -145,6 +146,39 @@ int id action_listar 0x7f040071
 int id action_listar_avance 0x7f040072
 int id action_menu 0x7f040070
 int id action_settings 0x7f04006d
+=======
+int drawable horario 0x7f02003c
+int drawable ic_action_accept 0x7f02003d
+int drawable ic_action_cancel 0x7f02003e
+int drawable ic_action_email 0x7f02003f
+int drawable ic_action_overflow 0x7f020040
+int drawable ic_action_user 0x7f020041
+int drawable ic_launcher 0x7f020042
+int drawable key 0x7f020043
+int drawable key2 0x7f020044
+int drawable key_log_32 0x7f020045
+int drawable libros_ref 0x7f020046
+int drawable masrosa 0x7f020047
+int drawable next_item 0x7f020048
+int drawable overflow 0x7f020049
+int drawable overflow_prin 0x7f02004a
+int drawable pensamiento_48 0x7f02004b
+int drawable responsable 0x7f02004c
+int drawable share_48 0x7f02004d
+int drawable spinner 0x7f02004e
+int drawable telefono 0x7f02004f
+int drawable textura_2 0x7f020050
+int drawable twitter 0x7f020051
+int drawable ubicacion 0x7f020052
+int drawable usera 0x7f020053
+int drawable view_as_list_64 0x7f020054
+int id action_cerrar_sesion 0x7f04006c
+int id action_inicio 0x7f04006b
+int id action_listar 0x7f04006e
+int id action_listar_avance 0x7f04006f
+int id action_menu 0x7f04006d
+int id action_settings 0x7f04006a
+>>>>>>> f07ff540034c1b1ea42fa40971c7fea3862a3cea
 int id btn_compartir_puntaje 0x7f04003c
 int id btn_crear_cuenta 0x7f04000e
 int id btn_iniciar_sesion 0x7f04001f
