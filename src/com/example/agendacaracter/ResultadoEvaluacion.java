@@ -80,6 +80,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 							+ "/puntaje/" + intPuntaje
 							+ "/cualidad/" + idCualidad+ "/format/json");
 			mostrarMensajeDiario(intPuntaje);
+
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);

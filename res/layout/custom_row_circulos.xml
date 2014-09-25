@@ -17,7 +17,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_below="@+id/imageView1"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="25dp"
         android:layout_toLeftOf="@+id/txv_ciudad_circulo"
         android:src="@drawable/responsable" />
 
