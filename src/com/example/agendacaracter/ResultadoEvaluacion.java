@@ -81,7 +81,8 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 							+ Util.getFechaActual()
 							+ "/usuario/"
 							+ idUsuario
-							+ "/puntaje/" + intPuntaje + "/format/json");
+							+ "/puntaje/" + intPuntaje 
+							+ "/cualidad/"  +intPuntaje*25+ "/format/json");
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
