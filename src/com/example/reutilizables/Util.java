@@ -36,10 +36,11 @@ public class Util {
 	}
 	
 	public static void compartir(Context context,String title,String post) {
+		String text=post+"\n\n#Agendacarácter\nCLM Deved";
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT, title);
-		intent.putExtra(Intent.EXTRA_TEXT, post+"\n\n#Agendacarácter\nCLM Deved");
+		intent.putExtra(Intent.EXTRA_TEXT,text );
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);		
 		context.startActivity(Intent.createChooser(intent, "Compartir en"));
 	}
@@ -66,12 +67,10 @@ public class Util {
 				inputStream.close();
 			} else {
 				Log.e("Error:","No se descargaron los datos del servidor");
-//				Toast.makeText(context, "Util: Error Interno -> readJSONFeed. Status Code", Toast.LENGTH_SHORT).show();
 				
 			}
 		} catch (Exception e) {
-			Log.e("Error:","No se descargaron los datos del servidor");
-//			Toast.makeText(context, "Util: Error Interno -> readJSONFeed. "+e.getMessage(), Toast.LENGTH_SHORT).show();
+			Log.e("Error readJSONFeed:","No se descargaron los datos del servidor "+e.getMessage());			
 		}
 		return stringBuilder.toString();
 	}

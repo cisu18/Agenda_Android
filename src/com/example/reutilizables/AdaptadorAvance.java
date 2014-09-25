@@ -16,16 +16,16 @@ import android.widget.BaseAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.agendacaracter.R;
-import com.example.entidad.cualidad;
+import com.example.entidad.Cualidad;
 
 public class AdaptadorAvance extends BaseAdapter {
 
 	Typeface tf;
-	private static ArrayList<cualidad> searchArrayList;
+	private static ArrayList<Cualidad> searchArrayList;
 	
 	private LayoutInflater mInflater;
 
-	public AdaptadorAvance(Context context, ArrayList<cualidad> results) {
+	public AdaptadorAvance(Context context, ArrayList<Cualidad> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),

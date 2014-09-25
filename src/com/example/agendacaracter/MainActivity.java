@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -44,6 +45,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public TextView tvIdCualidad;
 	public static Activity principal;
+	
+	SharedPreferences archivoUsuario;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,12 +98,16 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		tvIdCualidad = new TextView(this);
 		iniciarServicios();
+		
+		archivoUsuario = getApplicationContext()
+				.getSharedPreferences("user", Context.MODE_PRIVATE);
+		usuarioConectado();
+		
 
-		estaConectado();
-		if (estaConectado()) {
-			SharedPreferences prefe = getSharedPreferences("user",
-					Context.MODE_PRIVATE);
-			int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+	}
+	public void usuarioConectado(){
+		if (estaConectado()) {			
+			int idUsuario = Integer.parseInt(archivoUsuario.getString("id", "0"));
 			if (idUsuario == 0) {
 				Intent i = new Intent(this, Login.class);
 				startActivity(i);
@@ -115,7 +122,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			showAlertDialog(MainActivity.this, "Conexion a Internet",
 					"Tu Dispositivo necesita una conexion a internet.", false);
 		}
-
 	}
 
 	public void iniciarServicios() {
@@ -142,9 +148,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.txv_ir_evaluacion_diaria:
 			/*
-			 * SharedPreferences preferencias = getSharedPreferences("user",
-			 * Context.MODE_PRIVATE); String fechaevaluacion =
-			 * preferencias.getString("eval", "0"); if
+			 * String fechaevaluacion =
+			 * archivoUsuario.getString("eval", "0"); if
 			 * (!Val.isEvaluated(getApplicationContext
 			 * (),preferencias.getString("id", "0"))) {
 			 */
@@ -212,9 +217,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent mostrarAct = new Intent(this, ListaCualidades.class);
 			startActivity(mostrarAct);
 			return true;
-		case R.id.action_cerrar_sesion:
-			SharedPreferences archivoUsuario = getApplicationContext()
-					.getSharedPreferences("user", Context.MODE_PRIVATE);
+		case R.id.action_cerrar_sesion:		
 			archivoUsuario.edit().remove("id").commit();
 			archivoUsuario.edit().remove("usuario").commit();
 			archivoUsuario.edit().remove("email").commit();
@@ -319,6 +322,9 @@ public class MainActivity extends Activity implements OnClickListener {
 				versiculo.setText(datos.getString("versiculo"));
 				textobiblico.setText(datos.getString("numeroversiculo"));
 				textosPlanLectura.setText(datos.getString("planlectura"));
+				Editor editor = archivoUsuario.edit();
+				editor.putString("idCualidad", datos.getString("cualidad_id"));
+				editor.commit();
 
 			} catch (Exception e) {
 				Toast.makeText(

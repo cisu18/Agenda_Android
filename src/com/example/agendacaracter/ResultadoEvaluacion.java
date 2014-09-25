@@ -1,8 +1,4 @@
 package com.example.agendacaracter;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
 
@@ -18,7 +14,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import android.widget.TextView;
 
@@ -73,15 +68,18 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 	public void cargaData() {
 		Bundle bundle = getIntent().getExtras();
-		intPuntaje = bundle.getInt("puntaje");		
-		 idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
+		intPuntaje = bundle.getInt("puntaje")*25;		
+		idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
+		int idCualidad = Integer.parseInt(preferencias.getString("idCualidad", "0"));
 		if (idUsuario > 0) {
 			new ReadJSONFeedTask()
 					.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"
 							+ Util.getFechaActual()
 							+ "/usuario/"
 							+ idUsuario
-							+ "/puntaje/" + intPuntaje + "/format/json");
+							+ "/puntaje/" + intPuntaje
+							+ "/cualidad/" + idCualidad+ "/format/json");
+			mostrarMensajeDiario(intPuntaje);
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
@@ -98,24 +96,15 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		}
 	}
 	
-	private void mostrarMensajeDiario(int estado, int intPorcentaje) {
+	private void mostrarMensajeDiario(int intPorcentaje) {
 		StringBuilder stbMensajeResultado = new StringBuilder();
 		StringBuilder stbRecomendacion = new StringBuilder();
 		StringBuilder stbMensajeCarita = new StringBuilder();
 		
-		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion); 
-		if (estado == 1) {
-			intPorcentaje = intPorcentaje * 25;
-			stbMensajeResultado.append("Tu avance personal de este mes es ");
-			stbCompartir.append("Mi avance personal de este mes es ");
-			
-		} else if (estado == 2) {
-
-			intPorcentaje = intPorcentaje * 25;
-			stbMensajeResultado.append("Tu avance personal de hoy es: ");
-			stbCompartir.append("Mi avance personal de hoy es ");
-			
-		}
+		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion);
+		stbMensajeResultado.append("Tu avance personal de hoy es: ");
+		stbCompartir.append("Mi avance personal de hoy es ");			
+		
 		switch (intPorcentaje) {
 		case 0:
 			stbMensajeResultado.append(intPorcentaje + "%");
@@ -176,20 +165,6 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 		protected String doInBackground(String... urls) {
 			return Util.readJSONFeed(urls[0],getApplicationContext());
-		}
-
-		protected void onPostExecute(String result) {
-			try {
-				JSONArray jsonArray = new JSONArray(result);
-				JSONObject datos = new JSONObject();
-				datos = jsonArray.getJSONObject(0);				
-				mostrarMensajeDiario(
-						Integer.parseInt(datos.getString("estado")),
-						Integer.parseInt(datos.getString("puntaje")));
-				
-			} catch (Exception e) {
-				Toast.makeText(getApplicationContext(), "ResultadoEvaluación: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();				
-			}
-		}
+		}		
 	}	
 }

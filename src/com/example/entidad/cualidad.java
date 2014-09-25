@@ -1,6 +1,6 @@
 package com.example.entidad;
 
-public class cualidad {
+public class Cualidad {
 
 		private String id;
 		private String cualidad;
