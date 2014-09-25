@@ -30,11 +30,11 @@ public class CirculoCrecimiento extends Activity {
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
     
         // Introduzco los datos
-        circulo = new Circulos("La Cruz - Tumbes", "Julián y Violeta Campaña","Las Gardenias de Villa Hermosa","044-223423");
+        circulo = new Circulos("Av. Enrique Meigg Mz. A2 Lt. 22 Urb El Trapecio Trujillo", "Richard Oruna","Lunes- 4:00 PM ","044-223423");
         listacirculos.add(circulo);
         circulo = new Circulos("Nuevo Cajamarca", "Maria Durán","Martha Chávez","642372");
         listacirculos.add(circulo);
-        circulo = new Circulos("Casitas", "Orlando Peña","Trigal, Averias, Cañaveral y la Choza","767787");
+        circulo = new Circulos("Av. Enrique Meigg Mz. A2 Lt. 22 Urb El Trapecio Trujillo", "Orlando Peña","Trigal, Averias, Cañaveral y la Choza","767787");
         listacirculos.add(circulo);
         circulo = new Circulos("Chimbote", "Gadaffy y Juanita Carrillo","Av. Enrique Meigg Mz. A2 Lt. 22 Urb El Trapecio","658757");
         circulo = new Circulos("La Cruz - Tumbes", "Julián y Violeta Campaña","Las Gardenias de Villa Hermosa","044-223423");

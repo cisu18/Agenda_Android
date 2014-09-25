@@ -17,7 +17,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_below="@+id/imageView1"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:layout_toLeftOf="@+id/txv_ciudad_circulo"
         android:src="@drawable/responsable" />
 
@@ -36,7 +36,7 @@
         android:layout_height="20dp"
         android:layout_below="@+id/imageView3"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_toLeftOf="@+id/txv_ciudad_circulo"
         android:src="@drawable/telefono" />
 
@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imageView1"
             android:layout_marginLeft="7dp"
-            android:layout_marginTop="3dp"
             android:layout_toRightOf="@+id/imageView1"
             android:text="Ciudad"
             android:textColor="@color/letras_funtes"
@@ -68,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/txv_encragado_circulo"
                 android:layout_alignTop="@+id/imageView3"
-                android:text="Direccion"
+                android:text="Horario"
                 android:textColor="@color/letras_funtes"
                 android:textSize="14sp" />
         
