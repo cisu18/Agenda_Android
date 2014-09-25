@@ -56,8 +56,10 @@ public class PeliculasSeries extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				String url=listadoMultimedias.get(position).getUrlMultimedia();
-				Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+				String idPeli=listadoMultimedias.get(position).getIdMultimedia();
+//				Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+				Intent intent = new Intent(getApplicationContext(),DescripcionPeliculas.class);
+				intent.putExtra("id Pelicula", idPeli);
 				startActivity(intent);
 			}
 		

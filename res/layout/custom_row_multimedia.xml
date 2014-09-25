@@ -20,17 +20,26 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imv_imagen_multimedia"
         android:layout_marginLeft="41dp"
+        android:layout_marginTop="5dp"        
         android:layout_toRightOf="@+id/imv_imagen_multimedia"
         android:text="TextView"
         android:textColor="@color/letras_funtes" />
 
     <TextView
-        android:id="@+id/txv_url_multimedia"
+        android:id="@+id/txv_genero_multimedia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imv_imagen_multimedia"
         android:layout_alignLeft="@+id/txv_nombre_multimedia"
         android:text="TextView"
-        android:textColor="@color/twitter" />
+        android:textColor="@color/letras_funtes" />
+
+    <TextView
+        android:id="@+id/txv_id_multimedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txv_genero_multimedia"
+        android:layout_below="@+id/txv_genero_multimedia"
+        android:layout_marginTop="14dp" />
 
 </RelativeLayout>

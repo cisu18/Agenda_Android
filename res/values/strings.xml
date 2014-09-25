@@ -26,11 +26,13 @@
     <string name="pensamiento">Pensamiento</string>
     <string name="referencia">LIBROS DE REFERENCIA</string>
     <string name="descripcion__libros">DESCRIPCIÓN DEL LIBRO</string>
+    <string name="descripcion_Peliculas">SINOPSIS</string>
     <string name="codigo__reserva">CÓDIGO DE RESERVA</string>
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
     <string name="circulo_crecimiento">CÍRCULOS DE CRECIMIENTO</string>    
+
     <string name="peliculas_series">PELÍCULAS Y SERIES</string>
 
     <string-array name="criterios_evaluacion">
@@ -45,6 +47,7 @@
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="app_id">695214903902557</string>
     <string name="title_activity_avance_mensual">AvanceMensual</string>
-    
+    <string name="title_activity_descripcion_peliculas">DescripcionPeliculas</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

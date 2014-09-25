@@ -49,13 +49,14 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 					.findViewById(R.id.imv_imagen_multimedia);
 			holder.tvNombre = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
-			holder.tvUrl = (TextView) v.findViewById(R.id.txv_url_multimedia);
+			holder.tvUrl = (TextView) v.findViewById(R.id.txv_genero_multimedia);
+			holder.tvId = (TextView) v.findViewById(R.id.txv_id_multimedia);
 
 			TextView nombre = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
 			nombre.setTypeface(TituloLibro);
 
-			TextView url = (TextView) v.findViewById(R.id.txv_url_multimedia);
+			TextView url = (TextView) v.findViewById(R.id.txv_genero_multimedia);
 			url.setTypeface(TituloLibro);
 
 			v.setTag(holder);
@@ -65,9 +66,9 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		holder.ivMultimediaImagen.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.ivMultimediaImagen).execute(listMultimedia
 				.get(position).getUrlImagenMultimedia());
-		holder.tvNombre.setText(listMultimedia.get(position)
+		holder.tvNombre.setText("Nombre:	"+ listMultimedia.get(position)
 				.getNombreMultimedia());
-		holder.tvUrl.setText(listMultimedia.get(position).getUrlMultimedia());
+		holder.tvUrl.setText("Genero:	"+ listMultimedia.get(position).getUrlMultimedia());
 
 		return v;
 
@@ -77,6 +78,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		public ImageView ivMultimediaImagen;
 		public TextView tvNombre;
 		public TextView tvUrl;
+		public TextView tvId;
+		
 
 	}
 

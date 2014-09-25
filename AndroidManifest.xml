@@ -97,6 +97,10 @@
             android:name=".PeliculasSeries"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".DescripcionPeliculas"
+            android:label="@string/title_activity_descripcion_peliculas" >
+        </activity>
     </application>
 
 </manifest>
