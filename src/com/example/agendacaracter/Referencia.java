@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.example.entidad.Libro;
+import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorLibro;
 import com.example.reutilizables.Util;
 import android.app.Activity;
@@ -22,7 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class Referencia extends Activity {
 
-	ArrayList<Libro> listadoLibros;
+	ArrayList<Multimedia> listadoLibros;
 
 	AdaptadorLibro adaptadorLibros;
 
@@ -38,7 +38,7 @@ public class Referencia extends Activity {
 
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
-		listadoLibros = new ArrayList<Libro>();
+		listadoLibros = new ArrayList<Multimedia>();
 
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
@@ -59,12 +59,12 @@ public class Referencia extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long id) {
 
-				String idLibro = listadoLibros.get(position).getIdLibro();
-				String url = listadoLibros.get(position).getUrlImagen();
+				String idMultimedia = listadoLibros.get(position).getIdMultimedia();
+				String urlImagenMultimedia = listadoLibros.get(position).getUrlImagenMultimedia();
 				Intent i = new Intent(getApplicationContext(),
-						DescripcionLibro.class);
-				i.putExtra("id libro", idLibro);
-				i.putExtra("url", url);
+						DescripcionMultimedia.class);
+				i.putExtra("id multimedia", idMultimedia);
+				i.putExtra("url multimedia", urlImagenMultimedia);
 				startActivity(i);
 			}
 		});
@@ -92,11 +92,11 @@ public class Referencia extends Activity {
 
 				for (int i = 0; i < jarray.length(); i++) {
 					object = jarray.getJSONObject(i);
-					Libro libro = new Libro();
-					libro.setIdLibro(object.getString("libro_id"));
-					libro.setTitulo(object.getString("titulo"));
-					libro.setUrlImagen(object.getString("urlimg"));
-					listadoLibros.add(libro);
+					Multimedia multimedia = new Multimedia();
+					multimedia.setIdMultimedia(object.getString("libro_id"));
+					multimedia.setTituloMultimedia(object.getString("titulo"));
+					multimedia.setUrlImagenMultimedia(object.getString("urlimg"));
+					listadoLibros.add(multimedia);
 				}
 			} catch (ParseException e1) {
 				e1.printStackTrace();

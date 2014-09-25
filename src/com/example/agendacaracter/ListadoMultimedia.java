@@ -9,9 +9,9 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.ParseException;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,25 +24,26 @@ import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorMultimedia;
 import com.example.reutilizables.Util;
 
-public class PeliculasSeries extends Activity {
+public class ListadoMultimedia extends Activity {
 
 	ArrayList<Multimedia> listadoMultimedias;
 
 	AdaptadorMultimedia adaptadorMultimedia;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_peliculas_series);
-		
+
 		listadoMultimedias = new ArrayList<Multimedia>();
 
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
+		String tipo = bundle.getString("tipo multimedia");
+		Log.e("ids",idCualidad +tipo);
 		new JSONAsyncTask()
-		.execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"
-				+ idCualidad);
+				.execute("http://192.168.0.55/Agenda_WS/multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+						+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final ListView lsvListaMultimedia = (ListView) findViewById(R.id.lsv_Lista_peliculas);
 		adaptadorMultimedia = new AdaptadorMultimedia(getApplicationContext(),
@@ -56,14 +57,19 @@ public class PeliculasSeries extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				String idPeli=listadoMultimedias.get(position).getIdMultimedia();
-//				Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
-				Intent intent = new Intent(getApplicationContext(),DescripcionPeliculas.class);
-				intent.putExtra("id Pelicula", idPeli);
+				String idMultimedia = listadoMultimedias.get(position)
+						.getIdMultimedia();
+				String urlImagenMultimedia = listadoMultimedias.get(position)
+						.getUrlImagenMultimedia();
+				// Intent intent = new
+				// Intent(Intent.ACTION_VIEW,Uri.parse(url));
+				Intent intent = new Intent(getApplicationContext(),
+						DescripcionMultimedia.class);
+				intent.putExtra("id multimedia", idMultimedia);
+				intent.putExtra("url multimedia", urlImagenMultimedia);
 				startActivity(intent);
 			}
-		
-		
+
 		});
 	}
 
@@ -85,13 +91,13 @@ public class PeliculasSeries extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Util.MostrarDialog(PeliculasSeries.this);
+			Util.MostrarDialog(ListadoMultimedia.this);
 		}
 
 		@Override
@@ -109,10 +115,10 @@ public class PeliculasSeries extends Activity {
 				for (int i = 0; i < jarray.length(); i++) {
 					object = jarray.getJSONObject(i);
 					Multimedia multimedia = new Multimedia();
-					multimedia.setIdMultimedia(object.getString("libro_id"));
-					multimedia.setNombreMultimedia(object.getString("titulo"));
-					multimedia.setUrlImagenMultimedia(object.getString("urlimg"));
-					multimedia.setUrlMultimedia(object.getString("urlimg"));
+					multimedia.setIdMultimedia(object.getString("id"));
+					multimedia.setTituloMultimedia(object.getString("titulo"));
+					multimedia.setUrlImagenMultimedia(object
+							.getString("img"));
 					listadoMultimedias.add(multimedia);
 				}
 			} catch (ParseException e1) {

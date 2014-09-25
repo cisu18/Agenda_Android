@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.example.entidad.Libro;
+import com.example.entidad.Multimedia;
 import com.example.reutilizables.Util;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -19,16 +19,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DescripcionLibro extends Activity {
+public class DescripcionMultimedia extends Activity {
 	private ImageView imvLibroDescripcion;
 	private TextView txvDesripcionLibro;
 	private TextView txvTituloLibro;
 	private TextView txvAutorLibro;
 	private TextView txvEdicionLibro;
-	ArrayList<Libro> listadoLibros;
+	ArrayList<Multimedia> listadoMultimedia;
 	DescargarImagen adaptadorImagen;
 
-	Libro libro = new Libro();
+	Multimedia multimedia = new Multimedia();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +47,16 @@ public class DescripcionLibro extends Activity {
 		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 		
-		txvAutorLibro  = (TextView) findViewById(R.id.txv_autor_libro);
+		txvAutorLibro  = (TextView) findViewById(R.id.txv_autor_multimedia_descripcion);
 		txvAutorLibro.setTypeface(miPropiaTypeFace);
 
-		txvDesripcionLibro = (TextView) findViewById(R.id.txv_descripcion_libro);
+		txvDesripcionLibro = (TextView) findViewById(R.id.txv_descripcion_multimedia);
 		txvDesripcionLibro.setTypeface(miDescripcionTypeFace);
 		
-		txvEdicionLibro = (TextView) findViewById(R.id.txv_edicion_libro);
+		txvEdicionLibro = (TextView) findViewById(R.id.txv_edicion_multimedia_descripcion);
 		txvEdicionLibro.setTypeface(miDescripcionTypeFace);
 		
-		txvTituloLibro = (TextView) findViewById(R.id.txv_titulo_libro);
+		txvTituloLibro = (TextView) findViewById(R.id.txv_titulo_multimedia_descripcion);
 		txvTituloLibro.setTypeface(tfHelveticaBold);
 
 		TextView txvMensajeReserva = (TextView) findViewById(R.id.txv_mensaje_reserva);
@@ -65,16 +65,16 @@ public class DescripcionLibro extends Activity {
 		Button btnReservaAqui = (Button) findViewById(R.id.btn_reserva_aqui);
 		btnReservaAqui.setTypeface(tfHelveticaBold);
 
-		imvLibroDescripcion = (ImageView) findViewById(R.id.imv_libro_descripcion);
+		imvLibroDescripcion = (ImageView) findViewById(R.id.imv_multimedia_descripcion);
 
 		Bundle bundle = getIntent().getExtras();
-		String parametroIdLibro = bundle.getString("id libro");
-		String parametroUrlImagen = bundle.getString("url");
+		String parametroIdMultimedia = bundle.getString("id multimedia");
+		String parametroUrlImagenMultimedia = bundle.getString("url multimedia");
 
 		new JSONAsyncTask()
-				.execute("http://192.168.0.55/Agenda_WS/libro/libro_byid/format/json/id/"
-						+ parametroIdLibro);
-		new DescargarImagen().execute(parametroUrlImagen);
+				.execute("http://192.168.0.55/Agenda_WS/multimedia/multimedia_byid/format/json/id/"
+						+ parametroIdMultimedia);
+		new DescargarImagen().execute(parametroUrlImagenMultimedia);
 
 	}
 
@@ -83,7 +83,7 @@ public class DescripcionLibro extends Activity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Util.MostrarDialog(DescripcionLibro.this);
+			Util.MostrarDialog(DescripcionMultimedia.this);
 		}
 
 		@Override
@@ -95,19 +95,22 @@ public class DescripcionLibro extends Activity {
 		protected void onPostExecute(String result) {
 
 			try {
-				listadoLibros = new ArrayList<Libro>();
+				listadoMultimedia = new ArrayList<Multimedia>();
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);
 
 				object = jarray.getJSONObject(0);
 
-				libro.setIdLibro(object.getString("libro_id"));
-				libro.setTitulo(object.getString("titulo"));
-				libro.setUrlImagen(object.getString("urlimg"));
-				libro.setDescripcionLibro(object.getString("descripcion"));
-				listadoLibros.add(libro);
-				txvDesripcionLibro.setText(libro.getDescripcionLibro());
-
+				multimedia.setIdMultimedia(object.getString("id"));
+				multimedia.setTituloMultimedia(object.getString("titulo"));
+				multimedia.setUrlImagenMultimedia(object.getString("img"));
+				multimedia.setDescripcionMultimedia(object.getString("descripcion"));
+				listadoMultimedia.add(multimedia);
+				
+				txvEdicionLibro.setText(multimedia.getIdMultimedia());
+				txvTituloLibro.setText(multimedia.getTituloMultimedia());
+				txvDesripcionLibro.setText(multimedia.getDescripcionMultimedia());
+				
 			} catch (Exception e) {
 				// TODO: handle exception
 				Toast.makeText(

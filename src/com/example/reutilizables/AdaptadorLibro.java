@@ -17,10 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.agendacaracter.R;
-import com.example.entidad.Libro;
+import com.example.entidad.Multimedia;
 
-public class AdaptadorLibro extends ArrayAdapter<Libro> {
-	ArrayList<Libro> listLibro;
+public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
+	ArrayList<Multimedia> listLibro;
 	LayoutInflater vi;
 	int Resource;
 	ViewHolder holder;
@@ -28,7 +28,7 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 	
 
 	public AdaptadorLibro(Context context, int resource,
-			ArrayList<Libro> objects) {
+			ArrayList<Multimedia> objects) {
 		super(context, resource, objects);
 		vi = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -59,8 +59,8 @@ public class AdaptadorLibro extends ArrayAdapter<Libro> {
 		}
 		holder.ivLibroImagen.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
-				position).getUrlImagen());
-		holder.tvTituloLibro.setText(listLibro.get(position).getTitulo());
+				position).getUrlImagenMultimedia());
+		holder.tvTituloLibro.setText(listLibro.get(position).getTituloMultimedia());
 		return v;
 
 	}

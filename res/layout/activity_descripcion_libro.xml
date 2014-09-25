@@ -40,7 +40,7 @@
         android:layout_marginTop="10dp" >
 
         <ImageView
-            android:id="@+id/imv_libro_descripcion"
+            android:id="@+id/imv_multimedia_descripcion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher" />
@@ -53,7 +53,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/txv_titulo_libro"
+                android:id="@+id/txv_titulo_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Las 21 Leyes Irrefutables de Liderazgo"
@@ -61,7 +61,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txv_autor_libro"
+                android:id="@+id/txv_autor_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -70,7 +70,7 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/txv_edicion_libro"
+                android:id="@+id/txv_edicion_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
@@ -83,7 +83,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txv_descripcion_libro"
+        android:id="@+id/txv_descripcion_multimedia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="15dp"

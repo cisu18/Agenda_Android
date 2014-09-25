@@ -48,7 +48,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DescripcionLibro"
+            android:name=".DescripcionMultimedia"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -94,7 +94,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".PeliculasSeries"
+            android:name=".ListadoMultimedia"
             android:label="@string/app_name" >
         </activity>
         <activity

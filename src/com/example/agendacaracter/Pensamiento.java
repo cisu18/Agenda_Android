@@ -135,7 +135,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			return true;
 
 		case R.id.opcVerPeliculas:
-			Intent peliculas=new Intent(this,PeliculasSeries.class);
+			Intent peliculas=new Intent(this,ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
 			startActivity(peliculas);
 			return true;

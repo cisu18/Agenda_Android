@@ -107,12 +107,20 @@ public class ListaCualidades extends Activity {
 		case R.id.opcVerLibros:
 			Intent i = new Intent(this, Referencia.class);
 			i.putExtra("id cualidad", id);
+			i.putExtra("tipo multimedia", "1");
 			startActivity(i);
 			return true;
 		case R.id.opcVerPeliculas:
-			Intent peliculas=new Intent(this,PeliculasSeries.class);
+			Intent peliculas=new Intent(this,ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", id);
+			peliculas.putExtra("tipo multimedia", "2");
 			startActivity(peliculas);
+			return true;
+		case R.id.opcVerAudios:
+			Intent audios=new Intent(this,ListadoMultimedia.class);
+			audios.putExtra("id cualidad", id);
+			audios.putExtra("tipo multimedia", "3");
+			startActivity(audios);
 			return true;
 		case R.id.opcVerCirculos:
 			Intent circulos=new Intent(this,CirculoCrecimiento.class);
