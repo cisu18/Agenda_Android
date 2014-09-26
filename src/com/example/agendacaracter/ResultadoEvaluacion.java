@@ -79,8 +79,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 							+ idUsuario
 							+ "/puntaje/" + intPuntaje
 							+ "/cualidad/" + idCualidad+ "/format/json");
-			mostrarMensajeDiario(intPuntaje);
-
+			mostrarMensajeDiario();
 		} else {
 			Intent i = new Intent(this, Login.class);
 			startActivity(i);
@@ -97,7 +96,7 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		}
 	}
 	
-	private void mostrarMensajeDiario(int intPorcentaje) {
+	private void mostrarMensajeDiario() {
 		StringBuilder stbMensajeResultado = new StringBuilder();
 		StringBuilder stbRecomendacion = new StringBuilder();
 		StringBuilder stbMensajeCarita = new StringBuilder();
@@ -106,10 +105,10 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		stbMensajeResultado.append("Tu avance personal de hoy es: ");
 		stbCompartir.append("Mi avance personal de hoy es ");			
 		
-		switch (intPorcentaje) {
+		switch (intPuntaje) {
 		case 0:
-			stbMensajeResultado.append(intPorcentaje + "%");
-			stbCompartir.append(intPorcentaje
+			stbMensajeResultado.append(intPuntaje + "%");
+			stbCompartir.append(intPuntaje
 					+ "%\nEs la oportunidad iniciar mi cambio personal.");
 			stbRecomendacion
 					.append("Es una oportunidad de iniciar tu cambio personal.");
@@ -118,9 +117,9 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			img.setImageResource(R.drawable.cara_01);
 			break;
 		case 25:
-			stbMensajeResultado.append(intPorcentaje + "%");
+			stbMensajeResultado.append(intPuntaje + "%");
 			stbCompartir
-					.append(intPorcentaje
+					.append(intPuntaje
 							+ "%\nUn poco más de esfuerzo y veré una diferencia que formará mi carácter.");
 			stbRecomendacion
 					.append("Un poco más de esfuerzo y podrías ver una diferencia que formará tu carácter.");
@@ -128,9 +127,9 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			img.setImageResource(R.drawable.cara_02);
 			break;
 		case 50:
-			stbMensajeResultado.append(intPorcentaje + "%");
+			stbMensajeResultado.append(intPuntaje + "%");
 			stbCompartir
-					.append(intPorcentaje
+					.append(intPuntaje
 							+ "%\n¿Cómo puedo hacerlo mejor? Hoy puedo trasmitir mi ejemplo a otras personas.");
 			stbRecomendacion
 					.append("¿Cómo podrías hacerlo mejor? Puedes trasmitir tu ejemplo a otras personas.");
@@ -138,17 +137,17 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 			img.setImageResource(R.drawable.cara_03);
 			break;
 		case 75:
-			stbMensajeResultado.append(intPorcentaje + "%");
-			stbCompartir.append(intPorcentaje
+			stbMensajeResultado.append(intPuntaje + "%");
+			stbCompartir.append(intPuntaje
 					+ "%\nSe está formando un hábito fuerte en mí.");
 			stbRecomendacion.append("Se está formando un hábito fuerte en ti.");
 			stbMensajeCarita.append("¡Muy bien!");
 			img.setImageResource(R.drawable.cara_04);
 			break;
 		case 100:
-			stbMensajeResultado.append(intPorcentaje + "%");
+			stbMensajeResultado.append(intPuntaje + "%");
 			stbCompartir
-					.append(intPorcentaje
+					.append(intPuntaje
 							+ "%\nPuedo ser un mentor para alguien más, otras personas necesitan mi ayuda.");
 			stbRecomendacion
 					.append("Piensa en ser un mentor para alguien más. Recuerda otras personas también necesitan ayuda.");
