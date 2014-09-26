@@ -98,7 +98,7 @@ public class TwitterActivity extends Activity {
 			}
 		});
 
-		Log.d("Twitter", "ASK OAUTH");
+		Log.e("Twitter", "ASK OAUTH");
 		askOAuth();
 		
 	}
@@ -138,24 +138,18 @@ public class TwitterActivity extends Activity {
 					
 					long userID = accessToken.getUserId();
 					User user = twitter.showUser(userID);
-					//Log.d("",user+"");
-					/*
-					String username = session.getUserName();*/
-					
+										
 					Editor e = sharedPrefs.edit();
 					e.putString(Constants.PREF_KEY_TOKEN,
 							accessToken.getToken());
 					e.putString(Constants.PREF_KEY_SECRET,
 							accessToken.getTokenSecret());
 					e.commit();
-					Log.d("Twitter", "TWITTER LOGIN SUCCESS!!!");
 					
 					TwitterActivity.this.setResult(TWITTER_LOGIN_RESULT_CODE_SUCCESS);
 					
-					Log.d("Datos ",
-							"Twitter componente =>" + accessToken.getUserId()
-									+ " " + accessToken.getScreenName()+" "+user.getName()+
-									" "+user.getDescription());
+					
+					Log.e("Usuario user",user.getName()+"");
 					
 					Intent in = new Intent(TwitterActivity.this, MainActivity.class);
 					startActivity(in);
@@ -237,7 +231,7 @@ public class TwitterActivity extends Activity {
 				TwitterActivity.this.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						Log.d("Twitter", "LOADING AUTH URL");
+						Log.e("Twitter", "LOADING AUTH URL");
 						twitterLoginWebView.loadUrl(requestToken.getAuthenticationURL());
 						twitterLoginWebView.getSettings().setJavaScriptEnabled(true);
 					}
