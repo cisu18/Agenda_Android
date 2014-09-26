@@ -7,27 +7,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CodigoReserva extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_codigo_reserva);	
-		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");		
+		setContentView(R.layout.activity_codigo_reserva);
 
-		TextView codigoreserva = (TextView)findViewById(R.id.txv_cabecera_descripcion);
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/Myriad_Pro.ttf");
+
+		TextView codigoreserva = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
 		codigoreserva.setTypeface(miPropiaTypeFace);
-		
-		TextView indicaciones = (TextView)findViewById(R.id.txv_descripcion_libro);
+
+		TextView indicaciones = (TextView) findViewById(R.id.txv_descripcion_libro);
 		indicaciones.setTypeface(miPropiaTypeFace);
-		
-		Button aceptar = (Button)findViewById(R.id.btn_reserva_aqui);
+
+		Button aceptar = (Button) findViewById(R.id.btn_reserva_aqui);
 		aceptar.setTypeface(miPropiaTypeFace);
-		
-		
+
+		Bundle bundle = getIntent().getExtras();
+		Toast.makeText(
+				getApplicationContext(),
+				bundle.getString("idMultimedia")
+						+ bundle.getString("idUsuario"), Toast.LENGTH_SHORT)
+				.show();
 	}
 
 	@Override

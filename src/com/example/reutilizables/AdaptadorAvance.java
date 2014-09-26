@@ -22,7 +22,7 @@ public class AdaptadorAvance extends BaseAdapter {
 
 	Typeface tf;
 	private static ArrayList<Cualidad> searchArrayList;
-	
+
 	private LayoutInflater mInflater;
 
 	public AdaptadorAvance(Context context, ArrayList<Cualidad> results) {
@@ -49,13 +49,13 @@ public class AdaptadorAvance extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.custom_lista_avance, null);
 			holder = new ViewHolder();
-			holder.cualidad = (TextView) convertView
+			holder.mes = (TextView) convertView
 					.findViewById(R.id.txv_nombre_cualidad);
 			holder.puntaje = (ProgressBar) convertView
 					.findViewById(R.id.pb_avance_cualidad);
-			holder.id = (TextView) convertView.findViewById(R.id.txv_id_avance);
-			
-			
+			holder.porcentaje = (TextView) convertView
+					.findViewById(R.id.txv_id_avance);
+
 			TextView mes_cualidad = (TextView) convertView
 					.findViewById(R.id.txv_nombre_cualidad);
 			mes_cualidad.setTypeface(tf);
@@ -68,13 +68,15 @@ public class AdaptadorAvance extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-					
-		holder.cualidad.setText(searchArrayList.get(position).getMes());
-		holder.id.setText(Integer.parseInt(searchArrayList.get(position)
-				.getId()) * 10 + "%");
-		holder.puntaje.setProgress(Integer.parseInt(searchArrayList.get(
-				position).getId()) * 10);		
-		
+
+		holder.mes.setText(searchArrayList.get(position).getMes());
+
+		holder.porcentaje.setText(searchArrayList.get(position).getPuntaje()
+				+ "%");
+		holder.puntaje.setMax(10000);
+		holder.puntaje.setProgress((int) Double.parseDouble(searchArrayList.get(
+				position).getPuntaje())*100);
+
 		GradientDrawable.Orientation fgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 		GradientDrawable.Orientation bgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 
@@ -88,7 +90,7 @@ public class AdaptadorAvance extends BaseAdapter {
 		bgclip.setLevel(10000);
 
 		// SecondaryProgress
-		GradientDrawable fg2GradDrawable = new GradientDrawable(				
+		GradientDrawable fg2GradDrawable = new GradientDrawable(
 				fgGradDirection, new int[] { 0xff464747, 0xffFFFFFF });
 		fg2GradDrawable.setShape(GradientDrawable.RECTANGLE);
 		fg2GradDrawable.setCornerRadius(8);
@@ -97,7 +99,7 @@ public class AdaptadorAvance extends BaseAdapter {
 
 		// Progress
 		GradientDrawable fg1GradDrawable = new GradientDrawable(
-				fgGradDirection, new int[] { 0xff00456e,0xff00cec5  });
+				fgGradDirection, new int[] { 0xff00456e, 0xff00cec5 });
 		fg1GradDrawable.setShape(GradientDrawable.RECTANGLE);
 		fg1GradDrawable.setCornerRadius(8);
 		ClipDrawable fg1clip = new ClipDrawable(fg1GradDrawable, Gravity.LEFT,
@@ -114,16 +116,15 @@ public class AdaptadorAvance extends BaseAdapter {
 		// Copy the existing ProgressDrawable bounds to the new one.
 		Rect bounds = holder.puntaje.getProgressDrawable().getBounds();
 		holder.puntaje.setProgressDrawable(progressLayerDrawable);
-		holder.puntaje.getProgressDrawable().setBounds(bounds);		
+		holder.puntaje.getProgressDrawable().setBounds(bounds);
 
-		
 		return convertView;
 	}
 
 	static class ViewHolder {
-		TextView cualidad;
+		TextView mes;
 		ProgressBar puntaje;
-		TextView id;
+		TextView porcentaje;
 	}
 
 }

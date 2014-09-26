@@ -5,6 +5,7 @@ public class Cualidad {
 		private String id;
 		private String cualidad;
 		private String mes;
+		private String puntaje;
 		
 		public String getId() {
 			return id;
@@ -25,6 +26,14 @@ public class Cualidad {
 			this.mes = mes;
 		}
 		
+		
+		
+		public String getPuntaje() {
+			return puntaje;
+		}
+		public void setPuntaje(String puntaje) {
+			this.puntaje = puntaje;
+		}
 		public String toString(){
 			return this.mes+" "+":"+" "+cualidad;
 		}	
