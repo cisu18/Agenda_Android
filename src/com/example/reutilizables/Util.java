@@ -4,14 +4,20 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -74,6 +80,49 @@ public class Util {
 		}
 		return stringBuilder.toString();
 	}
+	
+	public static String readJSONFeedPost(String username, String password,
+			String email, String firstname, String lastname, String ip) {
+		String url="http://192.168.0.55/Agenda_WS/users/create_user_social/format/json";
+		StringBuilder res = new StringBuilder();
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost(url);
+		try {
+
+			List<NameValuePair> parametros = new ArrayList<NameValuePair>(4);
+			parametros.add(new BasicNameValuePair("username", username));
+			parametros.add(new BasicNameValuePair("password", password));
+			parametros.add(new BasicNameValuePair("email", email));
+			parametros.add(new BasicNameValuePair("firstname", firstname));
+			parametros.add(new BasicNameValuePair("lastname", lastname));
+			parametros.add(new BasicNameValuePair("ip", ip));									
+			parametros.add(new BasicNameValuePair("tipo", "1"));
+			httpPost.setEntity(new UrlEncodedFormEntity(parametros));
+			HttpResponse response = httpClient.execute(httpPost);
+
+			StatusLine statusLine = response.getStatusLine();
+			int statusCode = statusLine.getStatusCode();
+			Log.e("Code",""+statusCode);
+			if (statusCode == 200 || statusCode == 404) {
+				HttpEntity entity = response.getEntity();
+				InputStream inputStream = entity.getContent();
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(inputStream));
+				String line;
+
+				while ((line = reader.readLine()) != null) {
+					res.append(line);
+				}
+				inputStream.close();
+			} else {
+				res.append("error");				
+			}
+		} catch (Exception e) {			
+			Log.e("Error Util","readJSONFeedPost:"+e.getMessage());
+		}
+		return res.toString();
+	}
+	
 	public static void MostrarDialog(Context contexto){
 		
 		dialog = new ProgressDialog(contexto);

@@ -1,5 +1,8 @@
 package com.example.agendacaracter;
 
+import org.json.JSONObject;
+
+import com.example.reutilizables.Util;
 import com.example.twitter.*;
 
 import twitter4j.Twitter;
@@ -17,6 +20,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
@@ -38,12 +42,12 @@ public class TwitterActivity extends Activity {
 
 	private static Twitter twitter;
 	private static RequestToken requestToken;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_twitter);
-		
+
 		ConfigurationBuilder builder = new ConfigurationBuilder();
 		builder.setOAuthConsumerKey(TWITTER_CONSUMER_KEY);
 		builder.setOAuthConsumerSecret(TWITTER_CONSUMER_SECRET);
@@ -100,9 +104,9 @@ public class TwitterActivity extends Activity {
 
 		Log.e("Twitter", "ASK OAUTH");
 		askOAuth();
-		
+
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -133,28 +137,37 @@ public class TwitterActivity extends Activity {
 				try {
 					SharedPreferences sharedPrefs = getSharedPreferences(
 							Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
-					AccessToken accessToken = twitter.getOAuthAccessToken(					
+					AccessToken accessToken = twitter.getOAuthAccessToken(
 							requestToken, verifier);
-					
+
 					long userID = accessToken.getUserId();
 					User user = twitter.showUser(userID);
-										
+
 					Editor e = sharedPrefs.edit();
 					e.putString(Constants.PREF_KEY_TOKEN,
 							accessToken.getToken());
 					e.putString(Constants.PREF_KEY_SECRET,
 							accessToken.getTokenSecret());
 					e.commit();
+
+					TwitterActivity.this
+							.setResult(TWITTER_LOGIN_RESULT_CODE_SUCCESS);
 					
-					TwitterActivity.this.setResult(TWITTER_LOGIN_RESULT_CODE_SUCCESS);
-					
-					
-					Log.e("Usuario user",user.getName()+"");
-					
-					Intent in = new Intent(TwitterActivity.this, MainActivity.class);
-					startActivity(in);
-					
-					
+					String username="tw"+user.getId();
+					String password=user.getId()+"tw";
+					String email="no email";
+					String firstname=user.getName();
+					String lastname=" ";
+					String ip="no ip";					
+					new RegistroUsuarioJSONFeedTask()
+							.execute(username,password,email,firstname,lastname,ip);
+
+					/*Log.e("Usuario user", user.getName() + "");
+
+					Intent in = new Intent(TwitterActivity.this,
+							MainActivity.class);
+					startActivity(in);*/
+
 				} catch (Exception e) {
 					e.printStackTrace();
 					if (e.getMessage() != null)
@@ -167,6 +180,44 @@ public class TwitterActivity extends Activity {
 				TwitterActivity.this.finish();
 			}
 		}).start();
+	}
+
+	private class RegistroUsuarioJSONFeedTask extends
+			AsyncTask<String, Void, String> {
+
+		protected String doInBackground(String... prms) {
+			return Util.readJSONFeedPost(prms[0], prms[1], prms[2], prms[3],
+					prms[4], prms[5]);
+		}
+
+		protected void onPostExecute(String result) {
+			try {
+				JSONObject datos = new JSONObject(result);
+				if (result.equals("error")) {
+					Toast.makeText(getApplicationContext(),
+							"Error al conectar con el servidor",
+							Toast.LENGTH_SHORT).show();
+				} else if (datos.getString("res").equalsIgnoreCase("ok")) {
+					SharedPreferences prefe = getSharedPreferences("user",
+							Context.MODE_PRIVATE);
+					Editor editor = prefe.edit();
+					editor.putString("id", datos.getString("data"));
+					editor.commit();
+					
+					Log.e("Id  de usuario",datos+"");
+
+					Intent i = new Intent(getApplicationContext(),
+							MainActivity.class);
+					startActivity(i);
+					finish();
+				} else if (datos.getString("res").equalsIgnoreCase("error")) {
+					Toast.makeText(getApplicationContext(), "Error interno",
+							Toast.LENGTH_SHORT).show();
+				}
+			} catch (Exception e) {
+				Log.e("Error onPostExecute", "No se descargaron los datos");
+			}
+		}
 	}
 
 	// ====== TWITTER HELPER METHODS ======
@@ -221,7 +272,7 @@ public class TwitterActivity extends Activity {
 									errorString.toString(), Toast.LENGTH_SHORT)
 									.show();
 							finish();
-							
+
 						}
 					});
 					e.printStackTrace();
@@ -232,12 +283,14 @@ public class TwitterActivity extends Activity {
 					@Override
 					public void run() {
 						Log.e("Twitter", "LOADING AUTH URL");
-						twitterLoginWebView.loadUrl(requestToken.getAuthenticationURL());
-						twitterLoginWebView.getSettings().setJavaScriptEnabled(true);
+						twitterLoginWebView.loadUrl(requestToken
+								.getAuthenticationURL());
+						twitterLoginWebView.getSettings().setJavaScriptEnabled(
+								true);
 					}
 				});
 			}
 		}).start();
 	}
-	
+
 }

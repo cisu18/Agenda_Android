@@ -55,31 +55,7 @@
                     android:layout_width="wrap_content"
                     android:gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
-                    facebook:preset_size="normal"/>
-            <Button
-                    android:id="@+id/postStatusUpdateButton"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Post Status Update"
-                    />
-            <Button
-                    android:id="@+id/postPhotoButton"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Post Photo"
-                    />
-            <Button
-                    android:id="@+id/pickFriendsButton"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pick Some Friends"
-                    />
-            <Button
-                    android:id="@+id/pickPlaceButton"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pick Place"
-                    />
+                    facebook:preset_size="normal"/>            
         </LinearLayout>
     </LinearLayout>
     <FrameLayout

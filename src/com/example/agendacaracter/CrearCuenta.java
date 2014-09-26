@@ -40,7 +40,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	EditText txtUsuario;
 	EditText txtPass1;
 	EditText txtPass2;
-	AlertDialog alert;
+	// AlertDialog alert;
 	Button btnCrearCuenta;
 
 	@Override
@@ -93,27 +93,29 @@ public class CrearCuenta extends Activity implements OnClickListener {
 					msg.append("Las contraseñas no coinciden");
 					con = false;
 				}
-				if (!usuario.matches(patron) || !pass1.matches(patron) || !pass2.matches(patron)) {
-					
+				if (!usuario.matches(patron) || !pass1.matches(patron)
+						|| !pass2.matches(patron)) {
+
 					if (!usuario.matches(patron)) {
 						txtUsuario.setText("");
 					}
 					if (!pass1.matches(patron)) {
 						txtPass1.setText("");
-	
+
 					}
 					if (!pass2.matches(patron)) {
 						txtPass2.setText("");
-	
+
 					}
-					if (!usuario.matches(patron) && !pass1.matches(patron) && !pass2.matches(patron)) {
+					if (!usuario.matches(patron) && !pass1.matches(patron)
+							&& !pass2.matches(patron)) {
 						txtUsuario.setText("");
 						txtPass1.setText("");
 						txtPass2.setText("");
-	
+
 					}
 					msg.append("No se permiten caracteres especiales");
-					con=false;
+					con = false;
 				}
 
 			} else {
@@ -147,18 +149,11 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 			try {
 				JSONObject datos = new JSONObject(result);
-				alert = new AlertDialog.Builder(CrearCuenta.this).create();
-				alert.setTitle("Mensaje");
-				alert.setIcon(R.drawable.ic_action_cancel);
+
 				if (result.equals("error")) {
-					alert.setMessage("Error al conectar con el servidor.");
-					alert.setButton("Aceptar",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int which) {
-									alert.hide();
-								}
-							});
+					Toast.makeText(getApplicationContext(),
+							"Error al conectar con el servidor",
+							Toast.LENGTH_SHORT).show();
 				} else if (datos.getString("res").equalsIgnoreCase("ok")) {
 
 					SharedPreferences prefe = getSharedPreferences("user",
@@ -167,29 +162,16 @@ public class CrearCuenta extends Activity implements OnClickListener {
 					editor.putString("id", datos.getString("data"));
 					editor.commit();
 
-					alert.setMessage("Registro correcto");
-					alert.setButton("Aceptar",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int which) {
-									Intent i = new Intent(
-											getApplicationContext(),
-											MainActivity.class);
-									startActivity(i);
-									finish();
-								}
-							});
+					Intent i = new Intent(getApplicationContext(),
+							MainActivity.class);
+					startActivity(i);
+					finish();
+
 				} else if (datos.getString("res").equalsIgnoreCase("error")) {
-					alert.setMessage("El nombre de usuario ya existe");
-					alert.setButton("Aceptar",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int which) {
-									alert.hide();
-								}
-							});
+					Toast.makeText(getApplicationContext(),
+							"El nombre de usuario ya existe",
+							Toast.LENGTH_SHORT).show();
 				}
-				alert.show();
 			} catch (Exception e) {
 				Toast.makeText(
 						getApplicationContext(),
