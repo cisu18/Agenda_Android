@@ -5,6 +5,8 @@ public class Multimedia {
 	private String TituloMultimedia;
 	private String DescripcionMultimedia;
 	private String urlImagenMultimedia;
+	private String generoMultimedia;
+	
 
 	public String getIdMultimedia() {
 		return idMultimedia;
@@ -36,6 +38,14 @@ public class Multimedia {
 
 	public void setUrlImagenMultimedia(String urlImagenMultimedia) {
 		this.urlImagenMultimedia = urlImagenMultimedia;
+	}
+
+	public String getGeneroMultimedia() {
+		return generoMultimedia;
+	}
+
+	public void setGeneroMultimedia(String generoMultimedia) {
+		this.generoMultimedia = generoMultimedia;
 	}
 
 }

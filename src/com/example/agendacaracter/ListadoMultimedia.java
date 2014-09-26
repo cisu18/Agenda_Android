@@ -31,22 +31,30 @@ public class ListadoMultimedia extends Activity {
 	ArrayList<Multimedia> listadoMultimedias;
 
 	AdaptadorMultimedia adaptadorMultimedia;
+	public String tipo="";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_peliculas_series);
 
+		setContentView(R.layout.activity_listado_multimedia);
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-Cond.otf");
 		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/HelveticaLTStd-Cond.otf");
-		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
-		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);	
 		listadoMultimedias = new ArrayList<Multimedia>();
-
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
+		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
+		
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
-		String tipo = bundle.getString("tipo multimedia");
-		Log.e("ids",idCualidad +tipo);
+		tipo = bundle.getString("tipo multimedia");
+		if(tipo.equals("2")){
+			txvCabeceraDescripcion.setText("PELÍCULAS Y SERIES");
+		}
+		if(tipo.equals("3")){
+			txvCabeceraDescripcion.setText("AUDIOS Y CONFERENCIAS");
+		}
+		Log.e("ids",idCualidad +" "+tipo);
 		new JSONAsyncTask()
 				.execute("http://192.168.0.55/Agenda_WS/multimedia/lista_multimedia_bycualidadtipo/cualidad/"
 						+ idCualidad + "/tipo/" + tipo + "/format/json");
@@ -73,6 +81,7 @@ public class ListadoMultimedia extends Activity {
 						DescripcionMultimedia.class);
 				intent.putExtra("id multimedia", idMultimedia);
 				intent.putExtra("url multimedia", urlImagenMultimedia);
+				intent.putExtra("tipo", tipo);
 				startActivity(intent);
 			}
 
@@ -125,6 +134,7 @@ public class ListadoMultimedia extends Activity {
 					multimedia.setTituloMultimedia(object.getString("titulo"));
 					multimedia.setUrlImagenMultimedia(object
 							.getString("img"));
+					multimedia.setGeneroMultimedia(object.getString("genero"));
 					listadoMultimedias.add(multimedia);
 				}
 			} catch (ParseException e1) {

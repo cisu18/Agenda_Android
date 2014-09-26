@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,16 +32,21 @@ public class AvanceMensual extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_avance_mensual);
-		
-		Typeface miPropiaTypeFace= Typeface.createFromAsset(getAssets(),
+
+		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		TextView txvCabeceraDescripcion= (TextView) findViewById(R.id.txv_cabecera_descripcion);
+		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
-		lsvListaAvance=(ListView)findViewById(R.id.lsv_avance_mensual);
+		lsvListaAvance = (ListView) findViewById(R.id.lsv_avance_mensual);
+		SharedPreferences prefe = getSharedPreferences("user",
+				Context.MODE_PRIVATE);
+		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+
 		new ReadCualidadesJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
+				.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje_all/format/json/usuario/"
+						+ String.valueOf(idUsuario));
 
 	}
 
@@ -84,9 +91,10 @@ public class AvanceMensual extends Activity {
 				for (int i = 0; i < jsonArray.length(); i++) {
 					Cualidad c = new Cualidad();
 					datos = jsonArray.getJSONObject(i);
-					c.setId(datos.getString("id"));
-					c.setCualidad(datos.getString("cualidad"));
-					c.setMes(datos.getString("mes"));
+					c.setId(datos.getString("int_id"));
+					c.setCualidad(datos.getString("var_nombre"));
+					c.setMes(datos.getString("var_mes"));
+					c.setPuntaje(datos.getString("promedio"));
 					listadoAvance.add(c);
 
 				}
