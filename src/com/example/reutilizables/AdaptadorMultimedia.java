@@ -99,8 +99,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 				
 				int width = bitimagen.getWidth();
 				int height = bitimagen.getHeight();
-				int newWidth = 70;
-				int newHeight = 90;
+				int newWidth = 90;
+				int newHeight = 130;
 				
 				// calculamos el escalado de la imagen destino
 				float scaleWidth = ((float) newWidth) / width;
