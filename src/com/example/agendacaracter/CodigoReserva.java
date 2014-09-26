@@ -15,17 +15,20 @@ public class CodigoReserva extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codigo_reserva);	
 		
-		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),"fonts/Myriad_Pro.ttf");		
+		Typeface tfHelveticaCond = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-Cond.otf");	
+		
+		Typeface HelveticaBoldTypeFace = Typeface.createFromAsset(getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");
 
 		TextView codigoreserva = (TextView)findViewById(R.id.txv_cabecera_descripcion);
-
-		codigoreserva.setTypeface(miPropiaTypeFace);
+		codigoreserva.setTypeface(tfHelveticaCond);
 		
 		TextView indicaciones = (TextView)findViewById(R.id.txv_descripcion_libro);
-		indicaciones.setTypeface(miPropiaTypeFace);
+		indicaciones.setTypeface(tfHelveticaCond);
 		
 		Button aceptar = (Button)findViewById(R.id.btn_reserva_aqui);
-		aceptar.setTypeface(miPropiaTypeFace);
+		aceptar.setTypeface(HelveticaBoldTypeFace);
 		
 		
 	}
