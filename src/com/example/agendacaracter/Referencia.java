@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.example.agendacaracter.ListadoMultimedia.JSONAsyncTask;
 import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorLibro;
 import com.example.reutilizables.Util;
@@ -13,6 +15,7 @@ import android.graphics.Typeface;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -22,10 +25,10 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class Referencia extends Activity {
 
-	ArrayList<Multimedia> listadoLibros;
+	ArrayList<Multimedia> listadoMultimedia;
 
-	AdaptadorLibro adaptadorLibros;
-
+	AdaptadorLibro adaptadorMultimedia;
+	public String tipo="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,20 +41,21 @@ public class Referencia extends Activity {
 
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
-		listadoLibros = new ArrayList<Multimedia>();
+		listadoMultimedia = new ArrayList<Multimedia>();
 
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
-
+		tipo = bundle.getString("tipo multimedia");
+		Log.e("ids",idCualidad +" "+tipo);
 		new JSONAsyncTask()
-				.execute("http://192.168.0.55/Agenda_WS/cualidad_libro/lista_libro_bycualidad/format/json/id/"
-						+ idCualidad);
+		.execute("http://192.168.0.55/Agenda_WS/multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+				+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final GridView grv_Libros_Referencia = (GridView) findViewById(R.id.grv_libros_referencia);
-		adaptadorLibros = new AdaptadorLibro(getApplicationContext(),
-				R.layout.custom_row_lista_libros_referencia, listadoLibros);
+		adaptadorMultimedia = new AdaptadorLibro(getApplicationContext(),
+				R.layout.custom_row_lista_libros_referencia, listadoMultimedia);
 
-		grv_Libros_Referencia.setAdapter(adaptadorLibros);
+		grv_Libros_Referencia.setAdapter(adaptadorMultimedia);
 
 		grv_Libros_Referencia.setOnItemClickListener(new OnItemClickListener() {
 
@@ -59,12 +63,13 @@ public class Referencia extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long id) {
 
-				String idMultimedia = listadoLibros.get(position).getIdMultimedia();
-				String urlImagenMultimedia = listadoLibros.get(position).getUrlImagenMultimedia();
+				String idMultimedia = listadoMultimedia.get(position).getIdMultimedia();
+				String urlImagenMultimedia = listadoMultimedia.get(position).getUrlImagenMultimedia();
 				Intent i = new Intent(getApplicationContext(),
 						DescripcionMultimedia.class);
 				i.putExtra("id multimedia", idMultimedia);
 				i.putExtra("url multimedia", urlImagenMultimedia);
+				i.putExtra("tipo", tipo);
 				startActivity(i);
 			}
 		});
@@ -85,7 +90,7 @@ public class Referencia extends Activity {
 
 		protected void onPostExecute(String result) {
 
-			adaptadorLibros.notifyDataSetChanged();
+			adaptadorMultimedia.notifyDataSetChanged();
 			try {
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);
@@ -93,10 +98,10 @@ public class Referencia extends Activity {
 				for (int i = 0; i < jarray.length(); i++) {
 					object = jarray.getJSONObject(i);
 					Multimedia multimedia = new Multimedia();
-					multimedia.setIdMultimedia(object.getString("libro_id"));
+					multimedia.setIdMultimedia(object.getString("id"));
 					multimedia.setTituloMultimedia(object.getString("titulo"));
-					multimedia.setUrlImagenMultimedia(object.getString("urlimg"));
-					listadoLibros.add(multimedia);
+					multimedia.setUrlImagenMultimedia(object.getString("img"));
+					listadoMultimedia.add(multimedia);
 				}
 			} catch (ParseException e1) {
 				e1.printStackTrace();

@@ -60,7 +60,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txvPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		txvPlanLectura.setTypeface(tfGeosansLight2);
 
-
 		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		txvNombreCualidad.setTypeface(tfHelveticaCond);
 
@@ -90,8 +89,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 			public void onClick(View v) {
 				openContextMenu(v);
 			}
-		});	
-	}	
+		});
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -99,16 +98,20 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.txv_ir_evaluacion:
 			SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
-			if (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
+			if (!Val.isEvaluated(getApplicationContext(),
+					preferencias.getString("id", "0"))) {
 				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
-			}else{
-				Toast.makeText(this, "Usted ya realizo su evaluación", Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(this, "Usted ya realizo su evaluación",
+						Toast.LENGTH_SHORT).show();
 			}
 			break;
 		case R.id.txv_compartir_pensamiento:
 			Util.compartir(this, "Pensamiento", txvPensamiento.getText()
-					.toString() + " " + txvAutorPensamiento.getText().toString());
+					.toString()
+					+ " "
+					+ txvAutorPensamiento.getText().toString());
 			break;
 		}
 	}
@@ -122,6 +125,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		inflater.inflate(R.menu.menu_contextual_cualidades,
 				menu.setHeaderTitle("Actividades para Fortalecer tu Carácter"));
 		menu.setHeaderIcon(getResources().getDrawable(R.drawable.icono_mas ));
+
 	}
 
 	@Override
@@ -131,16 +135,24 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.opcVerLibros:
 			Intent i = new Intent(this, Referencia.class);
 			i.putExtra("id cualidad", txvIdCualidad.getText());
+			i.putExtra("tipo multimedia", "1");
 			startActivity(i);
 			return true;
 
 		case R.id.opcVerPeliculas:
-			Intent peliculas=new Intent(this,ListadoMultimedia.class);
+			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
+			peliculas.putExtra("tipo multimedia", "2");
 			startActivity(peliculas);
 			return true;
+		case R.id.opcVerAudios:
+			Intent audios = new Intent(this, ListadoMultimedia.class);
+			audios.putExtra("id cualidad", txvIdCualidad.getText());
+			audios.putExtra("tipo multimedia", "3");
+			startActivity(audios);
+			return true;
 		case R.id.opcVerCirculos:
-			Intent circulos=new Intent(this,CirculoCrecimiento.class);
+			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
 			return true;
 		default:
@@ -167,10 +179,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 				txvPensamiento.setText("\"" + datos.getString("pensamiento")
 						+ "\"");
-				txvAutorPensamiento.setText(datos.getString("autorpensamiento"));
+				txvAutorPensamiento
+						.setText(datos.getString("autorpensamiento"));
 
 			} catch (Exception e) {
-				Toast.makeText(getApplicationContext(), "Pensamiento: Error Interno -> onPostExecute. "+e.getMessage(), Toast.LENGTH_SHORT).show();				
+				Toast.makeText(
+						getApplicationContext(),
+						"Pensamiento: Error Interno -> onPostExecute. "
+								+ e.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 			Util.cerrarDialogLoad();
 		}

@@ -69,7 +69,6 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 		public ImageView ivLibroImagen;
 		public TextView tvTituloLibro;
 		public TextView tvIdLibro;
-
 	}
 
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

@@ -25,12 +25,11 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:tag="26dp"
-        android:text="@string/descripcion_Peliculas"
+        android:text="@string/descripcion__libros"
         android:textColor="@color/LETRA"
         android:textColorLink="@color/LETRA"
         android:textSize="22sp"
         android:textStyle="bold" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +40,7 @@
         android:layout_marginTop="10dp" >
 
         <ImageView
-            android:id="@+id/imv_pelicula_sinopsis"
+            android:id="@+id/imv_multimedia_descripcion"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher" />
@@ -54,7 +53,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/txv_nombre_pelicula"
+                android:id="@+id/txv_titulo_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Las 21 Leyes Irrefutables de Liderazgo"
@@ -62,7 +61,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/txv_genero_pelicula"
+                android:id="@+id/txv_autor_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -71,7 +70,7 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/txv_duracion_pelicula"
+                android:id="@+id/txv_edicion_multimedia_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
@@ -84,7 +83,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txv_sinopsis_pelicula"
+        android:id="@+id/txv_descripcion_multimedia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="15dp"
