@@ -85,9 +85,8 @@ public class Util {
 		return stringBuilder.toString();
 	}
 	
-	public static String readJSONFeedPost(String username, String password,
-			String email, String firstname, String lastname, String ip) {
-		String url="http://192.168.0.55/Agenda_WS/users/create_user_social/format/json";
+	public static String readJSONFeedPost(String url,String username, String password,
+			String email, String firstname, String lastname, String ip) {		
 		StringBuilder res = new StringBuilder();
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(url);

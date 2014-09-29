@@ -39,12 +39,13 @@ public class ServicioAlerta extends Service {
 				if (Util.getHoraAlerta().equals("06:00")&&!alert6) {
 					mostrarNotBarra("¡Nuevo versículo! ;-)", MainActivity.class);
 					alert6=true;
-				}else if(Util.getHoraAlerta().equals("16:27")&&!alert12){
+				}else if(Util.getHoraAlerta().equals("16:28")&&!alert12){
 					mostrarNotBarra("!Quiero evaluarme! :-)", EvaluacionDiaria.class);
 					alert12=true;
 				}else if(Util.getHoraAlerta().equals("20:00")&&!alert8){
 					SharedPreferences preferencias = getSharedPreferences("user",
 							Context.MODE_PRIVATE);
+					
 					if (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
 						mostrarNotBarra("¡Hoy no me he evaluado! :-(", EvaluacionDiaria.class);
 					}					
@@ -72,20 +73,18 @@ public class ServicioAlerta extends Service {
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 		int icon = R.drawable.ic_launcher;
-		CharSequence tickerText = "Notificación Agenda Carácter";
+		CharSequence tickerText = "Agenda Carácter";
 		long when = System.currentTimeMillis();
 
-		Notification notification = new Notification(icon, tickerText, when);
-		Context context = getApplicationContext();
+		Notification notification = new Notification(icon, tickerText, when);		
 		notification.defaults |= Notification.DEFAULT_SOUND;
-
 		notification.defaults |= Notification.DEFAULT_VIBRATE;
-
+		notification.flags=Notification.FLAG_AUTO_CANCEL;
 		Intent notificationIntent = new Intent(this,activity);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
 				notificationIntent, 0);
 		
-		notification.setLatestEventInfo(context, "Agenda Carácter", text, contentIntent);
+		notification.setLatestEventInfo(getApplicationContext(), "Agenda Carácter", text, contentIntent);
 		mNotificationManager.notify(1, notification);
 	}
 }

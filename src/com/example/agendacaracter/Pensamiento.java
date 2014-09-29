@@ -104,7 +104,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 				Intent i = new Intent(this, EvaluacionDiaria.class);
 				startActivity(i);
 			} else {
-				Toast.makeText(this, "Usted ya realizo su evaluación",
+				Toast.makeText(this, "Usted ya realizó su evaluación",
 						Toast.LENGTH_SHORT).show();
 			}
 			break;

@@ -156,7 +156,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent in = new Intent(this, EvaluacionDiaria.class);
 			startActivity(in);
 			/*
-			 * }else{ Toast.makeText(this, "Usted ya realizo su evaluación",
+			 * }else{ Toast.makeText(this, "Usted ya realizó su evaluación",
 			 * Toast.LENGTH_SHORT).show(); }
 			 */
 			break;

@@ -152,21 +152,25 @@ public class TwitterActivity extends Activity {
 
 					TwitterActivity.this
 							.setResult(TWITTER_LOGIN_RESULT_CODE_SUCCESS);
-					
-					String username="tw"+user.getId();
-					String password=user.getId()+"tw";
-					String email="no email";
-					String firstname=user.getName();
-					String lastname=" ";
-					String ip="no ip";					
-					new RegistroUsuarioJSONFeedTask()
-							.execute(username,password,email,firstname,lastname,ip);
 
-					/*Log.e("Usuario user", user.getName() + "");
+					String url = getResources().getString(
+							R.string.url_web_service)
+							+ "users/create_user_social/format/json";
+					String username = "tw" + user.getId();
+					String password = user.getId() + "tw";
+					String email = "no email";
+					String firstname = user.getName();
+					String lastname = " ";
+					String ip = "no ip";
+					new RegistroUsuarioJSONFeedTask().execute(url, username,
+							password, email, firstname, lastname, ip);
 
-					Intent in = new Intent(TwitterActivity.this,
-							MainActivity.class);
-					startActivity(in);*/
+					/*
+					 * Log.e("Usuario user", user.getName() + "");
+					 * 
+					 * Intent in = new Intent(TwitterActivity.this,
+					 * MainActivity.class); startActivity(in);
+					 */
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -187,7 +191,7 @@ public class TwitterActivity extends Activity {
 
 		protected String doInBackground(String... prms) {
 			return Util.readJSONFeedPost(prms[0], prms[1], prms[2], prms[3],
-					prms[4], prms[5]);
+					prms[4], prms[5], prms[6]);
 		}
 
 		protected void onPostExecute(String result) {
@@ -203,8 +207,8 @@ public class TwitterActivity extends Activity {
 					Editor editor = prefe.edit();
 					editor.putString("id", datos.getString("data"));
 					editor.commit();
-					
-					Log.e("Id  de usuario",datos+"");
+
+					Log.e("Id  de usuario", datos + "");
 
 					Intent i = new Intent(getApplicationContext(),
 							MainActivity.class);

@@ -60,7 +60,7 @@ public class FacebookActivity extends FragmentActivity {
 	// private Button pickFriendsButton;
 	// private Button pickPlaceButton;
 	private LoginButton loginButton;
-	private ProfilePictureView profilePictureView;
+	//private ProfilePictureView profilePictureView;
 	// private TextView greeting;
 	private PendingAction pendingAction = PendingAction.NONE;
 	private ViewGroup controlsContainer;
@@ -73,6 +73,7 @@ public class FacebookActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		uiHelper = new UiLifecycleHelper(this, callback);
 		uiHelper.onCreate(savedInstanceState);
 
@@ -98,7 +99,7 @@ public class FacebookActivity extends FragmentActivity {
 					}
 				});
 
-		profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
+		//profilePictureView = (ProfilePictureView) findViewById(R.id.profilePicture);
 		// greeting = (TextView) findViewById(R.id.greeting);
 
 		controlsContainer = (ViewGroup) findViewById(R.id.main_ui_container);
@@ -253,7 +254,7 @@ public class FacebookActivity extends FragmentActivity {
 		Session session = Session.getActiveSession();
 		boolean enableButtons = (session != null && session.isOpened());
 		if (enableButtons && user != null) {
-			profilePictureView.setProfileId(user.getId());
+			//profilePictureView.setProfileId(user.getId());
 			// greeting.setText(getString(R.string.hello_user,
 			// user.getFirstName()));
 			// Log.e("user",user+"");
@@ -262,7 +263,10 @@ public class FacebookActivity extends FragmentActivity {
 			 * if(user!=null){ Toast.makeText( getApplicationContext(),user+"",
 			 * Toast.LENGTH_SHORT).show(); }else{ Log.e("Usuario",user+""+i);
 			 * i++; }
-			 */
+			 */			
+			String url = getResources().getString(
+					R.string.url_web_service)
+					+ "users/create_user_social/format/json";
 			String username="fb"+user.getId();
 			String password=user.getId()+"fb";
 			String email=user.getId();
@@ -270,11 +274,15 @@ public class FacebookActivity extends FragmentActivity {
 			String lastname=user.getLastName();
 			String ip="no ip";					
 			new RegistroUsuarioJSONFeedTask()
-					.execute(username,password,email,firstname,lastname,ip);
+					.execute(url,username,password,email,firstname,lastname,ip);
 
 			Log.e("Usuario", user.getUsername() + "");
 		} else {
-			profilePictureView.setProfileId(null);
+			if(i>=2){
+				session.openForRead(new Session.OpenRequest(this)
+				.setCallback(callback));
+			}
+			//profilePictureView.setProfileId(null);
 			Log.e("Usuario", user + "" + i);
 			i++;
 			// greeting.setText(null);
@@ -286,7 +294,7 @@ public class FacebookActivity extends FragmentActivity {
 
 		protected String doInBackground(String... prms) {
 			return Util.readJSONFeedPost(prms[0], prms[1], prms[2], prms[3],
-					prms[4], prms[5]);
+					prms[4], prms[5],prms[6]);
 		}
 
 		protected void onPostExecute(String result) {
@@ -297,18 +305,21 @@ public class FacebookActivity extends FragmentActivity {
 							"Error al conectar con el servidor",
 							Toast.LENGTH_SHORT).show();
 				} else if (datos.getString("res").equalsIgnoreCase("ok")) {
-					SharedPreferences prefe = getSharedPreferences("user",
-							Context.MODE_PRIVATE);
-					Editor editor = prefe.edit();
-					editor.putString("id", datos.getString("data"));
-					editor.commit();
-
-					Log.e("Id  de usuario", datos + "");
-
-					Intent i = new Intent(getApplicationContext(),
-							MainActivity.class);
-					startActivity(i);
-					finish();
+					int num=Integer.parseInt(datos.getString("data"));
+					if(num>0){					
+						SharedPreferences prefe = getSharedPreferences("user",
+								Context.MODE_PRIVATE);
+						Editor editor = prefe.edit();
+						editor.putString("id", ""+num);
+						editor.commit();
+	
+						Log.e("Id  de usuario", datos + "");
+						Session.getActiveSession().closeAndClearTokenInformation();
+						Intent i = new Intent(getApplicationContext(),
+								MainActivity.class);
+						startActivity(i);
+						finish();
+					}
 				} else if (datos.getString("res").equalsIgnoreCase("error")) {
 					Toast.makeText(getApplicationContext(), "Error interno",
 							Toast.LENGTH_SHORT).show();
