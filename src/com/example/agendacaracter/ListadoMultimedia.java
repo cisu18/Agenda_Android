@@ -55,8 +55,10 @@ public class ListadoMultimedia extends Activity {
 			txvCabeceraDescripcion.setText("AUDIOS Y CONFERENCIAS");
 		}
 		Log.e("ids",idCualidad +" "+tipo);
+		
+		final String url = getResources().getString(R.string.url_web_service);
 		new JSONAsyncTask()
-				.execute("http://192.168.0.55/Agenda_WS/multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+				.execute(url+"multimedia/lista_multimedia_bycualidadtipo/cualidad/"
 						+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final ListView lsvListaMultimedia = (ListView) findViewById(R.id.lsv_Lista_peliculas);

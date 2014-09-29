@@ -43,9 +43,10 @@ public class ListaCualidades extends Activity {
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		lsvListaCualidades = (ListView) findViewById(R.id.lsv_cualidades);
-
+		
+		final String url = getResources().getString(R.string.url_web_service);
 		new ReadCualidadesJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/cualidad/cualidades/format/json");
+				.execute(url+"cualidad/cualidades/format/json");
 
 		registerForContextMenu(lsvListaCualidades);
 

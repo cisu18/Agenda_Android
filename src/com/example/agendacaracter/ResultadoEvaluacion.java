@@ -71,9 +71,10 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		intPuntaje = bundle.getInt("puntaje")*25;		
 		idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
 		int idCualidad = Integer.parseInt(preferencias.getString("idCualidad", "0"));
+		final String url = getResources().getString(R.string.url_web_service);
 		if (idUsuario > 0) {
 			new ReadJSONFeedTask()
-					.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje/fecha/"
+					.execute(url+"puntaje_cualidad/puntaje/fecha/"
 							+ Util.getFechaActual()
 							+ "/usuario/"
 							+ idUsuario

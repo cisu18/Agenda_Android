@@ -105,8 +105,9 @@ public class DescripcionMultimedia extends Activity {
 		if (parametroTipo.equals("3")) {
 			txvCabeceraDescripcion.setText("DESCRIPCION DEL AUDIO");
 		}
+		final String url = getResources().getString(R.string.url_web_service);
 		new JSONAsyncTask()
-				.execute("http://192.168.0.55/Agenda_WS/multimedia/multimedia_byid/format/json/id/"
+				.execute(url+"multimedia/multimedia_byid/format/json/id/"
 						+ parametroIdMultimedia);
 		new DescargarImagen().execute(parametroUrlImagenMultimedia);
 
@@ -151,6 +152,7 @@ public class DescripcionMultimedia extends Activity {
 					txvTituloMultimedia.setText(object.getString("titulo"));
 					txvAutorMultimedia.setText(object.getString("autor"));
 					txvEdicionMultimedia.setText( object.getString("anio"));
+
 					txvDesripcionMultimedia.setText(object.getString("descripcion"));
 
 				}
@@ -158,8 +160,7 @@ public class DescripcionMultimedia extends Activity {
 					txvTituloMultimedia.setText(object.getString("titulo"));
 					txvAutorMultimedia.setText(object.getString("autor"));
 					txvEdicionMultimedia.setText(object.getString("anio"));
-					txvDesripcionMultimedia.setText("Descripcion:	"
-							+ object.getString("descripcion"));
+					txvDesripcionMultimedia.setText(object.getString("descripcion"));
 
 				}
 

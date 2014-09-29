@@ -196,10 +196,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		txvDia_numero.setText(dia);
 		txvDia.setText(nombredia);
 
-		String fechaWebService = Util.getFechaActual().substring(0, 5);
+		String fechaWebService = Util.getFechaActual();
+		
+		final String url = getResources().getString(R.string.url_web_service);
 		
 		new ReadDiarioJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/cualidades_dia/format/json/fecha/"
+				.execute(url+"cualidad_dia/cualidades_dia/format/json/fecha/"
 						+ fechaWebService);
 
 	}

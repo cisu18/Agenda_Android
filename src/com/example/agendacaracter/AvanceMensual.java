@@ -43,9 +43,10 @@ public class AvanceMensual extends Activity {
 		SharedPreferences prefe = getSharedPreferences("user",
 				Context.MODE_PRIVATE);
 		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-
+		
+		final String url = getResources().getString(R.string.url_web_service);
 		new ReadCualidadesJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/puntaje_cualidad/puntaje_all/format/json/usuario/"
+				.execute(url+"puntaje_cualidad/puntaje_all/format/json/usuario/"
 						+ String.valueOf(idUsuario));
 
 	}

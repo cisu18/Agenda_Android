@@ -47,8 +47,9 @@ public class Referencia extends Activity {
 		String idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
 		Log.e("ids",idCualidad +" "+tipo);
+		final String url = getResources().getString(R.string.url_web_service);
 		new JSONAsyncTask()
-		.execute("http://192.168.0.55/Agenda_WS/multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+		.execute(url+"multimedia/lista_multimedia_bycualidadtipo/cualidad/"
 				+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final GridView grv_Libros_Referencia = (GridView) findViewById(R.id.grv_libros_referencia);

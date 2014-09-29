@@ -494,11 +494,11 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001a;
-        public static final int app_id=0x7f070045;
+        public static final int app_id=0x7f070047;
         /**  Títulos 
          */
         public static final int app_name=0x7f07001b;
-        public static final int cancelled=0x7f070038;
+        public static final int cancelled=0x7f07003a;
         public static final int circulo_crecimiento=0x7f070032;
         public static final int codigo__reserva=0x7f07002e;
         public static final int com_facebook_choose_friends=0x7f07000f;
@@ -531,10 +531,10 @@ containing a value of this type.
         public static final int correoelectronico=0x7f070029;
         public static final int descripcion_Peliculas=0x7f07002d;
         public static final int descripcion__libros=0x7f07002c;
-        public static final int error=0x7f07003e;
+        public static final int error=0x7f070040;
         public static final int evaluacion_diaria=0x7f07002f;
-        public static final int exception=0x7f070046;
-        public static final int hello_user=0x7f07003b;
+        public static final int exception=0x7f070048;
+        public static final int hello_user=0x7f07003d;
         public static final int lista_avance=0x7f070027;
         /**  Encabezados 
          */
@@ -551,25 +551,27 @@ containing a value of this type.
         public static final int msg_menu_libros_circulos=0x7f070025;
         public static final int msg_menu_libros_peliculas=0x7f070023;
         public static final int msg_menu_libros_referencia=0x7f070022;
-        public static final int no_friends_selected=0x7f070042;
-        public static final int no_place_selected=0x7f070043;
-        public static final int ok=0x7f07003a;
+        public static final int no_friends_selected=0x7f070044;
+        public static final int no_place_selected=0x7f070045;
+        public static final int ok=0x7f07003c;
         public static final int peliculas_series=0x7f070033;
         public static final int pensamiento=0x7f07002a;
-        public static final int permission_not_granted=0x7f070039;
-        public static final int photo_post=0x7f070040;
-        public static final int pick_seattle_place=0x7f070044;
+        public static final int permission_not_granted=0x7f07003b;
+        public static final int photo_post=0x7f070042;
+        public static final int pick_seattle_place=0x7f070046;
         public static final int referencia=0x7f07002b;
         public static final int resultado_evaluacion=0x7f070031;
-        public static final int status_update=0x7f07003f;
-        public static final int success=0x7f07003c;
-        public static final int successfully_posted_post=0x7f07003d;
+        public static final int status_update=0x7f070041;
+        public static final int success=0x7f07003e;
+        public static final int successfully_posted_post=0x7f07003f;
         public static final int title_activity_avance_mensual=0x7f070035;
         public static final int title_activity_demos=0x7f070030;
         public static final int title_activity_descripcion_peliculas=0x7f070036;
-        public static final int title_activity_facebook=0x7f070037;
+        public static final int title_activity_facebook=0x7f070039;
         public static final int title_activity_twitter=0x7f070034;
-        public static final int you_picked=0x7f070041;
+        public static final int url_local_host=0x7f070038;
+        public static final int url_web_service=0x7f070037;
+        public static final int you_picked=0x7f070043;
     }
     public static final class style {
         /** 

@@ -72,10 +72,10 @@ public class Pensamiento extends Activity implements OnClickListener {
 		TextView txtIrLibroReferencia = (TextView) findViewById(R.id.txv_ir_libro_referencia);
 		txtIrLibroReferencia.setOnClickListener(this);
 
-		String fecha = Util.getFechaActual().substring(0, 5);
-
+		String fecha = Util.getFechaActual();
+		final String url = getResources().getString(R.string.url_web_service);
 		new ReadJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/cualidad_dia/pensamiento/format/json/fecha/"
+				.execute(url+"cualidad_dia/pensamiento/format/json/fecha/"
 						+ fecha);
 
 		Bundle bundle = getIntent().getExtras();

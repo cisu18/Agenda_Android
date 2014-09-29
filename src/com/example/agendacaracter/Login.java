@@ -103,7 +103,7 @@ public class Login extends Activity implements OnClickListener {
 			String us = etxUsuarioNombre.getText().toString();
 			String cl = etxContrasenia.getText().toString();
 
-		
+			final String url = getResources().getString(R.string.url_web_service);
 	
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
@@ -122,9 +122,10 @@ public class Login extends Activity implements OnClickListener {
 					etxContrasenia.setText("");
 				}
 
-			}else{
+			}			
+			else{
 				new ReadUsuarioJSONFeedTask()
-				.execute("http://192.168.0.55/Agenda_WS/users/login/format/json");
+				.execute(url+"users/login/format/json");
 	
 			}
 						

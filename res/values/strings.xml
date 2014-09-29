@@ -46,6 +46,8 @@
     <string name="title_activity_twitter">TwitterActivity</string>        
     <string name="title_activity_avance_mensual">AvanceMensual</string>
     <string name="title_activity_descripcion_peliculas">DescripcionPeliculas</string>
+    <string name="url_web_service">http://clmdevelopers.com/agendaws/</string>  
+    <string name="url_local_host">http://192.168.0.55/Agenda_WS/</string>
     
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="cancelled">Cancelled</string>
