@@ -199,6 +199,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		String fechaWebService = Util.getFechaActual();
 		
 		final String url = getResources().getString(R.string.url_web_service);
+//		String fechaWebService = Util.getFechaActual().substring(0, 5);
 		
 		new ReadDiarioJSONFeedTask()
 				.execute(url+"cualidad_dia/cualidades_dia/format/json/fecha/"

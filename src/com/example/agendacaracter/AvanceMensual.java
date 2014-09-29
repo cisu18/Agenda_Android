@@ -17,15 +17,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.entidad.Cualidad;
+import com.example.entidad.Cualida;
 import com.example.reutilizables.AdaptadorAvance;
 import com.example.reutilizables.Util;
 
 public class AvanceMensual extends Activity {
 
 	private ListView lsvListaAvance;
-	ArrayList<Cualidad> listadoAvance;
-	Cualidad cualidad = new Cualidad();
+	ArrayList<Cualida> listadoAvance;
+	Cualida cualidad = new Cualida();
 	
 
 	@Override
@@ -87,10 +87,10 @@ public class AvanceMensual extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				listadoAvance = new ArrayList<Cualidad>();
+				listadoAvance = new ArrayList<Cualida>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualidad c = new Cualidad();
+					Cualida c = new Cualida();
 					datos = jsonArray.getJSONObject(i);
 					c.setId(datos.getString("int_id"));
 					c.setCualidad(datos.getString("var_nombre"));

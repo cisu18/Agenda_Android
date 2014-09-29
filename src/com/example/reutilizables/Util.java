@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -31,8 +32,11 @@ public class Util {
 	
 	@SuppressLint("SimpleDateFormat") public static String getFechaActual() {
 		Date ahora = new Date();
+		
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-		return formateador.format(ahora);
+		String fech=formateador.format(ahora).substring(0,5)+"-2015";
+		Log.e("FECHAS",fech);
+		return fech;
 	}
 	
 	@SuppressLint("SimpleDateFormat") public static String getHoraAlerta() {

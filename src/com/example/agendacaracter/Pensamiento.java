@@ -74,6 +74,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		String fecha = Util.getFechaActual();
 		final String url = getResources().getString(R.string.url_web_service);
+
 		new ReadJSONFeedTask()
 				.execute(url+"cualidad_dia/pensamiento/format/json/fecha/"
 						+ fecha);
