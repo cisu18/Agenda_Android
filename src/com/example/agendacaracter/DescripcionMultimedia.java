@@ -141,34 +141,23 @@ public class DescripcionMultimedia extends Activity {
 				// multimedia.setDescripcionMultimedia(object.getString("descripcion"));
 				// listadoMultimedia.add(multimedia);
 				if (parametroTipo.equals("1")) {
-					txvTituloMultimedia.setText("Titulo:	"
-							+ object.getString("titulo"));
-					txvAutorMultimedia.setText("Autor:	"
-							+ object.getString("autor"));
-					txvEdicionMultimedia.setText("Edicion:	"
-							+ object.getString("anio"));
-					txvDesripcionMultimedia.setText("Argumento:	"
-							+ object.getString("descripcion"));
+					txvTituloMultimedia.setText(object.getString("titulo"));
+					txvAutorMultimedia.setText( object.getString("autor"));
+					txvEdicionMultimedia.setText(object.getString("anio"));
+					txvDesripcionMultimedia.setText(object.getString("descripcion"));
 
 				}
 				if (parametroTipo.equals("2")) {
-					txvTituloMultimedia.setText("Titulo:	"
-							+ object.getString("titulo"));
-					txvAutorMultimedia.setText("Director:	"
-							+ object.getString("autor"));
-					txvEdicionMultimedia.setText("Año:	"
-							+ object.getString("anio"));
-					txvDesripcionMultimedia.setText("Sinopsis:	"
-							+ object.getString("descripcion"));
+					txvTituloMultimedia.setText(object.getString("titulo"));
+					txvAutorMultimedia.setText(object.getString("autor"));
+					txvEdicionMultimedia.setText( object.getString("anio"));
+					txvDesripcionMultimedia.setText(object.getString("descripcion"));
 
 				}
 				if (parametroTipo.equals("3")) {
-					txvTituloMultimedia.setText("Titulo:	"
-							+ object.getString("titulo"));
-					txvAutorMultimedia.setText("Interprete:	"
-							+ object.getString("autor"));
-					txvEdicionMultimedia.setText("Año:	"
-							+ object.getString("anio"));
+					txvTituloMultimedia.setText(object.getString("titulo"));
+					txvAutorMultimedia.setText(object.getString("autor"));
+					txvEdicionMultimedia.setText(object.getString("anio"));
 					txvDesripcionMultimedia.setText("Descripcion:	"
 							+ object.getString("descripcion"));
 
