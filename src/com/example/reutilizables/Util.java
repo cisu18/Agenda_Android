@@ -130,7 +130,7 @@ public class Util {
 	public static void MostrarDialog(Context contexto){
 		
 		dialog = new ProgressDialog(contexto);
-		dialog.setMessage("Cargando, profavor espere");
+		dialog.setMessage("Cargando, por favor espere");
 		dialog.setTitle("Conectando con el servidor");
 		dialog.show();
 		dialog.setCancelable(false);

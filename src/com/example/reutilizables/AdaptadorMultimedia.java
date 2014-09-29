@@ -66,9 +66,9 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		holder.ivMultimediaImagen.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.ivMultimediaImagen).execute(listMultimedia
 				.get(position).getUrlImagenMultimedia());
-		holder.tvTitulo.setText("Titulo:	"+ listMultimedia.get(position)
+		holder.tvTitulo.setText("Título:"+ listMultimedia.get(position)
 				.getTituloMultimedia());
-		holder.tvGenero.setText("Genero:	"+ listMultimedia.get(position).getGeneroMultimedia());
+		holder.tvGenero.setText("Género:"+ listMultimedia.get(position).getGeneroMultimedia());
 
 		return v;
 
