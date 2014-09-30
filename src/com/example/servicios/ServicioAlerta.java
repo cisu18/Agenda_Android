@@ -20,10 +20,9 @@ import android.os.IBinder;
 
 public class ServicioAlerta extends Service {
 	private boolean alert6 = false;
-	private boolean alert12 = false;
 	private boolean alert8 = false;
 	private Timer timer = new Timer();
-	private static final long UPDATE_INTERVAL = 60000;
+	private static final long UPDATE_INTERVAL = 1000;
 
 	@Override
 	public IBinder onBind(Intent arg0) {
@@ -31,20 +30,14 @@ public class ServicioAlerta extends Service {
 	}
 
 	private void hilo() {
-
 		timer.scheduleAtFixedRate(new TimerTask() {
-
 			@Override
 			public void run() {
 
-				if (Util.getHoraAlerta().equals("06:00") && !alert6) {
+				if (Util.getHoraAlerta().equals("16:05") && !alert6) {
 					mostrarNotBarra("¡Nuevo versículo! ;-)", MainActivity.class);
-					alert6 = true;
-				} else if (Util.getHoraAlerta().equals("16:27") && !alert12) {
-					mostrarNotBarra("!Quiero evaluarme! :-)",
-							EvaluacionDiaria.class);
-					alert12 = true;
-				} else if (Util.getHoraAlerta().equals("20:00") && !alert8) {
+					alert6 = true;				
+				} else if (Util.getHoraAlerta().equals("19:00") && !alert8) {
 					SharedPreferences preferencias = getSharedPreferences(
 							"user", Context.MODE_PRIVATE);
 					if (!Val.isEvaluated(getApplicationContext(),
