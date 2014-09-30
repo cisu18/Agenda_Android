@@ -91,9 +91,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		public TextView tvTitulo;
 		public TextView tvGenero;
 		public TextView tvIdMultimedia;
-
 	}
-
+	
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 		ImageView bmImage;
 

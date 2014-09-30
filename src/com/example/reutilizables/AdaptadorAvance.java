@@ -80,7 +80,6 @@ public class AdaptadorAvance extends BaseAdapter {
 		GradientDrawable.Orientation fgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 		GradientDrawable.Orientation bgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 
-		// Background
 		GradientDrawable bgGradDrawable = new GradientDrawable(bgGradDirection,
 				new int[] { 0xffCDDCE5, 0xffCDDCE5 });
 		bgGradDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -89,7 +88,6 @@ public class AdaptadorAvance extends BaseAdapter {
 				ClipDrawable.HORIZONTAL);
 		bgclip.setLevel(10000);
 
-		// SecondaryProgress
 		GradientDrawable fg2GradDrawable = new GradientDrawable(
 				fgGradDirection, new int[] { 0xff464747, 0xffFFFFFF });
 		fg2GradDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -97,7 +95,6 @@ public class AdaptadorAvance extends BaseAdapter {
 		ClipDrawable fg2clip = new ClipDrawable(fg2GradDrawable, Gravity.LEFT,
 				ClipDrawable.HORIZONTAL);
 
-		// Progress
 		GradientDrawable fg1GradDrawable = new GradientDrawable(
 				fgGradDirection, new int[] { 0xff00456e, 0xff00cec5 });
 		fg1GradDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -105,7 +102,6 @@ public class AdaptadorAvance extends BaseAdapter {
 		ClipDrawable fg1clip = new ClipDrawable(fg1GradDrawable, Gravity.LEFT,
 				ClipDrawable.HORIZONTAL);
 
-		// Setup LayerDrawable and assign to progressBar
 		Drawable[] progressDrawables = { bgclip, fg2clip, fg1clip };
 		LayerDrawable progressLayerDrawable = new LayerDrawable(
 				progressDrawables);
@@ -113,7 +109,6 @@ public class AdaptadorAvance extends BaseAdapter {
 		progressLayerDrawable.setId(1, android.R.id.secondaryProgress);
 		progressLayerDrawable.setId(2, android.R.id.progress);
 
-		// Copy the existing ProgressDrawable bounds to the new one.
 		Rect bounds = holder.puntaje.getProgressDrawable().getBounds();
 		holder.puntaje.setProgressDrawable(progressLayerDrawable);
 		holder.puntaje.getProgressDrawable().setBounds(bounds);

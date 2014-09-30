@@ -3,6 +3,7 @@ package com.example.reutilizables;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UTFDataFormatException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +23,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.util.Xml.Encoding;
 
 public class Util {
 
@@ -33,7 +35,6 @@ public class Util {
 
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		String fech = formateador.format(ahora).substring(0, 5) + "-2015";
-		Log.e("FECHAS", fech);
 		return fech;
 	}
 
@@ -67,12 +68,13 @@ public class Util {
 				HttpEntity entity = response.getEntity();
 				InputStream inputStream = entity.getContent();
 				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream, "iso-8859-1"), 8);
+						new InputStreamReader(inputStream,"utf-8"));
 				String line;
 
 				while ((line = reader.readLine()) != null) {
 					stringBuilder.append(line);
 				}
+
 				inputStream.close();
 			} else {
 

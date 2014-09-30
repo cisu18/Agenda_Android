@@ -39,8 +39,5 @@ public class Cualidad {
 		this.puntaje = puntaje;
 	}
 
-	public String toString() {
-		return this.mes + " " + ":" + " " + cualidad;
-	}
 
 }

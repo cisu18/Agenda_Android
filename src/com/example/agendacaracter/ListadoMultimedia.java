@@ -68,7 +68,6 @@ public class ListadoMultimedia extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
 				String idMultimedia = listadoMultimedias.get(position)
 						.getIdMultimedia();
 				String urlImagenMultimedia = listadoMultimedias.get(position)
