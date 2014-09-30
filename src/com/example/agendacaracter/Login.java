@@ -26,7 +26,6 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -217,8 +216,7 @@ public class Login extends Activity implements OnClickListener {
 				startActivity(in);
 				finish();
 
-			} catch (Exception e) {
-				Log.e("ReadCualidadesJSONFeedTask", e.getLocalizedMessage());
+			} catch (Exception e) {				
 				Toast.makeText(
 						getApplicationContext(),
 						"Datos Incorrectos: La contraseña o usuario no son validos...",
@@ -261,12 +259,13 @@ public class Login extends Activity implements OnClickListener {
 				}
 				inputStream.close();
 			} else {
-				Log.e("JSON", "No se ha podido descargar archivo");
+				Toast.makeText(getApplicationContext(), "Error interno, status code: "+statusCode,
+						Toast.LENGTH_SHORT).show();
 
 			}
 		} catch (Exception e) {
-			Log.e("readJSONFeed", e.getLocalizedMessage());
-
+			Toast.makeText(getApplicationContext(), "Error interno al intentar ingresar. Error: " +e.getLocalizedMessage(),
+					Toast.LENGTH_SHORT).show();
 		}
 
 		return stringBuilder.toString();
@@ -290,13 +289,11 @@ public class Login extends Activity implements OnClickListener {
 		@Override
 		public void onError(FacebookDialog.PendingCall pendingCall,
 				Exception error, Bundle data) {
-			Log.d("HelloFacebook", String.format("Error: %s", error.toString()));
 		}
 
 		@Override
 		public void onComplete(FacebookDialog.PendingCall pendingCall,
 				Bundle data) {
-			Log.d("HelloFacebook", "Success!");
 		}
 	};
 
@@ -365,7 +362,6 @@ public class Login extends Activity implements OnClickListener {
 			new RegistroUsuarioJSONFeedTask().execute(url, username, password,
 					email, firstname, lastname, ip);
 
-			Log.e("Usuario", user.getUsername() + "");
 		}
 	}
 
@@ -403,11 +399,12 @@ public class Login extends Activity implements OnClickListener {
 					startActivity(i);
 					finish();
 				} else if (datos.getString("res").equalsIgnoreCase("error")) {
-					Toast.makeText(getApplicationContext(), "Error interno",
+					Toast.makeText(getApplicationContext(), "Error interno al iniciar sesión con facebook",
 							Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
-				Log.e("Error onPostExecute", "No se descargaron los datos");
+				Toast.makeText(getApplicationContext(), "Error interno: "+e.getMessage(),
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 
