@@ -241,7 +241,7 @@ int id txv_edicion_multimedia_descripcion 0x7f040016
 int id txv_encragado_circulo 0x7f040066
 int id txv_genero_multimedia 0x7f040072
 int id txv_id_avance 0x7f040060
-int id txv_id_multimedia 0x7f040073
+int id txv_id_multimedia 0x7f040071
 int id txv_ir_evaluacion 0x7f04003b
 int id txv_ir_evaluacion_diaria 0x7f040034
 int id txv_ir_libro_referencia 0x7f04003c
@@ -257,7 +257,7 @@ int id txv_mensaje_plan_lectura 0x7f040035
 int id txv_mensaje_reserva 0x7f04000f
 int id txv_mes 0x7f04002a
 int id txv_nombre_cualidad 0x7f04002d
-int id txv_nombre_multimedia 0x7f040071
+int id txv_nombre_multimedia 0x7f040073
 int id txv_numero_versiculo 0x7f040030
 int id txv_pass_login 0x7f040026
 int id txv_pensamiento 0x7f040038

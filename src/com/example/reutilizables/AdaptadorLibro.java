@@ -57,7 +57,7 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
-		holder.ivLibroImagen.setImageResource(R.drawable.ic_launcher);
+		//holder.ivLibroImagen.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
 				position).getUrlImagenMultimedia());
 		holder.tvTituloLibro.setText(listLibro.get(position).getTituloMultimedia());

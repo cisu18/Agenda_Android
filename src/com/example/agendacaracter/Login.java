@@ -107,7 +107,7 @@ public class Login extends Activity implements OnClickListener {
 	
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
-						"Porfavor completa todos los campos", Toast.LENGTH_LONG)
+						"Por favor completa todos los campos", Toast.LENGTH_LONG)
 						.show();
 			}else if(!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
 				Toast.makeText(getApplicationContext(),

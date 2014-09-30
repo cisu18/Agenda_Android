@@ -110,9 +110,9 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		case 0:
 			stbMensajeResultado.append(intPuntaje + "%");
 			stbCompartir.append(intPuntaje
-					+ "%\nEs la oportunidad iniciar mi cambio personal.");
+					+ "%\nEs la oportunidad de iniciar mi cambio personal.");
 			stbRecomendacion
-					.append("Es una oportunidad de iniciar tu cambio personal.");
+					.append("Es una oportunidad de iniciar tú cambio personal.");
 			txvRecomendacion.setText("");
 			stbMensajeCarita.append("¡Vamos!");
 			img.setImageResource(R.drawable.cara_01);

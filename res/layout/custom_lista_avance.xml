@@ -24,7 +24,7 @@
      android:layout_marginRight="15dp"
      android:layout_marginTop="20dp"
      android:maxHeight="2dp"
-     android:paddingLeft="10dp" />
+     android:paddingLeft="25dp" />
 
     <TextView
         android:id="@+id/txv_id_avance"
@@ -33,7 +33,6 @@
         android:layout_marginLeft="115dp"
         android:layout_marginTop="16dp"
         android:shadowColor="@color/CABECERA"
-        android:text="rtret"
         android:textColor="@color/twitter"
         android:textSize="17sp" />
 

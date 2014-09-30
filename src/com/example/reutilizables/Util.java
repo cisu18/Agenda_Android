@@ -76,11 +76,11 @@ public class Util {
 				}
 				inputStream.close();
 			} else {
-				Log.e("Error:","No se descargaron los datos del servidor");
+				Log.e("Error:","No se descargarón los datos del servidor");
 				
 			}
 		} catch (Exception e) {
-			Log.e("Error readJSONFeed:","No se descargaron los datos del servidor "+e.getMessage());			
+			Log.e("Error readJSONFeed:","No se descargarón los datos del servidor "+e.getMessage());			
 		}
 		return stringBuilder.toString();
 	}

@@ -402,7 +402,7 @@ containing a value of this type.
         public static final int txv_encragado_circulo=0x7f040066;
         public static final int txv_genero_multimedia=0x7f040072;
         public static final int txv_id_avance=0x7f040060;
-        public static final int txv_id_multimedia=0x7f040073;
+        public static final int txv_id_multimedia=0x7f040071;
         public static final int txv_ir_evaluacion=0x7f04003b;
         public static final int txv_ir_evaluacion_diaria=0x7f040034;
         public static final int txv_ir_libro_referencia=0x7f04003c;
@@ -418,7 +418,7 @@ containing a value of this type.
         public static final int txv_mensaje_reserva=0x7f04000f;
         public static final int txv_mes=0x7f04002a;
         public static final int txv_nombre_cualidad=0x7f04002d;
-        public static final int txv_nombre_multimedia=0x7f040071;
+        public static final int txv_nombre_multimedia=0x7f040073;
         public static final int txv_numero_versiculo=0x7f040030;
         public static final int txv_pass_login=0x7f040026;
         public static final int txv_pensamiento=0x7f040038;
