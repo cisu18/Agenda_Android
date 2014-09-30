@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imv_imagen_multimedia"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="75dp"
         android:layout_toRightOf="@+id/imv_imagen_multimedia"
         android:text="TextView"
         android:textColor="@color/letras_funtes"
