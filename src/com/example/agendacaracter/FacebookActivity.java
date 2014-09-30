@@ -253,35 +253,24 @@ public class FacebookActivity extends FragmentActivity {
 	private void updateUI() {
 		Session session = Session.getActiveSession();
 		boolean enableButtons = (session != null && session.isOpened());
-		if (enableButtons && user != null) {
-			//profilePictureView.setProfileId(user.getId());
-			// greeting.setText(getString(R.string.hello_user,
-			// user.getFirstName()));
-			// Log.e("user",user+"");
-
-			/*
-			 * if(user!=null){ Toast.makeText( getApplicationContext(),user+"",
-			 * Toast.LENGTH_SHORT).show(); }else{ Log.e("Usuario",user+""+i);
-			 * i++; }
-			 */			
+		if (enableButtons && user != null) {					
 			String url = getResources().getString(
 					R.string.url_web_service)
 					+ "users/create_user_social/format/json";
 			String username="fb"+user.getId();
 			String password=user.getId()+"fb";
-			String email=user.getId();
+			String email="no email";
 			String firstname=user.getFirstName();		
 			String lastname=user.getLastName();
 			String ip="no ip";					
 			new RegistroUsuarioJSONFeedTask()
 					.execute(url,username,password,email,firstname,lastname,ip);
-
 			Log.e("Usuario", user.getUsername() + "");
 		} else {
-			if(i>=2){
+			/*if(i>=2){
 				session.openForRead(new Session.OpenRequest(this)
 				.setCallback(callback));
-			}
+			}*/
 			//profilePictureView.setProfileId(null);
 			Log.e("Usuario", user + "" + i);
 			i++;
@@ -313,8 +302,7 @@ public class FacebookActivity extends FragmentActivity {
 						editor.putString("id", ""+num);
 						editor.commit();
 	
-						Log.e("Id  de usuario", datos + "");
-						Session.getActiveSession().closeAndClearTokenInformation();
+						Log.e("Id  de usuario", datos + "");						
 						Intent i = new Intent(getApplicationContext(),
 								MainActivity.class);
 						startActivity(i);
