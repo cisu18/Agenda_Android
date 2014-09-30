@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.example.agendacaracter.ListadoMultimedia.JSONAsyncTask;
 import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorLibro;
 import com.example.reutilizables.Util;
@@ -28,7 +26,8 @@ public class Referencia extends Activity {
 	ArrayList<Multimedia> listadoMultimedia;
 
 	AdaptadorLibro adaptadorMultimedia;
-	public String tipo="";
+	public String tipo = "";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,10 +45,10 @@ public class Referencia extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
-		Log.e("ids",idCualidad +" "+tipo);
+		Log.e("ids", idCualidad + " " + tipo);
 		final String url = getResources().getString(R.string.url_web_service);
-		new JSONAsyncTask()
-		.execute(url+"multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+		new JSONAsyncTask().execute(url
+				+ "multimedia/lista_multimedia_bycualidadtipo/cualidad/"
 				+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final GridView grv_Libros_Referencia = (GridView) findViewById(R.id.grv_libros_referencia);
@@ -64,8 +63,10 @@ public class Referencia extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long id) {
 
-				String idMultimedia = listadoMultimedia.get(position).getIdMultimedia();
-				String urlImagenMultimedia = listadoMultimedia.get(position).getUrlImagenMultimedia();
+				String idMultimedia = listadoMultimedia.get(position)
+						.getIdMultimedia();
+				String urlImagenMultimedia = listadoMultimedia.get(position)
+						.getUrlImagenMultimedia();
 				Intent i = new Intent(getApplicationContext(),
 						DescripcionMultimedia.class);
 				i.putExtra("id multimedia", idMultimedia);

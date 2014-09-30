@@ -42,7 +42,7 @@ public class Login extends Activity implements OnClickListener {
 	public EditText etxUsuarioNombre;
 	public EditText etxContrasenia;
 	public TextView txvBienvenido;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,11 +80,9 @@ public class Login extends Activity implements OnClickListener {
 		img_twitter.setOnClickListener(this);
 
 		ImageView img_faccebook = (ImageView) findViewById(R.id.imv_login_facebook);
-		img_faccebook.setOnClickListener(this);			
-			
-			
+		img_faccebook.setOnClickListener(this);
+
 	}
-	
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -92,7 +90,6 @@ public class Login extends Activity implements OnClickListener {
 		}
 		return false;
 	}
-	
 
 	@Override
 	public void onClick(View v) {
@@ -103,32 +100,36 @@ public class Login extends Activity implements OnClickListener {
 			String us = etxUsuarioNombre.getText().toString();
 			String cl = etxContrasenia.getText().toString();
 
-			final String url = getResources().getString(R.string.url_web_service);
-	
+			final String url = getResources().getString(
+					R.string.url_web_service);
+
 			if (us.equals("") || cl.equals("")) {
 				Toast.makeText(getApplicationContext(),
 						"Por favor completa todos los campos", Toast.LENGTH_LONG)
 						.show();
-			}else if(!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+			} else if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
+					|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
 				Toast.makeText(getApplicationContext(),
-						"No se permiten caracteres especiales", Toast.LENGTH_LONG)
-						.show();
-				if(!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+						"No se permiten caracteres especiales",
+						Toast.LENGTH_LONG).show();
+				if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
 					etxUsuarioNombre.setText("");
-				}if(!cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+				}
+				if (!cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
 					etxContrasenia.setText("");
-				}if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")&& !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")){
+				}
+				if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
+						&& !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
 					etxUsuarioNombre.setText("");
 					etxContrasenia.setText("");
 				}
 
-			}			
-			else{
-				new ReadUsuarioJSONFeedTask()
-				.execute(url+"users/login/format/json");
-	
+			} else {
+				new ReadUsuarioJSONFeedTask().execute(url
+						+ "users/login/format/json");
+
 			}
-						
+
 			break;
 		case R.id.btn_crear_cuenta:
 			i = new Intent(this, CrearCuenta.class);

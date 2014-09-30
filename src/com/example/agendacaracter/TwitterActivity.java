@@ -1,10 +1,8 @@
 package com.example.agendacaracter;
 
 import org.json.JSONObject;
-
 import com.example.reutilizables.Util;
 import com.example.twitter.*;
-
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
@@ -164,13 +162,6 @@ public class TwitterActivity extends Activity {
 					String ip = "no ip";
 					new RegistroUsuarioJSONFeedTask().execute(url, username,
 							password, email, firstname, lastname, ip);
-
-					/*
-					 * Log.e("Usuario user", user.getName() + "");
-					 * 
-					 * Intent in = new Intent(TwitterActivity.this,
-					 * MainActivity.class); startActivity(in);
-					 */
 
 				} catch (Exception e) {
 					e.printStackTrace();

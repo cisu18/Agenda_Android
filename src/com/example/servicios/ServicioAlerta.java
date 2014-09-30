@@ -17,6 +17,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
+
 public class ServicioAlerta extends Service {
 	private boolean alert6 = false;
 	private boolean alert12 = false;
@@ -35,21 +36,23 @@ public class ServicioAlerta extends Service {
 
 			@Override
 			public void run() {
-				
-				if (Util.getHoraAlerta().equals("06:00")&&!alert6) {
+
+				if (Util.getHoraAlerta().equals("06:00") && !alert6) {
 					mostrarNotBarra("¡Nuevo versículo! ;-)", MainActivity.class);
-					alert6=true;
-				}else if(Util.getHoraAlerta().equals("16:28")&&!alert12){
-					mostrarNotBarra("!Quiero evaluarme! :-)", EvaluacionDiaria.class);
-					alert12=true;
-				}else if(Util.getHoraAlerta().equals("20:00")&&!alert8){
-					SharedPreferences preferencias = getSharedPreferences("user",
-							Context.MODE_PRIVATE);
-					
-					if (!Val.isEvaluated(getApplicationContext(),preferencias.getString("id", "0"))) {
-						mostrarNotBarra("¡Hoy no me he evaluado! :-(", EvaluacionDiaria.class);
-					}					
-					alert8=true;
+					alert6 = true;
+				} else if (Util.getHoraAlerta().equals("16:27") && !alert12) {
+					mostrarNotBarra("!Quiero evaluarme! :-)",
+							EvaluacionDiaria.class);
+					alert12 = true;
+				} else if (Util.getHoraAlerta().equals("20:00") && !alert8) {
+					SharedPreferences preferencias = getSharedPreferences(
+							"user", Context.MODE_PRIVATE);
+					if (!Val.isEvaluated(getApplicationContext(),
+							preferencias.getString("id", "0"))) {
+						mostrarNotBarra("¡Hoy no me he evaluado! :-(",
+								EvaluacionDiaria.class);
+					}
+					alert8 = true;
 				}
 			}
 		}, 0, UPDATE_INTERVAL);
@@ -85,6 +88,7 @@ public class ServicioAlerta extends Service {
 				notificationIntent, 0);
 		
 		notification.setLatestEventInfo(getApplicationContext(), "Agenda Carácter", text, contentIntent);
+
 		mNotificationManager.notify(1, notification);
 	}
 }

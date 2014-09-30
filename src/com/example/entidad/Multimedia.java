@@ -6,7 +6,6 @@ public class Multimedia {
 	private String DescripcionMultimedia;
 	private String urlImagenMultimedia;
 	private String generoMultimedia;
-	
 
 	public String getIdMultimedia() {
 		return idMultimedia;

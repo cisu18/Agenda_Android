@@ -11,22 +11,19 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.entidad.Cualida;
+import com.example.entidad.Cualidad;
 import com.example.reutilizables.AdaptadorAvance;
 import com.example.reutilizables.Util;
 
 public class AvanceMensual extends Activity {
 
 	private ListView lsvListaAvance;
-	ArrayList<Cualida> listadoAvance;
-	Cualida cualidad = new Cualida();
-	
+	ArrayList<Cualidad> listadoAvance;
+	Cualidad cualidad = new Cualidad();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,31 +40,12 @@ public class AvanceMensual extends Activity {
 		SharedPreferences prefe = getSharedPreferences("user",
 				Context.MODE_PRIVATE);
 		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-		
+
 		final String url = getResources().getString(R.string.url_web_service);
-		new ReadCualidadesJSONFeedTask()
-				.execute(url+"puntaje_cualidad/puntaje_all/format/json/usuario/"
-						+ String.valueOf(idUsuario));
+		new ReadCualidadesJSONFeedTask().execute(url
+				+ "puntaje_cualidad/puntaje_all/format/json/usuario/"
+				+ String.valueOf(idUsuario));
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.avance_mensual, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	private class ReadCualidadesJSONFeedTask extends
@@ -87,10 +65,10 @@ public class AvanceMensual extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				listadoAvance = new ArrayList<Cualida>();
+				listadoAvance = new ArrayList<Cualidad>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualida c = new Cualida();
+					Cualidad c = new Cualidad();
 					datos = jsonArray.getJSONObject(i);
 					c.setId(datos.getString("int_id"));
 					c.setCualidad(datos.getString("var_nombre"));

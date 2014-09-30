@@ -21,15 +21,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.entidad.Cualida;
+import com.example.entidad.Cualidad;
 import com.example.reutilizables.AdaptadorCualidades;
 import com.example.reutilizables.Util;
 
 public class ListaCualidades extends Activity {
 
 	private ListView lsvListaCualidades;
-	ArrayList<Cualida> listaCualidades;
-	Cualida cualidad = new Cualida();
+	ArrayList<Cualidad> listaCualidades;
+	Cualidad cualidad = new Cualidad();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,10 @@ public class ListaCualidades extends Activity {
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		lsvListaCualidades = (ListView) findViewById(R.id.lsv_cualidades);
-		
+
 		final String url = getResources().getString(R.string.url_web_service);
-		new ReadCualidadesJSONFeedTask()
-				.execute(url+"cualidad/cualidades/format/json");
+		new ReadCualidadesJSONFeedTask().execute(url
+				+ "cualidad/cualidades/format/json");
 
 		registerForContextMenu(lsvListaCualidades);
 
@@ -89,14 +89,11 @@ public class ListaCualidades extends Activity {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
-		cualidad = (Cualida) lsvListaCualidades.getAdapter().getItem(
+		cualidad = (Cualidad) lsvListaCualidades.getAdapter().getItem(
 				info.position);
-		
-		menu.setHeaderTitle("Actividades para Fortalecer tu Carácter");		
-		menu.setHeaderIcon(getResources().getDrawable(R.drawable.icono_mas ));
 
-//		menu.getItem(0).getIcon().(getResources().getDrawable(R.drawable.add));	
-
+		menu.setHeaderTitle("Actividades para Fortalecer tu Carácter");
+		menu.setHeaderIcon(getResources().getDrawable(R.drawable.icono_mas));
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades, menu);
 	}
@@ -113,19 +110,19 @@ public class ListaCualidades extends Activity {
 			startActivity(i);
 			return true;
 		case R.id.opcVerPeliculas:
-			Intent peliculas=new Intent(this,ListadoMultimedia.class);
+			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", id);
 			peliculas.putExtra("tipo multimedia", "2");
 			startActivity(peliculas);
 			return true;
 		case R.id.opcVerAudios:
-			Intent audios=new Intent(this,ListadoMultimedia.class);
+			Intent audios = new Intent(this, ListadoMultimedia.class);
 			audios.putExtra("id cualidad", id);
 			audios.putExtra("tipo multimedia", "3");
 			startActivity(audios);
 			return true;
 		case R.id.opcVerCirculos:
-			Intent circulos=new Intent(this,CirculoCrecimiento.class);
+			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
 			return true;
 		default:
@@ -150,10 +147,10 @@ public class ListaCualidades extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				listaCualidades = new ArrayList<Cualida>();
+				listaCualidades = new ArrayList<Cualidad>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
-					Cualida c = new Cualida();
+					Cualidad c = new Cualidad();
 					datos = jsonArray.getJSONObject(i);
 					c.setId(datos.getString("id"));
 					c.setCualidad(datos.getString("cualidad"));

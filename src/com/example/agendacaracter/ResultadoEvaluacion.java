@@ -1,4 +1,5 @@
 package com.example.agendacaracter;
+
 import com.example.reutilizables.Util;
 import com.example.reutilizables.Val;
 
@@ -22,14 +23,12 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	private int intPuntaje;
 	private TextView txvMensajeCarita;
 	private TextView txvResultadoEvaluacion;
-	private TextView txvRecomendacion;	
-	
-	private Button btnCompartirResultado;	
+	private TextView txvRecomendacion;
+	private Button btnCompartirResultado;
 	private StringBuilder stbCompartir = new StringBuilder();
-	
 	private SharedPreferences preferencias;
-	private int idUsuario=0;
-	
+	private int idUsuario = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,49 +36,45 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 
 		Typeface tfHelveticaLTStdCond = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
-		Typeface tfHelveticaBoldLTStdCond = Typeface.createFromAsset(getAssets(),
-				"fonts/HelveticaLTStd-BoldCond.otf");
 
+		Typeface tfHelveticaBoldLTStdCond = Typeface.createFromAsset(
+				getAssets(), "fonts/HelveticaLTStd-BoldCond.otf");
 
 		Typeface tfGeosansLight2 = Typeface.createFromAsset(getAssets(),
 				"fonts/GeosansLight_2.ttf");
-		
+
 		txvMensajeCarita = (TextView) findViewById(R.id.txv_mensaje_carita);
 		txvMensajeCarita.setTypeface(tfHelveticaBoldLTStdCond);
-		
+
 		txvResultadoEvaluacion = (TextView) findViewById(R.id.txv_resultado_evaluacion);
 		txvResultadoEvaluacion.setTypeface(tfHelveticaLTStdCond);
 
 		txvRecomendacion = (TextView) findViewById(R.id.txv_recomendacion);
-		txvRecomendacion.setTypeface(tfGeosansLight2); 
-		
+		txvRecomendacion.setTypeface(tfGeosansLight2);
+
 		TextView txvLabelRecomendacion = (TextView) findViewById(R.id.txv_label_recomendacion);
-		txvLabelRecomendacion.setTypeface(tfGeosansLight2); 
-				
+		txvLabelRecomendacion.setTypeface(tfGeosansLight2);
+
 		btnCompartirResultado = (Button) findViewById(R.id.btn_compartir_puntaje);
 		btnCompartirResultado.setTypeface(tfHelveticaBoldLTStdCond);
 		btnCompartirResultado.setOnClickListener(this);
-		
-		preferencias = getSharedPreferences("user",
-				Context.MODE_PRIVATE);
+
+		preferencias = getSharedPreferences("user", Context.MODE_PRIVATE);
 		cargaData();
 	}
 
 	public void cargaData() {
 		Bundle bundle = getIntent().getExtras();
-		intPuntaje = bundle.getInt("puntaje")*25;		
+		intPuntaje = bundle.getInt("puntaje") * 25;
 		idUsuario = Integer.parseInt(preferencias.getString("id", "0"));
-		int idCualidad = Integer.parseInt(preferencias.getString("idCualidad", "0"));
+		int idCualidad = Integer.parseInt(preferencias.getString("idCualidad",
+				"0"));
 		final String url = getResources().getString(R.string.url_web_service);
 		if (idUsuario > 0) {
-			new ReadJSONFeedTask()
-					.execute(url+"puntaje_cualidad/puntaje/fecha/"
-							+ Util.getFechaActual()
-							+ "/usuario/"
-							+ idUsuario
-							+ "/puntaje/" + intPuntaje
-							+ "/cualidad/" + idCualidad+ "/format/json");
+			new ReadJSONFeedTask().execute(url
+					+ "puntaje_cualidad/puntaje/fecha/" + Util.getFechaActual()
+					+ "/usuario/" + idUsuario + "/puntaje/" + intPuntaje
+					+ "/cualidad/" + idCualidad + "/format/json");
 			mostrarMensajeDiario();
 		} else {
 			Intent i = new Intent(this, Login.class);
@@ -91,21 +86,22 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			case R.id.btn_compartir_puntaje:
-				Util.compartir(this, "Resultado Evaluación", stbCompartir.toString());
+		case R.id.btn_compartir_puntaje:
+			Util.compartir(this, "Resultado Evaluación",
+					stbCompartir.toString());
 			break;
 		}
 	}
-	
+
 	private void mostrarMensajeDiario() {
 		StringBuilder stbMensajeResultado = new StringBuilder();
 		StringBuilder stbRecomendacion = new StringBuilder();
 		StringBuilder stbMensajeCarita = new StringBuilder();
-		
-		ImageView img =(ImageView) findViewById(R.id.img_carita_resultado_evaluacion);
+
+		ImageView img = (ImageView) findViewById(R.id.img_carita_resultado_evaluacion);
 		stbMensajeResultado.append("Tu avance personal de hoy es: ");
-		stbCompartir.append("Mi avance personal de hoy es ");			
-		
+		stbCompartir.append("Mi avance personal de hoy es ");
+
 		switch (intPuntaje) {
 		case 0:
 			stbMensajeResultado.append(intPuntaje + "%");
@@ -159,13 +155,13 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 		txvResultadoEvaluacion.setText(stbMensajeResultado);
 		txvRecomendacion.setText(stbRecomendacion);
 		txvMensajeCarita.setText(stbMensajeCarita);
-		Val.setEvaluated(getApplicationContext(), idUsuario+"");		
-	}	
+		Val.setEvaluated(getApplicationContext(), idUsuario + "");
+	}
 
 	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
 
 		protected String doInBackground(String... urls) {
-			return Util.readJSONFeed(urls[0],getApplicationContext());
-		}		
-	}	
+			return Util.readJSONFeed(urls[0], getApplicationContext());
+		}
+	}
 }

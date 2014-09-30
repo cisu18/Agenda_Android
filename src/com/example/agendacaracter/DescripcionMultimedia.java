@@ -106,9 +106,9 @@ public class DescripcionMultimedia extends Activity {
 			txvCabeceraDescripcion.setText("DESCRIPCIÓN DEL AUDIO");
 		}
 		final String url = getResources().getString(R.string.url_web_service);
-		new JSONAsyncTask()
-				.execute(url+"multimedia/multimedia_byid/format/json/id/"
-						+ parametroIdMultimedia);
+		new JSONAsyncTask().execute(url
+				+ "multimedia/multimedia_byid/format/json/id/"
+				+ parametroIdMultimedia);
 		new DescargarImagen().execute(parametroUrlImagenMultimedia);
 
 	}
@@ -136,31 +136,29 @@ public class DescripcionMultimedia extends Activity {
 
 				object = jarray.getJSONObject(0);
 
-				// multimedia.setIdMultimedia(object.getString("id"));
-				// multimedia.setTituloMultimedia(object.getString("titulo"));
-				// multimedia.setUrlImagenMultimedia(object.getString("img"));
-				// multimedia.setDescripcionMultimedia(object.getString("descripcion"));
-				// listadoMultimedia.add(multimedia);
 				if (parametroTipo.equals("1")) {
 					txvTituloMultimedia.setText(object.getString("titulo"));
-					txvAutorMultimedia.setText( object.getString("autor"));
+					txvAutorMultimedia.setText(object.getString("autor"));
 					txvEdicionMultimedia.setText(object.getString("anio"));
-					txvDesripcionMultimedia.setText(object.getString("descripcion"));
+					txvDesripcionMultimedia.setText(object
+							.getString("descripcion"));
 
 				}
 				if (parametroTipo.equals("2")) {
 					txvTituloMultimedia.setText(object.getString("titulo"));
 					txvAutorMultimedia.setText(object.getString("autor"));
-					txvEdicionMultimedia.setText( object.getString("anio"));
+					txvEdicionMultimedia.setText(object.getString("anio"));
 
-					txvDesripcionMultimedia.setText(object.getString("descripcion"));
+					txvDesripcionMultimedia.setText(object
+							.getString("descripcion"));
 
 				}
 				if (parametroTipo.equals("3")) {
 					txvTituloMultimedia.setText(object.getString("titulo"));
 					txvAutorMultimedia.setText(object.getString("autor"));
 					txvEdicionMultimedia.setText(object.getString("anio"));
-					txvDesripcionMultimedia.setText(object.getString("descripcion"));
+					txvDesripcionMultimedia.setText(object
+							.getString("descripcion"));
 
 				}
 

@@ -16,7 +16,7 @@
     <string name="msg_menu_libros_referencia">Lectura de Libros</string>
     <string name="msg_menu_libros_peliculas">Películas/Serie TV</string>
     <string name="msg_menu_libros_audios">Audio/Conferencia</string>
-    <string name="msg_menu_libros_circulos">Círculo de Crecimiento</string>
+    <string name="msg_menu_libros_circulos">Círculos de Crecimiento</string>
 
     <!-- Encabezados -->
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>
@@ -46,14 +46,12 @@
     <string name="title_activity_twitter">TwitterActivity</string>        
     <string name="title_activity_avance_mensual">AvanceMensual</string>
     <string name="title_activity_descripcion_peliculas">DescripcionPeliculas</string>
-    <string name="url_web_service">http://clmdevelopers.com/agendaws/</string>  
-    <string name="url_local_host">http://192.168.0.55/Agenda_WS/</string>
+    <string name="url_web_service">http://clmdevelopers.com/agendaws/</string>
     
     <string name="title_activity_facebook">FacebookActivity</string>
     <string name="cancelled">Cancelled</string>
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
-    <string name="ok">OK</string>
-    <string name="hello_user">Hello %1$s!</string>
+    <string name="ok">OK</string>    
     <string name="success">Success</string>
     <string name="successfully_posted_post">Successfully posted \'%1$s\'.\nPost ID: %2$s</string>
     <string name="error">Error</string>

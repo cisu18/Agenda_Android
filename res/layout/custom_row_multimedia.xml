@@ -12,12 +12,14 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp" />
 
+
     <TextView
         android:id="@+id/txv_id_multimedia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txv_genero_multimedia"
         android:layout_below="@+id/txv_genero_multimedia" />
+
 
     <TextView
         android:id="@+id/txv_nombre_multimedia"
@@ -28,6 +30,7 @@
         android:layout_marginLeft="17dp"
         android:layout_toRightOf="@+id/imv_imagen_multimedia"
         android:text="TextView"
+        android:textAllCaps="false"
         android:textColor="@color/letras_funtes"
         android:textSize="18sp" />
 

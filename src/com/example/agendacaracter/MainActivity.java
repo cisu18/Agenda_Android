@@ -6,6 +6,7 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.example.reutilizables.Util;
+import com.example.reutilizables.Val;
 import com.example.servicios.ServicioAlerta;
 
 import android.app.Activity;
@@ -38,14 +39,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TextView textobiblico;
 	private TextView planlectura;
 	private TextView textosPlanLectura;
-
 	private TextView compartirVersiculo;
 	private TextView IrPensamiento;
 	private TextView IrEvaluacion;
-
 	public TextView tvIdCualidad;
 	public static Activity principal;
-	
 	SharedPreferences archivoUsuario;
 
 	@Override
@@ -98,20 +96,20 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		tvIdCualidad = new TextView(this);
 		iniciarServicios();
-		
-		archivoUsuario = getApplicationContext()
-				.getSharedPreferences("user", Context.MODE_PRIVATE);
+
+		archivoUsuario = getApplicationContext().getSharedPreferences("user",
+				Context.MODE_PRIVATE);
 		usuarioConectado();
-		
 
 	}
-	public void usuarioConectado(){
-		if (estaConectado()) {			
-			int idUsuario = Integer.parseInt(archivoUsuario.getString("id", "0"));
+
+	public void usuarioConectado() {
+		if (estaConectado()) {
+			int idUsuario = Integer.parseInt(archivoUsuario
+					.getString("id", "0"));
 			if (idUsuario == 0) {
 				Intent i = new Intent(this, Login.class);
 				startActivity(i);
-				// finish();
 			} else {
 				principal = this;
 				establecerFecha();
@@ -147,18 +145,19 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.txv_ir_evaluacion_diaria:
-			/*
-			 * String fechaevaluacion =
-			 * archivoUsuario.getString("eval", "0"); if
-			 * (!Val.isEvaluated(getApplicationContext
-			 * (),preferencias.getString("id", "0"))) {
-			 */
-			Intent in = new Intent(this, EvaluacionDiaria.class);
-			startActivity(in);
-			/*
-			 * }else{ Toast.makeText(this, "Usted ya realizó su evaluación",
-			 * Toast.LENGTH_SHORT).show(); }
-			 */
+
+			SharedPreferences preferencias = getSharedPreferences("user",
+					Context.MODE_PRIVATE);
+			if (!Val.isEvaluated(getApplicationContext(),
+					preferencias.getString("id", "0"))) {
+
+				Intent in = new Intent(this, EvaluacionDiaria.class);
+				startActivity(in);
+
+			} else {
+				Toast.makeText(this, "Usted ya realizo su evaluación",
+						Toast.LENGTH_SHORT).show();
+			}
 			break;
 		case R.id.txv_compartir_versiculo:
 			Util.compartir(this, cualidad.getText().toString(), versiculo
@@ -197,13 +196,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		txvDia.setText(nombredia);
 
 		String fechaWebService = Util.getFechaActual();
-		
+
 		final String url = getResources().getString(R.string.url_web_service);
-//		String fechaWebService = Util.getFechaActual().substring(0, 5);
-		
-		new ReadDiarioJSONFeedTask()
-				.execute(url+"cualidad_dia/cualidades_dia/format/json/fecha/"
-						+ fechaWebService);
+
+		new ReadDiarioJSONFeedTask().execute(url
+				+ "cualidad_dia/cualidades_dia/format/json/fecha/"
+				+ fechaWebService);
 
 	}
 
@@ -220,7 +218,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent mostrarAct = new Intent(this, ListaCualidades.class);
 			startActivity(mostrarAct);
 			return true;
-		case R.id.action_cerrar_sesion:		
+		case R.id.action_cerrar_sesion:
 			archivoUsuario.edit().remove("id").commit();
 			archivoUsuario.edit().remove("usuario").commit();
 			archivoUsuario.edit().remove("email").commit();
@@ -229,7 +227,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			return true;
 		case R.id.action_listar_avance:
-			Intent intAvance=new Intent(this,AvanceMensual.class);
+			Intent intAvance = new Intent(this, AvanceMensual.class);
 			startActivity(intAvance);
 			return true;
 		default:

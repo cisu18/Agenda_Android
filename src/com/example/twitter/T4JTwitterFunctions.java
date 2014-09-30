@@ -10,15 +10,16 @@ import twitter4j.conf.ConfigurationBuilder;
 import android.app.Activity;
 import android.content.Context;
 
-
 public class T4JTwitterFunctions {
 
 	public T4JTwitterFunctions() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public static void postToTwitter(Context c, final Activity callingActivity, final String consumerKey, final String consumerSecret, final String message, final TwitterPostResponse postResponse){
-		if(!TwitterActivity.isConnected(c)){
+
+	public static void postToTwitter(Context c, final Activity callingActivity,
+			final String consumerKey, final String consumerSecret,
+			final String message, final TwitterPostResponse postResponse) {
+		if (!TwitterActivity.isConnected(c)) {
 			postResponse.OnResult(false);
 			return;
 		}
@@ -26,11 +27,13 @@ public class T4JTwitterFunctions {
 		ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
 		configurationBuilder.setOAuthConsumerKey(consumerKey);
 		configurationBuilder.setOAuthConsumerSecret(consumerSecret);
-		configurationBuilder.setOAuthAccessToken(TwitterActivity.getAccessToken((c)));
-		configurationBuilder.setOAuthAccessTokenSecret(TwitterActivity.getAccessTokenSecret(c));
+		configurationBuilder.setOAuthAccessToken(TwitterActivity
+				.getAccessToken((c)));
+		configurationBuilder.setOAuthAccessTokenSecret(TwitterActivity
+				.getAccessTokenSecret(c));
 		Configuration configuration = configurationBuilder.build();
 		final Twitter twitter = new TwitterFactory(configuration).getInstance();
-		
+
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -41,22 +44,22 @@ public class T4JTwitterFunctions {
 					e.printStackTrace();
 					success = false;
 				}
-				
+
 				final boolean finalSuccess = success;
-				
+
 				callingActivity.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
 						postResponse.OnResult(finalSuccess);
 					}
 				});
-				
+
 			}
 		}).start();
 	}
-	
-	public static abstract class TwitterPostResponse{
+
+	public static abstract class TwitterPostResponse {
 		public abstract void OnResult(Boolean success);
 	}
-	
+
 }
