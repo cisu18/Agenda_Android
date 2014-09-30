@@ -244,7 +244,7 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f020019;
         public static final int com_facebook_loginbutton_silver=0x7f02001a;
         public static final int com_facebook_logo=0x7f02001b;
-        public static final int com_facebook_picker_default_separator_color=0x7f020056;
+        public static final int com_facebook_picker_default_separator_color=0x7f020058;
         public static final int com_facebook_picker_item_background=0x7f02001c;
         public static final int com_facebook_picker_list_focused=0x7f02001d;
         public static final int com_facebook_picker_list_longpressed=0x7f02001e;
@@ -294,23 +294,25 @@ containing a value of this type.
         public static final int overflow=0x7f02004a;
         public static final int overflow_prin=0x7f02004b;
         public static final int pensamiento_48=0x7f02004c;
-        public static final int responsable=0x7f02004d;
-        public static final int share_48=0x7f02004e;
-        public static final int spinner=0x7f02004f;
-        public static final int telefono=0x7f020050;
-        public static final int textura_2=0x7f020051;
-        public static final int twitter=0x7f020052;
-        public static final int ubicacion=0x7f020053;
-        public static final int usera=0x7f020054;
-        public static final int view_as_list_64=0x7f020055;
+        public static final int puzzle=0x7f02004d;
+        public static final int puzzle2=0x7f02004e;
+        public static final int responsable=0x7f02004f;
+        public static final int share_48=0x7f020050;
+        public static final int spinner=0x7f020051;
+        public static final int telefono=0x7f020052;
+        public static final int textura_2=0x7f020053;
+        public static final int twitter=0x7f020054;
+        public static final int ubicacion=0x7f020055;
+        public static final int usera=0x7f020056;
+        public static final int view_as_list_64=0x7f020057;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f040075;
-        public static final int action_inicio=0x7f040074;
-        public static final int action_listar=0x7f040077;
-        public static final int action_listar_avance=0x7f040078;
-        public static final int action_menu=0x7f040076;
-        public static final int action_settings=0x7f040073;
+        public static final int action_cerrar_sesion=0x7f040077;
+        public static final int action_inicio=0x7f040076;
+        public static final int action_listar=0x7f040079;
+        public static final int action_listar_avance=0x7f04007a;
+        public static final int action_menu=0x7f040078;
+        public static final int action_settings=0x7f040075;
         public static final int btn_compartir_puntaje=0x7f040041;
         public static final int btn_crear_cuenta=0x7f04000e;
         public static final int btn_iniciar_sesion=0x7f040025;
@@ -349,7 +351,7 @@ containing a value of this type.
         public static final int imageView3=0x7f040062;
         public static final int imageView4=0x7f040063;
         public static final int img_carita_resultado_evaluacion=0x7f04003d;
-        public static final int img_item_lista_libros_referencia=0x7f04006a;
+        public static final int img_item_lista_libros_referencia=0x7f04006b;
         public static final int imv_facebook_descripcion=0x7f040011;
         public static final int imv_imagen_multimedia=0x7f04006e;
         public static final int imv_libro_descripcion=0x7f040008;
@@ -363,10 +365,10 @@ containing a value of this type.
         public static final int lsv_cualidades=0x7f040020;
         public static final int main_ui_container=0x7f04001d;
         public static final int normal=0x7f040001;
-        public static final int opcVerAudios=0x7f04007b;
-        public static final int opcVerCirculos=0x7f04007c;
-        public static final int opcVerLibros=0x7f040079;
-        public static final int opcVerPeliculas=0x7f04007a;
+        public static final int opcVerAudios=0x7f04007d;
+        public static final int opcVerCirculos=0x7f04007e;
+        public static final int opcVerLibros=0x7f04007b;
+        public static final int opcVerPeliculas=0x7f04007c;
         public static final int pb_avance_cualidad=0x7f04005d;
         public static final int picker_subtitle=0x7f040052;
         public static final int scrollView1=0x7f040006;
@@ -377,7 +379,7 @@ containing a value of this type.
         public static final int tableRow2=0x7f04002a;
         public static final int tableRow3=0x7f04002c;
         public static final int tableRow4=0x7f04002f;
-        public static final int textView1=0x7f04006b;
+        public static final int textView1=0x7f040067;
         public static final int twitter_login_web_view=0x7f040042;
         public static final int txt_email=0x7f04000b;
         public static final int txt_label_versiculo=0x7f04002d;
@@ -398,17 +400,18 @@ containing a value of this type.
         public static final int txv_direccion_circulo=0x7f040065;
         public static final int txv_edicion_multimedia_descripcion=0x7f040016;
         public static final int txv_encragado_circulo=0x7f040064;
-        public static final int txv_genero_multimedia=0x7f040070;
+        public static final int txv_genero=0x7f040072;
+        public static final int txv_genero_multimedia=0x7f040073;
         public static final int txv_id_avance=0x7f04005e;
         public static final int txv_id_multimedia=0x7f04006f;
         public static final int txv_ir_evaluacion=0x7f040039;
         public static final int txv_ir_evaluacion_diaria=0x7f040032;
         public static final int txv_ir_libro_referencia=0x7f04003a;
         public static final int txv_ir_pensamiento_diario=0x7f040031;
-        public static final int txv_item_cualidad_lista_cualidad=0x7f040068;
-        public static final int txv_item_id_lista_cualidad=0x7f040069;
+        public static final int txv_item_cualidad_lista_cualidad=0x7f040069;
+        public static final int txv_item_id_lista_cualidad=0x7f04006a;
         public static final int txv_item_id_lista_libros_referencia=0x7f04006d;
-        public static final int txv_item_mes_lista_cualidad=0x7f040067;
+        public static final int txv_item_mes_lista_cualidad=0x7f040068;
         public static final int txv_item_titulo_lista_libros_referencia=0x7f04006c;
         public static final int txv_label_recomendacion=0x7f04003f;
         public static final int txv_mensaje_carita=0x7f04003c;
@@ -426,8 +429,9 @@ containing a value of this type.
         public static final int txv_recomendacion=0x7f040040;
         public static final int txv_redes_sociales=0x7f040010;
         public static final int txv_resultado_evaluacion=0x7f04003e;
-        public static final int txv_spinner_item=0x7f040072;
+        public static final int txv_spinner_item=0x7f040074;
         public static final int txv_telefono_circulo=0x7f040066;
+        public static final int txv_titulo=0x7f040070;
         public static final int txv_titulo_multimedia_descripcion=0x7f040014;
         public static final int txv_username_login=0x7f040023;
     }
@@ -492,11 +496,11 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001a;
-        public static final int app_id=0x7f070045;
+        public static final int app_id=0x7f070041;
         /**  Títulos 
          */
         public static final int app_name=0x7f07001b;
-        public static final int cancelled=0x7f070039;
+        public static final int cancelled=0x7f070035;
         public static final int circulo_crecimiento=0x7f070032;
         public static final int codigo__reserva=0x7f07002e;
         public static final int com_facebook_choose_friends=0x7f07000f;
@@ -529,9 +533,9 @@ containing a value of this type.
         public static final int correoelectronico=0x7f070029;
         public static final int descripcion_Peliculas=0x7f07002d;
         public static final int descripcion__libros=0x7f07002c;
-        public static final int error=0x7f07003e;
+        public static final int error=0x7f07003a;
         public static final int evaluacion_diaria=0x7f07002f;
-        public static final int exception=0x7f070046;
+        public static final int exception=0x7f070042;
         public static final int lista_avance=0x7f070027;
         /**  Encabezados 
          */
@@ -548,26 +552,22 @@ containing a value of this type.
         public static final int msg_menu_libros_circulos=0x7f070025;
         public static final int msg_menu_libros_peliculas=0x7f070023;
         public static final int msg_menu_libros_referencia=0x7f070022;
-        public static final int no_friends_selected=0x7f070042;
-        public static final int no_place_selected=0x7f070043;
-        public static final int ok=0x7f07003b;
+        public static final int no_friends_selected=0x7f07003e;
+        public static final int no_place_selected=0x7f07003f;
+        public static final int ok=0x7f070037;
         public static final int peliculas_series=0x7f070033;
         public static final int pensamiento=0x7f07002a;
-        public static final int permission_not_granted=0x7f07003a;
-        public static final int photo_post=0x7f070040;
-        public static final int pick_seattle_place=0x7f070044;
+        public static final int permission_not_granted=0x7f070036;
+        public static final int photo_post=0x7f07003c;
+        public static final int pick_seattle_place=0x7f070040;
         public static final int referencia=0x7f07002b;
         public static final int resultado_evaluacion=0x7f070031;
-        public static final int status_update=0x7f07003f;
-        public static final int success=0x7f07003c;
-        public static final int successfully_posted_post=0x7f07003d;
-        public static final int title_activity_avance_mensual=0x7f070035;
+        public static final int status_update=0x7f07003b;
+        public static final int success=0x7f070038;
+        public static final int successfully_posted_post=0x7f070039;
         public static final int title_activity_demos=0x7f070030;
-        public static final int title_activity_descripcion_peliculas=0x7f070036;
-        public static final int title_activity_facebook=0x7f070038;
-        public static final int title_activity_twitter=0x7f070034;
-        public static final int url_web_service=0x7f070037;
-        public static final int you_picked=0x7f070041;
+        public static final int url_web_service=0x7f070034;
+        public static final int you_picked=0x7f07003d;
     }
     public static final class style {
         /** 

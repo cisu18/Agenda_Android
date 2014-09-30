@@ -24,6 +24,7 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 	int Resource;
 	ViewHolder holder;
 	Typeface TituloLibro;
+	Typeface PrincipalLibro;
 
 	public AdaptadorMultimedia(Context context, int resource,
 			ArrayList<Multimedia> objects) {
@@ -35,6 +36,9 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 
 		TituloLibro = Typeface.createFromAsset(context.getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
+		PrincipalLibro = Typeface.createFromAsset(context.getAssets(),
+				"fonts/HelveticaLTStd-BoldCond.otf");	
+		
 	}
 
 	@Override
@@ -59,6 +63,12 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 			TextView url = (TextView) v
 					.findViewById(R.id.txv_genero_multimedia);
 			url.setTypeface(TituloLibro);
+			
+			TextView titulo = (TextView) v.findViewById(R.id.txv_titulo);
+			titulo.setTypeface(PrincipalLibro);
+			
+			TextView genero = (TextView) v.findViewById(R.id.txv_genero);
+			genero.setTypeface(PrincipalLibro);
 
 			v.setTag(holder);
 		} else {
@@ -67,9 +77,9 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 
 		new DownloadImageTask(holder.ivMultimediaImagen).execute(listMultimedia
 				.get(position).getUrlImagenMultimedia());
-		holder.tvTitulo.setText("Título:"+ listMultimedia.get(position)
+		holder.tvTitulo.setText(listMultimedia.get(position)
 				.getTituloMultimedia());
-		holder.tvGenero.setText("Género:"+ listMultimedia.get(position).getGeneroMultimedia());
+		holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
 
 
 		return v;

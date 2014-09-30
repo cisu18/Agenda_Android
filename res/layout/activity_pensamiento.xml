@@ -137,9 +137,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:background="@color/CABECERA"
-                    android:drawableBottom="@drawable/libros_ref"
+                    android:drawableBottom="@drawable/puzzle"
                     android:gravity="center"
-                    android:paddingBottom="13dp"
+                    android:paddingBottom="14dp"
                     android:textColor="@color/LETRA" />
 
             </TableRow>
