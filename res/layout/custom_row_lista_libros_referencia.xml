@@ -45,7 +45,6 @@
         android:gravity="center"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:text="este es la descripcion del libro "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/letras_funtes"
         android:textSize="16sp" />

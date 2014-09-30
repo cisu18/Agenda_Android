@@ -120,8 +120,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 
 		} else {
-			showAlertDialog(MainActivity.this, "Conexion a Internet",
-					"Tu Dispositivo necesita una conexion a internet.", false);
+			showAlertDialog(MainActivity.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
 		}
 	}
 

@@ -100,7 +100,6 @@
                 android:textColor="@color/letras_funtes"
                 android:textSize="16sp"
                 android:textStyle="normal" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -118,15 +117,16 @@
                 android:layout_height="47dp"
                 android:src="@drawable/twitter" />
 
-            <ImageView
-                android:id="@+id/imv_login_facebook"
-                android:layout_width="wrap_content"
+            <com.facebook.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="33dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="55dp"
-                android:src="@drawable/face" />            
-
+                facebook:confirm_logout="false"
+                facebook:fetch_user_info="true"
+                facebook:login_text=""
+                facebook:logout_text="" />
         </LinearLayout>
-  
-        </LinearLayout>    
+    </LinearLayout>
 
 </ScrollView>

@@ -36,7 +36,6 @@
                     android:gravity="center"
                     android:paddingBottom="9dp"
                     android:paddingTop="9dp"
-                    android:text="CREATIVIDAD"
                     android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/LETRA"
@@ -79,7 +78,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="es un lindo y bello pensamiento "
                     android:textColor="@color/letras_funtes"
                     android:textSize="20sp" />
 
@@ -94,7 +92,6 @@
             android:layout_marginTop="8dp"
             android:gravity="right"
             android:paddingRight="20dp"
-            android:text="Anonimo"
             android:textColor="@color/letras_funtes"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
@@ -176,7 +173,6 @@
                     android:gravity="left"
                     android:paddingBottom="10dp"
                     android:paddingLeft="20dp"
-                    android:text="hgewry jhewrguw"
                     android:textColor="@color/letras_funtes"
                     android:textSize="20sp" />
 

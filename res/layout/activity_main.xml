@@ -31,7 +31,6 @@
                 android:layout_rowSpan="2"
                 android:background="@color/CABECERA"
                 android:paddingLeft="15dp"
-                android:text="17"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/LETRA"
                 android:textSize="44sp" />
@@ -48,7 +47,6 @@
                 android:gravity="left"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="Agosto 2015"
                 android:textColor="@color/LETRA"
                 android:textSize="16sp" />
 
@@ -63,7 +61,6 @@
                 android:gravity="left"
                 android:paddingBottom="8dp"
                 android:paddingLeft="10dp"
-                android:text="Miércoles"
                 android:textColor="@color/LETRA"
                 android:textSize="18sp" />
 
@@ -88,7 +85,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:text="CREATIVIDAD"
                     android:textAllCaps="true"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/letras_funtes"
@@ -112,7 +108,6 @@
                     android:paddingBottom="2dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="dfgserg etgertwer erterter etewt wete "
                     android:textColor="@color/letras_funtes"
                     android:textSize="20sp" />
 
@@ -129,7 +124,6 @@
             android:layout_marginTop="8dp"
             android:gravity="right"
             android:paddingRight="20dp"
-            android:text="sdgsdrftg 43543"
             android:textColor="@color/letras_funtes"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
@@ -209,7 +203,6 @@
                 android:layout_marginTop="3dp"
                 android:gravity="left"
                 android:paddingLeft="20dp"
-                android:text="hgewry jhewrguw"
                 android:textColor="@color/letras_funtes"
                 android:textSize="20sp" />
 

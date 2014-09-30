@@ -78,11 +78,9 @@ public class DescripcionMultimedia extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				SharedPreferences prefe = getSharedPreferences("user",
 						Context.MODE_PRIVATE);
 				int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-
 				Intent reserva = new Intent(getApplicationContext(),
 						CodigoReserva.class);
 				reserva.putExtra("idMultimedia", parametroIdMultimedia);
@@ -103,7 +101,7 @@ public class DescripcionMultimedia extends Activity {
 			txvCabeceraDescripcion.setText("SINOPSIS");
 		}
 		if (parametroTipo.equals("3")) {
-			txvCabeceraDescripcion.setText("DESCRIPCION DEL AUDIO");
+			txvCabeceraDescripcion.setText("DESCRIPCI”N DEL AUDIO");
 		}
 		final String url = getResources().getString(R.string.url_web_service);
 		new JSONAsyncTask().execute(url
@@ -163,10 +161,9 @@ public class DescripcionMultimedia extends Activity {
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
 				Toast.makeText(
 						getApplicationContext(),
-						"No se pudieron obtener datos del servidor: Descripcion de libro",
+						"No se pudieron obtener datos del servidor: Descripci”n de libro",
 						Toast.LENGTH_LONG).show();
 			}
 

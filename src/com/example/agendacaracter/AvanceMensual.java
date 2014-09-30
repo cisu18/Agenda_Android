@@ -22,7 +22,7 @@ import com.example.reutilizables.Util;
 public class AvanceMensual extends Activity {
 
 	private ListView lsvListaAvance;
-	ArrayList<Cualidad> listadoAvance;
+	ArrayList<Cualidad> lstAvance;
 	Cualidad cualidad = new Cualidad();
 
 	@Override
@@ -65,7 +65,7 @@ public class AvanceMensual extends Activity {
 			try {
 				JSONArray jsonArray = new JSONArray(result);
 				JSONObject datos = new JSONObject();
-				listadoAvance = new ArrayList<Cualidad>();
+				lstAvance = new ArrayList<Cualidad>();
 
 				for (int i = 0; i < jsonArray.length(); i++) {
 					Cualidad c = new Cualidad();
@@ -74,12 +74,12 @@ public class AvanceMensual extends Activity {
 					c.setCualidad(datos.getString("var_nombre"));
 					c.setMes(datos.getString("var_mes"));
 					c.setPuntaje(datos.getString("promedio"));
-					listadoAvance.add(c);
+					lstAvance.add(c);
 
 				}
 
 				lsvListaAvance.setAdapter(new AdaptadorAvance(
-						getApplicationContext(), listadoAvance));
+						getApplicationContext(), lstAvance));
 
 			} catch (Exception e) {
 				Toast.makeText(

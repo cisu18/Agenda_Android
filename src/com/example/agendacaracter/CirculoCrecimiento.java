@@ -28,7 +28,6 @@ public class CirculoCrecimiento extends Activity {
 		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
-		// Introduzco los datos
 		circulo = new Circulos(
 				"Av. Enrique Meigg Mz. A2 Lt. 22 Urb El Trapecio Trujillo",
 				"Richard Oruna", "Lunes- 4:00 PM ", "044-223423");

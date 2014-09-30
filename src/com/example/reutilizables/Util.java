@@ -35,7 +35,6 @@ public class Util {
 
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		String fech = formateador.format(ahora).substring(0, 5) + "-2015";
-		Log.e("FECHAS", fech);
 		return fech;
 	}
 
@@ -78,6 +77,7 @@ public class Util {
 
 				inputStream.close();
 			} else {
+
 				Log.e("Error:", "No se descargaron los datos del servidor");
 
 			}

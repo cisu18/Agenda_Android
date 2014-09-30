@@ -84,7 +84,6 @@ public class TwitterActivity extends Activity {
 
 			@Override
 			public void onPageFinished(WebView view, String url) {
-				// TODO Auto-generated method stub
 				super.onPageFinished(view, url);
 				if (mProgressDialog != null)
 					mProgressDialog.dismiss();
@@ -92,7 +91,6 @@ public class TwitterActivity extends Activity {
 
 			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
-				// TODO Auto-generated method stub
 				super.onPageStarted(view, url, favicon);
 
 				if (mProgressDialog != null)
@@ -107,7 +105,6 @@ public class TwitterActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 
 		if (mProgressDialog != null)
@@ -121,7 +118,6 @@ public class TwitterActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 	}
 
@@ -129,7 +125,6 @@ public class TwitterActivity extends Activity {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				String verifier = uri
 						.getQueryParameter(Constants.IEXTRA_OAUTH_VERIFIER);
 				try {
@@ -214,9 +209,6 @@ public class TwitterActivity extends Activity {
 			}
 		}
 	}
-
-	// ====== TWITTER HELPER METHODS ======
-
 	public static boolean isConnected(Context ctx) {
 		SharedPreferences sharedPrefs = ctx.getSharedPreferences(
 				Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -277,7 +269,6 @@ public class TwitterActivity extends Activity {
 				TwitterActivity.this.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						Log.e("Twitter", "LOADING AUTH URL");
 						twitterLoginWebView.loadUrl(requestToken
 								.getAuthenticationURL());
 						twitterLoginWebView.getSettings().setJavaScriptEnabled(
