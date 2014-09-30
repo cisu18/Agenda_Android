@@ -25,7 +25,6 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 	int Resource;
 	ViewHolder holder;
 	Typeface TituloLibro;
-	
 
 	public AdaptadorLibro(Context context, int resource,
 			ArrayList<Multimedia> objects) {
@@ -34,11 +33,10 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		Resource = resource;
 		listLibro = objects;
-		
-		TituloLibro = Typeface.createFromAsset(context.getAssets(),
-				"fonts/HelveticaLTStd-Cond.otf");		
-	}
 
+		TituloLibro = Typeface.createFromAsset(context.getAssets(),
+				"fonts/HelveticaLTStd-Cond.otf");
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -46,21 +44,25 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 		if (v == null) {
 			holder = new ViewHolder();
 			v = vi.inflate(Resource, null);
-			holder.ivLibroImagen = (ImageView) v.findViewById(R.id.img_item_lista_libros_referencia);
-			holder.tvTituloLibro = (TextView) v.findViewById(R.id.txv_item_titulo_lista_libros_referencia);		
-			holder.tvIdLibro = (TextView) v.findViewById(R.id.txv_item_id_lista_libros_referencia);
-			
-			TextView lista_libros = (TextView) v.findViewById(R.id.txv_item_titulo_lista_libros_referencia);
-			lista_libros.setTypeface(TituloLibro);			
-			
+			holder.ivLibroImagen = (ImageView) v
+					.findViewById(R.id.img_item_lista_libros_referencia);
+			holder.tvTituloLibro = (TextView) v
+					.findViewById(R.id.txv_item_titulo_lista_libros_referencia);
+			holder.tvIdLibro = (TextView) v
+					.findViewById(R.id.txv_item_id_lista_libros_referencia);
+
+			TextView lista_libros = (TextView) v
+					.findViewById(R.id.txv_item_titulo_lista_libros_referencia);
+			lista_libros.setTypeface(TituloLibro);
+
 			v.setTag(holder);
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
-		holder.ivLibroImagen.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
 				position).getUrlImagenMultimedia());
-		holder.tvTituloLibro.setText(listLibro.get(position).getTituloMultimedia());
+		holder.tvTituloLibro.setText(listLibro.get(position)
+				.getTituloMultimedia());
 		return v;
 
 	}

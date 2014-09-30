@@ -32,7 +32,7 @@ public class EvaluacionDiaria extends Activity {
 
 		Typeface tfHelvetica = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
+
 		Typeface tfHelveticaBold = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");
 
@@ -41,7 +41,6 @@ public class EvaluacionDiaria extends Activity {
 
 		TextView title = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		title.setTypeface(tfHelvetica);
-	
 
 		txvPregunta01 = (TextView) findViewById(R.id.txv_pregunta_01);
 		txvPregunta01.setTypeface(tfGeosansLight);
@@ -73,7 +72,7 @@ public class EvaluacionDiaria extends Activity {
 				TextView v = (TextView) super.getView(position, convertView,
 						parent);
 				v.setTypeface(tfJokerman);
-				v.setTextColor(Color.rgb(255, 109, 104));			
+				v.setTextColor(Color.rgb(255, 109, 104));
 				v.setTextSize(18);
 				return v;
 			}
@@ -84,14 +83,15 @@ public class EvaluacionDiaria extends Activity {
 						parent);
 				v.setTypeface(tfJokerman);
 				v.setTextColor(Color.rgb(255, 255, 255));
-				v.setPadding(10,5,0,10);
+				v.setPadding(10, 5, 0, 10);
 				v.setBackgroundColor(Color.rgb(77, 99, 113));
 				v.setTextSize(18);
 				return v;
 			}
 		};
 
-		adaptadorSpinner.setDropDownViewResource(android.R.layout.simple_list_item_checked);
+		adaptadorSpinner
+				.setDropDownViewResource(android.R.layout.simple_list_item_checked);
 		spiCritetioEvaluacion01.setAdapter(adaptadorSpinner);
 		spiCritetioEvaluacion02.setAdapter(adaptadorSpinner);
 	}

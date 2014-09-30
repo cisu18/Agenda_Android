@@ -9,8 +9,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginTop="20dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="50dp" >
 
     <TextView
         android:id="@+id/txv_cabecera_descripcion"
@@ -19,7 +20,6 @@
         android:layout_gravity="center"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="40dp"
         android:background="@color/CABECERA"
         android:gravity="center_horizontal"
         android:paddingBottom="10dp"
@@ -42,8 +42,7 @@
         <ImageView
             android:id="@+id/imv_multimedia_descripcion"
             android:layout_width="120dp"
-            android:layout_height="180dp"
-            android:src="@drawable/ic_launcher" />
+            android:layout_height="180dp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -57,7 +56,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="60dp"
-                android:text="título"
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
 
@@ -68,7 +66,6 @@
                 android:layout_above="@+id/txv_edicion_multimedia_descripcion"
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="6dp"
-                android:text="autor"
                 android:textColor="@color/letras_funtes"
                 android:textSize="17sp" />
 
@@ -78,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:text="edición"
                 android:textColor="@color/letras_funtes"
                 android:textSize="17sp" />
 
@@ -93,7 +89,6 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:gravity="left"
-        android:text="descrpcion"
         android:textColor="@color/letras_funtes"
         android:textSize="17sp" />
 
@@ -112,7 +107,6 @@
         android:id="@+id/btn_reserva_aqui"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="7dp"
         android:layout_marginLeft="90dp"
         android:layout_marginRight="90dp"
         android:layout_marginTop="15dp"

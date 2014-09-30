@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,15 +12,12 @@ import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorMultimedia;
 import com.example.reutilizables.Util;
@@ -31,7 +27,7 @@ public class ListadoMultimedia extends Activity {
 	ArrayList<Multimedia> listadoMultimedias;
 
 	AdaptadorMultimedia adaptadorMultimedia;
-	public String tipo="";
+	public String tipo = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,26 +36,26 @@ public class ListadoMultimedia extends Activity {
 		setContentView(R.layout.activity_listado_multimedia);
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
-		
+
 		listadoMultimedias = new ArrayList<Multimedia>();
 		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
-		
+
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
-		if(tipo.equals("2")){
+		if (tipo.equals("2")) {
 			txvCabeceraDescripcion.setText("PELÍCULAS Y SERIES");
 		}
-		if(tipo.equals("3")){
+		if (tipo.equals("3")) {
 			txvCabeceraDescripcion.setText("AUDIOS Y CONFERENCIAS");
 		}
-		Log.e("ids",idCualidad +" "+tipo);
-		
+		Log.e("ids", idCualidad + " " + tipo);
+
 		final String url = getResources().getString(R.string.url_web_service);
-		new JSONAsyncTask()
-				.execute(url+"multimedia/lista_multimedia_bycualidadtipo/cualidad/"
-						+ idCualidad + "/tipo/" + tipo + "/format/json");
+		new JSONAsyncTask().execute(url
+				+ "multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+				+ idCualidad + "/tipo/" + tipo + "/format/json");
 
 		final ListView lsvListaMultimedia = (ListView) findViewById(R.id.lsv_Lista_peliculas);
 		adaptadorMultimedia = new AdaptadorMultimedia(getApplicationContext(),
@@ -77,8 +73,6 @@ public class ListadoMultimedia extends Activity {
 						.getIdMultimedia();
 				String urlImagenMultimedia = listadoMultimedias.get(position)
 						.getUrlImagenMultimedia();
-				// Intent intent = new
-				// Intent(Intent.ACTION_VIEW,Uri.parse(url));
 				Intent intent = new Intent(getApplicationContext(),
 						DescripcionMultimedia.class);
 				intent.putExtra("id multimedia", idMultimedia);
@@ -88,25 +82,6 @@ public class ListadoMultimedia extends Activity {
 			}
 
 		});
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.peliculas_series, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	class JSONAsyncTask extends AsyncTask<String, Void, String> {
@@ -134,8 +109,7 @@ public class ListadoMultimedia extends Activity {
 					Multimedia multimedia = new Multimedia();
 					multimedia.setIdMultimedia(object.getString("id"));
 					multimedia.setTituloMultimedia(object.getString("titulo"));
-					multimedia.setUrlImagenMultimedia(object
-							.getString("img"));
+					multimedia.setUrlImagenMultimedia(object.getString("img"));
 					multimedia.setGeneroMultimedia(object.getString("genero"));
 					listadoMultimedias.add(multimedia);
 				}

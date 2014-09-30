@@ -38,7 +38,6 @@ public class CrearCuenta extends Activity implements OnClickListener {
 	EditText txtUsuario;
 	EditText txtPass1;
 	EditText txtPass2;
-	// AlertDialog alert;
 	Button btnCrearCuenta;
 
 	@Override
@@ -120,11 +119,12 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				msg.append("Complete todos los campos");
 				con = false;
 			}
-			final String url = getResources().getString(R.string.url_web_service);
+			final String url = getResources().getString(
+					R.string.url_web_service);
 
 			if (con) {
-				new RegistroUsuarioJSONFeedTask()
-						.execute(url+"users/create_user/format/json");
+				new RegistroUsuarioJSONFeedTask().execute(url
+						+ "users/create_user/format/json");
 			} else {
 				Toast t = Toast.makeText(getApplicationContext(), msg,
 						Toast.LENGTH_SHORT);

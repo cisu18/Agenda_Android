@@ -25,7 +25,7 @@ public class AdaptadorCirculos extends BaseAdapter {
 		tf = Typeface.createFromAsset(context.getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 	}
-	
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -51,11 +51,15 @@ public class AdaptadorCirculos extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.custom_row_circulos, null);
 			holder = new ViewHolder();
-			holder.ciuddad = (TextView) convertView.findViewById(R.id.txv_ciudad_circulo);
-			holder.encargado = (TextView) convertView.findViewById(R.id.txv_encragado_circulo);			
-			holder.direccion = (TextView) convertView.findViewById(R.id.txv_direccion_circulo);
-			holder.telefono = (TextView) convertView.findViewById(R.id.txv_telefono_circulo);
-			
+			holder.ciuddad = (TextView) convertView
+					.findViewById(R.id.txv_ciudad_circulo);
+			holder.encargado = (TextView) convertView
+					.findViewById(R.id.txv_encragado_circulo);
+			holder.direccion = (TextView) convertView
+					.findViewById(R.id.txv_direccion_circulo);
+			holder.telefono = (TextView) convertView
+					.findViewById(R.id.txv_telefono_circulo);
+
 			TextView ciudad = (TextView) convertView
 					.findViewById(R.id.txv_ciudad_circulo);
 			ciudad.setTypeface(tf);
@@ -63,34 +67,33 @@ public class AdaptadorCirculos extends BaseAdapter {
 			TextView encargado = (TextView) convertView
 					.findViewById(R.id.txv_encragado_circulo);
 			encargado.setTypeface(tf);
-			
+
 			TextView direccion = (TextView) convertView
 					.findViewById(R.id.txv_direccion_circulo);
 			direccion.setTypeface(tf);
-			
+
 			TextView telefono = (TextView) convertView
 					.findViewById(R.id.txv_telefono_circulo);
 			telefono.setTypeface(tf);
-			
 
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		
 		holder.ciuddad.setText(searchArrayList.get(position).getCiudad());
 		holder.encargado.setText(searchArrayList.get(position).getEncargado());
 		holder.direccion.setText(searchArrayList.get(position).getDireccion());
 		holder.telefono.setText(searchArrayList.get(position).getTelefono());
-		
+
 		return convertView;
 	}
+
 	static class ViewHolder {
 		TextView ciuddad;
-		TextView encargado;		
+		TextView encargado;
 		TextView direccion;
 		TextView telefono;
-		
+
 	}
 }

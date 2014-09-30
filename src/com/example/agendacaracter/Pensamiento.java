@@ -75,9 +75,8 @@ public class Pensamiento extends Activity implements OnClickListener {
 		String fecha = Util.getFechaActual();
 		final String url = getResources().getString(R.string.url_web_service);
 
-		new ReadJSONFeedTask()
-				.execute(url+"cualidad_dia/pensamiento/format/json/fecha/"
-						+ fecha);
+		new ReadJSONFeedTask().execute(url
+				+ "cualidad_dia/pensamiento/format/json/fecha/" + fecha);
 
 		Bundle bundle = getIntent().getExtras();
 		txvNombreCualidad.setText(bundle.getString("Nombre Cualidad"));
@@ -125,7 +124,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_contextual_cualidades,
 				menu.setHeaderTitle("Actividades para Fortalecer tu Carácter"));
-		menu.setHeaderIcon(getResources().getDrawable(R.drawable.icono_mas ));
+		menu.setHeaderIcon(getResources().getDrawable(R.drawable.icono_mas));
 
 	}
 

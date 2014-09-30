@@ -10,8 +10,7 @@
         android:layout_height="130dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_launcher" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/txv_nombre_multimedia"
@@ -22,6 +21,7 @@
         android:layout_marginTop="60dp"
         android:layout_toRightOf="@+id/imv_imagen_multimedia"
         android:text="TextView"
+        android:textAllCaps="false"
         android:textColor="@color/letras_funtes"
         android:textSize="18sp" />
 

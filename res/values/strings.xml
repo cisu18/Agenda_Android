@@ -16,7 +16,7 @@
     <string name="msg_menu_libros_referencia">Lectura de Libros</string>
     <string name="msg_menu_libros_peliculas">Películas/Serie TV</string>
     <string name="msg_menu_libros_audios">Audio/Conferencia</string>
-    <string name="msg_menu_libros_circulos">Círculo de Crecimiento</string>
+    <string name="msg_menu_libros_circulos">Círculos de Crecimiento</string>
 
     <!-- Encabezados -->
     <string name="lista_cualidades">LISTA DE CUALIDADES</string>

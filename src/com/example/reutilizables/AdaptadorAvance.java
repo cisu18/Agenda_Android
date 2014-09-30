@@ -16,16 +16,16 @@ import android.widget.BaseAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.agendacaracter.R;
-import com.example.entidad.Cualida;
+import com.example.entidad.Cualidad;
 
 public class AdaptadorAvance extends BaseAdapter {
 
 	Typeface tf;
-	private static ArrayList<Cualida> searchArrayList;
+	private static ArrayList<Cualidad> searchArrayList;
 
 	private LayoutInflater mInflater;
 
-	public AdaptadorAvance(Context context, ArrayList<Cualida> results) {
+	public AdaptadorAvance(Context context, ArrayList<Cualidad> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),
@@ -74,8 +74,8 @@ public class AdaptadorAvance extends BaseAdapter {
 		holder.porcentaje.setText(searchArrayList.get(position).getPuntaje()
 				+ "%");
 		holder.puntaje.setMax(10000);
-		holder.puntaje.setProgress((int) Double.parseDouble(searchArrayList.get(
-				position).getPuntaje())*100);
+		holder.puntaje.setProgress((int) Double.parseDouble(searchArrayList
+				.get(position).getPuntaje()) * 100);
 
 		GradientDrawable.Orientation fgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
 		GradientDrawable.Orientation bgGradDirection = GradientDrawable.Orientation.RIGHT_LEFT;
