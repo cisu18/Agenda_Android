@@ -5,7 +5,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.agendacaracter.ListadoMultimedia.JSONAsyncTask;
 import com.example.entidad.Multimedia;
 import com.example.reutilizables.AdaptadorLibro;
 import com.example.reutilizables.Util;
