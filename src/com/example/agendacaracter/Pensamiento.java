@@ -136,6 +136,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			Intent i = new Intent(this, Referencia.class);
 			i.putExtra("id cualidad", txvIdCualidad.getText());
 			i.putExtra("tipo multimedia", "1");
+			i.putExtra("Nombre Cualidad", txvNombreCualidad.getText());
 			startActivity(i);
 			return true;
 
@@ -143,12 +144,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
 			peliculas.putExtra("tipo multimedia", "2");
+			peliculas.putExtra("Nombre Cualidad", txvNombreCualidad.getText());
 			startActivity(peliculas);
 			return true;
 		case R.id.opcVerAudios:
 			Intent audios = new Intent(this, ListadoMultimedia.class);
 			audios.putExtra("id cualidad", txvIdCualidad.getText());
 			audios.putExtra("tipo multimedia", "3");
+			audios.putExtra("Nombre Cualidad", txvNombreCualidad.getText());
 			startActivity(audios);
 			return true;
 		case R.id.opcVerCirculos:

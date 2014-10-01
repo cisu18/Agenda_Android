@@ -34,7 +34,7 @@ public class Util {
 		Date ahora = new Date();
 
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
-		String fech = formateador.format(ahora).substring(0, 5) + "-2015";
+		String fech = formateador.format(ahora);
 		return fech;
 	}
 

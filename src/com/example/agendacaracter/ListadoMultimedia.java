@@ -28,6 +28,8 @@ public class ListadoMultimedia extends Activity {
 
 	AdaptadorMultimedia adaptadorMultimedia;
 	public String tipo = "";
+	public String nombreCualidad = "";
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,9 @@ public class ListadoMultimedia extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
+		nombreCualidad = bundle.getString("Nombre Cualidad");
+		
+		
 		if (tipo.equals("2")) {
 			txvCabeceraDescripcion.setText("PELÍCULAS Y SERIES");
 		}
@@ -117,7 +122,7 @@ public class ListadoMultimedia extends Activity {
 			} catch (JSONException e) {
 				Toast.makeText(
 						getApplicationContext(),
-						"No se pudieron obtener datos del servidor: Peliculas y series",
+						"No se encontraron recursos relacionados con "+nombreCualidad,
 						Toast.LENGTH_LONG).show();
 			}
 

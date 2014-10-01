@@ -27,6 +27,7 @@ public class Referencia extends Activity {
 
 	AdaptadorLibro adaptadorMultimedia;
 	public String tipo = "";
+	public String nombreCualidad = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class Referencia extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		String idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
+		nombreCualidad=bundle.getString("Nombre Cualidad");
 		Log.e("ids", idCualidad + " " + tipo);
 		final String url = getResources().getString(R.string.url_web_service);
 		new JSONAsyncTask().execute(url
@@ -110,7 +112,7 @@ public class Referencia extends Activity {
 			} catch (JSONException e) {
 				Toast.makeText(
 						getApplicationContext(),
-						"No se pudieron obtener datos del servidor: Libros de referencia",
+						"No se encontraron libros relacionados con "+ nombreCualidad,
 						Toast.LENGTH_LONG).show();
 			}
 

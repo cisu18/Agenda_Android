@@ -26,6 +26,7 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +35,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.reutilizables.Util;
 import com.facebook.AppEventsLogger;
 import com.facebook.FacebookAuthorizationException;
@@ -259,13 +261,12 @@ public class Login extends Activity implements OnClickListener {
 				}
 				inputStream.close();
 			} else {
-				Toast.makeText(getApplicationContext(), "Error interno, status code: "+statusCode,
-						Toast.LENGTH_SHORT).show();
+				Log.e("Error:","Status code");
 
 			}
 		} catch (Exception e) {
-			Toast.makeText(getApplicationContext(), "Error interno al intentar ingresar. Error: " +e.getLocalizedMessage(),
-					Toast.LENGTH_SHORT).show();
+			Log.e("Error:","No se ncontraron los datos"+ e.getMessage());
+
 		}
 
 		return stringBuilder.toString();

@@ -101,24 +101,29 @@ public class ListaCualidades extends Activity {
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		String id = cualidad.getId();
+		String nombreCualidad=cualidad.getCualidad();
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
 			Intent i = new Intent(this, Referencia.class);
 			i.putExtra("id cualidad", id);
 			i.putExtra("tipo multimedia", "1");
+			i.putExtra("Nombre Cualidad", nombreCualidad);
+			
 			startActivity(i);
 			return true;
 		case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", id);
 			peliculas.putExtra("tipo multimedia", "2");
+			peliculas.putExtra("Nombre Cualidad", nombreCualidad);
 			startActivity(peliculas);
 			return true;
 		case R.id.opcVerAudios:
 			Intent audios = new Intent(this, ListadoMultimedia.class);
 			audios.putExtra("id cualidad", id);
 			audios.putExtra("tipo multimedia", "3");
+			audios.putExtra("Nombre Cualidad", nombreCualidad);
 			startActivity(audios);
 			return true;
 		case R.id.opcVerCirculos:
