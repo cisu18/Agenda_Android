@@ -46,7 +46,7 @@ public class ListaCualidades extends Activity {
 
 		final String url = getResources().getString(R.string.url_web_service);
 		new ReadCualidadesJSONFeedTask().execute(url
-				+ "cualidad/cualidades/format/json");
+				+ "cualidad/cualidades/format/json/anio/"+Util.getFechaActual().substring(6, 10));
 
 		registerForContextMenu(lsvListaCualidades);
 

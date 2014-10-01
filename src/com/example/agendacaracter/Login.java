@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -55,7 +56,6 @@ public class Login extends Activity implements OnClickListener {
 	public TextView txvBienvenido;
 
 	private final String PENDING_ACTION_BUNDLE_KEY = "com.facebook.samples.hellofacebook:PendingAction";
-
 	private LoginButton loginButton;
 	private PendingAction pendingAction = PendingAction.NONE;
 	private GraphUser user;	
@@ -107,6 +107,7 @@ public class Login extends Activity implements OnClickListener {
 		loginButton = (LoginButton) findViewById(R.id.login_button);
 		loginButton.setBackgroundResource(R.drawable.face);
 		loginButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+		loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
 		loginButton
 				.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
 					@Override
@@ -345,7 +346,6 @@ public class Login extends Activity implements OnClickListener {
 			handlePendingAction();
 		}
 		updateUI();
-
 	}
 
 	private void updateUI() {
@@ -355,13 +355,12 @@ public class Login extends Activity implements OnClickListener {
 			String url = getResources().getString(R.string.url_web_service)
 					+ "users/create_user_social/format/json";
 			String username = "fb" + user.getId();
-			String password = user.getId() + "fb";
-			String email = user.getId();
+			String email = user.getProperty("email").toString();
 			String firstname = user.getFirstName();
 			String lastname = user.getLastName();
-			String ip = "no ip";
-			new RegistroUsuarioJSONFeedTask().execute(url, username, password,
-					email, firstname, lastname, ip);
+			
+			new RegistroUsuarioJSONFeedTask().execute(url, username,
+					email, firstname, lastname);
 
 		}
 	}
@@ -377,7 +376,7 @@ public class Login extends Activity implements OnClickListener {
 
 		protected String doInBackground(String... prms) {
 			return Util.readJSONFeedPost(prms[0], prms[1], prms[2], prms[3],
-					prms[4], prms[5], prms[6]);
+					prms[4]);
 		}
 
 		protected void onPostExecute(String result) {
@@ -408,7 +407,6 @@ public class Login extends Activity implements OnClickListener {
 						Toast.LENGTH_SHORT).show();
 			}
 		}
-
 	}
 
 	@SuppressWarnings("incomplete-switch")

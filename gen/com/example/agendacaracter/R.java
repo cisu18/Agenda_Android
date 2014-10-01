@@ -492,11 +492,11 @@ containing a value of this type.
         public static final int action_settings=0x7f07001a;
         /**  Login con facebook 
          */
-        public static final int app_id=0x7f070035;
+        public static final int app_id=0x7f070038;
         /**  Títulos 
          */
         public static final int app_name=0x7f07001b;
-        public static final int cancelled=0x7f070036;
+        public static final int cancelled=0x7f070039;
         public static final int circulo_crecimiento=0x7f070032;
         public static final int codigo__reserva=0x7f07002e;
         public static final int com_facebook_choose_friends=0x7f07000f;
@@ -546,14 +546,17 @@ containing a value of this type.
         public static final int msg_menu_libros_circulos=0x7f070025;
         public static final int msg_menu_libros_peliculas=0x7f070023;
         public static final int msg_menu_libros_referencia=0x7f070022;
-        public static final int ok=0x7f070038;
+        public static final int ok=0x7f07003b;
         public static final int peliculas_series=0x7f070033;
         public static final int pensamiento=0x7f07002a;
-        public static final int permission_not_granted=0x7f070037;
+        public static final int permission_not_granted=0x7f07003a;
         public static final int referencia=0x7f07002b;
         public static final int resultado_evaluacion=0x7f070031;
+        public static final int title_activity_avance_mensual=0x7f070035;
         public static final int title_activity_demos=0x7f070030;
-        public static final int url_web_service=0x7f070034;
+        public static final int title_activity_descripcion_peliculas=0x7f070036;
+        public static final int title_activity_twitter=0x7f070034;
+        public static final int url_web_service=0x7f070037;
     }
     public static final class style {
         /** 

@@ -42,9 +42,10 @@ public class AvanceMensual extends Activity {
 		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
 
 		final String url = getResources().getString(R.string.url_web_service);
+	
 		new ReadCualidadesJSONFeedTask().execute(url
 				+ "puntaje_cualidad/puntaje_all/format/json/usuario/"
-				+ String.valueOf(idUsuario));
+				+ String.valueOf(idUsuario)+"/anio/"+Util.getFechaActual().substring(6, 10));
 
 	}
 

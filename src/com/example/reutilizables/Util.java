@@ -32,7 +32,6 @@ public class Util {
 	@SuppressLint("SimpleDateFormat")
 	public static String getFechaActual() {
 		Date ahora = new Date();
-
 		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		String fech = formateador.format(ahora);
 		return fech;
@@ -63,23 +62,19 @@ public class Util {
 			HttpResponse response = httpClient.execute(httpGet);
 			StatusLine statusLine = response.getStatusLine();
 			int statusCode = statusLine.getStatusCode();
-
 			if (statusCode == 200) {
 				HttpEntity entity = response.getEntity();
 				InputStream inputStream = entity.getContent();
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(inputStream,"utf-8"));
 				String line;
-
 				while ((line = reader.readLine()) != null) {
 					stringBuilder.append(line);
 				}
 
 				inputStream.close();
 			} else {
-
 				Log.e("Error:", "No se descargaron los datos del servidor");
-
 			}
 		} catch (Exception e) {
 			Log.e("Error readJSONFeed:",
@@ -88,22 +83,19 @@ public class Util {
 		}
 		return stringBuilder.toString();
 	}
-	
-	public static String readJSONFeedPost(String url,String username, String password,
-			String email, String firstname, String lastname, String ip) {		
+
+	public static String readJSONFeedPost(String url, String username,
+			String email, String firstname, String lastname) {
 
 		StringBuilder res = new StringBuilder();
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(url);
 		try {
-
-			List<NameValuePair> parametros = new ArrayList<NameValuePair>(4);
+			List<NameValuePair> parametros = new ArrayList<NameValuePair>(5);
 			parametros.add(new BasicNameValuePair("username", username));
-			parametros.add(new BasicNameValuePair("password", password));
 			parametros.add(new BasicNameValuePair("email", email));
 			parametros.add(new BasicNameValuePair("firstname", firstname));
 			parametros.add(new BasicNameValuePair("lastname", lastname));
-			parametros.add(new BasicNameValuePair("ip", ip));
 			parametros.add(new BasicNameValuePair("tipo", "1"));
 			httpPost.setEntity(new UrlEncodedFormEntity(parametros));
 			HttpResponse response = httpClient.execute(httpPost);
@@ -132,17 +124,14 @@ public class Util {
 	}
 
 	public static void MostrarDialog(Context contexto) {
-
 		dialog = new ProgressDialog(contexto);
 		dialog.setMessage("Cargando, por favor espere");
 		dialog.setTitle("Conectando con el servidor");
 		dialog.show();
 		dialog.setCancelable(false);
-
 	}
 
 	public static void cerrarDialogLoad() {
-
 		dialog.dismiss();
 	}
 

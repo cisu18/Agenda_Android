@@ -28,7 +28,7 @@
                 android:text="@string/referencia"
                 android:textColor="@color/LETRA"
                 android:textColorLink="@color/LETRA"
-                android:textSize="22sp" />        
+                android:textSize="22sp" />     
 
     </TableLayout>
 
@@ -42,7 +42,6 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
          >
-
     </GridView>
 
 </LinearLayout>

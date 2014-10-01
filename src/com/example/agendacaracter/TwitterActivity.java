@@ -10,6 +10,7 @@ import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -149,14 +150,12 @@ public class TwitterActivity extends Activity {
 					String url = getResources().getString(
 							R.string.url_web_service)
 							+ "users/create_user_social/format/json";
-					String username = "tw" + user.getId();
-					String password = user.getId() + "tw";
+					String username = "tw" + user.getId();					
 					String email = "no email";
 					String firstname = user.getName();
 					String lastname = " ";
-					String ip = "no ip";
 					new RegistroUsuarioJSONFeedTask().execute(url, username,
-							password, email, firstname, lastname, ip);
+							 email, firstname, lastname);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -177,7 +176,7 @@ public class TwitterActivity extends Activity {
 
 		protected String doInBackground(String... prms) {
 			return Util.readJSONFeedPost(prms[0], prms[1], prms[2], prms[3],
-					prms[4], prms[5], prms[6]);
+					prms[4]);
 		}
 
 		protected void onPostExecute(String result) {
@@ -236,7 +235,7 @@ public class TwitterActivity extends Activity {
 		return sharedPrefs.getString(Constants.PREF_KEY_SECRET, null);
 	}
 
-	private void askOAuth() {
+	@SuppressLint("SetJavaScriptEnabled") private void askOAuth() {
 		ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
 		configurationBuilder.setOAuthConsumerKey(twitterConsumerKey);
 		configurationBuilder.setOAuthConsumerSecret(twitterConsumerSecret);
