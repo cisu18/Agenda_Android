@@ -32,7 +32,7 @@
        android:shadowColor="@color/CABECERA" />
 
  <ImageView
-     android:id="@+id/imageView1"
+     android:id="@+id/imv_ubicacion"
      android:layout_width="28dp"
      android:layout_height="28dp"
      android:layout_alignParentRight="true"

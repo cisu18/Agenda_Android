@@ -3,7 +3,7 @@ package com.example.reutilizables;
 import java.util.ArrayList;
 
 import com.example.agendacaracter.R;
-import com.example.entidad.Circulos;
+import com.example.entidad.Circulo;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 public class AdaptadorCirculos extends BaseAdapter {
 	Typeface tf;
-	private static ArrayList<Circulos> searchArrayList;
+	private static ArrayList<Circulo> searchArrayList;
 
 	private LayoutInflater mInflater;
 
-	public AdaptadorCirculos(Context context, ArrayList<Circulos> results) {
+	public AdaptadorCirculos(Context context, ArrayList<Circulo> results) {
 		searchArrayList = results;
 		mInflater = LayoutInflater.from(context);
 		tf = Typeface.createFromAsset(context.getAssets(),

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -58,29 +56,6 @@ public class ListaCualidades extends Activity {
 			}
 		});
 
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_inicio:
-			Intent in = new Intent(this, MainActivity.class);
-			startActivity(in);
-			finish();
-			return true;
-		case R.id.action_cerrar_sesion:
-			SharedPreferences archivoUsuario = getApplicationContext()
-					.getSharedPreferences("user", Context.MODE_PRIVATE);
-			archivoUsuario.edit().remove("id").commit();
-			archivoUsuario.edit().remove("usuario").commit();
-			archivoUsuario.edit().remove("email").commit();
-			Intent i = new Intent(this, Login.class);
-			startActivity(i);
-
-			return true;
-		default:
-			return false;
-		}
 	}
 
 	@Override

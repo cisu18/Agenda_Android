@@ -22,8 +22,7 @@ import com.example.reutilizables.Util;
 public class AvanceMensual extends Activity {
 
 	private ListView lsvListaAvance;
-	ArrayList<Cualidad> lstAvance;
-	Cualidad cualidad = new Cualidad();
+	private ArrayList<Cualidad> lstAvance;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

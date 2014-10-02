@@ -1,12 +1,12 @@
 package com.example.entidad;
 
-public class Circulos {
+public class Circulo {
 	private String ciudad;
 	private String encargado;
 	private String direccion;
 	private String telefono;
 
-	public Circulos(String ciudad, String encargado, String direccion,
+	public Circulo(String ciudad, String encargado, String direccion,
 			String telefono) {
 		super();
 		this.ciudad = ciudad;

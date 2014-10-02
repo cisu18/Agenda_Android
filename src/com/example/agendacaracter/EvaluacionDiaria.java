@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class EvaluacionDiaria extends Activity {
-	public double puntaje;
+	double puntaje;
 	String mensajeCompartir;
 	private TextView txvPregunta01;
 	private TextView txvPregunta02;

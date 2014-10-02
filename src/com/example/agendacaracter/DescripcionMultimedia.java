@@ -33,8 +33,8 @@ public class DescripcionMultimedia extends Activity {
 	private TextView txvTituloMultimedia;
 	private TextView txvAutorMultimedia;
 	private TextView txvEdicionMultimedia;
-	ArrayList<Multimedia> listadoMultimedia;
-	DescargarImagen adaptadorImagen;
+	ArrayList<Multimedia> lstMultimedia;
+	
 
 	Multimedia multimedia = new Multimedia();
 	public String parametroTipo;
@@ -128,7 +128,7 @@ public class DescripcionMultimedia extends Activity {
 		protected void onPostExecute(String result) {
 
 			try {
-				listadoMultimedia = new ArrayList<Multimedia>();
+				lstMultimedia = new ArrayList<Multimedia>();
 				JSONObject object = new JSONObject();
 				JSONArray jarray = new JSONArray(result);
 

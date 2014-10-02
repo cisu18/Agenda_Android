@@ -34,11 +34,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class CrearCuenta extends Activity implements OnClickListener {
-	EditText txtEmail;
-	EditText txtUsuario;
-	EditText txtPass1;
-	EditText txtPass2;
-	Button btnCrearCuenta;
+	private EditText txtEmail;
+	private EditText txtUsuario;
+	private EditText txtPass1;
+	private EditText txtPass2;
+	private Button btnCrearCuenta;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

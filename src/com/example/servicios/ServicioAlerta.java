@@ -78,10 +78,8 @@ public class ServicioAlerta extends Service {
 		notification.flags=Notification.FLAG_AUTO_CANCEL;
 		Intent notificationIntent = new Intent(this,activity);
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-				notificationIntent, 0);
-		
+				notificationIntent, 0);		
 		notification.setLatestEventInfo(getApplicationContext(), "Agenda Carácter", text, contentIntent);
-
 		mNotificationManager.notify(1, notification);
 	}
 }
