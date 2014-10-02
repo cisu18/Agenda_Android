@@ -305,9 +305,8 @@ containing a value of this type.
         public static final int view_as_list_64=0x7f020057;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f040074;
+        public static final int action_cerrar_sesion=0x7f040073;
         public static final int action_listar=0x7f040072;
-        public static final int action_listar_avance=0x7f040073;
         public static final int action_menu=0x7f040071;
         public static final int btn_compartir_puntaje=0x7f04003d;
         public static final int btn_crear_cuenta=0x7f04000e;
@@ -357,10 +356,10 @@ containing a value of this type.
         public static final int lsv_avance_mensual=0x7f040004;
         public static final int lsv_cualidades=0x7f04001a;
         public static final int normal=0x7f040001;
-        public static final int opcVerAudios=0x7f040077;
-        public static final int opcVerCirculos=0x7f040078;
-        public static final int opcVerLibros=0x7f040075;
-        public static final int opcVerPeliculas=0x7f040076;
+        public static final int opcVerAudios=0x7f040076;
+        public static final int opcVerCirculos=0x7f040077;
+        public static final int opcVerLibros=0x7f040074;
+        public static final int opcVerPeliculas=0x7f040075;
         public static final int pb_avance_cualidad=0x7f040059;
         public static final int picker_subtitle=0x7f04004e;
         public static final int scrollView1=0x7f040006;

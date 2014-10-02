@@ -68,6 +68,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		TextView txvIrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion);
 		txvIrEvaluacion.setOnClickListener(this);
+		txvIrEvaluacion.setEnabled(false);
 
 		TextView txtIrLibroReferencia = (TextView) findViewById(R.id.txv_ir_libro_referencia);
 		txtIrLibroReferencia.setOnClickListener(this);

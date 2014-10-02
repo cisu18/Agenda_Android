@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.ClipData.Item;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
@@ -49,7 +50,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main);		
+		
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
 
@@ -89,6 +91,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		compartirVersiculo = (TextView) findViewById(R.id.txv_compartir_versiculo);
 		IrPensamiento = (TextView) findViewById(R.id.txv_ir_pensamiento_diario);
 		IrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion_diaria);
+		IrEvaluacion.setEnabled(false);
 
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
@@ -226,10 +229,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 
 			return true;
-		case R.id.action_listar_avance:
+		/*case R.id.action_listar_avance:
 			Intent intAvance = new Intent(this, AvanceMensual.class);
 			startActivity(intAvance);
-			return true;
+			return true;*/
 		default:
 			return false;
 		}

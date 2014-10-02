@@ -73,7 +73,7 @@ public class DescripcionMultimedia extends Activity {
 		txvMensajeReserva.setTypeface(miPropiaTypeFace);
 
 		Button btnReservaAqui = (Button) findViewById(R.id.btn_reserva_aqui);
-		btnReservaAqui.setTypeface(tfHelveticaBold);
+		btnReservaAqui.setTypeface(tfHelveticaBold);		
 		btnReservaAqui.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -88,6 +88,9 @@ public class DescripcionMultimedia extends Activity {
 				startActivity(reserva);
 			}
 		});
+		//Oculta los botones de "Reserva"
+		btnReservaAqui.setVisibility(View.GONE);
+		txvMensajeReserva.setVisibility(View.GONE);		
 
 		imvMultimediaDescripcion = (ImageView) findViewById(R.id.imv_multimedia_descripcion);
 
