@@ -25,7 +25,7 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:tag="26dp"
-        android:text="@string/descripcion__libros"
+        android:text="@string/descripcion_libros"
         android:textColor="@color/LETRA"
         android:textColorLink="@color/LETRA"
         android:textSize="22sp"

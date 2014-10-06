@@ -54,12 +54,12 @@ public class Pensamiento extends Activity implements OnClickListener {
 		txvAutorPensamiento = (TextView) findViewById(R.id.txv_autor_pensamiento);
 		txvAutorPensamiento.setTypeface(tfGeosansLightOblique1);
 
-		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_redes_sociales);
+		txvLabelPlanlectura = (TextView) findViewById(R.id.txv_label_plan_lectura);
 		txvLabelPlanlectura.setTypeface(tfHelveticaLightCond);
 
 		txvPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
 		txvPlanLectura.setTypeface(tfGeosansLight2);
-
+		
 		txvNombreCualidad = (TextView) findViewById(R.id.txv_nombre_cualidad);
 		txvNombreCualidad.setTypeface(tfHelveticaCond);
 
@@ -141,7 +141,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			startActivity(i);
 			return true;
 
-		case R.id.opcVerPeliculas:
+		/*case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
 			peliculas.putExtra("tipo multimedia", "2");
@@ -158,7 +158,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.opcVerCirculos:
 			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
-			return true;
+			return true;*/
 		default:
 			return super.onContextItemSelected(item);
 		}

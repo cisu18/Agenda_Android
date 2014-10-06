@@ -15,7 +15,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.ClipData.Item;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
@@ -86,7 +85,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		planlectura.setTypeface(miPlanTypeFace);
 
 		textosPlanLectura = (TextView) findViewById(R.id.txv_plan_lectura);
-		textosPlanLectura.setTypeface(miVersiculoTypeFace);
+		textosPlanLectura.setTypeface(miVersiculoTypeFace);		
 
 		compartirVersiculo = (TextView) findViewById(R.id.txv_compartir_versiculo);
 		IrPensamiento = (TextView) findViewById(R.id.txv_ir_pensamiento_diario);
@@ -342,3 +341,4 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 }
+

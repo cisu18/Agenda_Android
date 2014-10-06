@@ -356,10 +356,7 @@ containing a value of this type.
         public static final int lsv_avance_mensual=0x7f040004;
         public static final int lsv_cualidades=0x7f04001a;
         public static final int normal=0x7f040001;
-        public static final int opcVerAudios=0x7f040076;
-        public static final int opcVerCirculos=0x7f040077;
         public static final int opcVerLibros=0x7f040074;
-        public static final int opcVerPeliculas=0x7f040075;
         public static final int pb_avance_cualidad=0x7f040059;
         public static final int picker_subtitle=0x7f04004e;
         public static final int scrollView1=0x7f040006;
@@ -403,6 +400,7 @@ containing a value of this type.
         public static final int txv_item_id_lista_libros_referencia=0x7f040069;
         public static final int txv_item_mes_lista_cualidad=0x7f040064;
         public static final int txv_item_titulo_lista_libros_referencia=0x7f040068;
+        public static final int txv_label_plan_lectura=0x7f040036;
         public static final int txv_label_recomendacion=0x7f04003b;
         public static final int txv_linea_base=0x7f040063;
         public static final int txv_mensaje_carita=0x7f040038;
@@ -418,7 +416,6 @@ containing a value of this type.
         public static final int txv_pregunta_01=0x7f040015;
         public static final int txv_pregunta_02=0x7f040017;
         public static final int txv_recomendacion=0x7f04003c;
-        public static final int txv_redes_sociales=0x7f040036;
         public static final int txv_resultado_evaluacion=0x7f04003a;
         public static final int txv_spinner_item=0x7f040070;
         public static final int txv_telefono_circulo=0x7f040062;
@@ -477,7 +474,7 @@ containing a value of this type.
         public static final int app_name=0x7f07001b;
         public static final int cancelled=0x7f070039;
         public static final int circulo_crecimiento=0x7f070032;
-        public static final int codigo__reserva=0x7f07002e;
+        public static final int codigo_reserva=0x7f07002e;
         public static final int com_facebook_choose_friends=0x7f07000f;
         public static final int com_facebook_dialogloginactivity_ok_button=0x7f070000;
         public static final int com_facebook_internet_permission_error_message=0x7f070013;
@@ -507,7 +504,7 @@ containing a value of this type.
         public static final int contrasena=0x7f070028;
         public static final int correoelectronico=0x7f070029;
         public static final int descripcion_Peliculas=0x7f07002d;
-        public static final int descripcion__libros=0x7f07002c;
+        public static final int descripcion_libros=0x7f07002c;
         public static final int evaluacion_diaria=0x7f07002f;
         public static final int lista_avance=0x7f070027;
         /**  Encabezados 

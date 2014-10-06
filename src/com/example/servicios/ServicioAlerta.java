@@ -3,11 +3,9 @@ package com.example.servicios;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.agendacaracter.EvaluacionDiaria;
 import com.example.agendacaracter.MainActivity;
 import com.example.agendacaracter.R;
 import com.example.reutilizables.Util;
-import com.example.reutilizables.Val;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -15,12 +13,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.IBinder;
 
 public class ServicioAlerta extends Service {
 	private boolean alert6 = false;
-	private boolean alert8 = false;
+	//private boolean alert8 = false;
 	private Timer timer = new Timer();
 	private static final long UPDATE_INTERVAL = 1000;
 
@@ -33,20 +30,20 @@ public class ServicioAlerta extends Service {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-
-				if (Util.getHoraAlerta().equals("06:00") && !alert6) {
-					mostrarNotBarra("¡Nuevo versículo! ;-)", MainActivity.class);
+				if (Util.getHoraAlerta().equals("06:02") && !alert6) {
+					mostrarNotBarra("¡Tienen un nuevo mensaje!", MainActivity.class);
 					alert6 = true;				
-				} else if (Util.getHoraAlerta().equals("19:00") && !alert8) {
+				}
+				/*else if (Util.getHoraAlerta().equals("19:00") && !alert8) {
 					SharedPreferences preferencias = getSharedPreferences(
 							"user", Context.MODE_PRIVATE);
 					if (!Val.isEvaluated(getApplicationContext(),
 							preferencias.getString("id", "0"))) {
-						mostrarNotBarra("¡Hoy no me he evaluado! :-(",
+						mostrarNotBarra("¡Aplica ya!",
 								EvaluacionDiaria.class);
 					}
 					alert8 = true;
-				}
+				}*/
 			}
 		}, 0, UPDATE_INTERVAL);
 	}

@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 	<item android:id="@+id/opcVerLibros"
 	    android:title="@string/msg_menu_libros_referencia"></item>
-	<item android:id="@+id/opcVerPeliculas"
+	<!-- <item android:id="@+id/opcVerPeliculas"
 	    android:title="@string/msg_menu_libros_peliculas"></item>
 	<item android:id="@+id/opcVerAudios"
 	    android:title="@string/msg_menu_libros_audios"></item>
 	<item android:id="@+id/opcVerCirculos"
-	    android:title="@string/msg_menu_libros_circulos"></item>
+	    android:title="@string/msg_menu_libros_circulos"></item> -->
 	
 </menu>

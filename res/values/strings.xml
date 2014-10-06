@@ -25,9 +25,9 @@
     <string name="correoelectronico">Correo Electrónico</string>
     <string name="pensamiento">Pensamiento</string>
     <string name="referencia">LIBROS DE REFERENCIA</string>
-    <string name="descripcion__libros">DESCRIPCIÓN DEL LIBRO</string>
+    <string name="descripcion_libros">DESCRIPCIÓN DEL LIBRO</string>
     <string name="descripcion_Peliculas">SINOPSIS</string>
-    <string name="codigo__reserva">CÓDIGO DE RESERVA</string>
+    <string name="codigo_reserva">CÓDIGO DE RESERVA</string>
     <string name="evaluacion_diaria">EVALUACIÓN DIARIA</string>
     <string name="title_activity_demos">Demos</string>
     <string name="resultado_evaluacion">RESULTADO EVALUACIÓN</string>
@@ -46,13 +46,11 @@
     <string name="title_activity_twitter">TwitterActivity</string>        
     <string name="title_activity_avance_mensual">AvanceMensual</string>
     <string name="title_activity_descripcion_peliculas">DescripcionPeliculas</string>
-    <string name="url_web_service">http://192.168.0.55/Agenda_WS/</string>
+    <string name="url_web_service">http://clmdevelopers.com/agendaws/</string>
     
     <!-- Login con facebook -->
     <string name="app_id">1503769363199289</string>
     <string name="cancelled">Cancelled</string>
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
     <string name="ok">OK</string>
-    
-
 </resources>
