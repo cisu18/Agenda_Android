@@ -11,7 +11,7 @@
 		<menu>
 			<item
 				android:id="@+id/action_listar"
-				android:title="@string/msg_lista_cualidades"/>			
+				android:title="@string/msg_lista_cualidades"/>						
 			<!-- <item
 				android:id="@+id/action_listar_avance"
 				android:title="@string/msg_lista_avance"/> -->

@@ -157,7 +157,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				startActivity(in);
 
 			} else {
-				Toast.makeText(this, "Usted ya realizo su evaluación",
+				Toast.makeText(this, "Usted ya realizó su evaluación",
 						Toast.LENGTH_SHORT).show();
 			}
 			break;
@@ -228,6 +228,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 
 			return true;
+			
 		/*case R.id.action_listar_avance:
 			Intent intAvance = new Intent(this, AvanceMensual.class);
 			startActivity(intAvance);

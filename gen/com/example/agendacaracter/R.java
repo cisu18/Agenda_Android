@@ -156,8 +156,6 @@ containing a value of this type.
     public static final class color {
         public static final int CABECERA=0x7f06000e;
         public static final int FONDO=0x7f060007;
-        /**   <color name="CABECERA">#00b5b5</color> 
-         */
         public static final int LETRA=0x7f060008;
         public static final int botoneslogin=0x7f060009;
         public static final int com_facebook_blue=0x7f060002;
@@ -167,18 +165,12 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_connected_shadow_color=0x7f060004;
         public static final int com_facebook_usersettingsfragment_connected_text_color=0x7f060003;
         public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f060005;
-        /**   <color name="facebook">#3b5998</color>
-    <color name="twitter">#4099FF</color>
-    <color name="gmail">#dd4a39</color> 
-         */
         public static final int facebook=0x7f06000a;
         public static final int fechita=0x7f06000c;
         public static final int fondo_pregunta=0x7f060015;
         public static final int gmail=0x7f06000d;
         public static final int identificadores=0x7f06000f;
         public static final int letra_cualidades=0x7f060014;
-        /**  <color name="letras_funtes">#515152</color> 
-         */
         public static final int letras_funtes=0x7f060013;
         public static final int letras_inicio=0x7f060010;
         public static final int leyenda=0x7f060011;

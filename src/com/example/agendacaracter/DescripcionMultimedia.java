@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -78,19 +79,23 @@ public class DescripcionMultimedia extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				SharedPreferences prefe = getSharedPreferences("user",
-						Context.MODE_PRIVATE);
-				int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-				Intent reserva = new Intent(getApplicationContext(),
-						CodigoReserva.class);
-				reserva.putExtra("idMultimedia", parametroIdMultimedia);
-				reserva.putExtra("idUsuario", String.valueOf(idUsuario));
-				startActivity(reserva);
+//				SharedPreferences prefe = getSharedPreferences("user",
+//						Context.MODE_PRIVATE);
+//				int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+//				Intent reserva = new Intent(getApplicationContext(),
+//						CodigoReserva.class);
+//				reserva.putExtra("idMultimedia", parametroIdMultimedia);
+//				reserva.putExtra("idUsuario", String.valueOf(idUsuario));
+//				startActivity(reserva);
+				
+				String url = "http://clmeditores.com/contacto/"; 
+				Intent i = new Intent(Intent.ACTION_VIEW); 
+				i.setData(Uri.parse(url)); startActivity(i);
 			}
 		});
 		//Oculta los botones de "Reserva"
-		btnReservaAqui.setVisibility(View.GONE);
-		txvMensajeReserva.setVisibility(View.GONE);		
+		//btnReservaAqui.setVisibility(View.GONE);
+		//txvMensajeReserva.setVisibility(View.GONE);		
 
 		imvMultimediaDescripcion = (ImageView) findViewById(R.id.imv_multimedia_descripcion);
 

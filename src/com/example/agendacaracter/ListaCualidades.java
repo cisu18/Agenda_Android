@@ -80,13 +80,14 @@ public class ListaCualidades extends Activity {
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
-			Intent i = new Intent(this, Referencia.class);
-			i.putExtra("id cualidad", id);
-			i.putExtra("tipo multimedia", "1");
-			i.putExtra("Nombre Cualidad", nombreCualidad);
+			Intent libros = new Intent(this, Referencia.class);
+			libros.putExtra("id cualidad", id);
+			libros.putExtra("tipo multimedia", "1");
+			libros.putExtra("Nombre Cualidad", nombreCualidad);
 			
-			startActivity(i);
+			startActivity(libros);
 			return true;
+	
 		/*case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", id);
