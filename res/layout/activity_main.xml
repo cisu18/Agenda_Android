@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/textura_2"
     android:scrollbars="horizontal|vertical"
-    tools:context="com.example.agendacaracter.MainActivity" >
+    tools:context="com.clmdev.agendacaracter.MainActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"

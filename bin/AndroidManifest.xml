@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.agendacaracter"
+    package="com.clmdev.agendacaracter"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.clmdev.agendacaracter.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,55 +28,55 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListaCualidades"
+            android:name="com.clmdev.agendacaracter.ListaCualidades"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Pensamiento"
+            android:name="com.clmdev.agendacaracter.Pensamiento"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CrearCuenta"
+            android:name="com.clmdev.agendacaracter.CrearCuenta"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.clmdev.agendacaracter.Login"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Referencia"
+            android:name="com.clmdev.agendacaracter.Referencia"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DescripcionMultimedia"
+            android:name="com.clmdev.agendacaracter.DescripcionMultimedia"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CodigoReserva"
+            android:name="com.clmdev.agendacaracter.CodigoReserva"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".EvaluacionDiaria"
+            android:name="com.clmdev.agendacaracter.EvaluacionDiaria"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ResultadoEvaluacion"
+            android:name="com.clmdev.agendacaracter.ResultadoEvaluacion"
             android:label="@string/app_name" >
         </activity>       
         <activity
-            android:name=".TwitterActivity"
+            android:name="com.clmdev.agendacaracter.TwitterActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AvanceMensual"
+            android:name="com.clmdev.agendacaracter.AvanceMensual"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".DescripcionPeliculas"
+            android:name="com.clmdev.agendacaracter.DescripcionPeliculas"
             android:label="@string/app_name" >
         </activity>
 
-        <service android:name="com.example.servicios.ServicioAlerta" />
+        <service android:name="com.clmdev.servicios.ServicioAlerta" />
        
         <activity android:name="com.facebook.LoginActivity" >
         </activity>
@@ -85,11 +85,11 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
         <activity
-            android:name=".CirculoCrecimiento"
+            android:name="com.clmdev.agendacaracter.CirculoCrecimiento"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".ListadoMultimedia"
+            android:name="com.clmdev.agendacaracter.ListadoMultimedia"
             android:label="@string/app_name" >
         </activity>
     </application>
