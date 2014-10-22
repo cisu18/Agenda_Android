@@ -91,10 +91,7 @@ public class DescripcionMultimedia extends Activity {
 				Intent i = new Intent(Intent.ACTION_VIEW); 
 				i.setData(Uri.parse(url)); startActivity(i);
 			}
-		});
-		//Oculta los botones de "Reserva"
-		//btnReservaAqui.setVisibility(View.GONE);
-		//txvMensajeReserva.setVisibility(View.GONE);		
+		});		
 
 		imvMultimediaDescripcion = (ImageView) findViewById(R.id.imv_multimedia_descripcion);
 

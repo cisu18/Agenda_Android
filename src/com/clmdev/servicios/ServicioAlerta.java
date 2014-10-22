@@ -3,9 +3,11 @@ package com.clmdev.servicios;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.clmdev.agendacaracter.EvaluacionDiaria;
 import com.clmdev.agendacaracter.MainActivity;
 import com.clmdev.agendacaracter.R;
 import com.clmdev.reutilizables.Util;
+import com.clmdev.reutilizables.Val;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -13,28 +15,56 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.IBinder;
+import android.util.Log;
 
 public class ServicioAlerta extends Service {
-	private boolean alert6 = false;
-	//private boolean alert8 = false;
-	private Timer timer = new Timer();
-	private static final long UPDATE_INTERVAL = 1000;
-
+	
+	private static ServicioAlerta instance  = null;
+	
+	public static boolean isRunning() { 
+	      return instance != null; 
+	}
+	
 	@Override
-	public IBinder onBind(Intent arg0) {
+	public IBinder onBind(Intent intent) {
 		return null;
 	}
+	
+	@Override
+	public void onCreate() {		
+		instance=this;
+	}
 
+	@Override
+	public void onDestroy() {		
+		instance = null;
+		if (timer != null) {
+			timer.cancel();
+		}
+		super.onDestroy();
+	}
+	
+	@Override
+	public void onStart(Intent intent, int startid) {
+		hilo();
+	} 
+	
+	private boolean alert6 = false;
+	private boolean alert8 = false;
+	private Timer timer = new Timer();
+	private static final long UPDATE_INTERVAL = 1000;
+	
 	private void hilo() {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				if (Util.getHoraAlerta().equals("06:02") && !alert6) {
+				if (Util.getHoraAlerta().equals("06:00") && !alert6) {
 					mostrarNotBarra("¡Tienen un nuevo mensaje!", MainActivity.class);
 					alert6 = true;				
 				}
-				/*else if (Util.getHoraAlerta().equals("19:00") && !alert8) {
+				else if (Util.getHoraAlerta().equals("20:00") && !alert8) {
 					SharedPreferences preferencias = getSharedPreferences(
 							"user", Context.MODE_PRIVATE);
 					if (!Val.isEvaluated(getApplicationContext(),
@@ -43,25 +73,12 @@ public class ServicioAlerta extends Service {
 								EvaluacionDiaria.class);
 					}
 					alert8 = true;
-				}*/
+				}
+				Log.e("Tiempo",Util.getHoraAlerta());
 			}
 		}, 0, UPDATE_INTERVAL);
 	}
-
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		hilo();
-		return START_STICKY;
-	}
-
-	@Override
-	public void onDestroy() {
-		if (timer != null) {
-			timer.cancel();
-		}
-		super.onDestroy();
-	}
-
+	
 	private void mostrarNotBarra(String text, Class<?> activity) {
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

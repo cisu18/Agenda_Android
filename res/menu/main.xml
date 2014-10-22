@@ -12,9 +12,9 @@
 			<item
 				android:id="@+id/action_listar"
 				android:title="@string/msg_lista_cualidades"/>						
-			<!-- <item
+			<item
 				android:id="@+id/action_listar_avance"
-				android:title="@string/msg_lista_avance"/> -->
+				android:title="@string/msg_lista_avance"/>
 			<item
 				android:id="@+id/action_cerrar_sesion"
 				android:title="@string/msg_cerrar_sesion"/>

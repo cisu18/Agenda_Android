@@ -91,8 +91,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		compartirVersiculo = (TextView) findViewById(R.id.txv_compartir_versiculo);
 		IrPensamiento = (TextView) findViewById(R.id.txv_ir_pensamiento_diario);
-		IrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion_diaria);
-		IrEvaluacion.setEnabled(false);
+		IrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion_diaria);		
 
 		IrPensamiento.setOnClickListener(this);
 		IrEvaluacion.setOnClickListener(this);
@@ -127,7 +126,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	public void iniciarServicios() {
-		startService(new Intent(getBaseContext(), ServicioAlerta.class));
+		if(!ServicioAlerta.isRunning()){
+			startService(new Intent(getBaseContext(), ServicioAlerta.class));
+		}
+		
 	}
 
 	@Override
@@ -231,10 +233,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			return true;
 			
-		/*case R.id.action_listar_avance:
+		case R.id.action_listar_avance:
 			Intent intAvance = new Intent(this, AvanceMensual.class);
 			startActivity(intAvance);
-			return true;*/
+			return true;
 		default:
 			return false;
 		}

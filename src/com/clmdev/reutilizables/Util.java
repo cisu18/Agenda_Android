@@ -100,7 +100,7 @@ public class Util {
 
 			StatusLine statusLine = response.getStatusLine();
 			int statusCode = statusLine.getStatusCode();
-			Log.e("Code", "" + statusCode);
+			
 			if (statusCode == 200 || statusCode == 404) {
 				HttpEntity entity = response.getEntity();
 				InputStream inputStream = entity.getContent();
@@ -130,6 +130,14 @@ public class Util {
 
 	public static void cerrarDialogLoad() {
 		dialog.dismiss();
+	}
+	
+	public static String rellenar(String val){
+		Log.e("Valores",val);
+		if(val.equals("")){
+			val=" ";
+		}
+		return val;
 	}
 
 }

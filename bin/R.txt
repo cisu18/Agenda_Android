@@ -146,8 +146,9 @@ int drawable twitter 0x7f020054
 int drawable ubicacion 0x7f020055
 int drawable usera 0x7f020056
 int drawable view_as_list_64 0x7f020057
-int id action_cerrar_sesion 0x7f040073
+int id action_cerrar_sesion 0x7f040074
 int id action_listar 0x7f040072
+int id action_listar_avance 0x7f040073
 int id action_menu 0x7f040071
 int id btn_compartir_puntaje 0x7f04003d
 int id btn_crear_cuenta 0x7f04000e
@@ -197,7 +198,10 @@ int id lsv_Lista_peliculas 0x7f04001b
 int id lsv_avance_mensual 0x7f040004
 int id lsv_cualidades 0x7f04001a
 int id normal 0x7f040001
-int id opcVerLibros 0x7f040074
+int id opcVerAudios 0x7f040077
+int id opcVerCirculos 0x7f040078
+int id opcVerLibros 0x7f040075
+int id opcVerPeliculas 0x7f040076
 int id pb_avance_cualidad 0x7f040059
 int id picker_subtitle 0x7f04004e
 int id scrollView1 0x7f040006

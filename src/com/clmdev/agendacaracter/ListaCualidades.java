@@ -89,7 +89,7 @@ public class ListaCualidades extends Activity {
 			startActivity(libros);
 			return true;
 	
-		/*case R.id.opcVerPeliculas:
+		case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", id);
 			peliculas.putExtra("tipo multimedia", "2");
@@ -106,7 +106,7 @@ public class ListaCualidades extends Activity {
 		case R.id.opcVerCirculos:
 			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
-			return true;*/
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}

@@ -70,7 +70,6 @@ public class Pensamiento extends Activity implements OnClickListener {
 
 		TextView txvIrEvaluacion = (TextView) findViewById(R.id.txv_ir_evaluacion);
 		txvIrEvaluacion.setOnClickListener(this);
-		txvIrEvaluacion.setEnabled(false);
 
 		TextView txtIrLibroReferencia = (TextView) findViewById(R.id.txv_ir_libro_referencia);
 		txtIrLibroReferencia.setOnClickListener(this);
@@ -143,7 +142,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			startActivity(i);
 			return true;
 
-		/*case R.id.opcVerPeliculas:
+		case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
 			peliculas.putExtra("tipo multimedia", "2");
@@ -160,7 +159,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.opcVerCirculos:
 			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
-			return true;*/
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}

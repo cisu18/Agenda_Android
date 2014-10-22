@@ -177,9 +177,7 @@ public class Login extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		default:
-
 			break;
-
 		}
 
 	}
@@ -353,13 +351,13 @@ public class Login extends Activity implements OnClickListener {
 		Session session = Session.getActiveSession();
 		boolean enableButtons = (session != null && session.isOpened());
 		if (enableButtons && user != null) {
+			Log.e("Usuario",user+"");
 			String url = getResources().getString(R.string.url_web_service)
 					+ "users/create_user_social/format/json";
-			String username = "fb" + user.getId();
-			String email = user.getProperty("email").toString();
-			String firstname = user.getFirstName();
-			String lastname = user.getLastName();
-			Log.e("email",email.toString());
+			String username = Util.rellenar("fb" + user.getId());
+			String email = Util.rellenar(user.getProperty("email").toString());
+			String firstname = Util.rellenar(user.getFirstName());
+			String lastname = "";//Util.rellenar(user.getLastName());
 			new RegistroUsuarioJSONFeedTask().execute(url, username,
 					email, firstname, lastname);
 

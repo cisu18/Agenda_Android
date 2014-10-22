@@ -196,7 +196,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			parametros.add(new BasicNameValuePair("email", txtEmail.getText()
 					.toString()));
 			parametros.add(new BasicNameValuePair("tipo", "1"));
-			httpPost.setEntity(new UrlEncodedFormEntity(parametros));
+			httpPost.setEntity(new UrlEncodedFormEntity(parametros,"utf-8"));
 			HttpResponse response = httpClient.execute(httpPost);
 
 			StatusLine statusLine = response.getStatusLine();
