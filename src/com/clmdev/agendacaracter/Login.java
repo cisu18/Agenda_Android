@@ -49,7 +49,6 @@ import com.facebook.model.GraphUser;
 import com.facebook.widget.FacebookDialog;
 import com.facebook.widget.LoginButton;
 
-
 public class Login extends Activity implements OnClickListener {
 
 	public EditText etxUsuarioNombre;
@@ -59,7 +58,8 @@ public class Login extends Activity implements OnClickListener {
 	private final String PENDING_ACTION_BUNDLE_KEY = "com.facebook.samples.hellofacebook:PendingAction";
 	private LoginButton loginButton;
 	private PendingAction pendingAction = PendingAction.NONE;
-	private GraphUser user;	
+	private GraphUser user;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -108,7 +108,8 @@ public class Login extends Activity implements OnClickListener {
 		loginButton = (LoginButton) findViewById(R.id.login_button);
 		loginButton.setBackgroundResource(R.drawable.face);
 		loginButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-		loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+		loginButton
+				.setReadPermissions(Arrays.asList("public_profile", "email"));
 		loginButton
 				.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
 					@Override
@@ -218,7 +219,7 @@ public class Login extends Activity implements OnClickListener {
 				startActivity(in);
 				finish();
 
-			} catch (Exception e) {				
+			} catch (Exception e) {
 				Toast.makeText(
 						getApplicationContext(),
 						"Datos Incorrectos: La contraseña o usuario no son validos...",
@@ -261,11 +262,11 @@ public class Login extends Activity implements OnClickListener {
 				}
 				inputStream.close();
 			} else {
-				Log.e("Error:","Status code");
+				Log.e("Error:", "Status code");
 
 			}
 		} catch (Exception e) {
-			Log.e("Error:","No se ncontraron los datos"+ e.getMessage());
+			Log.e("Error:", "No se ncontraron los datos" + e.getMessage());
 
 		}
 
@@ -351,15 +352,20 @@ public class Login extends Activity implements OnClickListener {
 		Session session = Session.getActiveSession();
 		boolean enableButtons = (session != null && session.isOpened());
 		if (enableButtons && user != null) {
-			Log.e("Usuario",user+"");
-			String url = getResources().getString(R.string.url_web_service)
-					+ "users/create_user_social/format/json";
-			String username = Util.rellenar("fb" + user.getId());
-			String email = Util.rellenar(user.getProperty("email").toString());
-			String firstname = Util.rellenar(user.getFirstName());
-			String lastname = "";//Util.rellenar(user.getLastName());
-			new RegistroUsuarioJSONFeedTask().execute(url, username,
-					email, firstname, lastname);
+			try {
+				String url = getResources().getString(R.string.url_web_service)
+						+ "users/create_user_social/format/json";
+				String username = "fb" + user.getId();
+				String email = (user.getProperty("email")!=null)?user.getProperty("email").toString():"sn@mail.com";				
+				String firstname = (user.getFirstName()!=null)?user.getFirstName():"sn";				
+				String lastname = (user.getLastName()!=null)?user.getLastName():"sn"; 						
+				new RegistroUsuarioJSONFeedTask().execute(url, username, email,
+						firstname, lastname);
+			} catch (Exception e) {
+				Toast.makeText(
+						getApplicationContext(),
+						"Error interno al iniciar sesión con facebook", Toast.LENGTH_SHORT).show();
+			}
 
 		}
 	}
@@ -398,12 +404,14 @@ public class Login extends Activity implements OnClickListener {
 					startActivity(i);
 					finish();
 				} else if (datos.getString("res").equalsIgnoreCase("error")) {
-					Toast.makeText(getApplicationContext(), "Error interno al iniciar sesión con facebook",
+					Toast.makeText(getApplicationContext(),
+							"Error interno al iniciar sesión con facebook",
 							Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
-				Toast.makeText(getApplicationContext(), "Error interno: "+e.getMessage(),
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(),
+						"Error interno: " + e.getMessage(), Toast.LENGTH_SHORT)
+						.show();
 			}
 			Util.cerrarDialogLoad();
 		}

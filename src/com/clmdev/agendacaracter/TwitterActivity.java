@@ -153,9 +153,9 @@ public class TwitterActivity extends Activity {
 							R.string.url_web_service)
 							+ "users/create_user_social/format/json";
 					String username = "tw" + user.getId();					
-					String email = "no email";
-					String firstname = user.getName();
-					String lastname = " ";
+					String email = "sn@mail.com";
+					String firstname = (user.getName()!=null)?user.getName():"sn"; 
+					String lastname = "sn";
 					new RegistroUsuarioJSONFeedTask().execute(url, username,
 							 email, firstname, lastname);
 

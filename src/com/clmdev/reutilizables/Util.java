@@ -131,13 +131,5 @@ public class Util {
 	public static void cerrarDialogLoad() {
 		dialog.dismiss();
 	}
-	
-	public static String rellenar(String val){
-		Log.e("Valores",val);
-		if(val.equals("")){
-			val=" ";
-		}
-		return val;
-	}
 
 }

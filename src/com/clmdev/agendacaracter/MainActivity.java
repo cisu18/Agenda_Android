@@ -144,10 +144,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txv_ir_pensamiento_diario:
-			Intent i = new Intent(this, Pensamiento.class);
-			i.putExtra("idCualidad", tvIdCualidad.getText());
-			i.putExtra("Nombre Cualidad", cualidad.getText());
-			i.putExtra("Plan lectura", textosPlanLectura.getText());
+			Intent i = new Intent(this, Pensamiento.class);			
 			startActivity(i);
 			break;
 		case R.id.txv_ir_evaluacion_diaria:
@@ -202,13 +199,29 @@ public class MainActivity extends Activity implements OnClickListener {
 		txvDia.setText(nombredia);
 
 		String fechaWebService = Util.getFechaActual();
+		if(!fechaWebService.equals(archivoUsuario.getString("fechaData", "01-01-2000"))){
+			final String url = getResources().getString(R.string.url_web_service);		
+			new ReadDiarioJSONFeedTask().execute(url
+					+ "cualidad_dia/cualidades_dia2/format/json/fecha/"
+					+ fechaWebService);
+		}else{
+			String cualidadId = archivoUsuario.getString("idCualidad", "0");
+			String cualidad = archivoUsuario.getString("cualidad", "");
+			String versiculo = archivoUsuario.getString("versiculo", "");
+			String numeroVersiculo = archivoUsuario.getString("numeroVersiculo", "");
+			String planLectura = archivoUsuario.getString("planLectura", "");	
+			llenarData(cualidadId, cualidad, versiculo, numeroVersiculo, planLectura);
+		}
 
-		final String url = getResources().getString(R.string.url_web_service);
+		
 
-		new ReadDiarioJSONFeedTask().execute(url
-				+ "cualidad_dia/cualidades_dia/format/json/fecha/"
-				+ fechaWebService);
-
+	}
+	public void llenarData(String cuaId, String cua, String ver, String numVer, String plaLec){
+		tvIdCualidad.setText(cuaId);
+		cualidad.setText(cua);
+		versiculo.setText(ver);
+		textobiblico.setText(numVer);
+		textosPlanLectura.setText(plaLec);
 	}
 
 	@Override
@@ -324,21 +337,30 @@ public class MainActivity extends Activity implements OnClickListener {
 				JSONObject datos = new JSONObject();
 
 				datos = jsonArray.getJSONObject(0);
-
-				tvIdCualidad.setText(datos.getString("cualidad_id"));
-				cualidad.setText(datos.getString("cualidad"));
-				versiculo.setText(datos.getString("versiculo"));
-				textobiblico.setText(datos.getString("numeroversiculo"));
-				textosPlanLectura.setText(datos.getString("planlectura"));
+				String cualidadId = datos.getString("cualidad_id");
+				String cualidad = datos.getString("cualidad");
+				String versiculo = datos.getString("versiculo");
+				String numeroVersiculo = datos.getString("numeroversiculo");
+				String planLectura = datos.getString("planlectura");
+				String pensamiento = datos.getString("pensamiento");
+				String autorPensamiento = datos.getString("autorpensamiento");
+				
 				Editor editor = archivoUsuario.edit();
-				editor.putString("idCualidad", datos.getString("cualidad_id"));
+				editor.putString("fechaData", Util.getFechaActual());
+				editor.putString("idCualidad", cualidadId);				
+				editor.putString("cualidad", cualidad);
+				editor.putString("versiculo", versiculo);
+				editor.putString("numeroVersiculo", numeroVersiculo);
+				editor.putString("planLectura", planLectura);
+				editor.putString("pensamiento", pensamiento);
+				editor.putString("autorPensamiento", autorPensamiento);
 				editor.commit();
+				llenarData(cualidadId, cualidad, versiculo, numeroVersiculo, planLectura);
 
 			} catch (Exception e) {
 				Toast.makeText(
 						getApplicationContext(),
-						"Main: Error Interno -> onPostExecute. "
-								+ e.getMessage(), Toast.LENGTH_SHORT).show();
+						"Error al momento cargar datos de la aplicación", Toast.LENGTH_SHORT).show();
 				e.printStackTrace();
 			}
 			Util.cerrarDialogLoad();

@@ -1,8 +1,5 @@
 package com.clmdev.agendacaracter;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import com.clmdev.agendacaracter.R;
 import com.clmdev.reutilizables.Util;
 import com.clmdev.reutilizables.Val;
@@ -12,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -30,6 +26,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 	TextView txvPlanLectura;
 	TextView txvNombreCualidad;
 	TextView txvIdCualidad;
+	SharedPreferences archivoUsuario;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,25 +71,20 @@ public class Pensamiento extends Activity implements OnClickListener {
 		TextView txtIrLibroReferencia = (TextView) findViewById(R.id.txv_ir_libro_referencia);
 		txtIrLibroReferencia.setOnClickListener(this);
 
-		String fecha = Util.getFechaActual();
-		final String url = getResources().getString(R.string.url_web_service);
-
-		new ReadJSONFeedTask().execute(url
-				+ "cualidad_dia/pensamiento/format/json/fecha/" + fecha);
-
-		Bundle bundle = getIntent().getExtras();
-		txvNombreCualidad.setText(bundle.getString("Nombre Cualidad"));
-		txvPlanLectura.setText(bundle.getString("Plan lectura"));
-		txvIdCualidad = new TextView(this);
-		txvIdCualidad.setText(bundle.getString("idCualidad"));
 		registerForContextMenu(txtIrLibroReferencia);
-		txtIrLibroReferencia.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				openContextMenu(v);
-			}
-		});
+		txvIdCualidad = new TextView(this);	
+		archivoUsuario = getApplicationContext().getSharedPreferences("user",
+				Context.MODE_PRIVATE);
+		llenarData();
 	}
+	
+	public void llenarData(){		
+		txvIdCualidad.setText(archivoUsuario.getString("idCualidad", "0"));
+		txvNombreCualidad.setText(archivoUsuario.getString("cualidad", ""));		
+		txvPlanLectura.setText(archivoUsuario.getString("planLectura", ""));
+		txvPensamiento.setText("\""+archivoUsuario.getString("pensamiento", "")+"\"");
+		txvAutorPensamiento.setText(archivoUsuario.getString("autorPensamiento", ""));
+	} 
 
 	@Override
 	public void onClick(View v) {
@@ -115,7 +107,11 @@ public class Pensamiento extends Activity implements OnClickListener {
 					+ " "
 					+ txvAutorPensamiento.getText().toString());
 			break;
+		case R.id.txv_ir_libro_referencia:
+			openContextMenu(v);
+			break;
 		}
+		
 	}
 
 	@Override
@@ -164,37 +160,4 @@ public class Pensamiento extends Activity implements OnClickListener {
 			return super.onContextItemSelected(item);
 		}
 	}
-
-	private class ReadJSONFeedTask extends AsyncTask<String, Void, String> {
-
-		protected void onPreExecute() {
-			super.onPreExecute();
-			Util.MostrarDialog(Pensamiento.this);
-		}
-
-		protected String doInBackground(String... urls) {
-			return Util.readJSONFeed(urls[0], getApplicationContext());
-		}
-
-		protected void onPostExecute(String result) {
-			try {
-				JSONArray jsonArray = new JSONArray(result);
-				JSONObject datos = new JSONObject();
-				datos = jsonArray.getJSONObject(0);
-
-				txvPensamiento.setText("\"" + datos.getString("pensamiento")
-						+ "\"");
-				txvAutorPensamiento
-						.setText(datos.getString("autorpensamiento"));
-
-			} catch (Exception e) {
-				Toast.makeText(
-						getApplicationContext(),
-						"Pensamiento: Error Interno -> onPostExecute. "
-								+ e.getMessage(), Toast.LENGTH_SHORT).show();
-			}
-			Util.cerrarDialogLoad();
-		}
-	}
-
 }
