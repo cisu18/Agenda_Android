@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.clmdev.agendacaracter.R;
 import com.clmdev.entidad.Multimedia;
 import com.clmdev.reutilizables.Util;
+import com.squareup.picasso.Picasso;
 
 public class DescripcionMultimedia extends Activity {
 	private ImageView imvMultimediaDescripcion;
@@ -111,7 +112,9 @@ public class DescripcionMultimedia extends Activity {
 		new JSONAsyncTask().execute(url
 				+ "multimedia/multimedia_byid/format/json/id/"
 				+ parametroIdMultimedia);
-		new DescargarImagen().execute(parametroUrlImagenMultimedia);
+	
+		Picasso.with(getApplicationContext()).load(parametroUrlImagenMultimedia).into(imvMultimediaDescripcion);
+		
 
 	}
 
@@ -170,37 +173,8 @@ public class DescripcionMultimedia extends Activity {
 						"No se pudieron obtener datos del servidor: Descripci”n de libro",
 						Toast.LENGTH_LONG).show();
 			}
-
-		}
-	}
-
-	public class DescargarImagen extends AsyncTask<String, Void, Bitmap> {
-		ProgressDialog dialog;
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-		}
-
-		protected Bitmap doInBackground(String... urls) {
-			String urldisplay = urls[0];
-			Bitmap Imagen_Libro_Bitmap = null;
-			try {
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				Imagen_Libro_Bitmap = BitmapFactory.decodeStream(in);
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return Imagen_Libro_Bitmap;
-		}
-
-		protected void onPostExecute(Bitmap result) {
-
-			imvMultimediaDescripcion.setImageBitmap(result);
 			Util.cerrarDialogLoad();
 		}
-
 	}
 
 }
