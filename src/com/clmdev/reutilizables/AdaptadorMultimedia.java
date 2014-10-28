@@ -57,7 +57,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 					.findViewById(R.id.txv_genero_multimedia);
 			holder.tvIdMultimedia = (TextView) v
 					.findViewById(R.id.txv_id_multimedia);
-
+			holder.tvGeneroEditable=(TextView) v.findViewById(R.id.txv_genero);
+			
 			TextView nombre = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
 			nombre.setTypeface(TituloLibro);
@@ -80,8 +81,13 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		Picasso.with(getContext()).load(getItem(position).getUrlImagenMultimedia()).into(holder.ivMultimediaImagen);
 		holder.tvTitulo.setText(listMultimedia.get(position)
 				.getTituloMultimedia());
-		holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
-
+		if(listMultimedia.get(position).getGeneroMultimedia().equals("")){
+			holder.tvGeneroEditable.setText("");
+			
+		}else {
+			holder.tvGeneroEditable.setText("Género:");
+			holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
+		}
 
 		return v;
 
@@ -92,6 +98,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		public TextView tvTitulo;
 		public TextView tvGenero;
 		public TextView tvIdMultimedia;
+		public TextView tvGeneroEditable;
+		
 	}
 
 }

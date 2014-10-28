@@ -1,13 +1,15 @@
 package com.clmdev.agendacaracter;
 
 import com.clmdev.agendacaracter.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,12 +54,28 @@ public class EvaluacionDiaria extends Activity {
 
 		Button btnSiguiente = (Button) findViewById(R.id.btn_ver_resultado_evaluacion);
 		btnSiguiente.setTypeface(tfHelveticaBold);
+		
+		
+		
+		usuarioConectado();
+		
 		btnSiguiente.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				mostrarAlerta();
 			}
 		});
 		llenarSpinner();
+		
+		
+	}
+	
+	public void usuarioConectado() {
+		if (estaConectado()) {
+
+		} else {
+			showAlertDialog(EvaluacionDiaria.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
 	}
 
 	public <ViewGroup> void llenarSpinner() {
@@ -132,6 +150,68 @@ public class EvaluacionDiaria extends Activity {
 		int promedio = (int) Math.round((puntaje01 + puntaje02) / 2);
 		return promedio;
 
+	}
+	
+	
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				 finish();
+			}
+
+
+		});
+		alertDialog.show();
+		
 	}
 
 }

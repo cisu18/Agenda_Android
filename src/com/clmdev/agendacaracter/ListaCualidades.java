@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -42,11 +47,6 @@ public class ListaCualidades extends Activity {
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		lsvListaCualidades = (ListView) findViewById(R.id.lsv_cualidades);
-
-		final String url = getResources().getString(R.string.url_web_service);
-		new ReadCualidadesJSONFeedTask().execute(url
-				+ "cualidad/cualidades/format/json/anio/"+Util.getFechaActual().substring(6, 10));
-
 		registerForContextMenu(lsvListaCualidades);
 
 		lsvListaCualidades.setOnItemClickListener(new OnItemClickListener() {
@@ -56,8 +56,26 @@ public class ListaCualidades extends Activity {
 				openContextMenu(v);
 			}
 		});
+		usuarioConectado();
+		
+
+
 
 	}
+	public void usuarioConectado() {
+		if (estaConectado()) {
+			final String url = getResources().getString(R.string.url_web_service);
+			new ReadCualidadesJSONFeedTask().execute(url
+					+ "cualidad/cualidades/format/json/anio/"+Util.getFechaActual().substring(6, 10));
+
+		} else {
+			showAlertDialog(ListaCualidades.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
+	}
+
+	
+	
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -81,11 +99,10 @@ public class ListaCualidades extends Activity {
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
-			Intent libros = new Intent(this, Referencia.class);
+			Intent libros = new Intent(this, ListadoMultimedia.class);
 			libros.putExtra("id cualidad", id);
 			libros.putExtra("tipo multimedia", "1");
 			libros.putExtra("Nombre Cualidad", nombreCualidad);
-			
 			startActivity(libros);
 			return true;
 	
@@ -153,6 +170,66 @@ public class ListaCualidades extends Activity {
 			}
 			Util.cerrarDialogLoad();
 		}
+	}
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				 finish();
+			}
+
+
+		});
+		alertDialog.show();
+		
 	}
 
 }

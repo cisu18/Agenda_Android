@@ -462,7 +462,8 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001a;
-        /**  Login con facebook 
+        /**  <string name="url_web_service">http://clmdevelopers.com/agendaws/</string> 
+ Login con facebook 
          */
         public static final int app_id=0x7f070038;
         /**  Títulos 

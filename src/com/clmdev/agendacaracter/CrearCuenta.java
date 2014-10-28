@@ -21,11 +21,15 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -69,7 +73,19 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 		btnCrearCuenta.setOnClickListener(this);
 
+		usuarioConectado();
+
+		
 	}
+	public void usuarioConectado() {
+		if (estaConectado()) {
+
+		} else {
+			showAlertDialog(CrearCuenta.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
+	}
+
 
 	@Override
 	public void onClick(View v) {
@@ -230,5 +246,67 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 		return res.toString();
 	}
+	
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				 finish();
+			}
+
+
+		});
+		alertDialog.show();
+
+	}
+
 
 }
