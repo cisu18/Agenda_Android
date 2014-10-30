@@ -874,8 +874,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f060034;
-        /**  <string name="url_web_service">http://clmdevelopers.com/agendaws/</string> 
- Login con facebook 
+        /**  Login con facebook 
          */
         public static final int app_id=0x7f060052;
         /**  Títulos 
@@ -1030,6 +1029,8 @@ containing a value of this type.
         public static final int title_activity_demos=0x7f06004a;
         public static final int title_activity_descripcion_peliculas=0x7f060050;
         public static final int title_activity_twitter=0x7f06004e;
+        /**  <string name="url_web_service">http://192.168.0.55/Agenda_WS/</string> 
+         */
         public static final int url_web_service=0x7f060051;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
