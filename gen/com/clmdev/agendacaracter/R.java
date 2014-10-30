@@ -584,7 +584,11 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f020019;
         public static final int com_facebook_loginbutton_silver=0x7f02001a;
         public static final int com_facebook_logo=0x7f02001b;
+<<<<<<< Updated upstream
         public static final int com_facebook_picker_default_separator_color=0x7f020076;
+=======
+        public static final int com_facebook_picker_default_separator_color=0x7f020059;
+>>>>>>> Stashed changes
         public static final int com_facebook_picker_item_background=0x7f02001c;
         public static final int com_facebook_picker_list_focused=0x7f02001d;
         public static final int com_facebook_picker_list_longpressed=0x7f02001e;
@@ -609,6 +613,7 @@ containing a value of this type.
         public static final int com_facebook_top_background=0x7f020031;
         public static final int com_facebook_top_button=0x7f020032;
         public static final int com_facebook_usersettingsfragment_background_gradient=0x7f020033;
+<<<<<<< Updated upstream
         public static final int common_signin_btn_icon_dark=0x7f020034;
         public static final int common_signin_btn_icon_disabled_dark=0x7f020035;
         public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020036;
@@ -675,6 +680,45 @@ containing a value of this type.
         public static final int ubicacion=0x7f020073;
         public static final int usera=0x7f020074;
         public static final int view_as_list_64=0x7f020075;
+=======
+        public static final int compartir=0x7f020034;
+        public static final int contra_login=0x7f020035;
+        public static final int contra_login2=0x7f020036;
+        public static final int degradado=0x7f020037;
+        public static final int emaila=0x7f020038;
+        public static final int evaluacion=0x7f020039;
+        public static final int face=0x7f02003a;
+        public static final int gmail=0x7f02003b;
+        public static final int horario=0x7f02003c;
+        public static final int ic_action_accept=0x7f02003d;
+        public static final int ic_action_cancel=0x7f02003e;
+        public static final int ic_action_email=0x7f02003f;
+        public static final int ic_action_overflow=0x7f020040;
+        public static final int ic_action_user=0x7f020041;
+        public static final int ic_launcher=0x7f020042;
+        public static final int icono_mas=0x7f020043;
+        public static final int key=0x7f020044;
+        public static final int key2=0x7f020045;
+        public static final int key_log_32=0x7f020046;
+        public static final int libros_ref=0x7f020047;
+        public static final int masrosa=0x7f020048;
+        public static final int next_item=0x7f020049;
+        public static final int overflow=0x7f02004a;
+        public static final int overflow_prin=0x7f02004b;
+        public static final int pensamiento_48=0x7f02004c;
+        public static final int personalizarlistview=0x7f02004d;
+        public static final int puzzle=0x7f02004e;
+        public static final int puzzle2=0x7f02004f;
+        public static final int responsable=0x7f020050;
+        public static final int share_48=0x7f020051;
+        public static final int spinner=0x7f020052;
+        public static final int telefono=0x7f020053;
+        public static final int textura_2=0x7f020054;
+        public static final int twitter=0x7f020055;
+        public static final int ubicacion=0x7f020056;
+        public static final int usera=0x7f020057;
+        public static final int view_as_list_64=0x7f020058;
+>>>>>>> Stashed changes
     }
     public static final class id {
         public static final int action_cerrar_sesion=0x7f07008f;

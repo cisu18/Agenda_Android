@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,10 +72,36 @@ public class ListadoMultimedia extends Activity {
 		
 		
 		Log.e("ids", idCualidad + " " + tipo);
-
+		
 		
 		
 		final ListView lsvListaMultimedia = (ListView) findViewById(R.id.lsv_Lista_peliculas);
+		 //el número de columnas se calculará en función del tamaño de pantalla y la posición
+        //boolean bigScreen = (getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+         
+//        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+//        {
+//            if (bigScreen)
+//            {
+//                lsvListaMultimedia.setNumColumns(4);
+//            }
+//            else
+//            {
+//            	lsvListaMultimedia.setNumColumns(3);
+//            }
+//        }
+//        else
+//        {
+//            if (bigScreen)
+//            {
+//            	lsvListaMultimedia.setNumColumns(3);
+//            }
+//            else
+//            {
+//            	lsvListaMultimedia.setNumColumns(2);
+//            }
+//        }
+		
 		adaptadorMultimedia = new AdaptadorMultimedia(getApplicationContext(),
 				R.layout.custom_row_multimedia, listadoMultimedias);
 

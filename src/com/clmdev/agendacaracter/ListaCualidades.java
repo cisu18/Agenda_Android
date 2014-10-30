@@ -68,6 +68,7 @@ public class ListaCualidades extends Activity {
 			new ReadCualidadesJSONFeedTask().execute(url
 					+ "cualidad/cualidades/format/json/anio/"+Util.getFechaActual().substring(6, 10));
 
+			
 		} else {
 			showAlertDialog(ListaCualidades.this, "Conexión a Internet",
 					"Tu Dispositivo necesita una conexión a internet.", false);

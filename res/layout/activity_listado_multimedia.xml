@@ -4,32 +4,50 @@
     android:background="@drawable/textura_2"
     android:orientation="vertical" >
 
- <TextView
-     android:id="@+id/txv_cabecera_descripcion"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_marginLeft="15dp"
-     android:layout_marginRight="15dp"
-     android:layout_marginTop="16dp"
-     android:background="@color/CABECERA"
-     android:gravity="center"
-     android:paddingBottom="13dp"
-     android:paddingLeft="25dp"
-     android:paddingRight="18dp"
-     android:paddingTop="13dp"
-     android:tag="26dp"
-     android:text="@string/peliculas_series"
-     android:textColor="@color/LETRA"
-     android:textColorLink="@color/LETRA"
-     android:textSize="22sp" />
+    <TextView
+        android:id="@+id/txv_cabecera_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/CABECERA"
+        android:gravity="center"
+        android:paddingBottom="13dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="18dp"
+        android:paddingTop="13dp"
+        android:tag="26dp"
+        android:text="@string/peliculas_series"
+        android:textColor="@color/LETRA"
+        android:textColorLink="@color/LETRA"
+        android:textSize="22sp" />
 
     <ListView
         android:id="@+id/lsv_Lista_peliculas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp" >
-
+        android:dividerHeight="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp"
+         >
     </ListView>
-
+<!--
+	<GridView
+        android:id="@+id/lsv_Lista_peliculas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="90dp"
+		android:stretchMode="columnWidth"
+        android:verticalSpacing="7dp"
+        android:horizontalSpacing="7dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp"
+        android:numColumns="1" >
+	    </GridView>
+-->	    
 </LinearLayout>
