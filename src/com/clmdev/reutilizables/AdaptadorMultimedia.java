@@ -1,14 +1,8 @@
 package com.clmdev.reutilizables;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +12,7 @@ import android.widget.TextView;
 
 import com.clmdev.agendacaracter.R;
 import com.clmdev.entidad.Multimedia;
+import com.squareup.picasso.Picasso;
 
 public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 	ArrayList<Multimedia> listMultimedia;
@@ -56,7 +51,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 					.findViewById(R.id.txv_genero_multimedia);
 			holder.tvIdMultimedia = (TextView) v
 					.findViewById(R.id.txv_id_multimedia);
-
+			holder.tvGeneroEditable=(TextView) v.findViewById(R.id.txv_genero);
+			
 			TextView nombre = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
 			nombre.setTypeface(TituloLibro);
@@ -76,12 +72,16 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 			holder = (ViewHolder) v.getTag();
 		}
 
-		new DownloadImageTask(holder.ivMultimediaImagen).execute(listMultimedia
-				.get(position).getUrlImagenMultimedia());
+		Picasso.with(getContext()).load(getItem(position).getUrlImagenMultimedia()).into(holder.ivMultimediaImagen);
 		holder.tvTitulo.setText(listMultimedia.get(position)
 				.getTituloMultimedia());
-		holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
-
+		if(listMultimedia.get(position).getGeneroMultimedia().equals("")){
+			holder.tvGeneroEditable.setText("");
+			
+		}else {
+			holder.tvGeneroEditable.setText("Género:");
+			holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
+		}
 
 		return v;
 
@@ -92,47 +92,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 		public TextView tvTitulo;
 		public TextView tvGenero;
 		public TextView tvIdMultimedia;
-	}
-	
-	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-		ImageView bmImage;
-
-		public DownloadImageTask(ImageView bmImage) {
-			this.bmImage = bmImage;
-		}
-
-		protected Bitmap doInBackground(String... urls) {
-			String urldisplay = urls[0];
-			Bitmap bitimagen = null;
-			try {
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				bitimagen = BitmapFactory.decodeStream(in);
-
-				int width = bitimagen.getWidth();
-				int height = bitimagen.getHeight();
-				int newWidth = 90;
-				int newHeight = 130;
-
-				float scaleWidth = ((float) newWidth) / width;
-				float scaleHeight = ((float) newHeight) / height;
-
-				Matrix matrix = new Matrix();
-				matrix.postScale(scaleWidth, scaleHeight);
-				bitimagen = Bitmap.createBitmap(bitimagen, 0, 0, width, height,
-						matrix, true);
-
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return bitimagen;
-
-		}
-
-		protected void onPostExecute(Bitmap result) {
-			bmImage.setImageBitmap(result);
-		}
-
+		public TextView tvGeneroEditable;
+		
 	}
 
 }

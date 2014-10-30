@@ -1,14 +1,9 @@
 package com.clmdev.reutilizables;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +13,7 @@ import android.widget.TextView;
 
 import com.clmdev.agendacaracter.R;
 import com.clmdev.entidad.Multimedia;
+import com.squareup.picasso.Picasso;
 
 public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 	ArrayList<Multimedia> listLibro;
@@ -61,8 +57,7 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 		}
 
 
-		new DownloadImageTask(holder.ivLibroImagen).execute(listLibro.get(
-				position).getUrlImagenMultimedia());
+		Picasso.with(getContext()).load(getItem(position).getUrlImagenMultimedia()).into(holder.ivLibroImagen);
 		holder.tvTituloLibro.setText(listLibro.get(position)
 				.getTituloMultimedia());
 		return v;
@@ -75,29 +70,4 @@ public class AdaptadorLibro extends ArrayAdapter<Multimedia> {
 		public TextView tvIdLibro;
 	}
 
-	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-		ImageView bmImage;
-
-		public DownloadImageTask(ImageView bmImage) {
-			this.bmImage = bmImage;
-		}
-
-		protected Bitmap doInBackground(String... urls) {
-			String urldisplay = urls[0];
-			Bitmap bitimagen = null;
-			try {
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				bitimagen = BitmapFactory.decodeStream(in);
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return bitimagen;
-		}
-
-		protected void onPostExecute(Bitmap result) {
-			bmImage.setImageBitmap(result);
-		}
-
-	}
 }

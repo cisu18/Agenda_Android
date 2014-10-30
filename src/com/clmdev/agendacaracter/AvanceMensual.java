@@ -6,9 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -37,17 +41,28 @@ public class AvanceMensual extends Activity {
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		lsvListaAvance = (ListView) findViewById(R.id.lsv_avance_mensual);
-		SharedPreferences prefe = getSharedPreferences("user",
-				Context.MODE_PRIVATE);
-		int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
-
-		final String url = getResources().getString(R.string.url_web_service);
-	
-		new ReadCualidadesJSONFeedTask().execute(url
-				+ "puntaje_cualidad/puntaje_all/format/json/usuario/"
-				+ String.valueOf(idUsuario)+"/anio/"+Util.getFechaActual().substring(6, 10));
-
+				
+		usuarioConectado();
+		
 	}
+	public void usuarioConectado() {
+		if (estaConectado()) {
+			SharedPreferences prefe = getSharedPreferences("user",
+					Context.MODE_PRIVATE);
+			
+			int idUsuario = Integer.parseInt(prefe.getString("id", "0"));
+			final String url = getResources().getString(R.string.url_web_service);
+			
+			new ReadCualidadesJSONFeedTask().execute(url
+					+ "puntaje_cualidad/puntaje_all/format/json/usuario/"
+					+ String.valueOf(idUsuario)+"/anio/"+Util.getFechaActual().substring(6, 10));
+
+		} else {
+			showAlertDialog(AvanceMensual.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
+	}
+	
 
 	private class ReadCualidadesJSONFeedTask extends
 			AsyncTask<String, Void, String> {
@@ -92,5 +107,68 @@ public class AvanceMensual extends Activity {
 			Util.cerrarDialogLoad();
 		}
 	}
+	
+
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				 finish();
+			}
+
+
+		});
+		alertDialog.show();
+
+	}
+	
 
 }
