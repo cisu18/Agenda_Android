@@ -98,7 +98,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 			StringBuilder msg = new StringBuilder();
 			boolean con = true;
 			String patron = "([a-z]|[A-Z]|\\s|[0-9])+";
-			if (Val.isVacio(usuario, email, pass1, pass2)) {
+			if (Val.isMinLeng(usuario, email, pass1, pass2)) {
 				if (!Val.isEmailValid(email)) {
 					msg.append("Email Incorrecto" + "\n");
 					con = false;
@@ -133,7 +133,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 				}
 
 			} else {
-				msg.append("Complete todos los campos");
+				msg.append("Complete todos los campos, mínimo 6 caracteres");
 				con = false;
 			}
 			final String url = getResources().getString(

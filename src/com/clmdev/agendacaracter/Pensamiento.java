@@ -102,10 +102,12 @@ public class Pensamiento extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.txv_compartir_pensamiento:
-			Util.compartir(this, "Pensamiento", txvPensamiento.getText()
+			String title = txvNombreCualidad.getText().toString();
+			String post = txvPensamiento.getText()
 					.toString()
 					+ " "
-					+ txvAutorPensamiento.getText().toString());
+					+ txvAutorPensamiento.getText().toString();
+			Util.mostrarMenuCompartir(this,title,post);
 			break;
 		case R.id.txv_ir_libro_referencia:
 			openContextMenu(v);

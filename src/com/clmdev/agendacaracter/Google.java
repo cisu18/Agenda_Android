@@ -119,6 +119,9 @@ public class Google extends Activity implements ConnectionCallbacks,
 		} catch (Exception e) {
 			Toast.makeText(this, "Error al obtener datos de cuenta",
 					Toast.LENGTH_LONG).show();
+			Intent i = new Intent(getApplicationContext(), Login.class);
+			startActivity(i);
+			finish();
 		}
 
 	}

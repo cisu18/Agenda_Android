@@ -111,21 +111,34 @@
             android:gravity="center"
             android:paddingBottom="15dp" >
 
-            <ImageView
-                android:id="@+id/imv_twitter_descripcion"
-                android:layout_width="wrap_content"
-                android:layout_height="47dp"
-                android:src="@drawable/twitter" />
-
             <com.facebook.widget.LoginButton
                 android:id="@+id/login_button"
                 android:layout_width="33dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="55dp"
+                android:layout_height="wrap_content"
                 facebook:confirm_logout="false"
                 facebook:fetch_user_info="true"
                 facebook:login_text=""
                 facebook:logout_text="" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imv_login_google"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/gmail" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imv_twitter_descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/twitter" />
         </LinearLayout>
     </LinearLayout>
 

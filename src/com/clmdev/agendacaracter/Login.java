@@ -126,6 +126,7 @@ public class Login extends Activity implements OnClickListener {
 	
 					}					
 				});
+		findViewById(R.id.imv_login_google).setOnClickListener(this);
 		
 	}
 	
@@ -198,6 +199,9 @@ public class Login extends Activity implements OnClickListener {
 			}
 			
 			break;
+		case R.id.imv_login_google:
+			i = new Intent(this, Google.class);
+			startActivity(i);
 		default:
 			break;
 		}

@@ -88,8 +88,9 @@ public class ResultadoEvaluacion extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_compartir_puntaje:
-			Util.compartir(this, "Resultado Evaluación",
-					stbCompartir.toString());
+			String title = "Resultado Evaluación";
+			String post = stbCompartir.toString();
+			Util.mostrarMenuCompartir(this,title,post);
 			break;
 		}
 	}

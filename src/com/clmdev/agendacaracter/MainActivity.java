@@ -165,11 +165,12 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.txv_compartir_versiculo:
-			Util.compartir(this, cualidad.getText().toString(), versiculo
+			String title = cualidad.getText().toString();
+			String post = versiculo
 					.getText().toString()
 					+ " "
-					+ textobiblico.getText().toString());
-
+					+ textobiblico.getText().toString();
+			Util.mostrarMenuCompartir(this,title,post);
 			break;
 		default:
 
