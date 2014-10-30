@@ -297,10 +297,10 @@ containing a value of this type.
         public static final int view_as_list_64=0x7f020057;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f040074;
-        public static final int action_listar=0x7f040072;
-        public static final int action_listar_avance=0x7f040073;
-        public static final int action_menu=0x7f040071;
+        public static final int action_cerrar_sesion=0x7f04007b;
+        public static final int action_listar=0x7f040079;
+        public static final int action_listar_avance=0x7f04007a;
+        public static final int action_menu=0x7f040078;
         public static final int btn_compartir_puntaje=0x7f04003d;
         public static final int btn_crear_cuenta=0x7f04000e;
         public static final int btn_iniciar_sesion=0x7f04001f;
@@ -331,6 +331,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f040058;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f040056;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f040057;
+        public static final int get_id=0x7f040074;
+        public static final int get_name=0x7f040072;
+        public static final int get_url=0x7f040076;
         public static final int grv_Lista_Circulos=0x7f040005;
         public static final int grv_libros_referencia=0x7f040037;
         public static final int img_carita_resultado_evaluacion=0x7f040039;
@@ -349,12 +352,16 @@ containing a value of this type.
         public static final int lsv_avance_mensual=0x7f040004;
         public static final int lsv_cualidades=0x7f04001a;
         public static final int normal=0x7f040001;
-        public static final int opcVerAudios=0x7f040077;
-        public static final int opcVerCirculos=0x7f040078;
-        public static final int opcVerLibros=0x7f040075;
-        public static final int opcVerPeliculas=0x7f040076;
+        public static final int ok_button=0x7f040077;
+        public static final int opcVerAudios=0x7f04007e;
+        public static final int opcVerCirculos=0x7f04007f;
+        public static final int opcVerLibros=0x7f04007c;
+        public static final int opcVerPeliculas=0x7f04007d;
         public static final int pb_avance_cualidad=0x7f040059;
         public static final int picker_subtitle=0x7f04004e;
+        public static final int post_id=0x7f040073;
+        public static final int post_name=0x7f040071;
+        public static final int post_url=0x7f040075;
         public static final int scrollView1=0x7f040006;
         public static final int small=0x7f040000;
         public static final int spi_critetio_evaluacion_01=0x7f040016;
@@ -426,35 +433,37 @@ containing a value of this type.
         public static final int activity_crear_cuenta=0x7f030003;
         public static final int activity_descripcion_multimedia=0x7f030004;
         public static final int activity_evaluacion_diaria=0x7f030005;
-        public static final int activity_lista_cualidades=0x7f030006;
-        public static final int activity_listado_multimedia=0x7f030007;
-        public static final int activity_login=0x7f030008;
-        public static final int activity_main=0x7f030009;
-        public static final int activity_pensamiento=0x7f03000a;
-        public static final int activity_referencia=0x7f03000b;
-        public static final int activity_resultado_evaluacion=0x7f03000c;
-        public static final int activity_twitter=0x7f03000d;
-        public static final int com_facebook_friendpickerfragment=0x7f03000e;
-        public static final int com_facebook_login_activity_layout=0x7f03000f;
-        public static final int com_facebook_picker_activity_circle_row=0x7f030010;
-        public static final int com_facebook_picker_checkbox=0x7f030011;
-        public static final int com_facebook_picker_image=0x7f030012;
-        public static final int com_facebook_picker_list_row=0x7f030013;
-        public static final int com_facebook_picker_list_section_header=0x7f030014;
-        public static final int com_facebook_picker_search_box=0x7f030015;
-        public static final int com_facebook_picker_title_bar=0x7f030016;
-        public static final int com_facebook_picker_title_bar_stub=0x7f030017;
-        public static final int com_facebook_placepickerfragment=0x7f030018;
-        public static final int com_facebook_placepickerfragment_list_row=0x7f030019;
-        public static final int com_facebook_search_bar_layout=0x7f03001a;
-        public static final int com_facebook_tooltip_bubble=0x7f03001b;
-        public static final int com_facebook_usersettingsfragment=0x7f03001c;
-        public static final int custom_lista_avance=0x7f03001d;
-        public static final int custom_row_circulos=0x7f03001e;
-        public static final int custom_row_lista_cualidad=0x7f03001f;
-        public static final int custom_row_lista_libros_referencia=0x7f030020;
-        public static final int custom_row_multimedia=0x7f030021;
-        public static final int custom_row_spinner=0x7f030022;
+        public static final int activity_google=0x7f030006;
+        public static final int activity_lista_cualidades=0x7f030007;
+        public static final int activity_listado_multimedia=0x7f030008;
+        public static final int activity_login=0x7f030009;
+        public static final int activity_main=0x7f03000a;
+        public static final int activity_pensamiento=0x7f03000b;
+        public static final int activity_referencia=0x7f03000c;
+        public static final int activity_resultado_evaluacion=0x7f03000d;
+        public static final int activity_twitter=0x7f03000e;
+        public static final int com_facebook_friendpickerfragment=0x7f03000f;
+        public static final int com_facebook_login_activity_layout=0x7f030010;
+        public static final int com_facebook_picker_activity_circle_row=0x7f030011;
+        public static final int com_facebook_picker_checkbox=0x7f030012;
+        public static final int com_facebook_picker_image=0x7f030013;
+        public static final int com_facebook_picker_list_row=0x7f030014;
+        public static final int com_facebook_picker_list_section_header=0x7f030015;
+        public static final int com_facebook_picker_search_box=0x7f030016;
+        public static final int com_facebook_picker_title_bar=0x7f030017;
+        public static final int com_facebook_picker_title_bar_stub=0x7f030018;
+        public static final int com_facebook_placepickerfragment=0x7f030019;
+        public static final int com_facebook_placepickerfragment_list_row=0x7f03001a;
+        public static final int com_facebook_search_bar_layout=0x7f03001b;
+        public static final int com_facebook_tooltip_bubble=0x7f03001c;
+        public static final int com_facebook_usersettingsfragment=0x7f03001d;
+        public static final int custom_lista_avance=0x7f03001e;
+        public static final int custom_row_circulos=0x7f03001f;
+        public static final int custom_row_lista_cualidad=0x7f030020;
+        public static final int custom_row_lista_libros_referencia=0x7f030021;
+        public static final int custom_row_multimedia=0x7f030022;
+        public static final int custom_row_spinner=0x7f030023;
+        public static final int get_data_frag=0x7f030024;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -462,7 +471,8 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001a;
-        /**  Login con facebook 
+        /**  <string name="url_web_service">http://clmdevelopers.com/agendaws/</string> 
+ Login con facebook 
          */
         public static final int app_id=0x7f070038;
         /**  Títulos 
