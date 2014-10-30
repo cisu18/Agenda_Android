@@ -6,6 +6,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="lib" path="libs/twitter4j-core-4.0.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Sistema/Librerías Java/picasso-2.3.4.jar"/>
+	<classpathentry kind="lib" path="D:/Proyectos/Android/Agenda_Android/libs/picasso-2.3.4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
