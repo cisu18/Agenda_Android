@@ -1,21 +1,21 @@
 package com.clmdev.agendacaracter;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.clmdev.agendacaracter.R;
 import com.clmdev.entidad.Multimedia;
 import com.clmdev.reutilizables.Util;
+import com.squareup.picasso.Picasso;
 
 public class DescripcionMultimedia extends Activity {
 	private ImageView imvMultimediaDescripcion;
@@ -39,6 +40,7 @@ public class DescripcionMultimedia extends Activity {
 	Multimedia multimedia = new Multimedia();
 	public String parametroTipo;
 	public String parametroIdMultimedia;
+	public String parametroUrlImagenMultimedia;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +99,7 @@ public class DescripcionMultimedia extends Activity {
 
 		Bundle bundle = getIntent().getExtras();
 		parametroIdMultimedia = bundle.getString("id multimedia");
-		String parametroUrlImagenMultimedia = bundle
+		parametroUrlImagenMultimedia = bundle
 				.getString("url multimedia");
 		parametroTipo = bundle.getString("tipo");
 
@@ -107,13 +109,29 @@ public class DescripcionMultimedia extends Activity {
 		if (parametroTipo.equals("3")) {
 			txvCabeceraDescripcion.setText("DESCRIPCIÓN DEL AUDIO");
 		}
-		final String url = getResources().getString(R.string.url_web_service);
-		new JSONAsyncTask().execute(url
-				+ "multimedia/multimedia_byid/format/json/id/"
-				+ parametroIdMultimedia);
-		new DescargarImagen().execute(parametroUrlImagenMultimedia);
+
+		usuarioConectado();
+		
+				
 
 	}
+	
+	public void usuarioConectado() {
+		if (estaConectado()) {
+
+			final String url = getResources().getString(R.string.url_web_service);
+			new JSONAsyncTask().execute(url
+					+ "multimedia/multimedia_byid/format/json/id/"
+					+ parametroIdMultimedia);
+		
+			Picasso.with(getApplicationContext()).load(parametroUrlImagenMultimedia).into(imvMultimediaDescripcion);
+
+		} else {
+			showAlertDialog(DescripcionMultimedia.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
+	}
+
 
 	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -170,37 +188,69 @@ public class DescripcionMultimedia extends Activity {
 						"No se pudieron obtener datos del servidor: DescripciÓn de libro",
 						Toast.LENGTH_LONG).show();
 			}
-
-		}
-	}
-
-	public class DescargarImagen extends AsyncTask<String, Void, Bitmap> {
-		ProgressDialog dialog;
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-		}
-
-		protected Bitmap doInBackground(String... urls) {
-			String urldisplay = urls[0];
-			Bitmap Imagen_Libro_Bitmap = null;
-			try {
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				Imagen_Libro_Bitmap = BitmapFactory.decodeStream(in);
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return Imagen_Libro_Bitmap;
-		}
-
-		protected void onPostExecute(Bitmap result) {
-
-			imvMultimediaDescripcion.setImageBitmap(result);
 			Util.cerrarDialogLoad();
 		}
+	}
+	
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
 
+			}
+		}
+	}
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				 finish();
+			}
+
+
+		});
+		alertDialog.show();
+		
 	}
 
 }

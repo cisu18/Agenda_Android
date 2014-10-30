@@ -21,10 +21,13 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,7 +92,7 @@ public class Login extends Activity implements OnClickListener {
 
 		Button btnCrearCuenta = (Button) findViewById(R.id.btn_crear_cuenta);
 		btnCrearCuenta.setTypeface(HelveticaBoldTypeFace);
-
+		
 		btnIniciarSesion.setOnClickListener(this);
 		btnCrearCuenta.setOnClickListener(this);
 
@@ -104,7 +107,9 @@ public class Login extends Activity implements OnClickListener {
 					.getString(PENDING_ACTION_BUNDLE_KEY);
 			pendingAction = PendingAction.valueOf(name);
 		}
+		
 
+		
 		loginButton = (LoginButton) findViewById(R.id.login_button);
 		loginButton.setBackgroundResource(R.drawable.face);
 		loginButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
@@ -112,19 +117,23 @@ public class Login extends Activity implements OnClickListener {
 				.setReadPermissions(Arrays.asList("public_profile", "email"));
 		loginButton
 				.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
+					
 					@Override
 					public void onUserInfoFetched(GraphUser user) {
-						Login.this.user = user;
-						updateUI();
-						handlePendingAction();
-					}
+							Login.this.user = user;
+							updateUI();
+							handlePendingAction();							
+	
+					}					
 				});
-
+		
 	}
-
+	
+	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			this.moveTaskToBack(true);
 		}
 		return false;
 	}
@@ -134,48 +143,60 @@ public class Login extends Activity implements OnClickListener {
 		Intent i;
 		switch (v.getId()) {
 		case R.id.btn_iniciar_sesion:
+			if (estaConectado()) {
+				String us = etxUsuarioNombre.getText().toString();
+				String cl = etxContrasenia.getText().toString();
 
-			String us = etxUsuarioNombre.getText().toString();
-			String cl = etxContrasenia.getText().toString();
+				final String url = getResources().getString(
+						R.string.url_web_service);
 
-			final String url = getResources().getString(
-					R.string.url_web_service);
+				if (us.equals("") || cl.equals("")) {
+					Toast.makeText(getApplicationContext(),
+							"Por favor completa todos los campos",
+							Toast.LENGTH_LONG).show();
+				} else if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
+						|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+					Toast.makeText(getApplicationContext(),
+							"No se permiten caracteres especiales",
+							Toast.LENGTH_LONG).show();
+					if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+						etxUsuarioNombre.setText("");
+					}
+					if (!cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+						etxContrasenia.setText("");
+					}
+					if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
+							&& !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
+						etxUsuarioNombre.setText("");
+						etxContrasenia.setText("");
+					}
 
-			if (us.equals("") || cl.equals("")) {
-				Toast.makeText(getApplicationContext(),
-						"Por favor completa todos los campos",
-						Toast.LENGTH_LONG).show();
-			} else if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
-					|| !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
-				Toast.makeText(getApplicationContext(),
-						"No se permiten caracteres especiales",
-						Toast.LENGTH_LONG).show();
-				if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
-					etxUsuarioNombre.setText("");
+				} else {
+					new ReadUsuarioJSONFeedTask().execute(url
+							+ "users/login/format/json");
+
 				}
-				if (!cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
-					etxContrasenia.setText("");
-				}
-				if (!us.matches("([a-z]|[A-Z]|\\s|[0-9])+")
-						&& !cl.matches("([a-z]|[A-Z]|\\s|[0-9])+")) {
-					etxUsuarioNombre.setText("");
-					etxContrasenia.setText("");
-				}
-
+		
 			} else {
-				new ReadUsuarioJSONFeedTask().execute(url
-						+ "users/login/format/json");
-
+				showAlertDialog(Login.this, "Conexión a Internet",
+						"Tu Dispositivo necesita una conexión a internet.", false);
 			}
-
+		
+		
 			break;
 		case R.id.btn_crear_cuenta:
 			i = new Intent(this, CrearCuenta.class);
 			startActivity(i);
 			break;
 		case R.id.imv_twitter_descripcion:
-			i = new Intent(this, TwitterActivity.class);
-			startActivity(i);
+			if (estaConectado()) {
+				i = new Intent(this, TwitterActivity.class);
+				startActivity(i);
+			}else {
+				showAlertDialog(Login.this, "Conexión a Internet",
+						"Tu Dispositivo necesita una conexión a internet.", false);
+			}
+			
 			break;
 		default:
 			break;
@@ -428,6 +449,68 @@ public class Login extends Activity implements OnClickListener {
 		case POST_STATUS_UPDATE:
 			break;
 		}
+	}
+	
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+
+			}
+
+		});
+		alertDialog.show();
+
 	}
 
 }

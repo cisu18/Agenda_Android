@@ -58,7 +58,7 @@
                 android:id="@+id/txv_genero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Género:"
+                android:text=""
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
 
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
 

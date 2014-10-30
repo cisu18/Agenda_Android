@@ -6,8 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,7 +36,7 @@ public class ListadoMultimedia extends Activity {
 	AdaptadorMultimedia adaptadorMultimedia;
 	public String tipo = "";
 	public String nombreCualidad = "";
-	
+	public String idCualidad;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,28 +47,32 @@ public class ListadoMultimedia extends Activity {
 				"fonts/HelveticaLTStd-Cond.otf");
 
 		listadoMultimedias = new ArrayList<Multimedia>();
+		
 		TextView txvCabeceraDescripcion = (TextView) findViewById(R.id.txv_cabecera_descripcion);
+		
 		txvCabeceraDescripcion.setTypeface(miPropiaTypeFace);
 
 		Bundle bundle = getIntent().getExtras();
-		String idCualidad = bundle.getString("id cualidad");
+		idCualidad = bundle.getString("id cualidad");
 		tipo = bundle.getString("tipo multimedia");
 		nombreCualidad = bundle.getString("Nombre Cualidad");
 		
-		
+		usuarioConectado();
+		if (tipo.equals("1")) {
+			txvCabeceraDescripcion.setText("LIBROS DE REFERENCIA");
+		}
 		if (tipo.equals("2")) {
 			txvCabeceraDescripcion.setText("PELÍCULAS Y SERIES");
 		}
 		if (tipo.equals("3")) {
 			txvCabeceraDescripcion.setText("AUDIOS Y CONFERENCIAS");
 		}
+		
+		
 		Log.e("ids", idCualidad + " " + tipo);
 
-		final String url = getResources().getString(R.string.url_web_service);
-		new JSONAsyncTask().execute(url
-				+ "multimedia/lista_multimedia_bycualidadtipo/cualidad/"
-				+ idCualidad + "/tipo/" + tipo + "/format/json");
-
+		
+		
 		final ListView lsvListaMultimedia = (ListView) findViewById(R.id.lsv_Lista_peliculas);
 		adaptadorMultimedia = new AdaptadorMultimedia(getApplicationContext(),
 				R.layout.custom_row_multimedia, listadoMultimedias);
@@ -89,6 +98,19 @@ public class ListadoMultimedia extends Activity {
 
 		});
 	}
+	public void usuarioConectado() {
+		if (estaConectado()) {
+			final String url = getResources().getString(R.string.url_web_service);
+			new JSONAsyncTask().execute(url
+					+ "multimedia/lista_multimedia_bycualidadtipo/cualidad/"
+					+ idCualidad + "/tipo/" + tipo + "/format/json");
+
+		} else {
+			showAlertDialog(ListadoMultimedia.this, "Conexión a Internet",
+					"Tu Dispositivo necesita una conexión a internet.", false);
+		}
+	}
+
 
 	class JSONAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -132,4 +154,66 @@ public class ListadoMultimedia extends Activity {
 
 		}
 	}
+	protected Boolean estaConectado() {
+		if (conectadoWifi()) {
+			return true;
+		} else {
+			if (conectadoRedMovil()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		}
+	}
+
+	protected Boolean conectadoWifi() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	protected Boolean conectadoRedMovil() {
+		ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (connectivity != null) {
+			NetworkInfo info = connectivity
+					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+			if (info != null) {
+				if (info.isConnected()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public void showAlertDialog(Context context, String title, String message,
+			Boolean status) {
+
+		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+		alertDialog.setCanceledOnTouchOutside(false);
+		alertDialog.setCancelable(false);
+		alertDialog.setTitle(title);
+		alertDialog.setMessage(message);
+		alertDialog.setIcon((status) ? R.drawable.ic_action_accept
+				: R.drawable.ic_action_cancel);
+		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				finish();
+			}
+
+		});
+		alertDialog.show();
+
+	}
+
 }
