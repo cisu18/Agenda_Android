@@ -2,16 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-            android:background="@drawable/personalizarlistview" >
+    android:background="@drawable/personalizarlistview"
+    android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/imv_imagen_multimedia"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-         />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/txv_id_multimedia"
@@ -19,6 +18,7 @@
         android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imv_imagen_multimedia"
@@ -26,7 +26,8 @@
         android:layout_marginTop="30dp"
         android:layout_toRightOf="@+id/imv_imagen_multimedia" >
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
@@ -42,16 +43,17 @@
                 android:id="@+id/txv_nombre_multimedia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:paddingTop="10dp"
                 android:text="TextView"
                 android:textAllCaps="false"
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -61,7 +63,8 @@
                 android:id="@+id/txv_genero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="gene"
+                android:layout_marginTop="5dp"
+                android:text=""
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
 
@@ -69,12 +72,11 @@
                 android:id="@+id/txv_genero_multimedia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="genes"
+                android:layout_marginTop="30dp"
+                android:text=""
                 android:textColor="@color/letras_funtes"
                 android:textSize="18sp" />
-
-        </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -680,10 +680,10 @@ containing a value of this type.
         public static final int view_as_list_64=0x7f020078;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f07008f;
-        public static final int action_listar=0x7f07008d;
-        public static final int action_listar_avance=0x7f07008e;
-        public static final int action_menu=0x7f07008c;
+        public static final int action_cerrar_sesion=0x7f070091;
+        public static final int action_listar=0x7f07008f;
+        public static final int action_listar_avance=0x7f070090;
+        public static final int action_menu=0x7f07008e;
         public static final int book_now=0x7f070010;
         public static final int btn_compartir_puntaje=0x7f070051;
         public static final int btn_crear_cuenta=0x7f070021;
@@ -719,9 +719,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_login_button=0x7f07006c;
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f07006a;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f07006b;
-        public static final int get_id=0x7f070088;
-        public static final int get_name=0x7f070086;
-        public static final int get_url=0x7f07008a;
+        public static final int get_id=0x7f07008a;
+        public static final int get_name=0x7f070088;
+        public static final int get_url=0x7f07008c;
         public static final int grayscale=0x7f070012;
         public static final int grv_Lista_Circulos=0x7f070018;
         public static final int grv_libros_referencia=0x7f07004b;
@@ -748,17 +748,19 @@ containing a value of this type.
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
-        public static final int ok_button=0x7f07008b;
-        public static final int opcVerAudios=0x7f070092;
-        public static final int opcVerCirculos=0x7f070093;
-        public static final int opcVerLibros=0x7f070090;
-        public static final int opcVerPeliculas=0x7f070091;
+        public static final int ok_button=0x7f07008d;
+        public static final int opcVerAudios=0x7f070094;
+        public static final int opcVerCirculos=0x7f070095;
+        public static final int opcVerLibros=0x7f070092;
+        public static final int opcVerPeliculas=0x7f070093;
         public static final int pb_avance_cualidad=0x7f07006d;
         public static final int picker_subtitle=0x7f070062;
-        public static final int post_id=0x7f070087;
-        public static final int post_name=0x7f070085;
-        public static final int post_url=0x7f070089;
+        public static final int post_id=0x7f070089;
+        public static final int post_name=0x7f070087;
+        public static final int post_url=0x7f07008b;
         public static final int production=0x7f070007;
+        public static final int relativeLayout1=0x7f070081;
+        public static final int relativeLayout2=0x7f070080;
         public static final int sandbox=0x7f070008;
         public static final int satellite=0x7f070002;
         public static final int scrollView1=0x7f070019;
@@ -792,8 +794,8 @@ containing a value of this type.
         public static final int txv_direccion_circulo=0x7f070075;
         public static final int txv_edicion_multimedia_descripcion=0x7f070025;
         public static final int txv_encragado_circulo=0x7f070074;
-        public static final int txv_genero=0x7f070082;
-        public static final int txv_genero_multimedia=0x7f070083;
+        public static final int txv_genero=0x7f070084;
+        public static final int txv_genero_multimedia=0x7f070085;
         public static final int txv_id_avance=0x7f07006e;
         public static final int txv_id_multimedia=0x7f07007f;
         public static final int txv_ir_evaluacion=0x7f070048;
@@ -813,7 +815,7 @@ containing a value of this type.
         public static final int txv_mensaje_reserva=0x7f070027;
         public static final int txv_mes=0x7f070037;
         public static final int txv_nombre_cualidad=0x7f07003a;
-        public static final int txv_nombre_multimedia=0x7f070081;
+        public static final int txv_nombre_multimedia=0x7f070083;
         public static final int txv_numero_versiculo=0x7f07003d;
         public static final int txv_pass_login=0x7f070031;
         public static final int txv_pensamiento=0x7f070045;
@@ -822,9 +824,9 @@ containing a value of this type.
         public static final int txv_pregunta_02=0x7f07002a;
         public static final int txv_recomendacion=0x7f070050;
         public static final int txv_resultado_evaluacion=0x7f07004e;
-        public static final int txv_spinner_item=0x7f070084;
+        public static final int txv_spinner_item=0x7f070086;
         public static final int txv_telefono_circulo=0x7f070076;
-        public static final int txv_titulo=0x7f070080;
+        public static final int txv_titulo=0x7f070082;
         public static final int txv_titulo_multimedia_descripcion=0x7f070023;
         public static final int txv_username_login=0x7f070030;
         public static final int wrap_content=0x7f07000d;
