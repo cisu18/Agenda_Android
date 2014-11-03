@@ -171,7 +171,15 @@ public class CrearCuenta extends Activity implements OnClickListener {
 							"Error al conectar con el servidor",
 							Toast.LENGTH_SHORT).show();
 				} else if (datos.getString("res").equalsIgnoreCase("ok")) {
-
+					
+					String data = datos.getString("data");
+					if(data.equalsIgnoreCase("0")){
+						Toast.makeText(getApplicationContext(),
+								"El nombre de usuario ya existe",
+								Toast.LENGTH_SHORT).show();
+					}else{
+						
+					
 					SharedPreferences prefe = getSharedPreferences("user",
 							Context.MODE_PRIVATE);
 					Editor editor = prefe.edit();
@@ -182,12 +190,9 @@ public class CrearCuenta extends Activity implements OnClickListener {
 							MainActivity.class);
 					startActivity(i);
 					finish();
+					}
 
-				} else if (datos.getString("res").equalsIgnoreCase("error")) {
-					Toast.makeText(getApplicationContext(),
-							"El nombre de usuario ya existe",
-							Toast.LENGTH_SHORT).show();
-				}
+				} 
 			} catch (Exception e) {
 				Toast.makeText(
 						getApplicationContext(),

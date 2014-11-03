@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.util.Log;
 
 public class Val {
 
@@ -27,8 +26,7 @@ public class Val {
 		boolean isValid = false;
 
 		String expression = "^[a-zA-Z0-9]";
-		CharSequence inputStr = c;
-		Log.e("vAL:Error", c);
+		CharSequence inputStr = c;		
 		Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(inputStr);
 		if (matcher.matches()) {
@@ -48,10 +46,13 @@ public class Val {
 	public static boolean isMinLeng(String str1, String str2, String str3,
 			String str4) {
 		boolean isValid = true;
-		if (str1.equals("")||str1.length()<7 || str2.equals("") ||str2.length()<7|| str3.equals("")
-				||str3.length()<7|| str4.equals("")) {
+		if (str1.equals("")|| str2.equals("") || str3.equals("")|| str4.equals("")) {
 			isValid = false;
 		}
+		if(str1.length()<=5 ||str2.length()<=5||str3.length()<=5){
+			isValid = false;
+		}
+		
 		return isValid;
 	}
 
