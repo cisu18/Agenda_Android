@@ -236,9 +236,8 @@ int drawable twitter 0x7f020073
 int drawable ubicacion 0x7f020074
 int drawable usera 0x7f020075
 int drawable view_as_list_64 0x7f020076
-int id action_cerrar_sesion 0x7f070091
+int id action_cerrar_sesion 0x7f070090
 int id action_listar 0x7f07008f
-int id action_listar_avance 0x7f070090
 int id action_menu 0x7f07008e
 int id book_now 0x7f070010
 int id btn_compartir_puntaje 0x7f070051
@@ -305,10 +304,7 @@ int id monochrome 0x7f070013
 int id none 0x7f070000
 int id normal 0x7f070001
 int id ok_button 0x7f07008d
-int id opcVerAudios 0x7f070094
-int id opcVerCirculos 0x7f070095
-int id opcVerLibros 0x7f070092
-int id opcVerPeliculas 0x7f070093
+int id opcVerLibros 0x7f070091
 int id pb_avance_cualidad 0x7f07006d
 int id picker_subtitle 0x7f070062
 int id post_id 0x7f070089

@@ -3,11 +3,9 @@ package com.clmdev.servicios;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.clmdev.agendacaracter.EvaluacionDiaria;
 import com.clmdev.agendacaracter.MainActivity;
 import com.clmdev.agendacaracter.R;
 import com.clmdev.reutilizables.Util;
-import com.clmdev.reutilizables.Val;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -15,7 +13,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.IBinder;
@@ -24,7 +21,7 @@ public class ServicioAlerta extends Service {
 
 	private static ServicioAlerta instance = null;
 	private boolean alert6 = false;
-	private boolean alert8 = false;
+	//private boolean alert8 = false;
 	private Timer timer = new Timer();
 	private static final long UPDATE_INTERVAL = 1000;
 	MainActivity main = new MainActivity();
@@ -109,16 +106,17 @@ public class ServicioAlerta extends Service {
 							MainActivity.class);
 					alert6 = true;
 				}
-				if (Util.getHoraAlerta().equals("20:00") && estaConectado()
+				/*if (Util.getHoraAlerta().equals("20:00") && estaConectado()
 						&& !alert8) {
 					SharedPreferences preferencias = getSharedPreferences(
 							"user", Context.MODE_PRIVATE);
 					if (!Val.isEvaluated(getApplicationContext(),
 							preferencias.getString("id", "0"))) {
 						mostrarNotBarra("¡Aplica ya!", EvaluacionDiaria.class);
+						alert8 = true;
 					}
-					alert8 = true;
-				}
+					
+				}*/
 
 			}
 		}, 0, UPDATE_INTERVAL);

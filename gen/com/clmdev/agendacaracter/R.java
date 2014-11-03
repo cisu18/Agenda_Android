@@ -678,9 +678,8 @@ containing a value of this type.
         public static final int view_as_list_64=0x7f020076;
     }
     public static final class id {
-        public static final int action_cerrar_sesion=0x7f070091;
+        public static final int action_cerrar_sesion=0x7f070090;
         public static final int action_listar=0x7f07008f;
-        public static final int action_listar_avance=0x7f070090;
         public static final int action_menu=0x7f07008e;
         public static final int book_now=0x7f070010;
         public static final int btn_compartir_puntaje=0x7f070051;
@@ -747,10 +746,7 @@ containing a value of this type.
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
         public static final int ok_button=0x7f07008d;
-        public static final int opcVerAudios=0x7f070094;
-        public static final int opcVerCirculos=0x7f070095;
-        public static final int opcVerLibros=0x7f070092;
-        public static final int opcVerPeliculas=0x7f070093;
+        public static final int opcVerLibros=0x7f070091;
         public static final int pb_avance_cualidad=0x7f07006d;
         public static final int picker_subtitle=0x7f070062;
         public static final int post_id=0x7f070089;

@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 import com.clmdev.agendacaracter.R;
 import com.clmdev.reutilizables.Util;
-import com.clmdev.reutilizables.Val;
 import com.clmdev.servicios.ServicioAlerta;
 
 import android.app.Activity;
@@ -150,8 +149,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(i);
 			break;
 		case R.id.txv_ir_evaluacion_diaria:
-
-			SharedPreferences preferencias = getSharedPreferences("user",
+			Toast.makeText(
+					getApplicationContext(),
+					"Evaluación diaria: Opción diponible desde diciembre 2014", Toast.LENGTH_SHORT).show();
+			/*SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			if (!Val.isEvaluated(getApplicationContext(),
 					preferencias.getString("id", "0"))) {
@@ -162,7 +163,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			} else {
 				Toast.makeText(this, "Usted ya realizó su evaluación",
 						Toast.LENGTH_SHORT).show();
-			}
+			}*/
 			break;
 		case R.id.txv_compartir_versiculo:
 			String title = cualidad.getText().toString();
@@ -249,10 +250,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			return true;
 			
-		case R.id.action_listar_avance:
+		/*case R.id.action_listar_avance:
 			Intent intAvance = new Intent(this, AvanceMensual.class);
 			startActivity(intAvance);
-			return true;
+			return true;*/
 		default:
 			return false;
 		}
