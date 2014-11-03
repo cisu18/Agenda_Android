@@ -164,7 +164,9 @@ public class ListadoMultimedia extends Activity {
 					multimedia.setIdMultimedia(object.getString("id"));
 					multimedia.setTituloMultimedia(object.getString("titulo"));
 					multimedia.setUrlImagenMultimedia(object.getString("img"));
-					multimedia.setGeneroMultimedia(object.getString("genero"));
+					multimedia.setAutorMultimedia(object.getString("autor"));
+					multimedia.setAnioMultimedia(object.getString("anio"));
+					
 					listadoMultimedias.add(multimedia);
 				}
 			} catch (ParseException e1) {

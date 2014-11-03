@@ -21,7 +21,7 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 	ViewHolder holder;
 	Typeface TituloLibro;
 	Typeface PrincipalLibro;
-
+	Typeface miDescripcionTypeFace;
 	public AdaptadorMultimedia(Context context, int resource,
 			ArrayList<Multimedia> objects) {
 		super(context, resource, objects);
@@ -34,7 +34,10 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 				"fonts/HelveticaLTStd-Cond.otf");
 		PrincipalLibro = Typeface.createFromAsset(context.getAssets(),
 				"fonts/HelveticaLTStd-BoldCond.otf");	
-		
+
+		miDescripcionTypeFace = Typeface.createFromAsset(context.getAssets(),
+				"fonts/GeosansLight_2.ttf");
+
 	}
 
 	@Override
@@ -47,25 +50,24 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 					.findViewById(R.id.imv_imagen_multimedia);
 			holder.tvTitulo = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
-			holder.tvGenero = (TextView) v
-					.findViewById(R.id.txv_genero_multimedia);
+			holder.tvAutor = (TextView) v
+					.findViewById(R.id.txv_autor_multimedia);
+			holder.tvAnio = (TextView) v
+					.findViewById(R.id.txv_edicion_multimedia);
 			holder.tvIdMultimedia = (TextView) v
 					.findViewById(R.id.txv_id_multimedia);
-			holder.tvGeneroEditable=(TextView) v.findViewById(R.id.txv_genero);
+
 			
 			TextView nombre = (TextView) v
 					.findViewById(R.id.txv_nombre_multimedia);
-			nombre.setTypeface(TituloLibro);
+			nombre.setTypeface(PrincipalLibro);
+			TextView autor = (TextView) v
+					.findViewById(R.id.txv_autor_multimedia);
+			autor.setTypeface(TituloLibro);
+			TextView anio = (TextView) v
+					.findViewById(R.id.txv_edicion_multimedia);
+			anio.setTypeface(miDescripcionTypeFace);
 
-			TextView url = (TextView) v
-					.findViewById(R.id.txv_genero_multimedia);
-			url.setTypeface(TituloLibro);
-			
-			TextView titulo = (TextView) v.findViewById(R.id.txv_titulo);
-			titulo.setTypeface(PrincipalLibro);
-			
-			TextView genero = (TextView) v.findViewById(R.id.txv_genero);
-			genero.setTypeface(PrincipalLibro);
 
 			v.setTag(holder);
 		} else {
@@ -74,14 +76,10 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 
 		Picasso.with(getContext()).load(getItem(position).getUrlImagenMultimedia()).into(holder.ivMultimediaImagen);
 		holder.tvTitulo.setText(listMultimedia.get(position)
-				.getTituloMultimedia());
-		if(listMultimedia.get(position).getGeneroMultimedia().equals("")){
-			holder.tvGeneroEditable.setText("");
-			
-		}else {
-			holder.tvGeneroEditable.setText("Género:");
-			holder.tvGenero.setText(listMultimedia.get(position).getGeneroMultimedia());
-		}
+				.getTituloMultimedia());			
+		holder.tvAutor.setText(listMultimedia.get(position).getAutorMultimedia());
+		holder.tvAnio.setText(listMultimedia.get(position).getAnioMultimedia());
+		
 
 		return v;
 
@@ -90,7 +88,8 @@ public class AdaptadorMultimedia extends ArrayAdapter<Multimedia> {
 	static class ViewHolder {
 		public ImageView ivMultimediaImagen;
 		public TextView tvTitulo;
-		public TextView tvGenero;
+		public TextView tvAutor;
+		public TextView tvAnio;
 		public TextView tvIdMultimedia;
 		public TextView tvGeneroEditable;
 		

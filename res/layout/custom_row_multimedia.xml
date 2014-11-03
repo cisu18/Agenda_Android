@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/imv_imagen_multimedia"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
@@ -22,8 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imv_imagen_multimedia"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/imv_imagen_multimedia" >
 
         <RelativeLayout
@@ -32,50 +32,42 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/txv_titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Título:"
-                android:textColor="@color/letras_funtes"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/txv_nombre_multimedia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="16dp"
-                android:paddingTop="10dp"
-                android:text="TextView"
+                android:layout_marginTop="10dp"
+                android:paddingTop="7dp"
                 android:textAllCaps="false"
                 android:textColor="@color/letras_funtes"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:text="Agenda caracter 2015" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:paddingTop="15dp" >
+            android:layout_marginTop="30dp"
+            android:paddingTop="10dp" >
 
             <TextView
-                android:id="@+id/txv_genero"
+                android:id="@+id/txv_autor_multimedia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text=""
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/letras_funtes"
-                android:textSize="18sp" />
+                android:textSize="17sp"
+                android:text="Classic Vintage"/>
 
             <TextView
-                android:id="@+id/txv_genero_multimedia"
+                android:id="@+id/txv_edicion_multimedia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text=""
+                android:layout_marginTop="25dp"
                 android:textColor="@color/letras_funtes"
-                android:textSize="18sp" />
+                android:textSize="17sp"
+                android:text="CLM Editores" />
         </RelativeLayout>
     </RelativeLayout>
 
