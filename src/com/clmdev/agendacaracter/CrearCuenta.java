@@ -141,7 +141,7 @@ public class CrearCuenta extends Activity implements OnClickListener {
 
 			if (con) {
 				new RegistroUsuarioJSONFeedTask().execute(url
-						+ "users/create_user/format/json");
+						+ "users/create_user2/format/json");
 			} else {
 				Toast t = Toast.makeText(getApplicationContext(), msg,
 						Toast.LENGTH_SHORT);
