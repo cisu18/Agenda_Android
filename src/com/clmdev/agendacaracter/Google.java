@@ -35,15 +35,14 @@ public class Google extends Activity implements ConnectionCallbacks,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mPlusClient = new PlusClient.Builder(this, this, this).setScopes(
-				Scopes.PROFILE)
-				.build();
+				Scopes.PROFILE).build();
 		setContentView(R.layout.activity_google);
 		mConnectionProgressDialog = new ProgressDialog(this);
 		mConnectionProgressDialog.setMessage("Conectando...");
 
 		if (!mPlusClient.isConnected()) {
 			if (mConnectionResult == null) {
-				mConnectionProgressDialog.show();				
+				mConnectionProgressDialog.show();
 			} else {
 				try {
 					mConnectionResult.startResolutionForResult(this,

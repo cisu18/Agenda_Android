@@ -2,6 +2,7 @@ package com.clmdev.agendacaracter;
 
 import com.clmdev.agendacaracter.R;
 import com.clmdev.reutilizables.Util;
+import com.clmdev.reutilizables.Val;
 
 import android.app.Activity;
 import android.content.Context;
@@ -89,10 +90,10 @@ public class Pensamiento extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txv_ir_evaluacion:
-			Toast.makeText(
-					getApplicationContext(),
-					"Evaluación diaria: Opción diponible desde diciembre 2014", Toast.LENGTH_SHORT).show();
-			/*SharedPreferences preferencias = getSharedPreferences("user",
+//			Toast.makeText(
+//					getApplicationContext(),
+//					"Evaluación diaria: Opción diponible desde diciembre 2014", Toast.LENGTH_SHORT).show();
+			SharedPreferences preferencias = getSharedPreferences("user",
 					Context.MODE_PRIVATE);
 			if (!Val.isEvaluated(getApplicationContext(),
 					preferencias.getString("id", "0"))) {
@@ -101,7 +102,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 			} else {
 				Toast.makeText(this, "Usted ya realizó su evaluación",
 						Toast.LENGTH_SHORT).show();
-			}*/
+			}
 			break;
 		case R.id.txv_compartir_pensamiento:
 			String title = txvNombreCualidad.getText().toString();
@@ -135,14 +136,14 @@ public class Pensamiento extends Activity implements OnClickListener {
 		switch (item.getItemId()) {
 
 		case R.id.opcVerLibros:
-			Intent i = new Intent(this, Referencia.class);
+			Intent i = new Intent(this, ListadoMultimedia.class);
 			i.putExtra("id cualidad", txvIdCualidad.getText());
 			i.putExtra("tipo multimedia", "1");
 			i.putExtra("Nombre Cualidad", txvNombreCualidad.getText());
 			startActivity(i);
 			return true;
 
-		/*case R.id.opcVerPeliculas:
+		case R.id.opcVerPeliculas:
 			Intent peliculas = new Intent(this, ListadoMultimedia.class);
 			peliculas.putExtra("id cualidad", txvIdCualidad.getText());
 			peliculas.putExtra("tipo multimedia", "2");
@@ -159,7 +160,7 @@ public class Pensamiento extends Activity implements OnClickListener {
 		case R.id.opcVerCirculos:
 			Intent circulos = new Intent(this, CirculoCrecimiento.class);
 			startActivity(circulos);
-			return true;*/
+			return true;
 		default:
 			return super.onContextItemSelected(item);
 		}
