@@ -69,7 +69,7 @@ public class ListadoMultimedia extends Activity {
 		}
 		
 		
-		Log.e("ids", idCualidad + " " + tipo);
+//		Log.e("ids", idCualidad + " " + tipo);
 		
 		
 		

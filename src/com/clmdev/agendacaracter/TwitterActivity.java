@@ -195,7 +195,7 @@ public class TwitterActivity extends Activity {
 					editor.putString("id", datos.getString("data"));
 					editor.commit();
 
-					Log.e("Id  de usuario", datos + "");
+//					Log.e("Id  de usuario", datos + "");
 
 					Intent i = new Intent(getApplicationContext(),
 							MainActivity.class);

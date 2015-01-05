@@ -3,6 +3,8 @@ package com.clmdev.agendacaracter;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,11 +27,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -67,6 +74,7 @@ public class Login extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+//		showHashKey(this);
 
 		Typeface miPropiaTypeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/HelveticaLTStd-Cond.otf");
@@ -516,5 +524,24 @@ public class Login extends Activity implements OnClickListener {
 		alertDialog.show();
 
 	}
+//	public static void showHashKey(Context context) {
+//		try {
+//			PackageInfo info = context.getPackageManager().getPackageInfo(
+//					"com.clmdev.agendacaracter", PackageManager.GET_SIGNATURES); // Your
+//																				// package
+//																				// name
+//																				// here
+//			for (Signature signature : info.signatures) {
+//				MessageDigest md = MessageDigest.getInstance("SHA");
+//				md.update(signature.toByteArray());
+//				Log.i("KeyHash:",
+//						Base64.encodeToString(md.digest(), Base64.DEFAULT));
+//
+//			}
+//
+//		} catch (NameNotFoundException e) {
+//		} catch (NoSuchAlgorithmException e) {
+//		}
+//	};
 
 }

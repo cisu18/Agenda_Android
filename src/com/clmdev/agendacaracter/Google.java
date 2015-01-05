@@ -39,7 +39,6 @@ public class Google extends Activity implements ConnectionCallbacks,
 		setContentView(R.layout.activity_google);
 		mConnectionProgressDialog = new ProgressDialog(this);
 		mConnectionProgressDialog.setMessage("Conectando...");
-
 		if (!mPlusClient.isConnected()) {
 			if (mConnectionResult == null) {
 				mConnectionProgressDialog.show();
@@ -53,7 +52,10 @@ public class Google extends Activity implements ConnectionCallbacks,
 				}
 			}
 		}
+		
 	}
+
+	
 
 	@Override
 	protected void onStart() {
@@ -65,6 +67,7 @@ public class Google extends Activity implements ConnectionCallbacks,
 	protected void onStop() {
 		super.onStop();
 		mPlusClient.disconnect();
+
 	}
 
 	@Override
@@ -79,12 +82,12 @@ public class Google extends Activity implements ConnectionCallbacks,
 				}
 			}
 		}
-		Toast.makeText(this, "Error al intentar conectar con Google+",
-				Toast.LENGTH_LONG).show();
+//		Toast.makeText(this, "Error al intentar conectar con Google+",
+//				Toast.LENGTH_LONG).show();
 		mConnectionResult = result;
-		Intent i = new Intent(getApplicationContext(), Login.class);
-		startActivity(i);
-		finish();
+//		Intent i = new Intent(getApplicationContext(), Login.class);
+//		startActivity(i);
+//		finish();
 	}
 
 	@Override
@@ -111,7 +114,7 @@ public class Google extends Activity implements ConnectionCallbacks,
 					.getName().getFamilyName() : "sn";
 			String lastname = (persona.getName().getGivenName() != null) ? persona
 					.getName().getGivenName() : "sn";
-
+//			Log.e("personma",persona.toString());
 			new RegistroUsuarioJSONFeedTask().execute(url, username, email,
 					firstname, lastname);
 
